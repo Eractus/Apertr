@@ -14,9 +14,9 @@ class Navbar extends React.Component {
           placeholder="Photos, people, or groups"
           className="searchbar"
         />
-        <Link to="/login">Log In</Link>
+        <Link to="/login" className="login-link">Log In</Link>
         &nbsp;
-        <Link to="/signup"><button>Sign Up</button></Link>
+        <Link to="/signup" className="signup-button"><button>Sign Up</button></Link>
       </nav>
     );
   }
@@ -35,11 +35,11 @@ class Navbar extends React.Component {
           placeholder="Photos, people, or groups"
           className="searchbar"
         />
-        <a href="/"><img src={this.props.currentUser.image_url} /></a>
+        <a href="#" className="profile-pic-logo"><img src={this.props.currentUser.image_url} /></a>
           <hgroup className="header-popup">
-            <h2 className="header-greet">Yo, {this.props.currentUser.email}!</h2>
+            <h2 className="header-greet-name">Yo, {this.props.currentUser.email}!</h2>
             <br/>
-            <p>Now you know how to greet people in English</p>
+            <p className="header-greet-text">Now you know how to greet people in English</p>
             <Link className="header-button" to="/" onClick={this.props.logout}>Sign Out</Link>
           </hgroup>
       </nav>
