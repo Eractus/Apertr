@@ -35,7 +35,7 @@ class Navbar extends React.Component {
           placeholder="Photos, people, or groups"
           className="searchbar"
         />
-
+        <a href="/"><img src={this.props.currentUser.image_url} /></a>
           <hgroup className="header-popup">
             <h2 className="header-greet">Yo, {this.props.currentUser.email}!</h2>
             <br/>
