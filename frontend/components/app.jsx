@@ -5,7 +5,7 @@ import NavbarContainer from './navbar/navbar_container';
 import UserFormContainer from './user/user_form_container';
 import SessionFormContainer from './session/session_form_container';
 import { AuthRoute } from '../util/route.util';
-import SplashPage from './main/splash';
+import SplashPageContainer from './main/splash_container';
 
 const App = () => (
   <div>
@@ -13,27 +13,12 @@ const App = () => (
       <Link to="/" className="logo-link">
         <h1>apertr</h1>
       </Link>
+      <NavbarContainer />
     </header>
     <Switch>
       <AuthRoute exact path="/signup" component={UserFormContainer} />
       <AuthRoute exact path="/login" component={SessionFormContainer} />
-      <Route path="/" render={props => {
-          if (props.currentUser) {
-            return (
-              <div>
-                <NavbarContainer />
-              </div>
-            );
-          } else {
-            return (
-              <div>
-                <NavbarContainer />
-                <SplashPage />
-              </div>
-            );
-          }
-        }
-      } />
+      <Route exact path="/" component={SplashPageContainer} />
     </Switch>
   </div>
 );
