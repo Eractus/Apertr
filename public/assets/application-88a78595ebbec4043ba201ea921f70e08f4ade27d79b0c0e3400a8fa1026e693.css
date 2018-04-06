@@ -1,0 +1,441 @@
+html, body, header, nav, h1, a,
+ul, li, strong, main, button, i,
+section, img, div, h2, p, form,
+fieldset, label, input, textarea,
+span, article, footer, time, small {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  font: inherit;
+  color: inherit;
+  text-align: inherit;
+  text-decoration: inherit;
+  vertical-align: inherit;
+  box-sizing: inherit;
+  background: transparent;
+}
+
+ul {
+  list-style: none;
+}
+
+img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+input[type="password"],
+input[type="email"],
+input[type="text"],
+input[type="submit"],
+textarea,
+button {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+button,
+input[type="submit"] {
+  cursor: pointer;
+}
+
+.group:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+/* line 1, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_navbar.logged_out.scss */
+.logged-out-navbar {
+  background-color: rgba(0, 0, 0, 0.25);
+  height: 64px;
+  display: flex;
+}
+
+/* line 7, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_navbar.logged_out.scss */
+.logo-link-logged-out {
+  margin-left: 25px;
+  margin-top: 15px;
+  flex-grow: 1;
+  font-family: Proxima Nova, helvetica neue, helvetica, arial, sans-serif;
+  font-size: 26px;
+  font-weight: 700;
+  color: #fff;
+}
+
+/* line 17, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_navbar.logged_out.scss */
+.search-bar-logged-out {
+  display: flex;
+  flex-grow: 2;
+  background-color: #fff;
+  border-radius: 2px;
+  padding: 5px;
+  height: 24px;
+  margin: auto;
+}
+
+/* line 27, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_navbar.logged_out.scss */
+.search-bar-logged-out input {
+  width: 500px;
+}
+
+/* line 31, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_navbar.logged_out.scss */
+.navbar-logged-out-links {
+  flex-grow: 1;
+}
+
+/* line 35, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_navbar.logged_out.scss */
+.login-link {
+  margin-top: 22px;
+  margin-right: 20px;
+  font-family: Proxima Nova,helvetica neue,helvetica,arial,sans-serif;
+  font-size: 15px;
+  color: #fff;
+  float: right;
+}
+
+/* line 44, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_navbar.logged_out.scss */
+.signup-button {
+  margin-top: 15px;
+  margin-right: 25px;
+  font-family: Proxima Nova,helvetica neue,helvetica,arial,sans-serif;
+  font-size: 15px;
+  font-weight: 500;
+  color: black;
+  background-color: #fff;
+  border-radius: 3px;
+  padding: 8px 20px;
+  float: right;
+}
+
+/* line 57, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_navbar.logged_out.scss */
+.signup-button:hover {
+  color: #888888;
+}
+/* line 1, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_navbar_logged_in.scss */
+.logged-in-navbar > div {
+  background-color: black;
+  height: 50px;
+  display: flex;
+}
+
+/* line 7, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_navbar_logged_in.scss */
+.logo-link-logged-in {
+  margin-left: 25px;
+  margin-top: 15px;
+  font-family: Proxima Nova, helvetica neue, helvetica, arial, sans-serif;
+  font-size: 26px;
+  font-weight: 700;
+  color: #fff;
+}
+
+/* line 16, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_navbar_logged_in.scss */
+.search-bar-logged-in {
+  display: flex;
+  background-color: #fff;
+  border-radius: 2px;
+  padding: 5px;
+  height: 24px;
+  margin: auto;
+}
+
+/* line 25, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_navbar_logged_in.scss */
+.logo-link-logged-in:hover {
+  color: #B8B8B8;
+}
+
+/* line 29, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_navbar_logged_in.scss */
+.navbar-logged-in-links {
+  color: #fff;
+}
+
+/* line 33, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_navbar_logged_in.scss */
+.profile-pic-logo {
+  height: 50px;
+  width: 50px;
+}
+
+/* line 38, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_navbar_logged_in.scss */
+.header-popup {
+  background-color: #fff;
+}
+
+/* line 42, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_navbar_logged_in.scss */
+.header-signout-link {
+  color: #006dac;
+}
+
+/* line 46, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_navbar_logged_in.scss */
+.navbar-logged-in-left {
+  flex-grow: 1;
+}
+
+/* line 50, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_navbar_logged_in.scss */
+.navbar-logged-in-right {
+  flex-grow: 1;
+  float: right;
+}
+/* line 1, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_session_form.scss */
+.session-form-container {
+  display: flex;
+  justify-content: center;
+}
+
+/* line 6, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_session_form.scss */
+.session-form-box {
+  position: relative;
+  top: 150px;
+  box-shadow: 1px 1px 5px 1px rgba(0, 0, 0, 0.15);
+  width: 375px;
+  height: 500px;
+}
+
+/* line 14, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_session_form.scss */
+.session-form {
+  display: flex;
+  flex-direction: column;
+  padding: 45px 25px;
+}
+
+/* line 20, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_session_form.scss */
+.session-text {
+  text-align: center;
+}
+
+/* line 24, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_session_form.scss */
+.session-text > h2 {
+  margin-bottom: 25px;
+  font-family: Proxima Nova, helvetica neue, helvetica, arial, sans-serif;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+/* line 31, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_session_form.scss */
+.session-input {
+  border-bottom: 1px solid #B8B8B8;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+/* line 37, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_session_form.scss */
+.session-submit {
+  font-family: Proxima Nova, helvetica neue, helvetica, arial, sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  color: #fff;
+  background-color: #188fff;
+  border-radius: 2px;
+  padding: 15px 125px;
+  position: absolute;
+  bottom: 25%;
+}
+
+/* line 49, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_session_form.scss */
+.session-submit:hover {
+  background-color: #68b3f9;
+}
+
+/* line 53, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_session_form.scss */
+.session-text-bottom {
+  font-family: Proxima Nova, helvetica neue, helvetica, arial, sans-serif;
+  font-size: 14px;
+  width: 250px;
+  position: absolute;
+  bottom: 15%;
+  left: 50%;
+  margin-left: -125px;
+  display: flex;
+}
+
+/* line 64, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_session_form.scss */
+.session-text-bottom > p {
+  margin-right: 5px;
+}
+
+/* line 68, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_session_form.scss */
+.session-text-bottom > div {
+  color: #188fff;
+}
+
+/* line 72, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_session_form.scss */
+.session-text-bottom > div:hover {
+  color: blue;
+}
+/* line 1, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_splash.scss */
+.splash-wallpaper {
+  background-image: url(/assets/green-northern-lights-across-the-sky-478c21f13ca3fd4e15827a73489e32a4f5f00e9a2f4f509dd14e37f9a43a0aff.jpg);
+  background-size: cover;
+  height: calc(100vh + 64px);
+  position: absolute;
+  top: -64px;
+  z-index: -1000;
+  width: 100vw;
+}
+
+/* line 11, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_splash.scss */
+.welcome-message {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  top: 250px;
+}
+
+/* line 20, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_splash.scss */
+.intro-header {
+  font-family: Proxima Nova, helvetica neue, helvetica, arial, sans-serif;
+  font-size: 46px;
+  font-weight: 450;
+  letter-spacing: 1px;
+  color: #fff;
+}
+
+/* line 28, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_splash.scss */
+.intro-text {
+  font-family: Proxima Nova, helvetica neue, helvetica, arial, sans-serif;
+  font-size: 24px;
+  font-weight: 400;
+  letter-spacing: 1px;
+  color: #fff;
+  width: 600px;
+  margin-top: 18px;
+  margin-bottom: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* line 42, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_splash.scss */
+.signup-button-main {
+  background-color: #fff;
+  padding: 18px 60px;
+  border-radius: 3px;
+  font-family: Proxima Nova, helvetica neue, helvetica, arial, sans-serif;
+  font-size: 20px;
+  font-weight: 500;
+}
+
+/* line 51, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_splash.scss */
+.signup-button-main:hover {
+  color: #888888;
+}
+
+/* line 55, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_splash.scss */
+.wallpaper-sig {
+  font-family: Proxima Nova, helvetica neue, helvetica, arial, sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: absolute;
+  width: 150px;
+  bottom: 10%;
+  left: 50%;
+  margin-left: -75px;
+}
+/* line 1, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_user_form.scss */
+.signup-form-container {
+  display: flex;
+  justify-content: center;
+}
+
+/* line 6, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_user_form.scss */
+.signup-form-box {
+  position: relative;
+  top: 150px;
+  box-shadow: 1px 1px 5px 1px rgba(0, 0, 0, 0.15);
+  width: 375px;
+  height: 500px;
+}
+
+/* line 14, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_user_form.scss */
+.signup-form {
+  display: flex;
+  flex-direction: column;
+  padding: 45px 25px;
+}
+
+/* line 20, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_user_form.scss */
+.signup-text {
+  text-align: center;
+}
+
+/* line 24, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_user_form.scss */
+.signup-text > h2 {
+  margin-bottom: 25px;
+  font-family: Proxima Nova, helvetica neue, helvetica, arial, sans-serif;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+/* line 31, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_user_form.scss */
+.signup-input {
+  border-bottom: 1px solid #B8B8B8;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+/* line 37, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_user_form.scss */
+.signup-submit {
+  font-family: Proxima Nova, helvetica neue, helvetica, arial, sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  color: #fff;
+  background-color: #188fff;
+  border-radius: 2px;
+  padding: 15px 125px;
+  position: absolute;
+  bottom: 25%;
+}
+
+/* line 49, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_user_form.scss */
+.signup-submit:hover {
+  background-color: #68b3f9;
+}
+
+/* line 53, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_user_form.scss */
+.signup-text-bottom {
+  font-family: Proxima Nova, helvetica neue, helvetica, arial, sans-serif;
+  font-size: 14px;
+  width: 250px;
+  position: absolute;
+  bottom: 15%;
+  left: 50%;
+  margin-left: -125px;
+  display: flex;
+}
+
+/* line 64, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_user_form.scss */
+.signup-text-bottom > p {
+  margin-right: 5px;
+}
+
+/* line 68, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_user_form.scss */
+.signup-text-bottom > div {
+  color: #188fff;
+}
+
+/* line 72, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_user_form.scss */
+.signup-text-bottom > div:hover {
+  color: blue;
+}
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+
+
+ */
+
