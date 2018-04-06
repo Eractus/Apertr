@@ -1,0 +1,53 @@
+.logged-in-navbar > div {
+  background-color: black;
+  height: 50px;
+  display: flex;
+}
+
+.logo-link-logged-in {
+  margin-left: 25px;
+  margin-top: 15px;
+  font-family: Proxima Nova, helvetica neue, helvetica, arial, sans-serif;
+  font-size: 26px;
+  font-weight: 700;
+  color: #fff;
+}
+
+.search-bar-logged-in {
+  display: flex;
+  background-color: #fff;
+  border-radius: 2px;
+  padding: 5px;
+  height: 24px;
+  margin: auto;
+}
+
+.logo-link-logged-in:hover {
+  color: #B8B8B8
+}
+
+.navbar-logged-in-links {
+  color: #fff;
+}
+
+.profile-pic-logo {
+  height: 50px;
+  width: 50px;
+}
+
+.header-popup {
+  background-color: #fff;
+}
+
+.header-signout-link {
+  color: #006dac;
+}
+
+.navbar-logged-in-left {
+  flex-grow: 1;
+}
+
+.navbar-logged-in-right {
+  flex-grow: 1;
+  float: right;
+}

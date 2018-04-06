@@ -1,0 +1,60 @@
+.splash-wallpaper {
+  background-image: image-url("green-northern-lights-across-the-sky.jpg");
+  background-size: cover;
+  height: 100vh;
+}
+
+.welcome-message {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.intro-header {
+  font-family: Proxima Nova, helvetica neue, helvetica, arial, sans-serif;
+  font-size: 46px;
+  font-weight: 450;
+  letter-spacing: 1px;
+  color: #fff;
+}
+
+.intro-text {
+  font-family: Proxima Nova, helvetica neue, helvetica, arial, sans-serif;
+  font-size: 24px;
+  font-weight: 400;
+  letter-spacing: 1px;
+  color: #fff;
+  width: 600px;
+  margin-top: 18px;
+  margin-bottom: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.signup-button-main {
+  background-color: #fff;
+  padding: 18px 60px;
+  border-radius: 3px;
+  font-family: Proxima Nova, helvetica neue, helvetica, arial, sans-serif;
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.signup-button-main:hover {
+  color: #888888;
+}
+
+.wallpaper-sig {
+  font-family: Proxima Nova, helvetica neue, helvetica, arial, sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: absolute;
+  bottom: 10%;
+  right: 46%;
+}

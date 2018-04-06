@@ -7,14 +7,23 @@ import SessionFormContainer from './session/session_form_container';
 import { AuthRoute } from '../util/route.util';
 import SplashPageContainer from './main/splash_container';
 
+// function backgroundClass() {
+//   let status = "";
+//   if (this.path === "/") {
+//     class = "splash-page"
+//   } else {
+//     class = ""
+//   }
+//
+//   return status;
+// };
+  // if (e.target.classList.includes('splash') && path === "/") {
+  //   return;
+  // }
+
 const App = () => (
   <div>
-    <header>
-      <Link to="/" className="logo-link">
-        <h1>apertr</h1>
-      </Link>
-      <NavbarContainer />
-    </header>
+  <NavbarContainer />
     <Switch>
       <AuthRoute exact path="/signup" component={UserFormContainer} />
       <AuthRoute exact path="/login" component={SessionFormContainer} />
