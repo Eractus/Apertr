@@ -17,7 +17,8 @@ class SplashPage extends React.Component {
             <p>photos and millions of groups.</p>
           </div>
           <br/>
-          <Link to="/signup" className="signup-button-main"><button>Sign Up</button></Link>
+           <button
+            onClick={() => this.props.login({email: "gabe@gabe.com", password: "password"})} className="signup-button-main">Demo</button>
         </div>
         <div className="wallpaper-sig">
           <p>Dancing aurora borealis</p>
@@ -44,7 +45,7 @@ class SplashPage extends React.Component {
     } else {
       return (
         <div className="splash-wallpaper">
-          {this.splashLoggedOut()}
+        {this.props.currentUser ? this.splashLoggedIn() : this.splashLoggedOut()}
         </div>
       );
     }

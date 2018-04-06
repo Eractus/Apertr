@@ -1,7 +1,11 @@
 .splash-wallpaper {
   background-image: image-url("green-northern-lights-across-the-sky.jpg");
   background-size: cover;
-  height: 100vh;
+  height: calc(100vh + 64px);
+  position: absolute;
+  top: -64px;
+  z-index: -1000;
+  width: 100vw;
 }
 
 .welcome-message {
@@ -9,6 +13,8 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  position: relative;
+  top: 250px;
 }
 
 .intro-header {
@@ -55,6 +61,8 @@
   flex-direction: column;
   align-items: center;
   position: absolute;
+  width: 150px;
   bottom: 10%;
-  right: 46%;
+  left:50%;
+  margin-left:-75px;
 }

@@ -1,0 +1,74 @@
+.signup-form-container {
+  display: flex;
+  justify-content: center;
+}
+
+.signup-form-box {
+  position: relative;
+  top: 150px;
+  box-shadow: 1px 1px 5px 1px rgba(0, 0, 0, 0.15);
+  width: 375px;
+  height: 500px;
+}
+
+.signup-form {
+  display: flex;
+  flex-direction: column;
+  padding: 45px 25px;
+}
+
+.signup-text {
+  text-align: center;
+}
+
+.signup-text > h2 {
+  margin-bottom: 25px;
+  font-family: Proxima Nova, helvetica neue, helvetica, arial, sans-serif;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.signup-input {
+  border-bottom: 1px solid #B8B8B8;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.signup-submit {
+  font-family: Proxima Nova, helvetica neue, helvetica, arial, sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  color: #fff;
+  background-color: #188fff;
+  border-radius: 2px;
+  padding: 15px 125px;
+  position: absolute;
+  bottom: 25%;
+}
+
+.signup-submit:hover {
+  background-color: #68b3f9;
+}
+
+.signup-text-bottom {
+  font-family: Proxima Nova, helvetica neue, helvetica, arial, sans-serif;
+  font-size: 14px;
+  width: 250px;
+  position: absolute;
+  bottom: 15%;
+  left:50%;
+  margin-left:-125px;
+  display: flex;
+}
+
+.signup-text-bottom > p {
+  margin-right: 5px;
+}
+
+.signup-text-bottom > div {
+  color: #188fff;
+}
+
+.signup-text-bottom > div:hover {
+  color: blue;
+}

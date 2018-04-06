@@ -35,17 +35,20 @@ class SessionForm extends React.Component {
 
   render () {
     return (
-      <div className="login-form-container">
-        <form onSubmit={this.handleSubmit} className="login-form-box">
-          <h2>Sign In</h2>
-          {this.renderErrors()}
-          <div className="login-form">
+      <div className="session-form-container">
+        <form onSubmit={this.handleSubmit} className="session-form-box">
+          <div className="session-form">
+            <div className="session-text">
+              <h2>Sign In</h2>
+              {this.renderErrors()}
+              <br/>
+            </div>
             <input
               type="text"
               value={this.state.email}
               placeholder="Enter your email"
               onChange={this.update('email')}
-              className="login-input"
+              className="session-input"
             />
             <br/>
             <input
@@ -53,13 +56,16 @@ class SessionForm extends React.Component {
               value={this.state.password}
               placeholder="Password"
               onChange={this.update('password')}
-              className="login-input"
+              className="session-input"
             />
             <br/>
             <input type="submit" value="Sign in" className="session-submit" />
+            <br/>
+            <div className="session-text-bottom">
+              <p>Don't have an account?</p>
+              <div>{this.props.navLink}</div>
+            </div>
           </div>
-          <br/>
-          <h3>Don't have an account? {this.props.navLink}</h3>
         </form>
       </div>
     );

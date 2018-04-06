@@ -1,0 +1,74 @@
+.session-form-container {
+  display: flex;
+  justify-content: center;
+}
+
+.session-form-box {
+  position: relative;
+  top: 150px;
+  box-shadow: 1px 1px 5px 1px rgba(0, 0, 0, 0.15);
+  width: 375px;
+  height: 500px;
+}
+
+.session-form {
+  display: flex;
+  flex-direction: column;
+  padding: 45px 25px;
+}
+
+.session-text {
+  text-align: center;
+}
+
+.session-text > h2 {
+  margin-bottom: 25px;
+  font-family: Proxima Nova, helvetica neue, helvetica, arial, sans-serif;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.session-input {
+  border-bottom: 1px solid #B8B8B8;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.session-submit {
+  font-family: Proxima Nova, helvetica neue, helvetica, arial, sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  color: #fff;
+  background-color: #188fff;
+  border-radius: 2px;
+  padding: 15px 125px;
+  position: absolute;
+  bottom: 25%;
+}
+
+.session-submit:hover {
+  background-color: #68b3f9;
+}
+
+.session-text-bottom {
+  font-family: Proxima Nova, helvetica neue, helvetica, arial, sans-serif;
+  font-size: 14px;
+  width: 250px;
+  position: absolute;
+  bottom: 15%;
+  left:50%;
+  margin-left:-125px;
+  display: flex;
+}
+
+.session-text-bottom > p {
+  margin-right: 5px;
+}
+
+.session-text-bottom > div {
+  color: #188fff;
+}
+
+.session-text-bottom > div:hover {
+  color: blue;
+}

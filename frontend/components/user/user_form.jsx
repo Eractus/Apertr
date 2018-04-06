@@ -39,23 +39,28 @@ class UserForm extends React.Component {
     return (
       <div className="signup-form-container">
         <form onSubmit={this.handleSubmit} className="signup-form-box">
-          <h2>Sign Up</h2>
-          {this.renderErrors()}
           <div className="signup-form">
-            <input
-              type="text"
-              value={this.state.first_name}
-              placeholder="First Name"
-              onChange={this.update('first_name')}
-              className="signup-input"
-            />
-            <input
-              type="text"
-              value={this.state.last_name}
-              placeholder="Last Name"
-              onChange={this.update('last_name')}
-              className="signup-input"
-            />
+            <div className="signup-text">
+              <h2>Sign Up</h2>
+              {this.renderErrors()}
+              <br/>
+            </div>
+            <div className="signup-name">
+              <input
+                type="text"
+                value={this.state.first_name}
+                placeholder="First Name"
+                onChange={this.update('first_name')}
+                className="signup-input"
+              />
+              <input
+                type="text"
+                value={this.state.last_name}
+                placeholder="Last Name"
+                onChange={this.update('last_name')}
+                className="signup-input"
+              />
+            </div>
             <br/>
             <input
               type="text"
@@ -73,10 +78,13 @@ class UserForm extends React.Component {
               className="signup-input"
             />
             <br/>
-            <input type="submit" value="Continue" className="user-submit" />
+            <input type="submit" value="Continue" className="signup-submit" />
+            <br/>
+            <div className="signup-text-bottom">
+              <p>Already have an account?</p>
+              <div>{this.props.navLink}</div>
+            </div>
           </div>
-          <br/>
-          <h3>Already have an account? {this.props.navLink}</h3>
         </form>
       </div>
     );

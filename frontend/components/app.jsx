@@ -17,9 +17,9 @@ import SplashPageContainer from './main/splash_container';
 //
 //   return status;
 // };
-  // if (e.target.classList.includes('splash') && path === "/") {
-  //   return;
-  // }
+//   if (e.target.classList.includes('splash') && path === "/") {
+//     return;
+//   }
 
 const App = () => (
   <div>
