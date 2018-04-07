@@ -1,0 +1,26 @@
+.footer {
+  font-family: Proxima Nova, helvetica neue, helvetica, arial, sans-serif;
+  font-size: 14px;
+  color: hsla(0,0%,100%,.8);
+  background-color: #000;
+  width: 100%;
+  height: 18px;
+  padding: 12px;
+  position: absolute;
+  bottom: 0;
+  display: flex;
+}
+
+.footer-items {
+  display: flex;
+  text-align: center;
+  margin: auto;
+}
+
+.footer-items > li {
+  margin: 0 25px;
+}
+
+.footer-items > li:hover {
+  color: #fff;
+}
