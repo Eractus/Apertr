@@ -1,14 +1,13 @@
 .session-form-container {
   display: flex;
   justify-content: center;
+  margin-top: 125px;
+  margin-bottom: 125px;
 }
 
 .session-form-box {
-  position: relative;
-  top: 150px;
   box-shadow: 1px 1px 5px 1px rgba(0, 0, 0, 0.15);
   width: 375px;
-  height: 500px;
 }
 
 .session-form {
@@ -42,8 +41,7 @@
   background-color: #188fff;
   border-radius: 2px;
   padding: 15px 125px;
-  position: absolute;
-  bottom: 25%;
+  margin-top: 175px;
 }
 
 .session-submit:hover {
@@ -53,11 +51,7 @@
 .session-text-bottom {
   font-family: Proxima Nova, helvetica neue, helvetica, arial, sans-serif;
   font-size: 14px;
-  width: 250px;
-  position: absolute;
-  bottom: 15%;
-  left:50%;
-  margin-left:-125px;
+  margin: auto;
   display: flex;
 }
 

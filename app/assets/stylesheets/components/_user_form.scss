@@ -1,14 +1,13 @@
 .signup-form-container {
   display: flex;
   justify-content: center;
+  margin-top: 125px;
+  margin-bottom: 125px;
 }
 
 .signup-form-box {
-  // position: relative;
-  top: 150px;
   box-shadow: 1px 1px 5px 1px rgba(0, 0, 0, 0.15);
-  width: 375px;
-  // height: 500px;
+  width: 400px;
 }
 
 .signup-form {
@@ -28,6 +27,18 @@
   font-weight: 500;
 }
 
+.signup-fname {
+  border-bottom: 1px solid #B8B8B8;
+  margin: 12px 0;
+  margin-right: 14px;
+}
+
+.signup-lname {
+  border-bottom: 1px solid #B8B8B8;
+  margin: 12px 0;
+  margin-left: 14px;
+}
+
 .signup-input {
   border-bottom: 1px solid #B8B8B8;
   margin: 12px 0;
@@ -41,8 +52,7 @@
   background-color: #188fff;
   border-radius: 2px;
   padding: 15px 125px;
-  // position: absolute;
-  bottom: 25%;
+  margin-top: 175px;
 }
 
 .signup-submit:hover {
@@ -52,8 +62,7 @@
 .signup-text-bottom {
   font-family: Proxima Nova, helvetica neue, helvetica, arial, sans-serif;
   font-size: 14px;
-  width: 250px;
-  // position: absolute;
+  margin: auto;
   display: flex;
 }
 

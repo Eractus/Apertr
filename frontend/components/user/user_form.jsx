@@ -51,14 +51,14 @@ class UserForm extends React.Component {
                 value={this.state.first_name}
                 placeholder="First Name"
                 onChange={this.update('first_name')}
-                className="signup-input"
+                className="signup-fname"
               />
               <input
                 type="text"
                 value={this.state.last_name}
                 placeholder="Last Name"
                 onChange={this.update('last_name')}
-                className="signup-input"
+                className="signup-lname"
               />
             </div>
             <br/>
