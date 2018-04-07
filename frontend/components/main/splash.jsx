@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import Footer from '../footer/footer';
 
 class SplashPage extends React.Component {
   constructor(props) {
@@ -39,13 +40,19 @@ class SplashPage extends React.Component {
     if (this.props.currentUser) {
       return (
         <div>
-          {this.splashLoggedIn()}
+          <div>
+            {this.splashLoggedIn()}
+          </div>
+          <Footer />
         </div>
       );
     } else {
       return (
-        <div className="splash-wallpaper">
-        {this.props.currentUser ? this.splashLoggedIn() : this.splashLoggedOut()}
+        <div>
+          <div className="splash-wallpaper">
+          {this.props.currentUser ? this.splashLoggedIn() : this.splashLoggedOut()}
+          </div>
+          <Footer />
         </div>
       );
     }
