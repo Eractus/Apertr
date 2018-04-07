@@ -4,11 +4,11 @@
 }
 
 .signup-form-box {
-  position: relative;
+  // position: relative;
   top: 150px;
   box-shadow: 1px 1px 5px 1px rgba(0, 0, 0, 0.15);
   width: 375px;
-  height: 500px;
+  // height: 500px;
 }
 
 .signup-form {
@@ -30,8 +30,7 @@
 
 .signup-input {
   border-bottom: 1px solid #B8B8B8;
-  margin-top: 5px;
-  margin-bottom: 5px;
+  margin: 12px 0;
 }
 
 .signup-submit {
@@ -42,7 +41,7 @@
   background-color: #188fff;
   border-radius: 2px;
   padding: 15px 125px;
-  position: absolute;
+  // position: absolute;
   bottom: 25%;
 }
 
@@ -54,10 +53,7 @@
   font-family: Proxima Nova, helvetica neue, helvetica, arial, sans-serif;
   font-size: 14px;
   width: 250px;
-  position: absolute;
-  bottom: 15%;
-  left:50%;
-  margin-left:-125px;
+  // position: absolute;
   display: flex;
 }
 
