@@ -694,6 +694,10 @@ Released under the MIT license
 
 
 }).call(this);
+(function() {
+
+
+}).call(this);
 /******/
  (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
@@ -30705,20 +30709,6 @@ var _splash_container2 = _interopRequireDefault(_splash_container);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-// function backgroundClass() {
-//   let status = "";
-//   if (this.path === "/") {
-//     class = "splash-page"
-//   } else {
-//     class = ""
-//   }
-//
-//   return status;
-// };
-//   if (e.target.classList.includes('splash') && path === "/") {
-//     return;
-//   }
-
 var App = function App() {
   return _react2.default.createElement(
     'div',
@@ -31117,14 +31107,14 @@ var UserForm = function (_React$Component) {
                 value: this.state.first_name,
                 placeholder: 'First Name',
                 onChange: this.update('first_name'),
-                className: 'signup-input'
+                className: 'signup-fname'
               }),
               _react2.default.createElement('input', {
                 type: 'text',
                 value: this.state.last_name,
                 placeholder: 'Last Name',
                 onChange: this.update('last_name'),
-                className: 'signup-input'
+                className: 'signup-lname'
               })
             ),
             _react2.default.createElement('br', null),
@@ -31375,7 +31365,7 @@ exports.default = (0, _reactRouterDom.withRouter)(SessionForm);
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.AuthRoute = undefined;
+exports.ProtectedRoute = exports.AuthRoute = undefined;
 
 var _react = __webpack_require__(0);
 
@@ -31397,6 +31387,16 @@ var Auth = function Auth(_ref) {
     } });
 };
 
+var Protected = function Protected(_ref2) {
+  var Component = _ref2.component,
+      path = _ref2.path,
+      loggedIn = _ref2.loggedIn,
+      exact = _ref2.exact;
+  return _react2.default.createElement(_reactRouterDom.Route, { path: path, exact: exact, render: function render(props) {
+      return loggedIn ? _react2.default.createElement(Component, props) : _react2.default.createElement(_reactRouterDom.Redirect, { to: '/login' });
+    } });
+};
+
 var mapStateToProps = function mapStateToProps(state) {
   return {
     loggedIn: Boolean(state.session.currentUser)
@@ -31404,6 +31404,7 @@ var mapStateToProps = function mapStateToProps(state) {
 };
 
 var AuthRoute = exports.AuthRoute = (0, _reactRouterDom.withRouter)((0, _reactRedux.connect)(mapStateToProps, null)(Auth));
+var ProtectedRoute = exports.ProtectedRoute = (0, _reactRouterDom.withRouter)((0, _reactRedux.connect)(mapStateToProps, null)(Protected));
 
 /***/ }),
 /* 224 */
@@ -31460,6 +31461,10 @@ var _react = __webpack_require__(0);
 var _react2 = _interopRequireDefault(_react);
 
 var _reactRouterDom = __webpack_require__(5);
+
+var _footer = __webpack_require__(226);
+
+var _footer2 = _interopRequireDefault(_footer);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -31552,13 +31557,23 @@ var SplashPage = function (_React$Component) {
         return _react2.default.createElement(
           'div',
           null,
-          this.splashLoggedIn()
+          _react2.default.createElement(
+            'div',
+            null,
+            this.splashLoggedIn()
+          ),
+          _react2.default.createElement(_footer2.default, null)
         );
       } else {
         return _react2.default.createElement(
           'div',
-          { className: 'splash-wallpaper' },
-          this.props.currentUser ? this.splashLoggedIn() : this.splashLoggedOut()
+          null,
+          _react2.default.createElement(
+            'div',
+            { className: 'splash-wallpaper' },
+            this.props.currentUser ? this.splashLoggedIn() : this.splashLoggedOut()
+          ),
+          _react2.default.createElement(_footer2.default, null)
         );
       }
     }
@@ -31568,6 +31583,88 @@ var SplashPage = function (_React$Component) {
 }(_react2.default.Component);
 
 exports.default = SplashPage;
+
+/***/ }),
+/* 226 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(0);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reactRouterDom = __webpack_require__(5);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var Footer = function (_React$Component) {
+  _inherits(Footer, _React$Component);
+
+  function Footer(props) {
+    _classCallCheck(this, Footer);
+
+    return _possibleConstructorReturn(this, (Footer.__proto__ || Object.getPrototypeOf(Footer)).call(this, props));
+  }
+
+  _createClass(Footer, [{
+    key: 'render',
+    value: function render() {
+      return _react2.default.createElement(
+        'footer',
+        { className: 'footer' },
+        _react2.default.createElement(
+          'ul',
+          { className: 'footer-items' },
+          _react2.default.createElement(
+            'li',
+            null,
+            _react2.default.createElement(
+              'a',
+              { href: 'https://github.com/Eractus' },
+              'GitHub'
+            )
+          ),
+          _react2.default.createElement(
+            'li',
+            null,
+            _react2.default.createElement(
+              'a',
+              { href: 'https://www.linkedin.com/in/danny-peng-29515651/' },
+              'LinkedIn'
+            )
+          ),
+          _react2.default.createElement(
+            'li',
+            null,
+            _react2.default.createElement(
+              'a',
+              { href: 'https://www.facebook.com/danny.w.peng' },
+              'Facebook'
+            )
+          )
+        )
+      );
+    }
+  }]);
+
+  return Footer;
+}(_react2.default.Component);
+
+exports.default = Footer;
 
 /***/ })
 /******/ ]);

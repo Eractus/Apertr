@@ -4,7 +4,7 @@ import { Route, Switch, Link, HashRouter} from 'react-router-dom';
 import NavbarContainer from './navbar/navbar_container';
 import UserFormContainer from './user/user_form_container';
 import SessionFormContainer from './session/session_form_container';
-import { AuthRoute } from '../util/route.util';
+import { AuthRoute, ProtectedRoute } from '../util/route.util';
 import SplashPageContainer from './main/splash_container';
 
 const App = () => (

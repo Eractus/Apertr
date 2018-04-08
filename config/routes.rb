@@ -1,4 +1,24 @@
 Rails.application.routes.draw do
+  namespace :api do
+    get 'photos/create'
+  end
+
+  namespace :api do
+    get 'photos/update'
+  end
+
+  namespace :api do
+    get 'photos/show'
+  end
+
+  namespace :api do
+    get 'photos/index'
+  end
+
+  namespace :api do
+    get 'photos/destroy'
+  end
+
   namespace :api, defaults: {format: :json} do
     resources :users, only: [:create]
     resource :session, only: [:create, :destroy]
