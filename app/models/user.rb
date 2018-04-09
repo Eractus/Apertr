@@ -2,7 +2,9 @@ class User < ApplicationRecord
   validates :email, :password_digest, :session_token, presence: true, uniqueness: true
   validates :first_name, :last_name, presence: true
   validates :password, length: { minimum: 8, allow_nil: true }
-  has_attached_file :image, default_url: "profile-icon.png"
+  has_attached_file :image, default_url: "profile-icon.png",
+  :url =>':s3_domain_url',
+  :path => '/:class/:attachment/:id_partition/:style/:filename'
   validates_attachment_content_type :image, content_type: /\Aimage\/.*\Z/
 
   before_validation :ensure_session_token

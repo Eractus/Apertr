@@ -1,7 +1,7 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
 
-class UserForm extends React.Component {
+class UserCreate extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -11,6 +11,10 @@ class UserForm extends React.Component {
       password: ''
     };
     this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  componentWillUnmount() {
+    this.props.clearErrors();
   }
 
   update(field) {
@@ -91,4 +95,4 @@ class UserForm extends React.Component {
   }
 }
 
-export default withRouter(UserForm);
+export default withRouter(UserCreate);

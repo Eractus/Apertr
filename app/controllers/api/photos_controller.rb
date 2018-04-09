@@ -1,6 +1,6 @@
 class Api::PhotosController < ApplicationController
 
-  before_action :require_logged_in, only: [:create, :destroy]
+  before_action :require_logged_in, only: [:create, :update, :destroy]
 
   def create
     @photo = Photo.create!(photo_params)
@@ -17,6 +17,12 @@ class Api::PhotosController < ApplicationController
   end
 
   def show
+    @photo = Photo.find(params[:id])
+    if @photo
+      render :show
+    else
+      render json: @photo.errors.full_messages, status: 422
+    end
   end
 
   def index
@@ -25,11 +31,14 @@ class Api::PhotosController < ApplicationController
   end
 
   def destroy
+    @photo = Photo.find(params[:id])
+    @photo.destroy!
+    render :index
   end
 
   private
 
   def photo_params
-    params.require(:photo).permit(:title, :description, :user_id, :img_url)
+    params.require(:photo).permit(:title, :description, :user_id)
   end
 end

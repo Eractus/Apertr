@@ -1,13 +1,13 @@
 .session-form-container {
   display: flex;
   justify-content: center;
-  margin-top: 125px;
   margin-bottom: 125px;
 }
 
 .session-form-box {
   box-shadow: 1px 1px 5px 1px rgba(0, 0, 0, 0.15);
   width: 375px;
+  margin-top: (125px+64px);
 }
 
 .session-form {
