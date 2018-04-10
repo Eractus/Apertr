@@ -3,7 +3,9 @@ class Api::PhotosController < ApplicationController
   before_action :require_logged_in, only: [:create, :update, :destroy]
 
   def create
-    @photo = Photo.create!(photo_params)
+    @photo = Photo.new(photo_params)
+    @photo.user_id = current_user.id
+    @photo.save!
     render :show
   end
 
@@ -33,12 +35,11 @@ class Api::PhotosController < ApplicationController
   def destroy
     @photo = Photo.find(params[:id])
     @photo.destroy!
-    render :index
   end
 
   private
 
   def photo_params
-    params.require(:photo).permit(:title, :description, :user_id)
+    params.require(:photo).permit(:title, :description, :image)
   end
 end

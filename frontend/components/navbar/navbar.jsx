@@ -39,11 +39,11 @@ class Navbar extends React.Component {
             </Link>
             &nbsp;
             <div className="navbar-logged-in-links">
-              <Link to="/">You</Link>
+              <Link className="navbar-left-links" to="/">You</Link>
               &nbsp;
-              <Link to="/">Explore</Link>
+              <Link className="navbar-left-links" to="/">Explore</Link>
               &nbsp;
-              <Link to="/">Create</Link>
+              <Link className="navbar-left-links" to="/">Create</Link>
             </div>
           </div>
           &nbsp;
@@ -54,14 +54,17 @@ class Navbar extends React.Component {
                 placeholder="Photos, people, or groups"
               />
             </div>
+            <Link className="header-upload-photo" to="/photos/new">
+              <img src="https://s3-us-west-1.amazonaws.com/apertr-dev/photos/images/static+images/upload_logo.png" />
+            </Link>
             <a href="#" className="profile-pic-logo"><img src={this.props.currentUser.image_url} /></a>
-            <hgroup className="header-popup">
-              <h2 className="header-greet-name">Yo, {this.props.currentUser.email}!</h2>
-              <br/>
-              <p className="header-greet-text">Now you know how to greet people in English</p>
-              <Link className="header-signout-link" to="/" onClick={this.props.logout}>Sign Out</Link>
-            </hgroup>
           </div>
+          <hgroup className="header-popup">
+            <h2 className="header-greet-name">Yo, {this.props.currentUser.email}!</h2>
+            <br/>
+            <p className="header-greet-text">Now you know how to greet people in English</p>
+            <Link className="header-signout-link" to="/" onClick={this.props.logout}>Sign Out</Link>
+          </hgroup>
         </nav>
       </header>
     );

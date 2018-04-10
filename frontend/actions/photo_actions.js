@@ -22,8 +22,8 @@ export const updatePhoto = photo => dispatch => (
     ajaxPhoto => dispatch(receivePhoto(ajaxPhoto)))
 );
 
-export const deletePhoto = id => dispatch => (
-  PhotoApiUtil.deletePhoto(id).then(photo => dispatch(removePhoto(photo.id)))
+export const deletePhoto = photoId => dispatch => (
+  PhotoApiUtil.deletePhoto(photoId).then(photo => dispatch(removePhoto(photoId)))
 );
 
 export const receivePhotos = photos => ({

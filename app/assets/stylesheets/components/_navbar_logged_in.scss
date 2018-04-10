@@ -1,16 +1,19 @@
-.logged-in-navbar > div {
+.logged-in-navbar {
   background-color: black;
   height: 50px;
   display: flex;
+  padding: 0 10%;
 }
 
 .logo-link-logged-in {
-  margin-left: 25px;
-  margin-top: 15px;
   font-family: Proxima Nova, helvetica neue, helvetica, arial, sans-serif;
-  font-size: 26px;
+  font-size: 28px;
   font-weight: 700;
   color: #fff;
+}
+
+.logo-link-logged-in:hover {
+  color: #B8B8B8;
 }
 
 .search-bar-logged-in {
@@ -19,15 +22,27 @@
   border-radius: 2px;
   padding: 5px;
   height: 24px;
-  margin: auto;
+  width: 250px;
+  margin-top: 8px;
+  margin-right: 18px;
 }
 
-.logo-link-logged-in:hover {
-  color: #B8B8B8
+.search-bar-logged-in > input {
+  width: inherit;
 }
 
 .navbar-logged-in-links {
+  font-family: Proxima Nova, helvetica neue, helvetica, arial, sans-serif;
   color: #fff;
+  margin-top: 10px;
+}
+
+.navbar-left-links {
+  margin-left: 30px;
+}
+
+.navbar-left-links:hover {
+  color: #B8B8B8;
 }
 
 .profile-pic-logo {
@@ -37,17 +52,28 @@
 
 .header-popup {
   background-color: #fff;
+  display: none; //do this through React
+  z-index: 1000;
 }
 
 .header-signout-link {
   color: #006dac;
 }
 
+.header-upload-photo {
+  max-width: 35px;
+  max-height: 35px;
+  margin-top: 10px;
+  margin-right: 18px;
+}
+
 .navbar-logged-in-left {
   flex-grow: 1;
+  display: flex;
+  margin-top: 5px;
 }
 
 .navbar-logged-in-right {
-  flex-grow: 1;
-  float: right;
+  display: flex;
+  margin-right: 18px;
 }
