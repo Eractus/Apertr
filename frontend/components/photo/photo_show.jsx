@@ -13,8 +13,15 @@ class PhotoShow extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
+    console.log(nextProps);
     if (this.props.match.params.photoId != nextProps.match.params.photoId) {
-      return this.props.fetchPhoto(nextProps.match.params.photoId);
+      this.props.fetchPhoto(nextProps.match.params.photoId);
+    } else {
+      this.setState({ id: nextProps.photo.id,
+        title: nextProps.photo.title,
+        description: nextProps.photo.description,
+        image_url: nextProps.photo.image_url
+      });
     }
   }
 
@@ -26,7 +33,7 @@ class PhotoShow extends React.Component {
 
   handleSubmitUpdate(e) {
     e.preventDefault();
-    this.props.updatePhoto(this.state).then(data => this.props.history.push(`/photos/${data.photo.id}`));
+    this.props.updatePhoto(this.state)
   }
 
   photoLoggedOut() {
@@ -40,6 +47,12 @@ class PhotoShow extends React.Component {
   }
 
   photoLoggedIn() {
+    console.log(this.state);
+    if (!this.props.photo) {
+      return (
+        <div>Loading...</div>
+      )
+    }
     if (this.props.currentUser.id === this.props.photo.user_id) {
       return (
         <div>

@@ -26,8 +26,8 @@
   margin: auto;
 }
 
-.search-bar-logged-out input {
-  width: inherit;
+.search-bar-logged-out > input {
+  width: 180px;
 }
 
 .navbar-logged-out-links {

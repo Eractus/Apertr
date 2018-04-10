@@ -45,19 +45,40 @@
   color: #B8B8B8;
 }
 
-.profile-pic-logo {
+.profile-popup {
   height: 50px;
   width: 50px;
+  cursor: pointer;
+  position: relative;
 }
 
 .header-popup {
+  font-family: Proxima Nova, helvetica neue, helvetica, arial, sans-serif;
   background-color: #fff;
-  display: none; //do this through React
-  z-index: 1000;
+  position: absolute;
+  z-index: 10;
+  border: 1px solid #B8B8B8;
+  border-radius: 3px;
+  top: 54px;
+  right: 0;
+  width: 325px;
+  height: 150px;
+  padding: 18px 12px;
+}
+
+.header-greet-name {
+  font-size: 22px;
+}
+
+.header-greet-text {
+  font-size: 14px;
 }
 
 .header-signout-link {
   color: #006dac;
+  position: absolute;
+  bottom: 18px;
+  right: 12px;
 }
 
 .header-upload-photo {
