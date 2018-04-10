@@ -59,23 +59,25 @@ class PhotoShow extends React.Component {
           <div className="photo-show">
             <img src={this.props.photo.image_url} />
           </div>
-          <div>
-            <form className="update-form" onSubmit={this.handleSubmitUpdate}>
-              <input
-                type="text"
-                value={this.state.title}
-                onChange={this.update('title')} />
-              <input
-                type="textarea"
-                value={this.state.description}
-                onChange={this.update('description')} />
-              <input className="update-button" type="submit" value="Done" />
-            </form>
-          </div>
-          <div>
-            <Link className="delete-link" onClick={() => this.props.deletePhoto(this.state.id)} to="/">
-              Delete
-            </Link>
+          <div className="photo-show-container">
+            <div>
+              <form className="update-form" onSubmit={this.handleSubmitUpdate}>
+                <input
+                  type="text"
+                  value={this.state.title}
+                  onChange={this.update('title')} />
+                <input
+                  type="textarea"
+                  value={this.state.description}
+                  onChange={this.update('description')} />
+                <input className="update-button" type="submit" value="Done" />
+              </form>
+            </div>
+            <div>
+              <Link className="delete-link" onClick={() => this.props.deletePhoto(this.state.id)} to="/">
+                Delete
+              </Link>
+            </div>
           </div>
         </div>
       );

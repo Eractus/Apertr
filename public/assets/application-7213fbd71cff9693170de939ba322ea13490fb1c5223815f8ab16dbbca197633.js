@@ -31776,7 +31776,54 @@ var SplashPage = function (_React$Component) {
   }, {
     key: 'splashLoggedIn',
     value: function splashLoggedIn() {
-      return _react2.default.createElement(_photo_index_container2.default, null);
+      return _react2.default.createElement(
+        'div',
+        null,
+        _react2.default.createElement(
+          'div',
+          { className: 'navbar2-container' },
+          _react2.default.createElement(
+            'div',
+            { className: 'navbar2' },
+            _react2.default.createElement(
+              'ul',
+              { className: 'navbar2-links' },
+              _react2.default.createElement(
+                'li',
+                null,
+                _react2.default.createElement(
+                  'button',
+                  null,
+                  'All Activity'
+                )
+              ),
+              _react2.default.createElement(
+                'li',
+                null,
+                _react2.default.createElement(
+                  'button',
+                  null,
+                  'People'
+                )
+              ),
+              _react2.default.createElement(
+                'li',
+                null,
+                _react2.default.createElement(
+                  'button',
+                  null,
+                  'Groups'
+                )
+              )
+            )
+          )
+        ),
+        _react2.default.createElement(
+          'div',
+          null,
+          _react2.default.createElement(_photo_index_container2.default, null)
+        )
+      );
     }
   }, {
     key: 'render',
@@ -31787,7 +31834,7 @@ var SplashPage = function (_React$Component) {
           null,
           _react2.default.createElement(
             'div',
-            null,
+            { className: 'logged-in-background' },
             this.splashLoggedIn()
           ),
           _react2.default.createElement(_footer2.default, null)
@@ -31798,7 +31845,7 @@ var SplashPage = function (_React$Component) {
           null,
           _react2.default.createElement(
             'div',
-            { className: 'splash-wallpaper' },
+            { className: 'logged-out-splash-wallpaper' },
             this.props.currentUser ? this.splashLoggedIn() : this.splashLoggedOut()
           ),
           _react2.default.createElement(_footer2.default, null)
@@ -31982,10 +32029,11 @@ var PhotoIndex = function (_React$Component) {
           key: photo.id,
           photo: photo });
       });
+      console.log(this.props.photos);
 
       return _react2.default.createElement(
         "div",
-        null,
+        { className: "photo-index-container" },
         _react2.default.createElement(
           "ul",
           { className: "photo-index-list" },
@@ -32022,18 +32070,27 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 var PhotoIndexItem = function PhotoIndexItem(props) {
   return _react2.default.createElement(
     "li",
-    { className: "photo-list-props" },
-    _react2.default.createElement(
-      _reactRouterDom.Link,
-      { className: "photo-image", to: "/photos/" + props.photo.id },
-      _react2.default.createElement("img", { src: props.photo.image_url })
-    ),
+    { className: "photo-index-item-container" },
     _react2.default.createElement(
       _reactRouterDom.Link,
       { className: "photo-author", to: "/users/" + props.photo.user_id },
       props.photo.userFname,
       " ",
       props.photo.userLname
+    ),
+    _react2.default.createElement(
+      "div",
+      { className: "photo-image" },
+      _react2.default.createElement(
+        _reactRouterDom.Link,
+        { to: "/photos/" + props.photo.id },
+        _react2.default.createElement("img", { src: props.photo.image_url })
+      )
+    ),
+    _react2.default.createElement(
+      "p",
+      { className: "photo-title" },
+      props.photo.title
     )
   );
 };
@@ -32197,30 +32254,34 @@ var PhotoShow = function (_React$Component) {
           ),
           _react2.default.createElement(
             'div',
-            null,
+            { className: 'photo-show-container' },
             _react2.default.createElement(
-              'form',
-              { className: 'update-form', onSubmit: this.handleSubmitUpdate },
-              _react2.default.createElement('input', {
-                type: 'text',
-                value: this.state.title,
-                onChange: this.update('title') }),
-              _react2.default.createElement('input', {
-                type: 'textarea',
-                value: this.state.description,
-                onChange: this.update('description') }),
-              _react2.default.createElement('input', { className: 'update-button', type: 'submit', value: 'Done' })
-            )
-          ),
-          _react2.default.createElement(
-            'div',
-            null,
+              'div',
+              null,
+              _react2.default.createElement(
+                'form',
+                { className: 'update-form', onSubmit: this.handleSubmitUpdate },
+                _react2.default.createElement('input', {
+                  type: 'text',
+                  value: this.state.title,
+                  onChange: this.update('title') }),
+                _react2.default.createElement('input', {
+                  type: 'textarea',
+                  value: this.state.description,
+                  onChange: this.update('description') }),
+                _react2.default.createElement('input', { className: 'update-button', type: 'submit', value: 'Done' })
+              )
+            ),
             _react2.default.createElement(
-              _reactRouterDom.Link,
-              { className: 'delete-link', onClick: function onClick() {
-                  return _this3.props.deletePhoto(_this3.state.id);
-                }, to: '/' },
-              'Delete'
+              'div',
+              null,
+              _react2.default.createElement(
+                _reactRouterDom.Link,
+                { className: 'delete-link', onClick: function onClick() {
+                    return _this3.props.deletePhoto(_this3.state.id);
+                  }, to: '/' },
+                'Delete'
+              )
             )
           )
         );

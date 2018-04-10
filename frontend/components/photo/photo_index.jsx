@@ -3,7 +3,7 @@ import PhotoIndexItem from "./photo_index_item";
 
 class PhotoIndex extends React.Component {
   constructor(props) {
-    super(props)
+    super(props);
   }
 
   componentDidMount() {
@@ -18,9 +18,10 @@ class PhotoIndex extends React.Component {
           photo={photo}/>
       );
     });
+    console.log(this.props.photos)
 
     return (
-      <div>
+      <div className="photo-index-container">
         <ul className="photo-index-list">
           {photos}
         </ul>

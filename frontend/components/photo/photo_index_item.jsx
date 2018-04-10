@@ -3,13 +3,16 @@ import { Link } from "react-router-dom";
 
 const PhotoIndexItem = props => {
   return (
-    <li className="photo-list-props">
-      <Link className="photo-image" to={`/photos/${props.photo.id}`}>
-        <img src={props.photo.image_url} />
-      </Link>
+    <li className="photo-index-item-container">
       <Link className="photo-author" to={`/users/${props.photo.user_id}`}>
         {props.photo.userFname} {props.photo.userLname}
       </Link>
+      <div className="photo-image">
+        <Link to={`/photos/${props.photo.id}`}>
+          <img src={props.photo.image_url} />
+        </Link>
+      </div>
+      <p className="photo-title">{props.photo.title}</p>
     </li>
   );
 };

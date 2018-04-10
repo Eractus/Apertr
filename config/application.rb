@@ -21,6 +21,13 @@ module Apertr
         :s3_host_name => "s3.#{ENV["s3_region"]}.amazonaws.com"
       }
     }
+    # config.paperclip_defaults = {
+    #   :storage => :s3,
+    #   :bucket => ENV["s3_bucket"],
+    #   :preserve_files => true,
+    #   :s3_host_name => "s3.#{ENV["s3_region"]}.amazonaws.com",
+    #   :s3_region => ENV["s3_region"]
+    # }
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.

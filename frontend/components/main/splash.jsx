@@ -33,7 +33,20 @@ class SplashPage extends React.Component {
 
   splashLoggedIn() {
     return (
-      <PhotoIndexContainer />
+      <div>
+        <div className="navbar2-container">
+          <div className="navbar2">
+            <ul className="navbar2-links">
+              <li><button>All Activity</button></li>
+              <li><button>People</button></li>
+              <li><button>Groups</button></li>
+            </ul>
+          </div>
+        </div>
+        <div>
+          <PhotoIndexContainer />
+        </div>
+      </div>
     );
   }
 
@@ -41,7 +54,7 @@ class SplashPage extends React.Component {
     if (this.props.currentUser) {
       return (
         <div>
-          <div>
+          <div className="logged-in-background">
             {this.splashLoggedIn()}
           </div>
           <Footer />
@@ -50,7 +63,7 @@ class SplashPage extends React.Component {
     } else {
       return (
         <div>
-          <div className="splash-wallpaper">
+          <div className="logged-out-splash-wallpaper">
           {this.props.currentUser ? this.splashLoggedIn() : this.splashLoggedOut()}
           </div>
           <Footer />
