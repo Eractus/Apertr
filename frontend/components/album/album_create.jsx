@@ -54,11 +54,10 @@ class AlbumCreate extends React.Component {
     const photos = this.props.photos.map(photo => {
       if (this.props.userId === photo.user_id) {
         return (
-          <li className="photo-index-item-container" onClick={this.addPhoto(photo)}>
-            <div className="photo-image">
+          <li className="album-create-user-photos-list-item" onClick={this.addPhoto(photo)}>
+            <div className="album-create-list-image">
               <img src={photo.image_url} />
             </div>
-            <p className="photo-title">{photo.title}</p>
           </li>
         );
       }
@@ -66,36 +65,36 @@ class AlbumCreate extends React.Component {
 
     const uploadedPhotos = this.state.photos.map(photo => {
       return (
-        <li>
+        <li className="album-create-selected-photos-list-item">
           <img src={photo.image_url} />
         </li>
       );
     });
 
     return (
-      <div>
+      <div className="album-create-container">
         <div>
-          <ul>
+          <ul className="album-create-selected-photos-list">
             {uploadedPhotos}
           </ul>
         </div>
-        <form onSubmit={this.handleSubmit} className="">
+        <form onSubmit={this.handleSubmit} className="album-create-form">
           <div>{this.renderErrors()}</div>
             <input
-              className=""
+              className="album-create-input-title"
               type="text"
               value={this.state.title}
               placeholder="new album"
               onChange={this.update('title')} />
             <input
-              className=""
+              className="album-create-input-description"
               type="text"
               value={this.state.description}
               onChange={this.update('description')} />
-          <input className="" type="submit" value="Create Album" />
+          <input className="album-create-button" type="submit" value="Create Album" />
         </form>
         <div>
-          <ul>
+          <ul className="album-create-user-photos-list">
             { photos }
           </ul>
         </div>
