@@ -1,8 +1,59 @@
 .photo-show {
   background: #212124;
-  padding: 5% 0;
+  padding: 5% 3%;
+  position: relative;
+}
+
+.delete-link {
+  color: #fff;
+  position: absolute;
+  bottom: 2%;
+  right: 3%;
+}
+
+.delete-link:hover {
+  color: red;
 }
 
 .photo-show-container {
-  padding: 0 10%;
+  padding: 2% 10%;
+  display: flex;
+  flex-direction: column;
+  max-width: 400px;
+}
+
+.update-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.update-form-text {
+  font-size: 16px;
+  font-weight: 500;
+  border: 1px solid #B8B8B8;
+  border-radius: 3px;
+  padding: 5px;
+  margin-bottom: 20px;
+}
+
+.update-form-textarea {
+  font-size: 14px;
+  border: 1px solid #B8B8B8;
+  border-radius: 3px;
+  padding: 5px;
+  margin-bottom: 20px;
+}
+
+.update-button {
+  font-size: 16px;
+  font-weight: 400;
+  color: #fff;
+  background-color: #128fdc;
+  border-radius: 3px;
+  padding: 5px 30px;
+  max-width: 40px;
+}
+
+.update-button:hover {
+  background-color: #1c9be9;
 }

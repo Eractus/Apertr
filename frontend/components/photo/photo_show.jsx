@@ -1,5 +1,6 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom'
+import Footer from '../footer/footer';
 
 class PhotoShow extends React.Component {
   constructor(props) {
@@ -10,6 +11,10 @@ class PhotoShow extends React.Component {
 
   componentDidMount() {
     this.props.fetchPhoto(this.props.match.params.photoId)
+  }
+
+  componentWillUnmount() {
+    this.props.clearErrors()
   }
 
   componentWillReceiveProps(nextProps) {
@@ -36,12 +41,25 @@ class PhotoShow extends React.Component {
     this.props.updatePhoto(this.state)
   }
 
+  renderErrors() {
+    return(
+      <ul>
+        {this.props.errors.map((error, i) => (
+          <li key={`error-${i}`}>
+            {error}
+          </li>
+        ))}
+      </ul>
+    );
+  }
+
   photoLoggedOut() {
     return (
       <div>
         <div className="photo-show">
           <img src={this.props.photo.image_url} />
         </div>
+        <Footer />
       </div>
     );
   }
@@ -58,27 +76,30 @@ class PhotoShow extends React.Component {
         <div>
           <div className="photo-show">
             <img src={this.props.photo.image_url} />
-          </div>
-          <div className="photo-show-container">
-            <div>
-              <form className="update-form" onSubmit={this.handleSubmitUpdate}>
-                <input
-                  type="text"
-                  value={this.state.title}
-                  onChange={this.update('title')} />
-                <input
-                  type="textarea"
-                  value={this.state.description}
-                  onChange={this.update('description')} />
-                <input className="update-button" type="submit" value="Done" />
-              </form>
-            </div>
             <div>
               <Link className="delete-link" onClick={() => this.props.deletePhoto(this.state.id)} to="/">
-                Delete
+              Delete
               </Link>
             </div>
           </div>
+          <div className="photo-show-container">
+            <div>{this.renderErrors()}</div>
+            <h3>{this.props.photo.userFname} {this.props.photo.userLname}</h3>
+            <form className="update-form" onSubmit={this.handleSubmitUpdate}>
+              <input
+                className="update-form-text"
+                type="text"
+                value={this.state.title}
+                onChange={this.update('title')} />
+              <input
+                className="update-form-textarea"
+                type="textarea"
+                value={this.state.description}
+                onChange={this.update('description')} />
+              <input className="update-button" type="submit" value="Done" />
+            </form>
+          </div>
+          <Footer />
         </div>
       );
     } else { return (

@@ -1,14 +1,15 @@
 import { connect } from 'react-redux';
-import { createPhoto } from '../../actions/photo_actions';
+import { createPhoto, receiveErrors } from '../../actions/photo_actions';
 import PhotoCreate from './photo_create';
 
 const mapStateToProps = state => ({
-  errors: state.errors,
+  errors: state.errors.photo,
   userId: state.session.currentUser.id
 });
 
 const mapDispatchToProps = dispatch => ({
-  createPhoto: photo => dispatch(createPhoto(photo))
+  createPhoto: photo => dispatch(createPhoto(photo)),
+  clearErrors: () => dispatch(receiveErrors([]))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(PhotoCreate);

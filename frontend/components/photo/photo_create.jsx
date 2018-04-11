@@ -14,6 +14,10 @@ class PhotoCreate extends React.Component {
     this.updateFile = this.updateFile.bind(this);
   }
 
+  componentWillUnmount() {
+    this.props.clearErrors()
+  }
+
   update(field) {
     return (e) => {
       this.setState({[field]: e.target.value});
@@ -32,19 +36,35 @@ class PhotoCreate extends React.Component {
     }
   }
 
+
   handleSubmit(e) {
     e.preventDefault();
     const formData = new FormData();
     formData.append("photo[title]", this.state.title);
     formData.append("photo[description]", this.state.description);
-    formData.append("photo[image]", this.state.imageFile);
+    if (this.state.imageFile) {
+      formData.append("photo[image]", this.state.imageFile);
+    }
     this.props.createPhoto(formData).then(data => this.props.history.push(`/photos/${data.photo.id}`));
+  }
+
+  renderErrors() {
+    return(
+      <ul>
+        {this.props.errors.map((error, i) => (
+          <li key={`error-${i}`}>
+            {error}
+          </li>
+        ))}
+      </ul>
+    );
   }
 
   render() {
     return (
       <div className="photo-create-container">
         <form onSubmit={this.handleSubmit} className="photo-create-form">
+          <div>{this.renderErrors()}</div>
           <input
             type="text"
             value={this.state.title}
