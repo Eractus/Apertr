@@ -27,6 +27,10 @@
   font-weight: 500;
 }
 
+.signup-name {
+  display: flex;
+}
+
 .signup-fname {
   border-bottom: 1px solid #B8B8B8;
   margin: 12px 0;
@@ -36,7 +40,6 @@
 .signup-lname {
   border-bottom: 1px solid #B8B8B8;
   margin: 12px 0;
-  margin-left: 14px;
 }
 
 .signup-input {
@@ -52,7 +55,7 @@
   background-color: #188fff;
   border-radius: 2px;
   padding: 15px 125px;
-  margin-top: 175px;
+  margin-top: 75px;
 }
 
 .signup-submit:hover {

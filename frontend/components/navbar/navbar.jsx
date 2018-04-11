@@ -53,11 +53,11 @@ class Navbar extends React.Component {
             </Link>
             &nbsp;
             <div className="navbar-logged-in-links">
-              <Link className="navbar-left-links" to="/">You</Link>
+              <Link className="navbar-left-links" to="/photos">You</Link>
               &nbsp;
               <Link className="navbar-left-links" to="/">Explore</Link>
               &nbsp;
-              <Link className="navbar-left-links" to="/">Create</Link>
+              <Link className="navbar-left-links" to="/albums/new">Create</Link>
             </div>
           </div>
           &nbsp;

@@ -4,6 +4,7 @@
 
 .photo-index-list {
   display: flex;
+  flex-wrap: wrap;
 }
 
 .photo-index-item-container {
@@ -12,4 +13,9 @@
   border: 1px solid #B8B8B8;
   border-radius: 3px;
   padding: 10px 2px;
+}
+
+.photo-image {
+  max-width: 300px;
+  max-height: 169.75px;
 }

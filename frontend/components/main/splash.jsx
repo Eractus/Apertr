@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Footer from '../footer/footer';
-import PhotoIndexContainer from '../photo/photo_index_container';
+import PhotoIndexSplashContainer from '../photo/photo_index_splash_container';
 
 class SplashPage extends React.Component {
   constructor(props) {
@@ -44,7 +44,7 @@ class SplashPage extends React.Component {
           </div>
         </div>
         <div>
-          <PhotoIndexContainer />
+          <PhotoIndexSplashContainer />
         </div>
       </div>
     );

@@ -5,14 +5,14 @@ const _nullUser = Object.freeze({
   currentUser: null
 });
 
-const sessionReducer = (defaultState = _nullUser, action) => {
-  Object.freeze(defaultState);
+const sessionReducer = (currentState = _nullUser, action) => {
+  Object.freeze(currentState);
   switch (action.type) {
     case RECEIVE_CURRENT_USER:
       const currentUser = action.currentUser;
       return merge({}, { currentUser });
     default:
-      return defaultState;
+      return currentState;
   }
 };
 

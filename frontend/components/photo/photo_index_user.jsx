@@ -1,7 +1,7 @@
 import React from "react";
-import PhotoIndexItem from "./photo_index_item";
+import PhotoIndexItemUser from "./photo_index_item_user";
 
-class PhotoIndex extends React.Component {
+class PhotoIndexUser extends React.Component {
   constructor(props) {
     super(props);
   }
@@ -12,13 +12,14 @@ class PhotoIndex extends React.Component {
 
   render () {
     const photos = this.props.photos.map(photo => {
-      return (
-        <PhotoIndexItem
+      if (this.props.userId === photo.user_id) {
+        return (
+          <PhotoIndexItemUser
           key={photo.id}
           photo={photo}/>
-      );
+        );
+      }
     });
-    console.log(this.props.photos)
 
     return (
       <div className="photo-index-container">
@@ -30,4 +31,4 @@ class PhotoIndex extends React.Component {
   }
 }
 
-export default PhotoIndex;
+export default PhotoIndexUser;

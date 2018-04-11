@@ -8,6 +8,8 @@ import { AuthRoute, ProtectedRoute } from '../util/route.util';
 import SplashPageContainer from './main/splash_container';
 import PhotoShowContainer from './photo/photo_show_container';
 import PhotoCreateContainer from './photo/photo_create_container';
+import PhotoIndexUserContainer from './photo/photo_index_user_container';
+import AlbumCreateContainer from './album/album_create_container';
 
 const App = () => (
   <div>
@@ -18,6 +20,8 @@ const App = () => (
     <Route exact path="/" component={SplashPageContainer} />
     <ProtectedRoute exact path="/photos/new" component={PhotoCreateContainer} />
     <Route exact path="/photos/:photoId" component={PhotoShowContainer} />
+    <Route exact path="/photos" component={PhotoIndexUserContainer} />
+    <ProtectedRoute exact path="/albums/new" component={AlbumCreateContainer} />
     <Redirect from="/" to ="/" />
   </Switch>
   </div>

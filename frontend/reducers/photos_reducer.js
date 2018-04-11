@@ -5,9 +5,9 @@ import {
 } from '../actions/photo_actions';
 import merge from 'lodash/merge';
 
-const photosReducer = (initialState = {}, action) => {
-  Object.freeze(initialState);
-  const newState = merge({}, initialState);
+const photosReducer = (currentState = {}, action) => {
+  Object.freeze(currentState);
+  const newState = merge({}, currentState);
   switch (action.type) {
     case RECEIVE_PHOTOS:
       return merge({}, action.photos);
@@ -18,7 +18,7 @@ const photosReducer = (initialState = {}, action) => {
       delete newState[action.photoId];
       return newState;
     default:
-      return initialState;
+      return currentState;
   }
 };
 
