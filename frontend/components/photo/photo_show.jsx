@@ -55,7 +55,7 @@ class PhotoShow extends React.Component {
 
   photoLoggedOut() {
     return (
-      <div>
+      <div className="photo-show-background">
         <div className="photo-show">
           <img src={this.props.photo.image_url} />
         </div>
@@ -73,7 +73,7 @@ class PhotoShow extends React.Component {
     }
     if (this.props.currentUser.id === this.props.photo.user_id) {
       return (
-        <div>
+        <div className="photo-show-background">
           <div className="photo-show">
             <img src={this.props.photo.image_url} />
             <div>
@@ -103,10 +103,11 @@ class PhotoShow extends React.Component {
         </div>
       );
     } else { return (
-        <div>
+        <div className="photo-show-background">
           <div className="photo-show">
             <img src={this.props.photo.image_url} />
           </div>
+          <Footer />
         </div>
       );
     }
