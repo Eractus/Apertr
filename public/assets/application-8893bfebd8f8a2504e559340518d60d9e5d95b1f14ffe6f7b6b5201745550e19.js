@@ -698,6 +698,10 @@ Released under the MIT license
 
 
 }).call(this);
+(function() {
+
+
+}).call(this);
 /******/
  (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
@@ -2039,7 +2043,7 @@ module.exports = getMapData;
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.removePhoto = exports.receivePhoto = exports.receivePhotos = exports.deletePhoto = exports.updatePhoto = exports.createPhoto = exports.fetchPhoto = exports.fetchPhotos = exports.REMOVE_PHOTO = exports.RECEIVE_PHOTO = exports.RECEIVE_PHOTOS = undefined;
+exports.receiveErrors = exports.removePhoto = exports.receivePhoto = exports.receivePhotos = exports.deletePhoto = exports.updatePhoto = exports.createPhoto = exports.fetchPhoto = exports.fetchPhotos = exports.RECEIVE_PHOTO_ERRORS = exports.REMOVE_PHOTO = exports.RECEIVE_PHOTO = exports.RECEIVE_PHOTOS = undefined;
 
 var _photo_api_util = __webpack_require__(181);
 
@@ -2050,6 +2054,7 @@ function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj;
 var RECEIVE_PHOTOS = exports.RECEIVE_PHOTOS = 'RECEIVE_PHOTOS';
 var RECEIVE_PHOTO = exports.RECEIVE_PHOTO = 'RECEIVE_PHOTO';
 var REMOVE_PHOTO = exports.REMOVE_PHOTO = 'REMOVE_PHOTO';
+var RECEIVE_PHOTO_ERRORS = exports.RECEIVE_PHOTO_ERRORS = 'RECEIVE_PHOTO_ERRORS';
 
 var fetchPhotos = exports.fetchPhotos = function fetchPhotos() {
   return function (dispatch) {
@@ -2063,6 +2068,8 @@ var fetchPhoto = exports.fetchPhoto = function fetchPhoto(id) {
   return function (dispatch) {
     return PhotoApiUtil.fetchPhoto(id).then(function (photo) {
       return dispatch(receivePhoto(photo));
+    }, function (error) {
+      return dispatch(receiveErrors(error.responseJSON));
     });
   };
 };
@@ -2071,6 +2078,8 @@ var createPhoto = exports.createPhoto = function createPhoto(photo) {
   return function (dispatch) {
     return PhotoApiUtil.createPhoto(photo).then(function (ajaxPhoto) {
       return dispatch(receivePhoto(ajaxPhoto));
+    }, function (error) {
+      return dispatch(receiveErrors(error.responseJSON));
     });
   };
 };
@@ -2079,6 +2088,8 @@ var updatePhoto = exports.updatePhoto = function updatePhoto(photo) {
   return function (dispatch) {
     return PhotoApiUtil.updatePhoto(photo).then(function (ajaxPhoto) {
       return dispatch(receivePhoto(ajaxPhoto));
+    }, function (error) {
+      return dispatch(receiveErrors(error.responseJSON));
     });
   };
 };
@@ -2109,6 +2120,13 @@ var removePhoto = exports.removePhoto = function removePhoto(photoId) {
   return {
     type: REMOVE_PHOTO,
     photoId: photoId
+  };
+};
+
+var receiveErrors = exports.receiveErrors = function receiveErrors(errors) {
+  return {
+    type: RECEIVE_PHOTO_ERRORS,
+    errors: errors
   };
 };
 
@@ -24337,10 +24355,15 @@ var _session_errors_reducer = __webpack_require__(111);
 
 var _session_errors_reducer2 = _interopRequireDefault(_session_errors_reducer);
 
+var _photo_errors_reducer = __webpack_require__(237);
+
+var _photo_errors_reducer2 = _interopRequireDefault(_photo_errors_reducer);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var errorsReducer = (0, _redux.combineReducers)({
-  session: _session_errors_reducer2.default
+  session: _session_errors_reducer2.default,
+  photo: _photo_errors_reducer2.default
 });
 
 exports.default = errorsReducer;
@@ -30907,7 +30930,8 @@ var App = function App() {
       _react2.default.createElement(_route.AuthRoute, { exact: true, path: '/login', component: _session_form_container2.default }),
       _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/', component: _splash_container2.default }),
       _react2.default.createElement(_route.ProtectedRoute, { exact: true, path: '/photos/new', component: _photo_create_container2.default }),
-      _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/photos/:photoId', component: _photo_show_container2.default })
+      _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/photos/:photoId', component: _photo_show_container2.default }),
+      _react2.default.createElement(_reactRouterDom.Redirect, { from: '/', to: '/' })
     )
   );
 };
@@ -32120,6 +32144,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 var mapStateToProps = function mapStateToProps(state, ownProps) {
   return {
+    errors: state.errors.photo,
     currentUser: state.session.currentUser,
     photo: state.photos[ownProps.match.params.photoId]
   };
@@ -32135,6 +32160,9 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
     },
     deletePhoto: function deletePhoto(photoId) {
       return dispatch((0, _photo_actions.deletePhoto)(photoId));
+    },
+    clearErrors: function clearErrors() {
+      return dispatch((0, _photo_actions.receiveErrors)([]));
     }
   };
 };
@@ -32159,6 +32187,10 @@ var _react = __webpack_require__(0);
 var _react2 = _interopRequireDefault(_react);
 
 var _reactRouterDom = __webpack_require__(4);
+
+var _footer = __webpack_require__(229);
+
+var _footer2 = _interopRequireDefault(_footer);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -32187,6 +32219,11 @@ var PhotoShow = function (_React$Component) {
     key: 'componentDidMount',
     value: function componentDidMount() {
       this.props.fetchPhoto(this.props.match.params.photoId);
+    }
+  }, {
+    key: 'componentWillUnmount',
+    value: function componentWillUnmount() {
+      this.props.clearErrors();
     }
   }, {
     key: 'componentWillReceiveProps',
@@ -32218,16 +32255,32 @@ var PhotoShow = function (_React$Component) {
       this.props.updatePhoto(this.state);
     }
   }, {
+    key: 'renderErrors',
+    value: function renderErrors() {
+      return _react2.default.createElement(
+        'ul',
+        null,
+        this.props.errors.map(function (error, i) {
+          return _react2.default.createElement(
+            'li',
+            { key: 'error-' + i },
+            error
+          );
+        })
+      );
+    }
+  }, {
     key: 'photoLoggedOut',
     value: function photoLoggedOut() {
       return _react2.default.createElement(
         'div',
-        null,
+        { className: 'photo-show-background' },
         _react2.default.createElement(
           'div',
           { className: 'photo-show' },
           _react2.default.createElement('img', { src: this.props.photo.image_url })
-        )
+        ),
+        _react2.default.createElement(_footer2.default, null)
       );
     }
   }, {
@@ -32246,32 +32299,11 @@ var PhotoShow = function (_React$Component) {
       if (this.props.currentUser.id === this.props.photo.user_id) {
         return _react2.default.createElement(
           'div',
-          null,
+          { className: 'photo-show-background' },
           _react2.default.createElement(
             'div',
             { className: 'photo-show' },
-            _react2.default.createElement('img', { src: this.props.photo.image_url })
-          ),
-          _react2.default.createElement(
-            'div',
-            { className: 'photo-show-container' },
-            _react2.default.createElement(
-              'div',
-              null,
-              _react2.default.createElement(
-                'form',
-                { className: 'update-form', onSubmit: this.handleSubmitUpdate },
-                _react2.default.createElement('input', {
-                  type: 'text',
-                  value: this.state.title,
-                  onChange: this.update('title') }),
-                _react2.default.createElement('input', {
-                  type: 'textarea',
-                  value: this.state.description,
-                  onChange: this.update('description') }),
-                _react2.default.createElement('input', { className: 'update-button', type: 'submit', value: 'Done' })
-              )
-            ),
+            _react2.default.createElement('img', { src: this.props.photo.image_url }),
             _react2.default.createElement(
               'div',
               null,
@@ -32283,17 +32315,50 @@ var PhotoShow = function (_React$Component) {
                 'Delete'
               )
             )
-          )
+          ),
+          _react2.default.createElement(
+            'div',
+            { className: 'photo-show-container' },
+            _react2.default.createElement(
+              'div',
+              null,
+              this.renderErrors()
+            ),
+            _react2.default.createElement(
+              'h3',
+              null,
+              this.props.photo.userFname,
+              ' ',
+              this.props.photo.userLname
+            ),
+            _react2.default.createElement(
+              'form',
+              { className: 'update-form', onSubmit: this.handleSubmitUpdate },
+              _react2.default.createElement('input', {
+                className: 'update-form-text',
+                type: 'text',
+                value: this.state.title,
+                onChange: this.update('title') }),
+              _react2.default.createElement('input', {
+                className: 'update-form-textarea',
+                type: 'textarea',
+                value: this.state.description,
+                onChange: this.update('description') }),
+              _react2.default.createElement('input', { className: 'update-button', type: 'submit', value: 'Done' })
+            )
+          ),
+          _react2.default.createElement(_footer2.default, null)
         );
       } else {
         return _react2.default.createElement(
           'div',
-          null,
+          { className: 'photo-show-background' },
           _react2.default.createElement(
             'div',
             { className: 'photo-show' },
             _react2.default.createElement('img', { src: this.props.photo.image_url })
-          )
+          ),
+          _react2.default.createElement(_footer2.default, null)
         );
       }
     }
@@ -32339,7 +32404,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 var mapStateToProps = function mapStateToProps(state) {
   return {
-    errors: state.errors,
+    errors: state.errors.photo,
     userId: state.session.currentUser.id
   };
 };
@@ -32348,6 +32413,9 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
   return {
     createPhoto: function createPhoto(photo) {
       return dispatch((0, _photo_actions.createPhoto)(photo));
+    },
+    clearErrors: function clearErrors() {
+      return dispatch((0, _photo_actions.receiveErrors)([]));
     }
   };
 };
@@ -32372,6 +32440,10 @@ var _react = __webpack_require__(0);
 var _react2 = _interopRequireDefault(_react);
 
 var _reactRouterDom = __webpack_require__(4);
+
+var _footer = __webpack_require__(229);
+
+var _footer2 = _interopRequireDefault(_footer);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -32403,6 +32475,11 @@ var PhotoCreate = function (_React$Component) {
   }
 
   _createClass(PhotoCreate, [{
+    key: 'componentWillUnmount',
+    value: function componentWillUnmount() {
+      this.props.clearErrors();
+    }
+  }, {
     key: 'update',
     value: function update(field) {
       var _this2 = this;
@@ -32435,34 +32512,71 @@ var PhotoCreate = function (_React$Component) {
       var formData = new FormData();
       formData.append("photo[title]", this.state.title);
       formData.append("photo[description]", this.state.description);
-      formData.append("photo[image]", this.state.imageFile);
+      if (this.state.imageFile) {
+        formData.append("photo[image]", this.state.imageFile);
+      }
       this.props.createPhoto(formData).then(function (data) {
         return _this4.props.history.push('/photos/' + data.photo.id);
       });
+    }
+  }, {
+    key: 'renderErrors',
+    value: function renderErrors() {
+      return _react2.default.createElement(
+        'ul',
+        null,
+        this.props.errors.map(function (error, i) {
+          return _react2.default.createElement(
+            'li',
+            { key: 'error-' + i },
+            error
+          );
+        })
+      );
     }
   }, {
     key: 'render',
     value: function render() {
       return _react2.default.createElement(
         'div',
-        { className: 'photo-create-container' },
+        null,
         _react2.default.createElement(
-          'form',
-          { onSubmit: this.handleSubmit, className: 'photo-create-form' },
-          _react2.default.createElement('input', {
-            type: 'text',
-            value: this.state.title,
-            placeholder: 'Enter a title',
-            onChange: this.update('title') }),
-          _react2.default.createElement('input', {
-            type: 'text',
-            value: this.state.description,
-            placeholder: 'Enter a description',
-            onChange: this.update('description') }),
-          _react2.default.createElement('input', { type: 'file', onChange: this.updateFile }),
-          _react2.default.createElement('input', { type: 'submit', value: 'Upload Photo' })
+          'div',
+          { className: 'photo-create-background' },
+          _react2.default.createElement(
+            'div',
+            { className: 'photo-create-container' },
+            _react2.default.createElement(
+              'div',
+              { className: 'photo-create-image' },
+              _react2.default.createElement('input', { className: 'photo-upload', type: 'file', onChange: this.updateFile }),
+              _react2.default.createElement('img', { className: 'photo-preview', src: this.state.imageUrl })
+            ),
+            _react2.default.createElement(
+              'form',
+              { onSubmit: this.handleSubmit, className: 'photo-create-form' },
+              _react2.default.createElement(
+                'div',
+                null,
+                this.renderErrors()
+              ),
+              _react2.default.createElement('input', {
+                className: 'photo-create-title',
+                type: 'text',
+                value: this.state.title,
+                placeholder: 'Enter a title',
+                onChange: this.update('title') }),
+              _react2.default.createElement('input', {
+                className: 'photo-create-description',
+                type: 'text',
+                value: this.state.description,
+                placeholder: 'Enter a description',
+                onChange: this.update('description') }),
+              _react2.default.createElement('input', { className: 'photo-create-button', type: 'submit', value: 'Upload Photo' })
+            )
+          )
         ),
-        _react2.default.createElement('img', { src: this.state.imageUrl })
+        _react2.default.createElement(_footer2.default, null)
       );
     }
   }]);
@@ -32471,6 +32585,36 @@ var PhotoCreate = function (_React$Component) {
 }(_react2.default.Component);
 
 exports.default = PhotoCreate;
+
+/***/ }),
+/* 237 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _photo_actions = __webpack_require__(26);
+
+var photoErrorsReducer = function photoErrorsReducer() {
+  var currentState = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
+  var action = arguments[1];
+
+  Object.freeze(currentState);
+  switch (action.type) {
+    case _photo_actions.RECEIVE_PHOTO_ERRORS:
+      return action.errors;
+    case _photo_actions.RECEIVE_PHOTO:
+      return [];
+    default:
+      return currentState;
+  }
+};
+
+exports.default = photoErrorsReducer;
 
 /***/ })
 /******/ ]);
