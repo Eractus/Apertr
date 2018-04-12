@@ -9,7 +9,7 @@ class Album < ApplicationRecord
   has_many :album_photos,
     class_name: :AlbumPhoto,
     foreign_key: :album_id,
-    primary_key: :id,
+    primary_key: :id
 
   has_many :photos,
     through: :album_photos,

@@ -5,10 +5,11 @@ class Api::AlbumsController < ApplicationController
   def create
     @album = Album.new(album_params)
     @album.owner_id = current_user.id
-    if @album.save
-      #iterate through the param's photos array.
-      #for each photo in the photo array,
-        # create a row in the joins table
+    photo_ids = JSON.parse(params[:photo_ids])
+    if photo_ids && !photo_ids.empty? && @album.save
+      photo_ids.each do |photo_id|
+        AlbumPhoto.create(album_id: @album.id, photo_id: photo_id)
+      end
       render :show
     else
       render json: @album.errors.full_messages, status: 422
@@ -46,6 +47,6 @@ class Api::AlbumsController < ApplicationController
   private
 
   def album_params
-    params.require(:album).permit(:title, :description, :photos)
+    params.require(:album).permit(:title, :description)
   end
 end

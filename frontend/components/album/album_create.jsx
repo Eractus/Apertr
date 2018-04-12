@@ -7,12 +7,13 @@ class AlbumCreate extends React.Component {
       title: '',
       description: '',
       photos: [],
+      firstLoad: true,
     };
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   componentDidMount() {
-    this.props.fetchPhotos();
+    this.props.fetchPhotos().then(() => this.setState({ firstLoad: false }));
   }
 
   componentWillUnmount() {
@@ -33,9 +34,21 @@ class AlbumCreate extends React.Component {
     };
   }
 
+  removePhoto(photo) {
+    return (e) => {
+      this.setState({
+        photos: this.state.photos.filter(pho => pho.id !== photo.id)
+      })
+    };
+  }
+
   handleSubmit(e) {
     e.preventDefault();
-    this.props.createAlbum(this.state);
+    const formData = new FormData();
+    formData.append("album[title]", this.state.title);
+    formData.append("album[description]", this.state.description);
+    formData.append("photo_ids", JSON.stringify(this.props.photoIds));
+    this.props.createAlbum(formData, this.props.photoIds);
   }
 
   renderErrors() {
@@ -51,21 +64,21 @@ class AlbumCreate extends React.Component {
   }
 
   render () {
-    const photos = this.props.photos.map(photo => {
-      if (this.props.userId === photo.user_id) {
-        return (
-          <li className="album-create-user-photos-list-item" onClick={this.addPhoto(photo)}>
-            <div className="album-create-list-image">
-              <img src={photo.image_url} />
-            </div>
-          </li>
-        );
-      }
+    if (this.state.firstLoad) return <div>Loading...</div>;
+
+    const photos = this.props.photos.map((photo, i) => {
+      return (
+        <li key={`${i}`} className="album-create-user-photos-list-item" onClick={this.addPhoto(photo)}>
+          <div className="album-create-list-image">
+            <img src={photo.image_url} />
+          </div>
+        </li>
+      );
     });
 
     const uploadedPhotos = this.state.photos.map(photo => {
       return (
-        <li className="album-create-selected-photos-list-item">
+        <li className="album-create-selected-photos-list-item" onClick={this.removePhoto(photo)}>
           <img src={photo.image_url} />
         </li>
       );

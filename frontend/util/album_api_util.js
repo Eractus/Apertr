@@ -16,7 +16,9 @@ export const createAlbum = album => (
   $.ajax({
     method: "POST",
     url: "api/albums",
-    data: { album }
+    contentType: false,
+    processData: false,
+    data: album
   })
 );
 
