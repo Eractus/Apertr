@@ -16,7 +16,7 @@ class PhotoIndexUser extends React.Component {
         return (
           <PhotoIndexItemUser
           key={photo.id}
-          photo={photo}/>
+          photo={photo} />
         );
       }
     });

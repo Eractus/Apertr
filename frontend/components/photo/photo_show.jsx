@@ -18,7 +18,6 @@ class PhotoShow extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    console.log(nextProps);
     if (this.props.match.params.photoId != nextProps.match.params.photoId) {
       this.props.fetchPhoto(nextProps.match.params.photoId);
     } else {
@@ -65,7 +64,6 @@ class PhotoShow extends React.Component {
   }
 
   photoLoggedIn() {
-    console.log(this.state);
     if (!this.props.photo) {
       return (
         <div>Loading...</div>
@@ -102,7 +100,8 @@ class PhotoShow extends React.Component {
           <Footer />
         </div>
       );
-    } else { return (
+    } else {
+      return (
         <div className="photo-show-background">
           <div className="photo-show">
             <img src={this.props.photo.image_url} />

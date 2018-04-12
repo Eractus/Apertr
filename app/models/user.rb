@@ -10,8 +10,9 @@ class User < ApplicationRecord
   before_validation :ensure_session_token
 
   has_many :photos
-  has_many :albums
-  has_many :comments
+  has_many :albums,
+    foreign_key: :owner_id,
+    class_name: :Album
 
   attr_reader :password
 

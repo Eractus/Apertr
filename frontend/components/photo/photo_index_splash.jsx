@@ -18,7 +18,6 @@ class PhotoIndexSplash extends React.Component {
           photo={photo}/>
       );
     });
-    console.log(this.props.photos)
 
     return (
       <div className="photo-index-container">

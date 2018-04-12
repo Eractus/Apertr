@@ -28,8 +28,12 @@ class AlbumCreate extends React.Component {
 
   addPhoto(photo) {
     return (e) => {
+      let dupPhotos = this.state.photos.slice();
+      if (!dupPhotos.includes(photo)) {
+        dupPhotos.push(photo);
+      }
       this.setState({
-        photos: [...this.state.photos, photo]
+        photos: dupPhotos
       });
     };
   }
