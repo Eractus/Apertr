@@ -3,8 +3,8 @@ import { Link } from "react-router-dom";
 
 const PhotoIndexItemSplash = props => {
   return (
-    <li className="photo-index-item-container">
-      <div>
+    <li className="photo-index-item-container-splash">
+      <div className="photo-author">
         {props.photo.userFname} {props.photo.userLname}
       </div>
       <div className="photo-image">

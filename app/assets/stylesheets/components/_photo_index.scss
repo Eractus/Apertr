@@ -1,5 +1,5 @@
 .photo-index-container {
-  padding: 5px 10%;
+  padding: 8% 7%;
 }
 
 .photo-index-list {
@@ -7,24 +7,44 @@
   flex-wrap: wrap;
 }
 
-.photo-index-item-container {
+.photo-index-item-container-splash {
   display: flex;
   flex-direction: column;
   border-radius: 3px;
   padding: 10px 2px;
   position: relative;
-  height: 250px;
+  min-height: 350px;
   margin-top: 5px;
-  margin-right: 5px;
+  margin-left: 100px;
+  margin-bottom: 45px;
   background-color: #fff;
+}
+
+.photo-index-item-container {
+  display: flex;
+  flex-direction: column;
+  margin-left: 5px;
+  margin-bottom: 5px;
+}
+
+.photo-index-item-container-splash:hover {
+  box-shadow: 5px 10px 8px #B8B8B8;
+}
+
+.photo-index-item-container:hover {
+  box-shadow: 5px 10px 8px #B8B8B8;
+}
+
+.photo-author {
+  margin-bottom: 5px;
 }
 
 .photo-title {
   position: absolute;
-  bottom: 0;
+  left: 5px;
+  bottom: 15px;
 }
 
 .photo-image {
-  max-width: 300px;
-  max-height: 169.75px;
+  max-width: 400px;
 }

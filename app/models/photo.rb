@@ -6,4 +6,13 @@ class Photo < ApplicationRecord
   validates_attachment_content_type :image, content_type: /\Aimage\/.*\Z/
 
   belongs_to :user
+
+  has_many :photo_albums,
+    class_name: :AlbumPhoto,
+    foreign_key: :photo_id,
+    primary_key: :id
+
+  has_many :albums,
+    through: :photo_albums,
+    source: :album
 end

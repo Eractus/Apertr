@@ -9,7 +9,6 @@ const PhotoIndexItemUser = props => {
           <img src={props.photo.image_url} />
         </Link>
       </div>
-      <p className="photo-title">{props.photo.title}</p>
     </li>
   );
 };

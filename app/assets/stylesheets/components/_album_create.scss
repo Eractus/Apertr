@@ -1,5 +1,10 @@
 .album-create-container {
   padding: 5% 10%;
+  background-color: #f3f5f6;
+}
+
+.album-created-selected-photos-container {
+  min-height: 50vh;
 }
 
 .album-create-user-photos-list {
@@ -7,26 +12,42 @@
 }
 
 .album-create-list-image {
-  max-width: 300px;
-  max-height: 169.75px;
+  max-width: 100px;
+  max-height: 56.25px;
   margin-right: 5px;
 }
 
 .album-create-selected-photos-list {
   display: flex;
+  flex-wrap: wrap;
   margin-bottom: 5%;
 }
 
 .album-create-selected-photos-list-item {
-  max-width: 300px;
-  max-height: 169.75px;
+  max-width: 200px;
+  max-height: 112.5px;
   margin-right: 5px;
+  margin-bottom: 25px;
 }
 
-.album-create-input-title {
-  
+.album-create-input {
+  border: 1px solid #B8B8B8;
+  border-radius: 2px;
+  padding: 2px 4px;
+  margin-right: 10px;
+  margin-bottom: 20px;
+  background-color: #fff;
 }
 
-.album-create-input-description {
+.album-create-button {
+  font-size: 16px;
+  font-weight: 400;
+  color: #fff;
+  background-color: #128fdc;
+  border-radius: 3px;
+  padding: 5px 30px;
+}
 
+.album-create-button:hover {
+  background-color: #1c9be9;
 }
