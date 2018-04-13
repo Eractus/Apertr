@@ -27,7 +27,8 @@ export const updateAlbum = album => dispatch => (
 );
 
 export const deleteAlbum = albumId => dispatch => (
-  AlbumApiUtil.deleteAlbum(albumId).then(album => dispatch(albumId))
+  AlbumApiUtil.deleteAlbum(albumId).then(
+    album => dispatch(removeAlbum(albumId)))
 );
 
 export const receiveAlbums = albums => ({

@@ -21,7 +21,8 @@ class AlbumIndex extends React.Component {
       return (
         <AlbumIndexItem
         key={album.id}
-        album={album} />
+        album={album}
+        deleteAlbum={this.props.deleteAlbum} />
       );
     });
 

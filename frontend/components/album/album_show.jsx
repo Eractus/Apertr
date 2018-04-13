@@ -60,22 +60,43 @@ class AlbumShow extends React.Component {
       );
     }
 
-    if (this.props.currentUser.id === this.props.album.owner_id) {
+    const albumPhotos = Object.values(this.state.photos).map(photo => {
       return (
-        <div>Hello world</div>
+        <li className="album-list-photo">
+          <Link to={`/photos/${photo.id}`}>
+            <img src={photo.image_url} />
+          </Link>
+        </li>
       );
-    } else {
-      return (
-        <div>
-          <div>
-            <img src={this.props.album.photos.first.image_url} />
-          </div>
-          <ul>
+    });
 
+    return (
+      <div className="album-show-container">
+        <Link to="/albums">{`<`}- Back to albums list</Link>
+        <div className="album-show-image">
+          <img src={Object.values(this.state.photos)[0].image_url} />
+          <form className="album-show-update-form" onSubmit={this.handleSubmit}>
+            <input
+              className="album-show-update-title"
+              type="text"
+              value={this.state.title}
+              onChange={this.update('title')} />
+            <input
+              className="album-show-update-description"
+              type="textarea"
+              value={this.state.description}
+              onChange={this.update('description')} />
+            <input className="album-show-update-button" type="submit" value="Done" />
+          </form>
+          <h3>by {this.props.album.ownerFname} {this.props.album.ownerLname}</h3>
+        </div>
+        <div>
+          <ul className="album-list-container">
+            {albumPhotos}
           </ul>
         </div>
-      );
-    }
+      </div>
+    );
   }
 }
 

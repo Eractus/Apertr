@@ -1,0 +1,32 @@
+.album-index-image-container {
+  padding: 8% 7%;
+}
+
+.album-index-image {
+  position: relative;
+  max-width: 400px;
+  max-height: 225px;
+}
+
+.album-index-title {
+  position: absolute;
+  left: 15px;
+  bottom: 15px;
+  color: #fff;
+}
+
+.album-index-list {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.album-index-delete {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  color: #fff;
+}
+
+.album-index-delete:hover {
+  color: red;
+}

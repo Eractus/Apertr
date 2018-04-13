@@ -51,8 +51,8 @@ class AlbumCreate extends React.Component {
     const formData = new FormData();
     formData.append("album[title]", this.state.title);
     formData.append("album[description]", this.state.description);
-    formData.append("photo_ids", JSON.stringify(this.props.photoIds));
-    this.props.createAlbum(formData, this.props.photoIds);
+    formData.append("photo_ids", JSON.stringify(this.state.photos.map(photo => photo.id)));
+    this.props.createAlbum(formData, this.props.photoIds).then(data => this.props.history.push(`/albums/${data.album.id}`));
   }
 
   renderErrors() {
