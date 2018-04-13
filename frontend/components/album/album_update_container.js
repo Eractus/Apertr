@@ -9,22 +9,22 @@ import AlbumUpdate from './album_update';
 import { selectAllCurrentUserPhotos } from '../../reducers/selectors';
 
 const mapStateToProps = (state, ownProps) => {
+  const album = state.albums[ownProps.match.params.albumId];
   return {
     errors: state.errors.album,
     userId: state.session.currentUser.id,
-    albumPhotos: Object.values(
-      state.albums[ownProps.match.params.albumId].photos),
+    album: album,
     userPhotos: selectAllCurrentUserPhotos(state),
     photoIds: state.session.currentUser.photo_ids,
-    album: state.albums[ownProps.match.params.albumId]
+    albumPhotos: album ? Object.values(album.photos) : [],
   };
 };
 
 const mapDispatchToProps = dispatch => ({
-  fetchAlbum: album => dispatch(fetchAlbum(album)),
+  fetchAlbum: id => dispatch(fetchAlbum(id)),
   updateAlbum: album => dispatch(updateAlbum(album)),
   clearErrors: () => dispatch(receiveErrors([])),
-  fetchPhotos: photos => dispatch(fetchPhotos())
+  fetchPhotos: () => dispatch(fetchPhotos())
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(AlbumUpdate);

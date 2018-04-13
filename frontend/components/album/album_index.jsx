@@ -25,14 +25,21 @@ class AlbumIndex extends React.Component {
         deleteAlbum={this.props.deleteAlbum} />
       );
     });
-
-    return (
-      <div className="album-index-container">
-        <ul className="album-index-list">
-          {albums}
-        </ul>
-      </div>
-    );
+    if (albums.length === 0) {
+      return (
+        <div className="no-albums">
+          <p>You have no albums yet! Click Create to make one!!!</p>
+        </div>
+      );
+    } else {
+      return (
+        <div className="album-index-container">
+          <ul className="album-index-list">
+            {albums}
+          </ul>
+        </div>
+      );
+    }
   }
 }
 

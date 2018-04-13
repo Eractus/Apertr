@@ -1,55 +1,53 @@
-.album-create-container {
+.album-update-container {
   padding: 5% 10%;
   background-color: #f3f5f6;
 }
 
-.album-created-selected-photos-container {
+.album-updated-selected-photos-container {
   min-height: 50vh;
 }
 
-.album-create-user-photos-list {
+.album-update-user-photos-list {
   display: flex;
   flex-wrap: wrap;
 }
 
-.album-create-list-image {
+.album-update-list-image {
   max-width: 100px;
   max-height: 56.25px;
   margin-right: 5px;
   margin-bottom: 15px;
 }
 
-.album-create-selected-photos-list {
+.album-update-selected-photos-list {
   display: flex;
   flex-wrap: wrap;
   margin-bottom: 5%;
 }
 
-.album-create-selected-photos-list-item {
+.album-update-selected-photos-list-item {
   max-width: 200px;
   max-height: 112.5px;
   margin-right: 5px;
   margin-bottom: 25px;
 }
 
-.album-create-input {
-  border: 1px solid #B8B8B8;
-  border-radius: 2px;
-  padding: 2px 4px;
-  margin-right: 10px;
-  margin-bottom: 20px;
-  background-color: #fff;
+.album-update-form {
+  position: relative;
 }
 
-.album-create-button {
+.album-update-button {
   font-size: 16px;
   font-weight: 400;
   color: #fff;
   background-color: #128fdc;
   border-radius: 3px;
   padding: 5px 30px;
+  position: absolute;
+  right: 2%;
+  bottom: 10px;
 }
 
-.album-create-button:hover {
+.album-update-button:hover {
   background-color: #1c9be9;
 }

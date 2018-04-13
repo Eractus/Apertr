@@ -72,7 +72,7 @@ class AlbumShow extends React.Component {
 
     return (
       <div className="album-show-container">
-        <Link to="/albums">{`<`}- Back to albums list</Link>
+        <Link className="back-to-albums" to="/albums">{`<`}- Back to albums list</Link>
         <div className="album-show-image">
           <img src={Object.values(this.state.photos)[0].image_url} />
           <form className="album-show-update-form" onSubmit={this.handleSubmit}>
@@ -89,7 +89,7 @@ class AlbumShow extends React.Component {
             <input className="album-show-update-button" type="submit" value="Done" />
           </form>
           <h3>by {this.props.album.ownerFname} {this.props.album.ownerLname}</h3>
-          <Link to={`/albums/${this.props.album.id}/edit`}>edit</Link>
+          <Link className="album-show-edit" to={`/albums/${this.props.album.id}/edit`}>edit</Link>
         </div>
         <div>
           <ul className="album-list-container">

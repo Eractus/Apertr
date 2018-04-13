@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import Footer from '../footer/footer';
 
 class PhotoCreate extends React.Component {

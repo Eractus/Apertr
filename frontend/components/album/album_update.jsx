@@ -1,4 +1,5 @@
 import React from 'react';
+import merge from 'lodash/merge';
 
 class AlbumUpdate extends React.Component {
   constructor(props) {
@@ -11,7 +12,17 @@ class AlbumUpdate extends React.Component {
   }
 
   componentDidMount() {
+    console.log(this.props.album);
     this.props.fetchPhotos().then(() => this.setState({ firstLoad: false }));
+    this.props.fetchAlbum(this.props.match.params.albumId)
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if (this.props.album !== nextProps.album) {
+      this.setState({
+        photos: Object.values(nextProps.album.photos)
+      });
+    }
   }
 
   componentWillUnmount() {
@@ -65,8 +76,8 @@ class AlbumUpdate extends React.Component {
 
     const photos = this.props.userPhotos.map((photo, i) => {
       return (
-        <li key={`${i}`} className="" onClick={this.addPhoto(photo)}>
-          <div className="">
+        <li key={`${i}`} className="album-update-user-photos-list-item" onClick={this.addPhoto(photo)}>
+          <div className="album-update-list-image">
             <img src={photo.image_url} />
           </div>
         </li>
@@ -75,24 +86,24 @@ class AlbumUpdate extends React.Component {
 
     const uploadedPhotos = this.state.photos.map(photo => {
       return (
-        <li className="" onClick={this.removePhoto(photo)}>
+        <li className="album-update-selected-photos-list-item" onClick={this.removePhoto(photo)}>
           <img src={photo.image_url} />
         </li>
       );
     });
 
     return (
-      <div className="">
-        <div className="">
-          <ul className="">
+      <div className="album-update-container">
+        <div className="album-updated-selected-photos-container">
+          <ul className="album-update-selected-photos-list">
             {uploadedPhotos}
           </ul>
         </div>
-        <form onSubmit={this.handleSubmit} className="">
-          <input className="album-create-button" type="submit" value="Save" />
+        <form onSubmit={this.handleSubmit} className="album-update-form">
+          <input className="album-update-button" type="submit" value="Save" />
         </form>
         <div>
-          <ul className="album-create-user-photos-list">
+          <ul className="album-update-user-photos-list">
             { photos }
           </ul>
         </div>
