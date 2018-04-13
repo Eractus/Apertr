@@ -61,23 +61,25 @@ input[type="submit"] {
 /* line 10, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_album_create.scss */
 .album-create-user-photos-list {
   display: flex;
+  flex-wrap: wrap;
 }
 
-/* line 14, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_album_create.scss */
+/* line 15, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_album_create.scss */
 .album-create-list-image {
   max-width: 100px;
   max-height: 56.25px;
   margin-right: 5px;
+  margin-bottom: 15px;
 }
 
-/* line 20, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_album_create.scss */
+/* line 22, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_album_create.scss */
 .album-create-selected-photos-list {
   display: flex;
   flex-wrap: wrap;
   margin-bottom: 5%;
 }
 
-/* line 26, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_album_create.scss */
+/* line 28, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_album_create.scss */
 .album-create-selected-photos-list-item {
   max-width: 200px;
   max-height: 112.5px;
@@ -85,7 +87,7 @@ input[type="submit"] {
   margin-bottom: 25px;
 }
 
-/* line 33, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_album_create.scss */
+/* line 35, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_album_create.scss */
 .album-create-input {
   border: 1px solid #B8B8B8;
   border-radius: 2px;
@@ -95,7 +97,7 @@ input[type="submit"] {
   background-color: #fff;
 }
 
-/* line 42, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_album_create.scss */
+/* line 44, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_album_create.scss */
 .album-create-button {
   font-size: 16px;
   font-weight: 400;
@@ -105,8 +107,70 @@ input[type="submit"] {
   padding: 5px 30px;
 }
 
-/* line 51, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_album_create.scss */
+/* line 53, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_album_create.scss */
 .album-create-button:hover {
+  background-color: #1c9be9;
+}
+/* line 1, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_album_edit.scss */
+.album-update-container {
+  padding: 5% 10%;
+  background-color: #f3f5f6;
+}
+
+/* line 6, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_album_edit.scss */
+.album-updated-selected-photos-container {
+  min-height: 50vh;
+}
+
+/* line 10, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_album_edit.scss */
+.album-update-user-photos-list {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+/* line 15, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_album_edit.scss */
+.album-update-list-image {
+  max-width: 100px;
+  max-height: 56.25px;
+  margin-right: 5px;
+  margin-bottom: 15px;
+}
+
+/* line 22, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_album_edit.scss */
+.album-update-selected-photos-list {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 5%;
+}
+
+/* line 28, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_album_edit.scss */
+.album-update-selected-photos-list-item {
+  max-width: 200px;
+  max-height: 112.5px;
+  margin-right: 5px;
+  margin-bottom: 25px;
+}
+
+/* line 35, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_album_edit.scss */
+.album-update-form {
+  position: relative;
+}
+
+/* line 39, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_album_edit.scss */
+.album-update-button {
+  font-size: 16px;
+  font-weight: 400;
+  color: #fff;
+  background-color: #128fdc;
+  border-radius: 3px;
+  padding: 5px 30px;
+  position: absolute;
+  right: 2%;
+  bottom: 10px;
+}
+
+/* line 51, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_album_edit.scss */
+.album-update-button:hover {
   background-color: #1c9be9;
 }
 /* line 1, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_album_index.scss */
@@ -147,15 +211,119 @@ input[type="submit"] {
 .album-index-delete:hover {
   color: red;
 }
+
+/* line 34, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_album_index.scss */
+.no-albums {
+  background-color: #f3f5f6;
+  font-size: 50px;
+  font-weight: 600;
+  padding: 275px 20px;
+}
 /* line 1, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_album_show.scss */
 .album-show-container {
   margin: 8% 7%;
+  position: relative;
 }
 
-/* line 5, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_album_show.scss */
+/* line 6, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_album_show.scss */
+.back-to-albums {
+  position: absolute;
+  top: -60px;
+  left: 0;
+  font-weight: 500;
+}
+
+/* line 13, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_album_show.scss */
+.album-show-image {
+  max-width: 750px;
+  max-height: 421.8px;
+  align-content: center;
+  margin: auto;
+  position: relative;
+}
+
+/* line 21, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_album_show.scss */
 .album-show-update-form {
   display: flex;
   flex-direction: column;
+  z-index: 100;
+  position: absolute;
+  left: calc(50% - 150px);
+  top: 50%;
+}
+
+/* line 30, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_album_show.scss */
+.album-show-update-title {
+  border: 1px solid #B8B8B8;
+  border-radius: 3px;
+  background-color: rgba(0, 0, 0, 0.25);
+  color: #fff;
+  padding: 5px;
+  margin-bottom: 10px;
+  text-align: center;
+  min-width: 300px;
+}
+
+/* line 41, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_album_show.scss */
+.album-show-update-description {
+  border: 1px solid #B8B8B8;
+  border-radius: 3px;
+  background-color: rgba(0, 0, 0, 0.25);
+  color: #fff;
+  padding: 5px;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+/* line 51, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_album_show.scss */
+.album-show-update-button {
+  font-size: 16px;
+  font-weight: 400;
+  color: #fff;
+  background-color: rgba(0, 0, 118, 0.25);
+  border: 1px solid #B8B8B8;
+  border-radius: 3px;
+  padding: 5px 30px;
+  max-width: 50px;
+  margin: auto;
+}
+
+/* line 63, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_album_show.scss */
+.album-list-container {
+  margin-top: 100px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+/* line 69, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_album_show.scss */
+.album-list-photo {
+  max-width: 300px;
+  max-height: 168.75;
+  margin-right: 10px;
+  margin-bottom: 10px;
+}
+
+/* line 76, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_album_show.scss */
+.album-show-image > h3 {
+  position: absolute;
+  bottom: -65px;
+  left: calc(50% - 75px);
+  color: #fff;
+  background-color: rgba(0, 0, 0, 0.25);
+}
+
+/* line 84, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_album_show.scss */
+.album-show-edit {
+  position: absolute;
+  bottom: -65px;
+  right: 10px;
+  color: #fff;
+}
+
+/* line 91, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_album_show.scss */
+.album-show-edit:hover {
+  color: #B8B8B8;
+  background-color: rgba(0, 0, 0, 0.25);
 }
 /* line 1, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_footer.scss */
 .footer {
@@ -431,15 +599,16 @@ input[type="submit"] {
 /* line 1, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_photo_index.scss */
 .photo-index-container {
   padding: 8% 7%;
+  background-color: #f3f5f6;
 }
 
-/* line 5, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_photo_index.scss */
+/* line 6, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_photo_index.scss */
 .photo-index-list {
   display: flex;
   flex-wrap: wrap;
 }
 
-/* line 10, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_photo_index.scss */
+/* line 11, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_photo_index.scss */
 .photo-index-item-container-splash {
   display: flex;
   flex-direction: column;
@@ -453,7 +622,7 @@ input[type="submit"] {
   background-color: #fff;
 }
 
-/* line 23, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_photo_index.scss */
+/* line 24, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_photo_index.scss */
 .photo-index-item-container {
   display: flex;
   flex-direction: column;
@@ -461,29 +630,29 @@ input[type="submit"] {
   margin-bottom: 5px;
 }
 
-/* line 30, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_photo_index.scss */
+/* line 31, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_photo_index.scss */
 .photo-index-item-container-splash:hover {
   box-shadow: 5px 10px 8px #B8B8B8;
 }
 
-/* line 34, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_photo_index.scss */
+/* line 35, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_photo_index.scss */
 .photo-index-item-container:hover {
   box-shadow: 5px 10px 8px #B8B8B8;
 }
 
-/* line 38, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_photo_index.scss */
+/* line 39, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_photo_index.scss */
 .photo-author {
   margin-bottom: 5px;
 }
 
-/* line 42, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_photo_index.scss */
+/* line 43, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_photo_index.scss */
 .photo-title {
   position: absolute;
   left: 5px;
   bottom: 15px;
 }
 
-/* line 48, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_photo_index.scss */
+/* line 49, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_photo_index.scss */
 .photo-image {
   max-width: 400px;
 }

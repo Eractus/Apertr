@@ -702,6 +702,10 @@ Released under the MIT license
 
 
 }).call(this);
+(function() {
+
+
+}).call(this);
 /******/
  (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
@@ -24332,13 +24336,18 @@ var _albums_reducer = __webpack_require__(241);
 
 var _albums_reducer2 = _interopRequireDefault(_albums_reducer);
 
+var _comments_reducer = __webpack_require__(273);
+
+var _comments_reducer2 = _interopRequireDefault(_comments_reducer);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var rootReducer = (0, _redux.combineReducers)({
   errors: _errors_reducer2.default,
   session: _session_reducer2.default,
   photos: _photos_reducer2.default,
-  albums: _albums_reducer2.default
+  albums: _albums_reducer2.default,
+  comments: _comments_reducer2.default
 });
 
 exports.default = rootReducer;
@@ -24368,12 +24377,17 @@ var _album_errors_reducer = __webpack_require__(238);
 
 var _album_errors_reducer2 = _interopRequireDefault(_album_errors_reducer);
 
+var _comment_errors_reducer = __webpack_require__(265);
+
+var _comment_errors_reducer2 = _interopRequireDefault(_comment_errors_reducer);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var errorsReducer = (0, _redux.combineReducers)({
   session: _session_errors_reducer2.default,
   photo: _photo_errors_reducer2.default,
-  album: _album_errors_reducer2.default
+  album: _album_errors_reducer2.default,
+  comment: _comment_errors_reducer2.default
 });
 
 exports.default = errorsReducer;
@@ -32081,6 +32095,14 @@ var _react2 = _interopRequireDefault(_react);
 
 var _reactRouterDom = __webpack_require__(4);
 
+var _comment_index_container = __webpack_require__(268);
+
+var _comment_index_container2 = _interopRequireDefault(_comment_index_container);
+
+var _comment_create_container = __webpack_require__(271);
+
+var _comment_create_container2 = _interopRequireDefault(_comment_create_container);
+
 var _footer = __webpack_require__(229);
 
 var _footer2 = _interopRequireDefault(_footer);
@@ -32238,6 +32260,8 @@ var PhotoShow = function (_React$Component) {
               _react2.default.createElement('input', { className: 'update-button', type: 'submit', value: 'Done' })
             )
           ),
+          _react2.default.createElement(_comment_index_container2.default, { photo: this.props.photo }),
+          _react2.default.createElement(_comment_create_container2.default, { photo: this.props.photo }),
           _react2.default.createElement(_footer2.default, null)
         );
       } else {
@@ -32249,6 +32273,8 @@ var PhotoShow = function (_React$Component) {
             { className: 'photo-show' },
             _react2.default.createElement('img', { src: this.props.photo.image_url })
           ),
+          _react2.default.createElement(_comment_index_container2.default, { photo: this.props.photo }),
+          _react2.default.createElement(_comment_create_container2.default, { photo: this.props.photo }),
           _react2.default.createElement(_footer2.default, null)
         );
       }
@@ -32329,8 +32355,6 @@ var _createClass = function () { function defineProperties(target, props) { for 
 var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
-
-var _reactRouterDom = __webpack_require__(4);
 
 var _footer = __webpack_require__(229);
 
@@ -33691,7 +33715,7 @@ var AlbumShow = function (_React$Component) {
         { className: 'album-show-container' },
         _react2.default.createElement(
           _reactRouterDom.Link,
-          { to: '/albums' },
+          { className: 'back-to-albums', to: '/albums' },
           '<',
           '- Back to albums list'
         ),
@@ -33724,7 +33748,7 @@ var AlbumShow = function (_React$Component) {
           ),
           _react2.default.createElement(
             _reactRouterDom.Link,
-            { to: '/albums/' + this.props.album.id + '/edit' },
+            { className: 'album-show-edit', to: '/albums/' + this.props.album.id + '/edit' },
             'edit'
           )
         ),
@@ -33851,16 +33875,27 @@ var AlbumIndex = function (_React$Component) {
           album: album,
           deleteAlbum: _this2.props.deleteAlbum });
       });
-
-      return _react2.default.createElement(
-        'div',
-        { className: 'album-index-container' },
-        _react2.default.createElement(
-          'ul',
-          { className: 'album-index-list' },
-          albums
-        )
-      );
+      if (albums.length === 0) {
+        return _react2.default.createElement(
+          'div',
+          { className: 'no-albums' },
+          _react2.default.createElement(
+            'p',
+            null,
+            'You have no albums yet! Click Create to make one!!!'
+          )
+        );
+      } else {
+        return _react2.default.createElement(
+          'div',
+          { className: 'album-index-container' },
+          _react2.default.createElement(
+            'ul',
+            { className: 'album-index-list' },
+            albums
+          )
+        );
+      }
     }
   }]);
 
@@ -33952,20 +33987,21 @@ var _selectors = __webpack_require__(251);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var mapStateToProps = function mapStateToProps(state, ownProps) {
+  var album = state.albums[ownProps.match.params.albumId];
   return {
     errors: state.errors.album,
     userId: state.session.currentUser.id,
-    albumPhotos: Object.values(state.albums[ownProps.match.params.albumId].photos),
+    album: album,
     userPhotos: (0, _selectors.selectAllCurrentUserPhotos)(state),
     photoIds: state.session.currentUser.photo_ids,
-    album: state.albums[ownProps.match.params.albumId]
+    albumPhotos: album ? Object.values(album.photos) : []
   };
 };
 
 var mapDispatchToProps = function mapDispatchToProps(dispatch) {
   return {
-    fetchAlbum: function fetchAlbum(album) {
-      return dispatch((0, _album_actions.fetchAlbum)(album));
+    fetchAlbum: function fetchAlbum(id) {
+      return dispatch((0, _album_actions.fetchAlbum)(id));
     },
     updateAlbum: function updateAlbum(album) {
       return dispatch((0, _album_actions.updateAlbum)(album));
@@ -33973,7 +34009,7 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
     clearErrors: function clearErrors() {
       return dispatch((0, _album_actions.receiveErrors)([]));
     },
-    fetchPhotos: function fetchPhotos(photos) {
+    fetchPhotos: function fetchPhotos() {
       return dispatch((0, _photo_actions.fetchPhotos)());
     }
   };
@@ -33997,6 +34033,10 @@ var _createClass = function () { function defineProperties(target, props) { for 
 var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
+
+var _merge = __webpack_require__(51);
+
+var _merge2 = _interopRequireDefault(_merge);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -34023,21 +34063,32 @@ var AlbumUpdate = function (_React$Component) {
   }
 
   _createClass(AlbumUpdate, [{
-    key: "componentDidMount",
+    key: 'componentDidMount',
     value: function componentDidMount() {
       var _this2 = this;
 
+      console.log(this.props.album);
       this.props.fetchPhotos().then(function () {
         return _this2.setState({ firstLoad: false });
       });
+      this.props.fetchAlbum(this.props.match.params.albumId);
     }
   }, {
-    key: "componentWillUnmount",
+    key: 'componentWillReceiveProps',
+    value: function componentWillReceiveProps(nextProps) {
+      if (this.props.album !== nextProps.album) {
+        this.setState({
+          photos: Object.values(nextProps.album.photos)
+        });
+      }
+    }
+  }, {
+    key: 'componentWillUnmount',
     value: function componentWillUnmount() {
       this.props.clearErrors();
     }
   }, {
-    key: "addPhoto",
+    key: 'addPhoto',
     value: function addPhoto(photo) {
       var _this3 = this;
 
@@ -34052,7 +34103,7 @@ var AlbumUpdate = function (_React$Component) {
       };
     }
   }, {
-    key: "removePhoto",
+    key: 'removePhoto',
     value: function removePhoto(photo) {
       var _this4 = this;
 
@@ -34065,7 +34116,7 @@ var AlbumUpdate = function (_React$Component) {
       };
     }
   }, {
-    key: "handleSubmit",
+    key: 'handleSubmit',
     value: function handleSubmit(e) {
       var _this5 = this;
 
@@ -34076,8 +34127,533 @@ var AlbumUpdate = function (_React$Component) {
         return photo.id;
       })));
       this.props.updateAlbum(formData, this.props.photoIds).then(function (data) {
-        return _this5.props.history.push("/albums/" + data.album.id);
+        return _this5.props.history.push('/albums/' + data.album.id);
       });
+    }
+  }, {
+    key: 'renderErrors',
+    value: function renderErrors() {
+      return _react2.default.createElement(
+        'ul',
+        null,
+        this.props.errors.map(function (error, i) {
+          return _react2.default.createElement(
+            'li',
+            { key: 'error-' + i },
+            error
+          );
+        })
+      );
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+      var _this6 = this;
+
+      if (this.state.firstLoad) return _react2.default.createElement(
+        'div',
+        null,
+        'Loading...'
+      );
+
+      var photos = this.props.userPhotos.map(function (photo, i) {
+        return _react2.default.createElement(
+          'li',
+          { key: '' + i, className: 'album-update-user-photos-list-item', onClick: _this6.addPhoto(photo) },
+          _react2.default.createElement(
+            'div',
+            { className: 'album-update-list-image' },
+            _react2.default.createElement('img', { src: photo.image_url })
+          )
+        );
+      });
+
+      var uploadedPhotos = this.state.photos.map(function (photo) {
+        return _react2.default.createElement(
+          'li',
+          { className: 'album-update-selected-photos-list-item', onClick: _this6.removePhoto(photo) },
+          _react2.default.createElement('img', { src: photo.image_url })
+        );
+      });
+
+      return _react2.default.createElement(
+        'div',
+        { className: 'album-update-container' },
+        _react2.default.createElement(
+          'div',
+          { className: 'album-updated-selected-photos-container' },
+          _react2.default.createElement(
+            'ul',
+            { className: 'album-update-selected-photos-list' },
+            uploadedPhotos
+          )
+        ),
+        _react2.default.createElement(
+          'form',
+          { onSubmit: this.handleSubmit, className: 'album-update-form' },
+          _react2.default.createElement('input', { className: 'album-update-button', type: 'submit', value: 'Save' })
+        ),
+        _react2.default.createElement(
+          'div',
+          null,
+          _react2.default.createElement(
+            'ul',
+            { className: 'album-update-user-photos-list' },
+            photos
+          )
+        )
+      );
+    }
+  }]);
+
+  return AlbumUpdate;
+}(_react2.default.Component);
+
+exports.default = AlbumUpdate;
+
+/***/ }),
+/* 265 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _comment_actions = __webpack_require__(266);
+
+var commentErrorsReducer = function commentErrorsReducer() {
+  var currentState = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
+  var action = arguments[1];
+
+  Object.freeze(currentState);
+  switch (action.type) {
+    case _comment_actions.RECEIVE_COMMENT_ERRORS:
+      return action.errors;
+    case _comment_actions.RECEIVE_COMMENT:
+      return [];
+    default:
+      return currentState;
+  }
+};
+
+exports.default = commentErrorsReducer;
+
+/***/ }),
+/* 266 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.receiveErrors = exports.removeComment = exports.receiveComment = exports.receiveAllComments = exports.deleteComment = exports.createComment = exports.fetchComment = exports.fetchAllComments = exports.RECEIVE_COMMENT_ERRORS = exports.REMOVE_COMMENT = exports.RECEIVE_COMMENT = exports.RECEIVE_ALL_COMMENTS = undefined;
+
+var _comment_api_util = __webpack_require__(267);
+
+var CommentApiUtil = _interopRequireWildcard(_comment_api_util);
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
+
+var RECEIVE_ALL_COMMENTS = exports.RECEIVE_ALL_COMMENTS = "RECEIVE_ALL_COMMENTS";
+var RECEIVE_COMMENT = exports.RECEIVE_COMMENT = "RECEIVE_COMMENT";
+var REMOVE_COMMENT = exports.REMOVE_COMMENT = "REMOVE_COMMENT";
+var RECEIVE_COMMENT_ERRORS = exports.RECEIVE_COMMENT_ERRORS = "RECEIVE_COMMENT_ERRORS";
+
+var fetchAllComments = exports.fetchAllComments = function fetchAllComments(photoId) {
+  return function (dispatch) {
+    return CommentApiUtil.fetchComments(photoId).then(function (comments) {
+      return dispatch(receiveAllComments(comments));
+    });
+  };
+};
+
+var fetchComment = exports.fetchComment = function fetchComment(comment) {
+  return function (dispatch) {
+    return CommentApiUtil.fetchComment(comment).then(function (ajaxComment) {
+      return dispatch(receiveComment(ajaxComment));
+    }, function (error) {
+      return dispatch(receiveErrors(error.responseJSON));
+    });
+  };
+};
+
+var createComment = exports.createComment = function createComment(comment) {
+  return function (dispatch) {
+    return CommentApiUtil.createComment(comment).then(function (ajaxComment) {
+      return dispatch(receiveComment(ajaxComment));
+    }, function (error) {
+      return dispatch(receiveErrors(error.responseJSON));
+    });
+  };
+};
+
+var deleteComment = exports.deleteComment = function deleteComment(commentId) {
+  return function (dispatch) {
+    return CommentApiUtil.deleteComment(commentId).then(function (comment) {
+      return dispatch(deleteComment(commentId));
+    });
+  };
+};
+
+var receiveAllComments = exports.receiveAllComments = function receiveAllComments(comments) {
+  return {
+    type: RECEIVE_ALL_COMMENTS,
+    comments: comments
+  };
+};
+
+var receiveComment = exports.receiveComment = function receiveComment(comment) {
+  return {
+    type: RECEIVE_COMMENT,
+    comment: comment
+  };
+};
+
+var removeComment = exports.removeComment = function removeComment(commentId) {
+  return {
+    type: REMOVE_COMMENT,
+    commentId: commentId
+  };
+};
+
+var receiveErrors = exports.receiveErrors = function receiveErrors(errors) {
+  return {
+    type: RECEIVE_COMMENT_ERRORS,
+    errors: errors
+  };
+};
+
+/***/ }),
+/* 267 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+var fetchComments = exports.fetchComments = function fetchComments(photoId) {
+  return $.ajax({
+    method: "GET",
+    url: "/api/photos/" + photoId + "/comments"
+  });
+};
+
+var fetchComment = exports.fetchComment = function fetchComment(id) {
+  return $.ajax({
+    method: "GET",
+    url: "api/comment/" + id
+  });
+};
+
+var createComment = exports.createComment = function createComment(comment) {
+  return $.ajax({
+    method: "POST",
+    url: "api/photos/" + comment.photo_id + "/comments",
+    data: { comment: comment }
+  });
+};
+
+var deleteComment = exports.deleteComment = function deleteComment(id) {
+  return $.ajax({
+    method: "DELETE",
+    url: "api/comment/" + id
+  });
+};
+
+/***/ }),
+/* 268 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _reactRedux = __webpack_require__(6);
+
+var _comment_actions = __webpack_require__(266);
+
+var _comment_index = __webpack_require__(269);
+
+var _comment_index2 = _interopRequireDefault(_comment_index);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var mapStateToProps = function mapStateToProps(state, ownProps) {
+  return {
+    photoId: ownProps.photo.id,
+    comments: Object.values(state.comments)
+  };
+};
+
+var mapDispatchToProps = function mapDispatchToProps(dispatch) {
+  return {
+    fetchAllComments: function fetchAllComments(photoId) {
+      return dispatch((0, _comment_actions.fetchAllComments)(photoId));
+    },
+    deleteComment: function deleteComment(commentId) {
+      return dispatch((0, _comment_actions.deleteComment)(commentId));
+    }
+  };
+};
+
+exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(_comment_index2.default);
+
+/***/ }),
+/* 269 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(0);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _comment_index_item = __webpack_require__(270);
+
+var _comment_index_item2 = _interopRequireDefault(_comment_index_item);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var CommentIndex = function (_React$Component) {
+  _inherits(CommentIndex, _React$Component);
+
+  function CommentIndex(props) {
+    _classCallCheck(this, CommentIndex);
+
+    var _this = _possibleConstructorReturn(this, (CommentIndex.__proto__ || Object.getPrototypeOf(CommentIndex)).call(this, props));
+
+    _this.state = {
+      comments: _this.props.comments
+    };
+    return _this;
+  }
+
+  _createClass(CommentIndex, [{
+    key: 'componentDidMount',
+    value: function componentDidMount() {
+      this.props.fetchAllComments(this.props.photoId);
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+      var _this2 = this;
+
+      if (this.props.comments.length === 0) {
+        return _react2.default.createElement(
+          'div',
+          null,
+          'Loading...'
+        );
+      }
+
+      var comments = this.props.comments.map(function (comment) {
+        return _react2.default.createElement(_comment_index_item2.default, {
+          key: comment.id,
+          comment: comment,
+          deleteComment: _this2.props.deleteComment });
+      });
+
+      return _react2.default.createElement(
+        'div',
+        { className: 'comment-index-container' },
+        _react2.default.createElement(
+          'ul',
+          { className: 'comment-index-list' },
+          comments
+        )
+      );
+    }
+  }]);
+
+  return CommentIndex;
+}(_react2.default.Component);
+
+exports.default = CommentIndex;
+
+/***/ }),
+/* 270 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _react = __webpack_require__(0);
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var CommentIndexItem = function CommentIndexItem(props) {
+  return _react2.default.createElement(
+    "li",
+    null,
+    _react2.default.createElement(
+      "div",
+      { className: "comment-index-descriptopn-container" },
+      _react2.default.createElement(
+        "div",
+        { className: "comment-index-description" },
+        _react2.default.createElement(
+          "div",
+          { className: "comment-index-username" },
+          props.comment.userFname,
+          " ",
+          props.comment.userLname
+        ),
+        _react2.default.createElement(
+          "p",
+          null,
+          props.comment.description
+        ),
+        _react2.default.createElement(
+          "div",
+          { className: "comment-index-delete" },
+          _react2.default.createElement(
+            "a",
+            { onClick: function onClick() {
+                return props.deleteComment(props.comment.id);
+              } },
+            "del"
+          )
+        )
+      )
+    )
+  );
+};
+
+exports.default = CommentIndexItem;
+
+/***/ }),
+/* 271 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _reactRedux = __webpack_require__(6);
+
+var _comment_actions = __webpack_require__(266);
+
+var _comment_create = __webpack_require__(272);
+
+var _comment_create2 = _interopRequireDefault(_comment_create);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var mapStateToProps = function mapStateToProps(state) {
+  return {
+    errors: state.errors.comment,
+    userId: state.session.currentUser.id
+  };
+};
+
+var mapDispatchToProps = function mapDispatchToProps(dispatch) {
+  return {
+    createComment: function createComment(comment) {
+      return dispatch((0, _comment_actions.createComment)(comment));
+    },
+    clearErrors: function clearErrors() {
+      return dispatch((0, _comment_actions.receiveErrors)([]));
+    }
+  };
+};
+
+exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(_comment_create2.default);
+
+/***/ }),
+/* 272 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(0);
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var CommentCreate = function (_React$Component) {
+  _inherits(CommentCreate, _React$Component);
+
+  function CommentCreate(props) {
+    _classCallCheck(this, CommentCreate);
+
+    var _this = _possibleConstructorReturn(this, (CommentCreate.__proto__ || Object.getPrototypeOf(CommentCreate)).call(this, props));
+
+    _this.state = {
+      user_id: _this.props.userId,
+      photo_id: _this.props.photo.id,
+      description: ""
+    };
+    _this.handleSubmit = _this.handleSubmit.bind(_this);
+    return _this;
+  }
+
+  _createClass(CommentCreate, [{
+    key: "componentWillUnmount",
+    value: function componentWillUnmount() {
+      this.props.clearErrors();
+    }
+  }, {
+    key: "update",
+    value: function update(field) {
+      var _this2 = this;
+
+      return function (e) {
+        _this2.setState(_defineProperty({}, field, e.target.value));
+      };
+    }
+  }, {
+    key: "handleSubmit",
+    value: function handleSubmit(e) {
+      e.preventDefault();
+      this.props.createComment(this.state);
     }
   }, {
     key: "renderErrors",
@@ -34097,68 +34673,73 @@ var AlbumUpdate = function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      var _this6 = this;
-
-      if (this.state.firstLoad) return _react2.default.createElement(
-        "div",
-        null,
-        "Loading..."
-      );
-
-      var photos = this.props.userPhotos.map(function (photo, i) {
-        return _react2.default.createElement(
-          "li",
-          { key: "" + i, className: "", onClick: _this6.addPhoto(photo) },
-          _react2.default.createElement(
-            "div",
-            { className: "" },
-            _react2.default.createElement("img", { src: photo.image_url })
-          )
-        );
-      });
-
-      var uploadedPhotos = this.state.photos.map(function (photo) {
-        return _react2.default.createElement(
-          "li",
-          { className: "", onClick: _this6.removePhoto(photo) },
-          _react2.default.createElement("img", { src: photo.image_url })
-        );
-      });
-
       return _react2.default.createElement(
         "div",
-        { className: "" },
+        { className: "comment-create-background" },
         _react2.default.createElement(
           "div",
-          { className: "" },
+          { className: "comment-create-container" },
           _react2.default.createElement(
-            "ul",
-            { className: "" },
-            uploadedPhotos
-          )
-        ),
-        _react2.default.createElement(
-          "form",
-          { onSubmit: this.handleSubmit, className: "" },
-          _react2.default.createElement("input", { className: "album-create-button", type: "submit", value: "Save" })
-        ),
-        _react2.default.createElement(
-          "div",
-          null,
-          _react2.default.createElement(
-            "ul",
-            { className: "album-create-user-photos-list" },
-            photos
+            "form",
+            { onSubmit: this.handleSubmit },
+            _react2.default.createElement("input", {
+              className: "comment-create-description",
+              type: "text",
+              value: this.state.descriptopn,
+              placeholder: "Add a comment",
+              onChange: this.update('description') }),
+            _react2.default.createElement("input", { className: "comment_create-button", type: "submit", value: "Comment" })
           )
         )
       );
     }
   }]);
 
-  return AlbumUpdate;
+  return CommentCreate;
 }(_react2.default.Component);
 
-exports.default = AlbumUpdate;
+exports.default = CommentCreate;
+
+/***/ }),
+/* 273 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _album_actions = __webpack_require__(239);
+
+var _merge = __webpack_require__(51);
+
+var _merge2 = _interopRequireDefault(_merge);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var commentsReducer = function commentsReducer() {
+  var currentState = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+  var action = arguments[1];
+
+  Object.freeze(currentState);
+  var newState = (0, _merge2.default)({}, currentState);
+  switch (action.type) {
+    case _album_actions.RECEIVE_ALL_COMMENTS:
+      return (0, _merge2.default)({}, action.comments);
+    case _album_actions.RECEIVE_COMMENT:
+      newState[action.comment.id] = action.comment;
+      return newState;
+    case _album_actions.REMOVE_COMMENT:
+      delete newState[action.commentId];
+      return newState;
+    default:
+      return currentState;
+  }
+};
+
+exports.default = commentsReducer;
 
 /***/ })
 /******/ ]);
