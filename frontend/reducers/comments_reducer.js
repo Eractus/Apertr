@@ -8,7 +8,6 @@ import merge from "lodash/merge";
 const commentsReducer = (currentState = {}, action) => {
   Object.freeze(currentState);
   const newState = merge({}, currentState);
-  debugger;
   switch (action.type) {
     case RECEIVE_ALL_COMMENTS:
       return merge({}, action.comments);

@@ -13,10 +13,6 @@ class CommentIndex extends React.Component {
     this.props.fetchAllComments(this.props.photoId)
   }
 
-  componentWillReceiveProps(nextProps) {
-    debugger;
-  }
-
   render () {
     if (this.props.comments.length === 0) {
       return (
