@@ -1,24 +1,52 @@
-# README
+# Apertr
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+[Live Demo](https://apertr.herokuapp.com/#/)
 
-Things you may want to cover:
+Created using a combination of Rails/PostgreSQL on the backend and React/Redux on the frontend, Apertr is intended to be a clone of the popular photo hosting site Flickr.
 
-* Ruby version
+The project was built on an approximately 10 day timeline. Future additions/improvements are planned to further build on its existing features.
 
-* System dependencies
+## Features
+<ul>
+  <li>A frontend to backend user authentication secured through BCrypt.</li>
+  <li>Users can upload photos which are stored securely through Amazon Web Services(AWS) S3.</li>
+  <li>Users can create albums with their uploaded photos.</li>
+</ul>
 
-* Configuration
+### Structured Feed and Photo Stream
 
-* Database creation
+After logging in, the splash page shows a list of photos from all users in a polaroid-like structure, including the photo's author and title, while the photo stream has your uploaded images structured in a clean/concise manner. While the images are not structured perfectly horizontally (something to be addressed in the future with CSS Masonry), they are oriented to be aligned vertically, consistently as you scroll down.
 
-* Database initialization
+Logged-in splash:
 
-* How to run the test suite
+![alt text](https://imgur.com/TycScb4.png)
 
-* Services (job queues, cache servers, search engines, etc.)
+Photostream:
 
-* Deployment instructions
+![alt text](https://imgur.com/Sy10afa.png)
 
-* ...
+#### Responsive Adding/Removing Photos during Album Create
+
+While logged in and after uploading photos, you can create an album with said photos. The feature allows you to add and remove photos from your available options instantly with a simple click, which this is achieved through ajax calls on the photos within the component.
+
+```
+    addPhoto(photo) {
+    return (e) => {
+      let dupPhotos = this.state.photos.slice();
+      if (!dupPhotos.includes(photo)) {
+        dupPhotos.push(photo);
+      }
+      this.setState({
+        photos: dupPhotos
+      });
+    };
+  }
+
+  removePhoto(photo) {
+    return (e) => {
+      this.setState({
+        photos: this.state.photos.filter(pho => pho.id !== photo.id)
+      })
+    };
+  }
+```
