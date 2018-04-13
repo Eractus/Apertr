@@ -2,6 +2,7 @@ import * as AlbumApiUtil from "../util/album_api_util";
 
 export const RECEIVE_ALBUMS = 'RECEIVE_ALBUMS';
 export const RECEIVE_ALBUM = "RECEIVE_ALBUM";
+export const RECEIVE_CREATED_ALBUM = "RECEIVE_CREATED_ALBUM";
 export const REMOVE_ALBUM = "REMOVE_ALBUM";
 export const RECEIVE_ALBUM_ERRORS = "RECEIVE_ALBUM_ERRORS";
 
@@ -39,6 +40,11 @@ export const receiveAlbums = albums => ({
 export const receiveAlbum = album => ({
   type: RECEIVE_ALBUM,
   album
+});
+
+export const receiveCreatedAlbum = albumId => ({
+  type: RECEIVE_CREATED_ALBUM,
+  albumId
 });
 
 export const removeAlbum = albumId => ({

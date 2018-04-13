@@ -6,7 +6,7 @@ class Album < ApplicationRecord
     foreign_key: :owner_id,
     class_name: :User
 
-  has_many :album_photos,
+  has_many :album_photos, dependent: :destroy, inverse_of: :tag,
     class_name: :AlbumPhoto,
     foreign_key: :album_id,
     primary_key: :id

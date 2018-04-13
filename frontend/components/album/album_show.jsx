@@ -89,6 +89,7 @@ class AlbumShow extends React.Component {
             <input className="album-show-update-button" type="submit" value="Done" />
           </form>
           <h3>by {this.props.album.ownerFname} {this.props.album.ownerLname}</h3>
+          <Link to={`/albums/${this.props.album.id}/edit`}>edit</Link>
         </div>
         <div>
           <ul className="album-list-container">

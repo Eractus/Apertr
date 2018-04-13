@@ -1,12 +1,10 @@
 import React from 'react';
 
-class AlbumCreate extends React.Component {
+class AlbumUpdate extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      title: '',
-      description: '',
-      photos: [],
+      photos: this.props.albumPhotos,
       firstLoad: true,
     };
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -18,12 +16,6 @@ class AlbumCreate extends React.Component {
 
   componentWillUnmount() {
     this.props.clearErrors()
-  }
-
-  update(field) {
-    return (e) => {
-      this.setState({[field]: e.target.value});
-    };
   }
 
   addPhoto(photo) {
@@ -49,14 +41,10 @@ class AlbumCreate extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     const formData = new FormData();
-    formData.append("album[title]", this.state.title);
-    formData.append("album[description]", this.state.description);
+    formData.append("album[id]", this.props.match.params.albumId);
     formData.append("photo_ids", JSON.stringify(this.state.photos.map(photo => photo.id)));
-    this.props.createAlbum(formData, this.props.photoIds).then(
-      data => {
-        this.props.receiveCreatedAlbum(data.album.id)
-        this.props.history.push(`/albums/${data.album.id}`)
-      }
+    this.props.updateAlbum(formData, this.props.photoIds).then(
+      data => this.props.history.push(`/albums/${data.album.id}`)
     );
   }
 
@@ -75,10 +63,10 @@ class AlbumCreate extends React.Component {
   render () {
     if (this.state.firstLoad) return <div>Loading...</div>;
 
-    const photos = this.props.photos.map((photo, i) => {
+    const photos = this.props.userPhotos.map((photo, i) => {
       return (
-        <li key={`${i}`} className="album-create-user-photos-list-item" onClick={this.addPhoto(photo)}>
-          <div className="album-create-list-image">
+        <li key={`${i}`} className="" onClick={this.addPhoto(photo)}>
+          <div className="">
             <img src={photo.image_url} />
           </div>
         </li>
@@ -87,33 +75,21 @@ class AlbumCreate extends React.Component {
 
     const uploadedPhotos = this.state.photos.map(photo => {
       return (
-        <li className="album-create-selected-photos-list-item" onClick={this.removePhoto(photo)}>
+        <li className="" onClick={this.removePhoto(photo)}>
           <img src={photo.image_url} />
         </li>
       );
     });
 
     return (
-      <div className="album-create-container">
-        <div className="album-created-selected-photos-container">
-          <ul className="album-create-selected-photos-list">
+      <div className="">
+        <div className="">
+          <ul className="">
             {uploadedPhotos}
           </ul>
         </div>
-        <form onSubmit={this.handleSubmit} className="album-create-form">
-          <div>{this.renderErrors()}</div>
-          <input
-            className="album-create-input"
-            type="text"
-            value={this.state.title}
-            placeholder="new album"
-            onChange={this.update('title')} />
-          <input
-            className="album-create-input"
-            type="text"
-            value={this.state.description}
-            onChange={this.update('description')} />
-          <input className="album-create-button" type="submit" value="Create Album" />
+        <form onSubmit={this.handleSubmit} className="">
+          <input className="album-create-button" type="submit" value="Save" />
         </form>
         <div>
           <ul className="album-create-user-photos-list">
@@ -125,4 +101,4 @@ class AlbumCreate extends React.Component {
   }
 }
 
-export default AlbumCreate;
+export default AlbumUpdate;

@@ -7,7 +7,7 @@ class Photo < ApplicationRecord
 
   belongs_to :user
 
-  has_many :photo_albums,
+  has_many :photo_albums, dependent: :destroy, inverse_of: :tag,
     class_name: :AlbumPhoto,
     foreign_key: :photo_id,
     primary_key: :id
