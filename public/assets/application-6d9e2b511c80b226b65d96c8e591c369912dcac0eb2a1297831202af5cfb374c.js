@@ -32260,8 +32260,6 @@ var PhotoShow = function (_React$Component) {
               _react2.default.createElement('input', { className: 'update-button', type: 'submit', value: 'Done' })
             )
           ),
-          _react2.default.createElement(_comment_index_container2.default, { photo: this.props.photo }),
-          _react2.default.createElement(_comment_create_container2.default, { photo: this.props.photo }),
           _react2.default.createElement(_footer2.default, null)
         );
       } else {
@@ -32273,12 +32271,13 @@ var PhotoShow = function (_React$Component) {
             { className: 'photo-show' },
             _react2.default.createElement('img', { src: this.props.photo.image_url })
           ),
-          _react2.default.createElement(_comment_index_container2.default, { photo: this.props.photo }),
-          _react2.default.createElement(_comment_create_container2.default, { photo: this.props.photo }),
           _react2.default.createElement(_footer2.default, null)
         );
       }
     }
+    // <CommentIndexContainer photo={this.props.photo}/>
+    // <CommentCreateContainer photo={this.props.photo}/>
+
   }, {
     key: 'render',
     value: function render() {

@@ -99,8 +99,6 @@ class PhotoShow extends React.Component {
               <input className="update-button" type="submit" value="Done" />
             </form>
           </div>
-          <CommentIndexContainer photo={this.props.photo}/>
-          <CommentCreateContainer photo={this.props.photo}/>
           <Footer />
         </div>
       );
@@ -110,13 +108,13 @@ class PhotoShow extends React.Component {
           <div className="photo-show">
             <img src={this.props.photo.image_url} />
           </div>
-          <CommentIndexContainer photo={this.props.photo}/>
-          <CommentCreateContainer photo={this.props.photo}/>
           <Footer />
         </div>
       );
     }
   }
+  // <CommentIndexContainer photo={this.props.photo}/>
+  // <CommentCreateContainer photo={this.props.photo}/>
 
   render() {
     if (!this.props.photo) {
