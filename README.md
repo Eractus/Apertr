@@ -24,6 +24,7 @@ Logged-in splash:
 Photostream:
 
 ![alt text](https://imgur.com/Sy10afa.png)
+<<<<<<< HEAD
 
 #### Responsive Adding/Removing Photos during Album Create
 
@@ -50,3 +51,32 @@ While logged in and after uploading photos, you can create an album with said ph
     };
   }
 ```
+=======
+
+#### Responsive Adding/Removing Photos during Album Create
+
+While logged in and after uploading photos, you can create an album with said photos. The feature allows you to add and remove photos from your available options instantly with a simple click, which this is achieved through ajax calls on the photos within the component.
+
+``` 
+    addPhoto(photo) {
+    return (e) => {
+      let dupPhotos = this.state.photos.slice();
+      if (!dupPhotos.includes(photo)) {
+        dupPhotos.push(photo);
+      }
+      this.setState({
+        photos: dupPhotos
+      });
+    };
+  }
+
+  removePhoto(photo) {
+    return (e) => {
+      this.setState({
+        photos: this.state.photos.filter(pho => pho.id !== photo.id)
+      })
+    };
+  } 
+```
+
+>>>>>>> f4fa8b5216b2ebfabfdf92b8efbb88a9aa291ad5
