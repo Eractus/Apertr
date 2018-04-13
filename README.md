@@ -10,7 +10,7 @@ The project was built on an approximately 10 day timeline. Future additions/impr
 <ul>
   <li>A frontend to backend user authentication secured through BCrypt.</li>
   <li>Users can upload photos which are stored securely through Amazon Web Services(AWS) S3.</li>
-  <li>Users can create albums with their uploaded photos.<li>
+  <li>Users can create albums with their uploaded photos.</li>
 </ul>
 
 ### Structured Feed and Photo Stream
