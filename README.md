@@ -1,24 +1,19 @@
-# README
+# Apertr
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+[Live Demo](https://apertr.herokuapp.com/#/)
 
-Things you may want to cover:
+Created using a combination of Rails/PostgreSQL on the backend and React/Redux on the frontend, Apertr is intended to be a clone of the popular photo hosting site Flickr.
 
-* Ruby version
+The project was built on an approximately 10 day timeline. Future additions/improvements are planned to further build on its existing features.
 
-* System dependencies
+## Features
+⋅⋅*A frontend to backend user authentication secured through BCrypt.
+⋅⋅*Users can upload photos which are stored securely through Amazon Web Services(AWS) S3.
+⋅⋅*Users can create albums 
 
-* Configuration
+#### Structured Feed and Photo Stream
 
-* Database creation
+After logging in, the splash page shows a list of photos from all users in a polaroid-like structure, including the photo's author and title. While the images are not structured perfectly horizontally (something to be addressed in the future), they are oriented to be aligned vertically, consistently as you scroll down.
 
-* Database initialization
+![alt text](https://imgur.com/TycScb4.png)
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
