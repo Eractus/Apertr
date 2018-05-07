@@ -6,6 +6,7 @@
 .photo-index-list {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
 }
 
 .photo-index-item-container-splash {
@@ -15,10 +16,9 @@
   padding: 10px 2px;
   position: relative;
   min-height: 350px;
-  margin-top: 5px;
-  margin-left: 100px;
-  margin-bottom: 45px;
+  margin: 5px 50px 45px;
   background-color: #fff;
+  box-shadow: 1px 1px 8px #d6d6d6; padding: 10px 0;
 }
 
 .photo-index-item-container {
@@ -29,7 +29,7 @@
 }
 
 .photo-index-item-container-splash:hover {
-  box-shadow: 5px 10px 8px #B8B8B8;
+  box-shadow: 1px 1px 8px #B8B8B8;
 }
 
 .photo-index-item-container:hover {
@@ -37,6 +37,10 @@
 }
 
 .photo-author {
+  margin: 0 10px 5px;
+  letter-spacing: 4px;
+  font-size: 18px;
+  color: #333333;
   margin-bottom: 5px;
 }
 
@@ -44,6 +48,8 @@
   position: absolute;
   left: 5px;
   bottom: 15px;
+  padding: 10px;
+  color: #333
 }
 
 .photo-image {
