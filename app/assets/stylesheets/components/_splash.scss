@@ -1,7 +1,7 @@
 .logged-out-splash-wallpaper {
   background-image: image-url("green-northern-lights-across-the-sky.jpg");
   background-size: cover;
-  height: calc(100vh + 64px);
+  height: calc(100vh - 40px);
 }
 
 .welcome-message {
@@ -56,8 +56,8 @@
   align-items: center;
   position: absolute;
   width: 150px;
-  bottom: 0;
-  left:50%;
+  bottom: 10%;
+  left: 50%;
   margin-left:-75px;
 }
 
