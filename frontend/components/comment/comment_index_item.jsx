@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const CommentIndexItem = props => {
   return (
@@ -12,9 +13,9 @@ const CommentIndexItem = props => {
             {props.comment.description}
           </p>
           <div className="comment-index-delete">
-            <a onClick={() => props.deleteComment(props.comment.id)}>
+            <Link onClick={() => props.deleteComment(props.comment.id)} to={`/photos/${props.photoId}`}>
               del
-              </a>
+              </Link>
           </div>
         </div>
       </div>

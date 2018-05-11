@@ -1,7 +1,7 @@
 export const fetchComments = (photoId) => (
   $.ajax({
     method: "GET",
-    url: `/api/photos/${photoId}/comments`
+    url: `api/photos/${photoId}/comments`
   })
 );
 
@@ -23,6 +23,6 @@ export const createComment = comment => (
 export const deleteComment = id => (
   $.ajax({
     method: "DELETE",
-    url: `api/comment/${id}`
+    url: `api/comments/${id}`
   })
 );

@@ -16,7 +16,7 @@ class CommentIndex extends React.Component {
   render () {
     if (this.props.comments.length === 0) {
       return (
-        <div>Loading...</div>
+        <div>No comments yet...</div>
       )
     }
 
@@ -25,6 +25,7 @@ class CommentIndex extends React.Component {
         <CommentIndexItem
           key={comment.id}
           comment={comment}
+          photoId={this.props.photoId}
           deleteComment={this.props.deleteComment} />
       );
     });
