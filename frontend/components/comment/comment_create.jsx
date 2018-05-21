@@ -49,7 +49,7 @@ class CommentCreate extends React.Component {
               value={this.state.descriptopn}
               placeholder="Add a comment"
               onChange={this.update('description')} />
-            <input className="comment_create-button" type="submit" value="Comment" />
+            <input className="comment-create-button" type="submit" value="Comment" />
           </form>
         </div>
       </div>
