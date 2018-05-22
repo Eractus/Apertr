@@ -23,7 +23,8 @@ class CommentCreate extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    this.props.createComment(this.state)
+    this.props.createComment(this.state);
+    this.setState({description: ""});
   }
 
   renderErrors() {
@@ -43,10 +44,9 @@ class CommentCreate extends React.Component {
       <div className="comment-create-background">
         <div className="comment-create-container">
           <form onSubmit={this.handleSubmit}>
-            <input
+            <textarea
               className="comment-create-description"
-              type="text"
-              value={this.state.descriptopn}
+              value={this.state.description}
               placeholder="Add a comment"
               onChange={this.update('description')} />
             <input className="comment-create-button" type="submit" value="Comment" />
