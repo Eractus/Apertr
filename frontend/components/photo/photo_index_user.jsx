@@ -11,23 +11,30 @@ class PhotoIndexUser extends React.Component {
   }
 
   render () {
-    const photos = this.props.photos.map(photo => {
+    const photos = []
+    this.props.photos.forEach(photo => {
       if (this.props.userId === photo.user_id) {
-        return (
-          <PhotoIndexItemUser
+        photos.push(<PhotoIndexItemUser
           key={photo.id}
-          photo={photo} />
-        );
+          photo={photo} />)
       }
     });
-
-    return (
-      <div className="photo-index-container">
-        <ul className="photo-index-list">
-          {photos}
-        </ul>
-      </div>
-    );
+    console.log(photos);
+    if (photos.length === 0) {
+      return (
+        <div className="no-albums">
+          <p>You have no photos yet! Upload one to start sharing!!!</p>
+        </div>
+      );
+    } else {
+      return (
+        <div className="photo-index-container">
+          <ul className="photo-index-list">
+            {photos}
+          </ul>
+        </div>
+      );
+    }
   }
 }
 
