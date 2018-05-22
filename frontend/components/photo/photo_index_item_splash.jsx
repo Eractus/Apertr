@@ -7,7 +7,7 @@ const PhotoIndexItemSplash = props => {
       <div className="photo-author">
         {props.photo.userFname} {props.photo.userLname}
       </div>
-      <div className="photo-image">
+      <div className="photo-image-splash">
         <Link to={`/photos/${props.photo.id}`}>
           <img src={props.photo.image_url} />
         </Link>

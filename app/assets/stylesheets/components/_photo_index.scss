@@ -1,14 +1,3 @@
-.photo-index-container {
-  padding: 8% 7%;
-  background-color: #f3f5f6;
-}
-
-.photo-index-list {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-
 .photo-index-item-container-splash {
   display: flex;
   flex-direction: column;
@@ -23,6 +12,10 @@
 
 .photo-index-item-container-splash:hover {
   box-shadow: 1px 1px 8px #B8B8B8;
+}
+
+.photo-image-splash {
+  max-width: 400px;
 }
 
 .photo-author {
@@ -41,6 +34,17 @@
   color: #333
 }
 
+.photo-index-container {
+  padding: 8% 7%;
+  background-color: #f3f5f6;
+}
+
+.photo-index-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
 .photo-index-item-container {
   display: flex;
   flex-direction: column;
@@ -53,5 +57,5 @@
 }
 
 .photo-image {
-  max-width: 400px;
+  width: 400px;
 }
