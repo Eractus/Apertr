@@ -91,9 +91,8 @@ class PhotoShow extends React.Component {
                 type="text"
                 value={this.state.title}
                 onChange={this.update('title')} />
-              <input
+              <textarea
                 className="update-form-textarea"
-                type="textarea"
                 value={this.state.description}
                 onChange={this.update('description')} />
               <input className="update-button" type="submit" value="Done" />
