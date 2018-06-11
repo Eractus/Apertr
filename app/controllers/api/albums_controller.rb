@@ -18,7 +18,13 @@ class Api::AlbumsController < ApplicationController
 
   def update
     @album = Album.find(params[:id])
-    if @album.update_attributes(album_params)
+    @album.album_photos.destroy_all
+    photo_ids = JSON.parse(params[:photo_ids])
+    if photo_ids && !photo_ids.empty? && @album.save
+      photo_ids.each do |photo_id|
+        AlbumPhoto.create(album_id: @album.id, photo_id: photo_id)
+      end
+      @album.update_attributes(album_params)
       render :show
     else
       render json: @album.errors.full_messages, status: 422
