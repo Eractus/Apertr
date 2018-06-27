@@ -12,7 +12,6 @@ class AlbumUpdate extends React.Component {
   }
 
   componentDidMount() {
-    console.log(this.props.album);
     this.props.fetchPhotos().then(() => this.setState({ firstLoad: false }));
     this.props.fetchAlbum(this.props.match.params.albumId)
   }
