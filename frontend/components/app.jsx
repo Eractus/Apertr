@@ -22,12 +22,12 @@ const App = () => (
     <AuthRoute exact path="/login" component={SessionFormContainer} />
     <Route exact path="/" component={SplashPageContainer} />
     <ProtectedRoute exact path="/photos/new" component={PhotoCreateContainer} />
-    <Route exact path="/photos/:photoId" component={PhotoShowContainer} />
-    <Route exact path="/photos" component={PhotoIndexUserContainer} />
+    <ProtectedRoute exact path="/photos/:photoId" component={PhotoShowContainer} />
+    <ProtectedRoute exact path="/photos" component={PhotoIndexUserContainer} />
     <ProtectedRoute exact path="/albums/new" component={AlbumCreateContainer} />
     <ProtectedRoute exact path="/albums/:albumId/edit" component={AlbumUpdateContainer} />
-    <Route exact path="/albums/:albumId" component={AlbumShowContainer} />
-    <Route exact path="/albums" component={AlbumIndexContainer} />
+    <ProtectedRoute exact path="/albums/:albumId" component={AlbumShowContainer} />
+    <ProtectedRoute exact path="/albums" component={AlbumIndexContainer} />
     <Redirect from="/" to ="/" />
   </Switch>
   </div>
