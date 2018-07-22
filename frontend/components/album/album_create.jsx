@@ -27,7 +27,7 @@ class AlbumCreate extends React.Component {
   }
 
   addPhoto(photo) {
-    return (e) => {
+    return () => {
       let dupPhotos = this.state.photos.slice();
       if (!dupPhotos.includes(photo)) {
         dupPhotos.push(photo);
@@ -39,7 +39,7 @@ class AlbumCreate extends React.Component {
   }
 
   removePhoto(photo) {
-    return (e) => {
+    return () => {
       this.setState({
         photos: this.state.photos.filter(pho => pho.id !== photo.id)
       })
