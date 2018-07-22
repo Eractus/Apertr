@@ -21,11 +21,13 @@ export const createAlbum = album => dispatch => (
     error => dispatch(receiveErrors(error.responseJSON)))
 );
 
-export const updateAlbum = album => dispatch => (
+export const updateAlbum = album => dispatch => {
+  return (
   AlbumApiUtil.updateAlbum(album).then(
     ajaxAlbum => dispatch(receiveAlbum(ajaxAlbum)),
     error => dispatch(receiveErrors(error.responseJSON)))
-);
+  );
+};
 
 export const deleteAlbum = albumId => dispatch => (
   AlbumApiUtil.deleteAlbum(albumId).then(

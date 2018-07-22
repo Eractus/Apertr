@@ -24,7 +24,7 @@ class Api::AlbumsController < ApplicationController
       photo_ids.each do |photo_id|
         AlbumPhoto.create(album_id: @album.id, photo_id: photo_id)
       end
-      @album.update_attributes(album_params)
+      @album.update_attributes(album_params) if params[:album]
       render :show
     else
       render json: @album.errors.full_messages, status: 422

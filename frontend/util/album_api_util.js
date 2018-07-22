@@ -12,23 +12,23 @@ export const fetchAlbum = id => (
   })
 );
 
-export const createAlbum = album => (
+export const createAlbum = formData => (
   $.ajax({
     method: "POST",
     url: "api/albums",
     contentType: false,
     processData: false,
-    data: album
+    data: formData
   })
 );
 
-export const updateAlbum = album => (
+export const updateAlbum = formData => (
   $.ajax({
     method: "PATCH",
-    url: `api/albums/${album.id}`,
+    url: `api/albums/${formData.get("id")}`,
     contentType: false,
     processData: false,
-    data: album
+    data: formData
   })
 );
 
