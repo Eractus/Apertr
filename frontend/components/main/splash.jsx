@@ -34,18 +34,7 @@ class SplashPage extends React.Component {
   splashLoggedIn() {
     return (
       <div>
-        <div className="navbar2-container">
-          <div className="navbar2">
-            <ul className="navbar2-links">
-              <li><button>All Activity</button></li>
-              <li><button>People</button></li>
-              <li><button>Groups</button></li>
-            </ul>
-          </div>
-        </div>
-        <div>
-          <PhotoIndexSplashContainer />
-        </div>
+        <PhotoIndexSplashContainer />
       </div>
     );
   }

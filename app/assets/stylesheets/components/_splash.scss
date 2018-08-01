@@ -61,27 +61,6 @@
   margin-left:-75px;
 }
 
-.navbar2-container {
-  height: 47px;
-  padding: 0 10%;
-  border-bottom: 1px solid #e3e5e8;
-  background: #fff;
-}
-
-.navbar2-links {
-  display: flex;
-}
-
-.navbar2-links > li {
-  margin-right: 18px;
-  padding: 14px 28px;
-  cursor: pointer;
-}
-
-.navbar2-links > li:hover {
-  border-bottom: 3px solid #188fff;
-}
-
 .logged-in-background {
   background-color: #f3f5f6;
   min-height: calc(100vh - 50px);
