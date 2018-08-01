@@ -66,7 +66,7 @@ Finally, Heroku was used to host production for similar reasons as Rails in term
 ## Possible future features
 
 <ul>
-  <li>Comments.</li>
+  <li>Comments</li>
   <li>Photo Taggings</li>
   <li>Functional Search Bar</li>
 </ul>
