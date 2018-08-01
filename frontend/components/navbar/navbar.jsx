@@ -4,6 +4,17 @@ import { Link } from 'react-router-dom';
 class Navbar extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      showProfilePopup: false
+    };
+  }
+
+  handleOpenProfilePopup() {
+    this.setState({ showProfilePopup: true})
+  }
+
+  handleCloseProfilePopup() {
+    this.setState({ showProfilePopup: false})
   }
 
   sessionLoggedOut() {
@@ -67,10 +78,10 @@ class Navbar extends React.Component {
               <img src="https://s3-us-west-1.amazonaws.com/apertr-dev/photos/images/static+images/upload_logo.png" />
             </Link>
             <div className="profile-popup">
-              <span>
+              <span onClick={this.handleOpenProfilePopup}>
                 <img src={this.props.currentUser.image_url} />
-                {profilePopUp}
               </span>
+              {profilePopUp}
             </div>
           </div>
         </nav>

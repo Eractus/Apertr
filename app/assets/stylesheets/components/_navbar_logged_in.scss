@@ -50,8 +50,11 @@
 .profile-popup {
   height: 50px;
   width: 50px;
-  cursor: pointer;
   position: relative;
+}
+
+.profile-popup img {
+  cursor: pointer;
 }
 
 .header-popup {
