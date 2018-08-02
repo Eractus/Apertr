@@ -3,10 +3,9 @@
   height: 50px;
   display: flex;
   padding: 0 10%;
-  // position: fixed;
-  // left: 0;
-  // top: 0;
-  // width: 100%;
+  position: fixed;
+  width: 100%;
+  z-index: 10;
 }
 
 .logo-link-logged-in {
@@ -93,12 +92,11 @@
 }
 
 .navbar-logged-in-left {
-  flex-grow: 1;
+  flex-grow: 0.6;
   display: flex;
   margin-top: 5px;
 }
 
 .navbar-logged-in-right {
   display: flex;
-  margin-right: 18px;
 }

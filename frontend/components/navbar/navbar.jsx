@@ -7,6 +7,8 @@ class Navbar extends React.Component {
     this.state = {
       showProfilePopup: false
     };
+    this.handleOpenProfilePopup = this.handleOpenProfilePopup.bind(this);
+    this.handleCloseProfilePopup = this.handleCloseProfilePopup.bind(this);
   }
 
   handleOpenProfilePopup() {
