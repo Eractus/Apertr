@@ -69,7 +69,10 @@ class PhotoCreate extends React.Component {
         src={this.state.imageUrl}
         onClick={this.removeImage}
         className="photo-preview"
-      /> : <p>Select a photo to preview before uploading!</p>
+      /> :
+      <div>
+        <p className="photo-create-no-photo">Select a photo to preview before uploading!</p>
+      </div>
 
     return (
       <div className="photo-create-background">
