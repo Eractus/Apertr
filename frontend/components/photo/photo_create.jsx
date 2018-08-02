@@ -11,6 +11,7 @@ class PhotoCreate extends React.Component {
     };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.updateFile = this.updateFile.bind(this);
+    this.removeImage = this.removeImage.bind(this);
   }
 
   componentWillUnmount() {
@@ -35,6 +36,9 @@ class PhotoCreate extends React.Component {
     }
   }
 
+  removeImage() {
+    this.setState({ imageUrl: null });
+  }
 
   handleSubmit(e) {
     e.preventDefault();
@@ -60,12 +64,19 @@ class PhotoCreate extends React.Component {
   }
 
   render() {
+    const uploadedImage = (this.state.imageUrl !== null) ?
+      <img
+        src={this.state.imageUrl}
+        onClick={this.removeImage}
+        className="photo-preview"
+      /> : <p>Select a photo to preview before uploading!</p>
+
     return (
       <div className="photo-create-background">
         <div className="photo-create-container">
           <div className="photo-create-image">
             <input className="photo-upload" type="file" onChange={this.updateFile} />
-            <img className="photo-preview" src={this.state.imageUrl} />
+            {uploadedImage}
           </div>
           <form onSubmit={this.handleSubmit} className="photo-create-form">
             <div>{this.renderErrors()}</div>
