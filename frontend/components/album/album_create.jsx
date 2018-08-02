@@ -85,13 +85,16 @@ class AlbumCreate extends React.Component {
       );
     });
 
-    const uploadedPhotos = this.state.photos.map(photo => {
-      return (
-        <li className="album-create-selected-photos-list-item" onClick={this.removePhoto(photo)}>
-          <img src={photo.image_url} />
-        </li>
-      );
-    });
+    const uploadedPhotos = (this.state.photos.length === 0) ?
+        <li className="album-create-no-photos">
+          <p>You haven't selected any photos yet! Select from your uploaded photos below to create your album!!!</p>
+        </li> : this.state.photos.map(photo => {
+        return (
+          <li className="album-create-selected-photos-list-item" onClick={this.removePhoto(photo)}>
+            <img src={photo.image_url} />
+          </li>
+        );
+      });
 
     return (
       <div className="album-create-background">
