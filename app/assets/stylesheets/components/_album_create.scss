@@ -1,6 +1,12 @@
-.album-create-container {
-  padding: 5% 10%;
+.album-create-background {
   background-color: #f3f5f6;
+  flex: 1 0 auto;
+}
+
+.album-create-container {
+  padding: 0% 10%;
+  margin-top: calc(4% + 50px);
+  margin-bottom: 4%;
 }
 
 .album-created-selected-photos-container {

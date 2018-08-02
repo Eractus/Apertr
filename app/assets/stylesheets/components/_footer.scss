@@ -1,4 +1,14 @@
+html, body, main {
+  height: 100%;
+}
+main > div {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
 .footer {
+  flex-shrink: 0;
   font-size: 14px;
   color: hsla(0,0%,100%,.8);
   background-color: #000;

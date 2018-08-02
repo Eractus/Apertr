@@ -1,10 +1,12 @@
 .photo-create-background {
   background-color: #f3f5f6;
-  height: calc(100vh - 50px);
+  flex: 1 0 auto;
 }
 
 .photo-create-container {
-  padding: 2% 10%;
+  padding: 0 10%;
+  margin-top: calc(4% + 50px);
+  margin-bottom: 4%;
 }
 
 .photo-create-image {
@@ -23,6 +25,7 @@
 }
 
 .photo-create-title {
+  width: 300px;
   font-size: 16px;
   font-weight: 500;
   border: 1px solid #B8B8B8;
@@ -33,6 +36,7 @@
 }
 
 .photo-create-description {
+  width: 300px;
   font-size: 14px;
   border: 1px solid #B8B8B8;
   border-radius: 3px;

@@ -21,7 +21,7 @@ class PhotoIndexSplash extends React.Component {
 
     return (
       <div className="photo-index-container">
-        <ul className="photo-index-list">
+        <ul className="photo-index-list-splash">
           {photos}
         </ul>
       </div>

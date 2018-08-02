@@ -1,13 +1,12 @@
 .signup-form-container {
   display: flex;
   justify-content: center;
-  margin-bottom: 125px;
+  margin-top: calc(6% + 50px);
+  margin-bottom: 6%;
 }
 
 .signup-form-box {
   box-shadow: 1px 1px 5px 1px rgba(0, 0, 0, 0.15);
-  width: 400px;
-  margin-top: (125px+64px);
 }
 
 .signup-form {

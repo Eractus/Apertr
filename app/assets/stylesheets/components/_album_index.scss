@@ -1,5 +1,6 @@
-.album-index-image-container {
-  padding: 18% 7%;
+.album-index-container {
+  padding: 8% 7%;
+  flex: 1 0 auto;
 }
 
 .album-index-image {
@@ -11,7 +12,7 @@
 .album-index-title {
   position: absolute;
   left: 15px;
-  bottom: 15px;
+  bottom: -15px;
   color: #fff;
 }
 
@@ -33,7 +34,7 @@
 
 .no-albums {
   background-color: #f3f5f6;
-  height: calc(100vh - 50px);
+  height: 100vh;
 }
 
 .no-albums > p {

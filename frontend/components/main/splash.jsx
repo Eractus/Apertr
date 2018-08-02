@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import Footer from '../footer/footer';
 import PhotoIndexSplashContainer from '../photo/photo_index_splash_container';
 
 class SplashPage extends React.Component {
@@ -46,7 +45,6 @@ class SplashPage extends React.Component {
           <div className="logged-in-background">
             {this.splashLoggedIn()}
           </div>
-          <Footer />
         </div>
       );
     } else {
@@ -55,7 +53,6 @@ class SplashPage extends React.Component {
           <div className="logged-out-splash-wallpaper">
           {this.props.currentUser ? this.splashLoggedIn() : this.splashLoggedOut()}
           </div>
-          <Footer />
         </div>
       );
     }

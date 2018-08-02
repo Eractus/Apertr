@@ -37,12 +37,18 @@
 .photo-index-container {
   padding: 8% 7%;
   background-color: #f3f5f6;
+  flex: 1 0 auto;
 }
 
-.photo-index-list {
+.photo-index-list-splash {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+}
+
+.photo-index-list-user {
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .photo-index-item-container {

@@ -19,7 +19,6 @@ class PhotoIndexUser extends React.Component {
           photo={photo} />)
       }
     });
-    console.log(photos);
     if (photos.length === 0) {
       return (
         <div className="no-albums">
@@ -29,7 +28,7 @@ class PhotoIndexUser extends React.Component {
     } else {
       return (
         <div className="photo-index-container">
-          <ul className="photo-index-list">
+          <ul className="photo-index-list-user">
             {photos}
           </ul>
         </div>

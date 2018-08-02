@@ -2,7 +2,6 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import CommentIndexContainer from '../comment/comment_index_container';
 import CommentCreateContainer from '../comment/comment_create_container';
-import Footer from '../footer/footer';
 
 class PhotoShow extends React.Component {
   constructor(props) {
@@ -60,7 +59,6 @@ class PhotoShow extends React.Component {
         <div className="photo-show">
           <img src={this.props.photo.image_url} />
         </div>
-        <Footer />
       </div>
     );
   }
@@ -100,7 +98,6 @@ class PhotoShow extends React.Component {
           </div>
           <CommentIndexContainer photo={this.props.photo}/>
           <CommentCreateContainer photo={this.props.photo}/>
-          <Footer />
         </div>
       );
     } else {
@@ -117,7 +114,6 @@ class PhotoShow extends React.Component {
           </div>
           <CommentIndexContainer photo={this.props.photo}/>
           <CommentCreateContainer photo={this.props.photo}/>
-          <Footer />
         </div>
       );
     }

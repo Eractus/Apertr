@@ -94,31 +94,33 @@ class AlbumCreate extends React.Component {
     });
 
     return (
-      <div className="album-create-container">
-        <div className="album-created-selected-photos-container">
-          <ul className="album-create-selected-photos-list">
-            {uploadedPhotos}
-          </ul>
-        </div>
-        <form onSubmit={this.handleSubmit} className="album-create-form">
-          <div>{this.renderErrors()}</div>
-          <input
-            className="album-create-input"
-            type="text"
-            value={this.state.title}
-            placeholder="new album"
-            onChange={this.update('title')} />
-          <input
-            className="album-create-input"
-            type="text"
-            value={this.state.description}
-            onChange={this.update('description')} />
-          <input className="album-create-button" type="submit" value="Create Album" />
-        </form>
-        <div>
-          <ul className="album-create-user-photos-list">
-            { photos }
-          </ul>
+      <div className="album-create-background">
+        <div className="album-create-container">
+          <div className="album-created-selected-photos-container">
+            <ul className="album-create-selected-photos-list">
+              {uploadedPhotos}
+            </ul>
+          </div>
+          <form onSubmit={this.handleSubmit} className="album-create-form">
+            <div>{this.renderErrors()}</div>
+            <input
+              className="album-create-input"
+              type="text"
+              value={this.state.title}
+              placeholder="new album"
+              onChange={this.update('title')} />
+            <input
+              className="album-create-input"
+              type="text"
+              value={this.state.description}
+              onChange={this.update('description')} />
+            <input className="album-create-button" type="submit" value="Create Album" />
+          </form>
+          <div>
+            <ul className="album-create-user-photos-list">
+              { photos }
+            </ul>
+          </div>
         </div>
       </div>
     );

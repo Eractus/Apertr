@@ -1,5 +1,4 @@
 import React from 'react';
-import Footer from '../footer/footer';
 
 class PhotoCreate extends React.Component {
   constructor(props) {
@@ -62,32 +61,29 @@ class PhotoCreate extends React.Component {
 
   render() {
     return (
-      <div>
-        <div className="photo-create-background">
-          <div className="photo-create-container">
-            <div className="photo-create-image">
-              <input className="photo-upload" type="file" onChange={this.updateFile} />
-              <img className="photo-preview" src={this.state.imageUrl} />
-            </div>
-            <form onSubmit={this.handleSubmit} className="photo-create-form">
-              <div>{this.renderErrors()}</div>
-              <input
-                className="photo-create-title"
-                type="text"
-                value={this.state.title}
-                placeholder="Enter a title"
-                onChange={this.update('title')} />
-              <input
-                className="photo-create-description"
-                type="text"
-                value={this.state.description}
-                placeholder="Enter a description"
-                onChange={this.update('description')} />
-              <input className="photo-create-button" type="submit" value="Upload Photo" />
-            </form>
+      <div className="photo-create-background">
+        <div className="photo-create-container">
+          <div className="photo-create-image">
+            <input className="photo-upload" type="file" onChange={this.updateFile} />
+            <img className="photo-preview" src={this.state.imageUrl} />
           </div>
+          <form onSubmit={this.handleSubmit} className="photo-create-form">
+            <div>{this.renderErrors()}</div>
+            <input
+              className="photo-create-title"
+              type="text"
+              value={this.state.title}
+              placeholder="Enter a title"
+              onChange={this.update('title')} />
+            <textarea
+              className="photo-create-description"
+              type="text"
+              value={this.state.description}
+              placeholder="Enter a description"
+              onChange={this.update('description')} />
+            <input className="photo-create-button" type="submit" value="Upload Photo" />
+          </form>
         </div>
-        <Footer />
       </div>
     );
   }
