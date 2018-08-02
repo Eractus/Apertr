@@ -110,12 +110,13 @@ class AlbumCreate extends React.Component {
               className="album-create-input"
               type="text"
               value={this.state.title}
-              placeholder="new album"
+              placeholder="Name"
               onChange={this.update('title')} />
             <input
               className="album-create-input"
               type="text"
               value={this.state.description}
+              placeholder="Description"
               onChange={this.update('description')} />
             <input className="album-create-button" type="submit" value="Create Album" />
           </form>
