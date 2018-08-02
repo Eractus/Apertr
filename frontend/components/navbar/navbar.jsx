@@ -9,6 +9,7 @@ class Navbar extends React.Component {
     };
     this.handleOpenProfilePopup = this.handleOpenProfilePopup.bind(this);
     this.handleCloseProfilePopup = this.handleCloseProfilePopup.bind(this);
+    this.handleLogOut = this.handleLogOut.bind(this);
   }
 
   handleOpenProfilePopup() {
@@ -17,6 +18,11 @@ class Navbar extends React.Component {
 
   handleCloseProfilePopup() {
     this.setState({ showProfilePopup: false})
+  }
+
+  handleLogOut() {
+    this.handleCloseProfilePopup();
+    this.props.logout();
   }
 
   sessionLoggedOut() {
@@ -46,11 +52,11 @@ class Navbar extends React.Component {
     const profilePopUp = (this.state.showProfilePopup) ?
     <div>
       <div onClick={this.handleCloseProfilePopup} className="popup-overlay"></div>
-      <hgroup onClick={this.handleOpenProfilePopup} className="header-popup">
+      <hgroup className="header-popup">
         <h2 className="header-greet-name">Yo, {this.props.currentUser.email}!</h2>
         <br/>
         <p className="header-greet-text">Now you know how to greet people in English</p>
-        <Link className="header-signout-link" to="/" onClick={this.props.logout}>Sign Out</Link>
+        <Link className="header-signout-link" to="/" onClick={this.handleLogOut}>Sign Out</Link>
       </hgroup>
     </div> : "";
 
