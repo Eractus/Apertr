@@ -37,7 +37,7 @@ class PhotoCreate extends React.Component {
   }
 
   removeImage() {
-    this.setState({ imageUrl: null });
+    this.setState({ imageFile: null, imageUrl: null });
   }
 
   handleSubmit(e) {
