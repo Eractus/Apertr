@@ -56,6 +56,15 @@
   cursor: pointer;
 }
 
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 5;
+}
+
 .header-popup {
   background-color: #fff;
   position: absolute;
