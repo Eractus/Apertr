@@ -43,13 +43,13 @@ class Navbar extends React.Component {
   }
 
   sessionLoggedIn() {
-    const profilePopUp =
+    const profilePopUp = (this.state.showProfilePopup) ?
       <hgroup className="header-popup">
         <h2 className="header-greet-name">Yo, {this.props.currentUser.email}!</h2>
         <br/>
         <p className="header-greet-text">Now you know how to greet people in English</p>
         <Link className="header-signout-link" to="/" onClick={this.props.logout}>Sign Out</Link>
-      </hgroup>
+      </hgroup> : "";
 
 
     return (
@@ -82,8 +82,8 @@ class Navbar extends React.Component {
             <div className="profile-popup">
               <span onClick={this.handleOpenProfilePopup}>
                 <img src={this.props.currentUser.image_url} />
+                {profilePopUp}
               </span>
-              {profilePopUp}
             </div>
           </div>
         </nav>
