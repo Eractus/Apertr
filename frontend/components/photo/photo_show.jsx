@@ -7,7 +7,10 @@ class PhotoShow extends React.Component {
   constructor(props) {
     super(props);
     this.state = this.props.photo;
+    this.state = { toggledEditableFields: false };
     this.handleSubmitUpdate = this.handleSubmitUpdate.bind(this);
+    this.openEditableFields = this.openEditableFields.bind(this);
+    this.closeEditableFields = this.closeEditableFields.bind(this);
   }
 
   componentDidMount() {
@@ -30,6 +33,14 @@ class PhotoShow extends React.Component {
     }
   }
 
+  openEditableFields() {
+    this.setState({ toggledEditableFields: true })
+  }
+
+  closeEditableFields() {
+    this.setState({ toggledEditableFields: false })
+  }
+
   update(field) {
     return (e) => {
       this.setState({[field]: e.target.value});
@@ -38,7 +49,8 @@ class PhotoShow extends React.Component {
 
   handleSubmitUpdate(e) {
     e.preventDefault();
-    this.props.updatePhoto(this.state)
+    this.props.updatePhoto(this.state);
+    this.closeEditableFields();
   }
 
   renderErrors() {
@@ -69,6 +81,25 @@ class PhotoShow extends React.Component {
         <div>Loading...</div>
       )
     }
+
+    const editableFields = (this.state.toggledEditableFields) ?
+      <form className="update-form" onSubmit={this.handleSubmitUpdate}>
+        <input
+          className="update-form-text"
+          type="text"
+          value={this.state.title}
+          onChange={this.update('title')} />
+        <textarea
+          className="update-form-textarea"
+          value={this.state.description}
+          onChange={this.update('description')} />
+        <input className="update-button" type="submit" value="Done" />
+      </form> :
+      <div onClick={this.openEditableFields} className="photo-show-editable-fields">
+        <p className="photo-show-title">{this.state.title}</p>
+        <p className="photo-show-description">{this.state.description}</p>
+      </div>
+
     if (this.props.currentUser.id === this.props.photo.user_id) {
       return (
         <div className="photo-show-background">
@@ -83,18 +114,7 @@ class PhotoShow extends React.Component {
           <div className="photo-show-container">
             <div>{this.renderErrors()}</div>
             <h3>{this.props.photo.userFname} {this.props.photo.userLname}</h3>
-            <form className="update-form" onSubmit={this.handleSubmitUpdate}>
-              <input
-                className="update-form-text"
-                type="text"
-                value={this.state.title}
-                onChange={this.update('title')} />
-              <textarea
-                className="update-form-textarea"
-                value={this.state.description}
-                onChange={this.update('description')} />
-              <input className="update-button" type="submit" value="Done" />
-            </form>
+            {editableFields}
           </div>
           <CommentIndexContainer photo={this.props.photo}/>
           <CommentCreateContainer photo={this.props.photo}/>
