@@ -12,7 +12,6 @@ class Footer extends React.Component {
         <ul className="footer-items">
           <li><a href="https://github.com/Eractus">GitHub</a></li>
           <li><a href="https://www.linkedin.com/in/danny-peng-29515651/">LinkedIn</a></li>
-          <li><a href="https://www.facebook.com/danny.w.peng">Facebook</a></li>
         </ul>
       </footer>
     );
