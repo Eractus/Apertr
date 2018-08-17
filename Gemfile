@@ -30,8 +30,11 @@ gem 'bcrypt', '~> 3.1.7'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
+# Paperclip gem allows for image uploading using React and AWS S3
 gem "paperclip", '~> 5.0.0'
+# Figaro gem securely store api keys
 gem 'figaro'
+# Newest version of aws-sdk gem currently not supported by paperclip
 gem 'aws-sdk', '< 3.0'
 
 group :development, :test do
