@@ -10,14 +10,17 @@ class User < ApplicationRecord
   before_validation :ensure_session_token
 
   has_many :photos,
+    dependent: :destroy,
     foreign_key: :user_id,
     class_name: :Photo
 
   has_many :albums,
+    dependent: :destroy,
     foreign_key: :owner_id,
     class_name: :Album
 
   has_many :comments,
+    dependent: :destroy,
     foreign_key: :user_id,
     class_name: :Comment
 
