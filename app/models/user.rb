@@ -9,10 +9,17 @@ class User < ApplicationRecord
 
   before_validation :ensure_session_token
 
-  has_many :photos
+  has_many :photos,
+    foreign_key: :user_id,
+    class_name: :Photo
+
   has_many :albums,
     foreign_key: :owner_id,
     class_name: :Album
+
+  has_many :comments,
+    foreign_key: :user_id,
+    class_name: :Comment
 
   attr_reader :password
 
@@ -28,7 +35,7 @@ class User < ApplicationRecord
   end
 
   def ensure_session_token
-    self.session_token = SecureRandom.urlsafe_base64
+    self.session_token ||= SecureRandom.urlsafe_base64
   end
 
   def password=(password)
