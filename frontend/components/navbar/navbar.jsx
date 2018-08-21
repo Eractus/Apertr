@@ -49,11 +49,13 @@ class Navbar extends React.Component {
   }
 
   sessionLoggedIn() {
+    let email = this.props.currentUser.email;
+    let name = email.substring(0, email.lastIndexOf("@"));
     const profilePopUp = (this.state.showProfilePopup) ?
     <div>
       <div onClick={this.handleCloseProfilePopup} className="popup-overlay"></div>
       <hgroup className="header-popup">
-        <h2 className="header-greet-name">Yo, {this.props.currentUser.email}!</h2>
+        <h2 className="header-greet-name">Yo, {name}!</h2>
         <br/>
         <p className="header-greet-text">Now you know how to greet people in English</p>
         <Link className="header-signout-link" to="/" onClick={this.handleLogOut}>Sign Out</Link>

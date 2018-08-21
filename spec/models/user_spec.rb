@@ -11,6 +11,20 @@ RSpec.describe User, type: :model do
     })
   end
 
+  describe 'validations' do
+    it { should validate_presence_of(:first_name) }
+    it { should validate_presence_of(:last_name) }
+    it { should validate_presence_of(:email) }
+    it { should validate_presence_of(:password_digest) }
+    it { should validate_length_of(:password).is_at_least(8) }
+  end
+
+  describe 'associations' do
+    it { should have_many(:photos) }
+    it { should have_many(:albums) }
+    it { should have_many(:comments) }
+  end
+
   describe 'password encryption' do
     it 'does not save passwords to the database' do
       User.create!({
@@ -55,20 +69,6 @@ RSpec.describe User, type: :model do
         expect(user.reset_session_token!).to eq(user.session_token)
       end
     end
-  end
-
-  describe 'validations' do
-    it { should validate_presence_of(:first_name) }
-    it { should validate_presence_of(:last_name) }
-    it { should validate_presence_of(:email) }
-    it { should validate_presence_of(:password_digest) }
-    it { should validate_length_of(:password).is_at_least(8) }
-  end
-
-  describe 'associations' do
-    it { should have_many(:photos) }
-    it { should have_many(:albums) }
-    it { should have_many(:comments) }
   end
 
 end
