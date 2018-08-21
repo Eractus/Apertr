@@ -1,19 +1,37 @@
 .album-index-container {
-  padding: 8% 7%;
+  padding: 5% 4%;
   flex: 1 0 auto;
+}
+
+.album-index-header {
+  display: flex;
+  justify-content: center;
+}
+
+.album-index-header > h1 {
+  font-size: 50px;
+  font-weight: 500;
+}
+
+.album-index-image-container {
+  margin: 14% 7%;
 }
 
 .album-index-image {
   position: relative;
   max-width: 400px;
-  max-height: 225px;
-  margin-right: 25px;
+  border: 2px solid #898989;
+  border-radius: 3px;
+}
+
+.album-index-image:hover {
+  box-shadow: 1px 1px 8px #B8B8B8;
 }
 
 .album-index-title {
   position: absolute;
-  left: 15px;
-  bottom: -15px;
+  left: 5%;
+  bottom: 4%;
   color: #fff;
 }
 
@@ -33,17 +51,33 @@
   color: red;
 }
 
+.album-index-new-album {
+  font-size: 50px;
+  font-weight: 400;
+  color: #B8B8B8;
+}
+
+.album-index-new-album:hover {
+  color: #898989;
+}
+
 .no-albums {
   background-color: #f3f5f6;
   height: 100vh;
 }
 
-.no-albums > p {
+.no-albums-message {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   text-align: center;
   position: absolute;
-  top: calc(50% - 25px);
-  left: calc(50% - 400px);
-  max-width: 800px;
+  top: calc(50% - 50px);
+  left: calc(50% - 500px);
+  max-width: 1000px;
+}
+
+.no-albums-message > p {
   font-size: 50px;
   font-weight: 600;
 }

@@ -1,3 +1,10 @@
+.photo-index-container-splash {
+  margin-top: 50px;
+  padding: 5% 7%;
+  background-color: #f3f5f6;
+  flex: 1 0 auto;
+}
+
 .photo-index-item-container-splash {
   display: flex;
   flex-direction: column;
@@ -35,9 +42,16 @@
 }
 
 .photo-index-container {
-  padding: 8% 7%;
+  padding: 5% 7%;
   background-color: #f3f5f6;
   flex: 1 0 auto;
+}
+
+.photo-index-container > h1 {
+  display: flex;
+  justify-content: center;
+  font-size: 50px;
+  font-weight: 500;
 }
 
 .photo-index-list-splash {
@@ -47,6 +61,7 @@
 }
 
 .photo-index-list-user {
+  padding: 2% 0;
   display: flex;
   flex-wrap: wrap;
 }

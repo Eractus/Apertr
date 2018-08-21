@@ -28,6 +28,7 @@ class PhotoIndexUser extends React.Component {
     } else {
       return (
         <div className="photo-index-container">
+          <h1>Your Photos</h1>
           <ul className="photo-index-list-user">
             {photos}
           </ul>
