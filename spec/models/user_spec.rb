@@ -40,9 +40,9 @@ RSpec.describe User, type: :model do
     it 'encrypts the password using BCrypt' do
       expect(BCrypt::Password).to receive(:create)
       User.new({
-        first_name: 'Polly',
-        last_name: 'Wang',
-        email: 'polly@polly.com',
+        first_name: 'Weijei',
+        last_name: 'Peng',
+        email: 'weijei@weijei.com',
         password: 'password'
         })
       end
