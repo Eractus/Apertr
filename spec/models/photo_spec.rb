@@ -12,6 +12,8 @@ RSpec.describe Photo, type: :model do
     it { should belong_to(:user) }
     it { should have_many(:photo_albums) }
     it { should have_many(:albums).through(:photo_albums) }
+    it { should have many(:photo_tags) }
+    it { should have many(:tags).through(:photo_tags) }
     it { should have_many(:comments) }
   end
 
