@@ -3,6 +3,7 @@
   justify-content: center;
   margin-top: calc(6% + 50px);
   margin-bottom: 6%;
+  flex: 1 0 auto;
 }
 
 .session-form-box {
@@ -38,7 +39,7 @@
   background-color: #188fff;
   border-radius: 2px;
   padding: 15px 125px;
-  margin-top: 150px;
+  margin-top: 45%;
 }
 
 .session-submit:hover {

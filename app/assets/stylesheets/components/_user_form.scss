@@ -3,6 +3,7 @@
   justify-content: center;
   margin-top: calc(6% + 50px);
   margin-bottom: 6%;
+  flex: 1 0 auto;
 }
 
 .signup-form-box {
@@ -54,7 +55,9 @@
   background-color: #188fff;
   border-radius: 2px;
   padding: 15px 125px;
-  margin-top: 75px;
+  margin-top: 15%;
+  display: flex;
+  justify-content: center;
 }
 
 .signup-submit:hover {
