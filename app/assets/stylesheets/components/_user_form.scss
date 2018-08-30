@@ -1,13 +1,28 @@
+.signup-form-page {
+  flex: 1 0 auto;
+}
+
 .signup-form-container {
   display: flex;
   justify-content: center;
-  margin-top: calc(6% + 50px);
-  margin-bottom: 6%;
-  flex: 1 0 auto;
+  padding-top: 6%;
+  padding-bottom: 6%;
+  background-color: rgba(0,0,0,.025);
+}
+
+.signup-form-navbar {
+  padding-left: 5%;
+}
+
+.signup-form-navbar-logo {
+  height: 50px;
+  width: 200px;
+  cursor: pointer;
 }
 
 .signup-form-box {
   box-shadow: 1px 1px 5px 1px rgba(0, 0, 0, 0.15);
+  background-color: #FFF;
 }
 
 .signup-form {
