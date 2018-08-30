@@ -48,12 +48,15 @@
 }
 
 .profile-popup {
-  height: 50px;
-  width: 50px;
   position: relative;
+  display: flex;
+  align-items: center;
 }
 
 .profile-popup img {
+  border-radius: 50%;
+  height: 35px;
+  width: 35px;
   cursor: pointer;
 }
 
