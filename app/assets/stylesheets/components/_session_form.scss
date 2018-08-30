@@ -1,19 +1,36 @@
+.session-form-page {
+  flex: 1 0 auto;
+}
+
 .session-form-container {
   display: flex;
-  justify-content: center;
-  margin-top: calc(6% + 50px);
-  margin-bottom: 6%;
-  flex: 1 0 auto;
+  justify-content: flex-end;
+  padding-top: 6%;
+  padding-bottom: 6%;
+  padding-right: 15%;
+  background-color: rgba(0,0,0,.025);
 }
 
 .session-form-box {
   box-shadow: 1px 1px 5px 1px rgba(0, 0, 0, 0.15);
+  background-color: #FFF;
 }
 
 .session-form {
   display: flex;
   flex-direction: column;
-  padding: 45px 25px;
+  padding: 25px 25px;
+}
+
+.session-form-logo-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+
+.session-form-signin-logo {
+  height: 50px;
+  width: 200px;
 }
 
 .session-text {
@@ -21,7 +38,7 @@
 }
 
 .session-text > h2 {
-  margin-bottom: 25px;
+  margin: 10px;
   font-size: 18px;
   font-weight: 500;
 }
@@ -30,6 +47,15 @@
   border-bottom: 1px solid #B8B8B8;
   margin-top: 5px;
   margin-bottom: 5px;
+  padding: 5px 5px;
+}
+
+.session-input::placeholder {
+  color: #B8B8B8;
+}
+
+.session-input:focus {
+  border-bottom: 2px solid #188fff;
 }
 
 .session-submit {
@@ -39,7 +65,8 @@
   background-color: #188fff;
   border-radius: 2px;
   padding: 15px 125px;
-  margin-top: 45%;
+  margin-top: 10px;
+  margin-bottom: 45%;
 }
 
 .session-submit:hover {

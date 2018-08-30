@@ -50,16 +50,44 @@
   border-bottom: 1px solid #B8B8B8;
   margin: 12px 0;
   margin-right: 14px;
+  padding: 5px 5px;
+}
+
+.signup-fname::placeholder {
+  color: #B8B8B8;
+}
+
+.signup-fname:focus {
+  border-bottom: 2px solid #188fff;
 }
 
 .signup-lname {
   border-bottom: 1px solid #B8B8B8;
   margin: 12px 0;
+  padding: 5px 5px;
+
+}
+
+.signup-lname::placeholder {
+  color: #B8B8B8;
+}
+
+.signup-lname:focus {
+  border-bottom: 2px solid #188fff;
 }
 
 .signup-input {
   border-bottom: 1px solid #B8B8B8;
   margin: 12px 0;
+  padding: 5px 5px;
+}
+
+.signup-input::placeholder {
+  color: #B8B8B8;
+}
+
+.signup-input:focus {
+  border-bottom: 2px solid #188fff;
 }
 
 .signup-submit {
