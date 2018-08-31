@@ -86,7 +86,7 @@
   z-index: 5;
 }
 
-.header-popup {
+.navbar-popup {
   background-color: #fff;
   position: absolute;
   z-index: 10;
@@ -99,21 +99,21 @@
   padding: 18px 12px;
 }
 
-.header-greet-name {
+.navbar-greet-name {
   font-size: 22px;
 }
 
-.header-greet-text {
+.navbar-greet-text {
   font-size: 14px;
 }
 
-.header-signout-link {
+.navbar-signout-link {
   color: #006dac;
   position: absolute;
   bottom: 18px;
   right: 12px;
 }
 
-.header-signout-link:hover {
+.navbar-signout-link:hover {
   text-decoration: underline;
 }

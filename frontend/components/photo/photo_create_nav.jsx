@@ -29,8 +29,8 @@ class PhotoCreateNav extends React.Component {
     const profilePopUp = (this.state.showProfilePopup) ?
     <div>
       <div onClick={this.handleCloseProfilePopup} className="popup-overlay"></div>
-      <hgroup className="photo-create-header-popup">
-        <Link className="photo-create-header-signout-link" to="/" onClick={this.handleLogOut}>Sign Out</Link>
+      <hgroup className="photo-create-navbar-popup">
+        <Link className="photo-create-navbar-signout-link" to="/" onClick={this.handleLogOut}>Sign Out</Link>
       </hgroup>
     </div> : "";
 
@@ -63,6 +63,7 @@ class PhotoCreateNav extends React.Component {
             </div>
           </div>
         </nav>
+        <div className="photo-create-header"></div>
       </header>
     );
   }

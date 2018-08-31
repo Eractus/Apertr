@@ -54,11 +54,11 @@ class Navbar extends React.Component {
     const profilePopUp = (this.state.showProfilePopup) ?
     <div>
       <div onClick={this.handleCloseProfilePopup} className="popup-overlay"></div>
-      <hgroup className="header-popup">
-        <h2 className="header-greet-name">Yo, {name}!</h2>
+      <hgroup className="navbar-popup">
+        <h2 className="navbar-greet-name">Yo, {name}!</h2>
         <br/>
-        <p className="header-greet-text">Now you know how to greet people in English</p>
-        <Link className="header-signout-link" to="/" onClick={this.handleLogOut}>Sign Out</Link>
+        <p className="navbar-greet-text">Now you know how to greet people in English</p>
+        <Link className="navbar-signout-link" to="/" onClick={this.handleLogOut}>Sign Out</Link>
       </hgroup>
     </div> : "";
 
