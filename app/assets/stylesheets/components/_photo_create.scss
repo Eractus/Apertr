@@ -1,5 +1,100 @@
+.photo-create-navbar {
+  background-color: #fff;
+  height: 50px;
+  display: flex;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 10;
+  justify-content: space-between;
+}
+
+.photo-create-nav-left {
+  display: flex;
+  margin-top: 5px;
+  padding-left: 1%;
+}
+
+.photo-create-logo-link {
+  font-size: 28px;
+  font-weight: 700;
+  color: #0063dc;
+}
+
+.photo-create-nav-links {
+  font-size: 15px;
+  font-weight: 600;
+  color: #666;
+  margin-top: 10px;
+}
+
+.photo-create-nav-photostream {
+  margin-left: 30px;
+}
+
+.photo-create-nav-photostream:hover {
+  color: #0063dc;
+}
+
+.photo-create-nav-right {
+  display: flex;
+  padding-right: 1%;
+}
+
+.photo-create-profile-popup {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.photo-create-profile-popup img {
+  border: 1px #f3f5f6 solid;
+  border-radius: 20%;
+  height: 35px;
+  width: 35px;
+  cursor: pointer;
+}
+
+.photo-create-profile-popup img:hover {
+  border: 1px #006dac solid;
+}
+
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 5;
+}
+
+.photo-create-header-popup {
+  background-color: #fff;
+  position: absolute;
+  z-index: 10;
+  border: 1px solid #B8B8B8;
+  border-radius: 3px;
+  top: 54px;
+  right: 0;
+  width: 325px;
+  height: 150px;
+  padding: 18px 12px;
+}
+
+.photo-create-header-signout-link {
+  color: #006dac;
+  position: absolute;
+  bottom: 18px;
+  right: 12px;
+}
+
+.header-signout-link:hover {
+  text-decoration: underline;
+}
+
 .photo-create-background {
-  background-color: #f3f5f6;
+  background-image: image-url("photo-create-background.png");
+  background-repeat: repeat;
   flex: 1 0 auto;
 }
 

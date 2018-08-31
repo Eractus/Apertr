@@ -29,23 +29,30 @@ class PhotoCreateNav extends React.Component {
     const profilePopUp = (this.state.showProfilePopup) ?
     <div>
       <div onClick={this.handleCloseProfilePopup} className="popup-overlay"></div>
-      <Link className="header-signout-link" to="/" onClick={this.handleLogOut}>Sign Out</Link>
+      <hgroup className="photo-create-header-popup">
+        <Link className="photo-create-header-signout-link" to="/" onClick={this.handleLogOut}>Sign Out</Link>
+      </hgroup>
     </div> : "";
 
 
     return (
       <header>
-        <nav className="logged-in-navbar">
-          <div className="navbar-logged-in-left">
-            <Link to="/" className="logo-link-logged-in">
+        <nav className="photo-create-navbar">
+          <div className="photo-create-nav-left">
+            <Link to="/" className="photo-create-logo-link">
               <h1>apertr</h1>
             </Link>
             &nbsp;
-            <Link className="navbar-left-links" to="/photos">Your Photostream</Link>
+            <div className="photo-create-nav-links">
+              <Link
+                className="photo-create-nav-photostream"
+                to="/photos"
+              >Your Photostream</Link>
+            </div>
           </div>
           &nbsp;
-          <div className="navbar-logged-in-right">
-            <div className="profile-popup">
+          <div className="photo-create-nav-right">
+            <div className="photo-create-profile-popup">
               <span>
                 <img
                   src={this.props.currentUser.image_url}
