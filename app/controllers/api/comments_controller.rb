@@ -1,6 +1,5 @@
 class Api::CommentsController < ApplicationController
   def create
-    @comments = Photo.find(params[:photo_id]).comments
     @comment = Comment.new(comment_params)
     @comment.user_id = current_user.id
     @comment.photo_id = params[:photo_id]
