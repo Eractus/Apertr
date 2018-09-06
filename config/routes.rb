@@ -3,8 +3,10 @@ Rails.application.routes.draw do
     resources :albums, only: [:create, :update, :show, :index, :destroy]
     resources :photos, only: [:create, :update, :show, :index, :destroy] do
       resources :comments, only: [:create, :index]
+      resources :tags, only: [:create, :index]
     end
     resources :comments, only: [:show, :destroy]
+    resources :tags, only: [:show, :destroy]
     resources :users, only: [:create]
     resource :session, only: [:create, :destroy]
   end
