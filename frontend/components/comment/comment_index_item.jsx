@@ -14,9 +14,10 @@ const CommentIndexItem = props => {
               {props.comment.description}
             </p>
             <div className="comment-index-delete">
-              <Link onClick={() => props.deleteComment(props.comment.id)} to={`/photos/${props.photoId}`}>
-                del
-                </Link>
+              <Link
+                onClick={() => props.deleteComment(props.comment.id)}
+                to={`/photos/${props.photoId}`}
+              >del</Link>
             </div>
           </div>
         </div>

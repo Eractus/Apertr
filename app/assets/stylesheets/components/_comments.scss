@@ -8,10 +8,6 @@
   border-top: 1px solid #B8B8B8;
 }
 
-// .comment-index-item-container {
-//
-// }
-
 .comment-index-item {
   display: flex;
   flex-direction: column;
@@ -56,6 +52,10 @@
   border-radius: 3px;
   padding: 10px 10px;
   vertical-align: top;
+}
+
+.comment-create-errors {
+  color: red;
 }
 
 .comment-create-button {

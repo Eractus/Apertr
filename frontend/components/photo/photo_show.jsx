@@ -2,6 +2,8 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import CommentIndexContainer from '../comment/comment_index_container';
 import CommentCreateContainer from '../comment/comment_create_container';
+import TagCreateContainer from '../tag/tag_create_container';
+import TagIndexContainer from '../tag/tag_index_container';
 
 class PhotoShow extends React.Component {
   constructor(props) {
@@ -112,12 +114,14 @@ class PhotoShow extends React.Component {
             </div>
           </div>
           <div className="photo-show-container">
-            <div>{this.renderErrors()}</div>
             <h3>{this.props.photo.userFname} {this.props.photo.userLname}</h3>
             {editableFields}
+            <div className="photo-show-edit-errors">{this.renderErrors()}</div>
           </div>
           <CommentIndexContainer photo={this.props.photo}/>
           <CommentCreateContainer photo={this.props.photo}/>
+          <TagIndexContainer photo={this.props.photo}/>
+          <TagCreateContainer photo={this.props.photo}/>
         </div>
       );
     } else {
@@ -134,6 +138,8 @@ class PhotoShow extends React.Component {
           </div>
           <CommentIndexContainer photo={this.props.photo}/>
           <CommentCreateContainer photo={this.props.photo}/>
+          <TagIndexContainer photo={this.props.photo}/>
+          <TagCreateContainer photo={this.props.photo}/>
         </div>
       );
     }
