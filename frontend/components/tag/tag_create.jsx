@@ -56,20 +56,29 @@ class TagCreate extends React.Component {
   render () {
     if (this.state.toggledTagCreate === false) {
       return (
-        <div>
-          <button onClick={this.openTagCreateFields}>Add a tag</button>
+        <div className="tag-create-container">
+          <div className="tags-header">
+            <p>Tags</p>
+            <p onClick={this.openTagCreateFields} className="tag-add">Add tags</p>
+          </div>
         </div>
       );
     } else if (this.state.toggledTagCreate === true) {
       return (
-        <div>
-          <form onSubmit={this.handleSubmit}>
+        <div className="tag-create-container">
+          <div className="tags-header">
+            <p>Tags</p>
+            <p onClick={this.openTagCreateFields} className="tag-add">Add tags</p>
+          </div>
+          <form onSubmit={this.handleSubmit} className="tag-create-fields">
             <input
               type="text"
               value={this.state.word}
-              onChange={this.update('word')} />
-            <input type="submit" value="Add" />
-            <button onClick={this.closeTagCreateFields}>cancel</button>
+              placeholder="Add a tag"
+              onChange={this.update('word')}
+              className="tag-input-field" />
+            <input className="tag-input-add" type="submit" value="Add" />
+            <p className="tag-input-cancel" onClick={this.closeTagCreateFields}>cancel</p>
           </form>
           <div>{this.renderErrors()}</div>
         </div>

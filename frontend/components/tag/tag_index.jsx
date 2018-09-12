@@ -10,7 +10,7 @@ class TagIndex extends React.Component {
   }
 
   componentDidMount() {
-    this.props.fetchAllTags(this.props.photoId)
+    this.props.fetchAllTags(this.props.photo.id)
   }
 
   render () {
@@ -19,15 +19,15 @@ class TagIndex extends React.Component {
         <TagIndexItem
           key={tag.id}
           tag={tag}
-          photoId={this.props.photoId}
+          photo={this.props.photo}
+          userId={this.props.userId}
           deleteTag={this.props.deleteTag} />
       );
     });
 
     return (
-      <div>
-        <div>Tags</div>
-        <ul>
+      <div className="tags-index-container">
+        <ul className="tags-index-list">
           {tags}
         </ul>
       </div>

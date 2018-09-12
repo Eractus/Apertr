@@ -4,7 +4,8 @@ import TagIndex from './tag_index';
 
 const mapStateToProps = (state, ownProps) => {
   return ({
-    photoId: ownProps.photo.id,
+    userId: state.session.currentUser.id,
+    photo: ownProps.photo,
     tags: Object.values(state.tags)
   });
 };

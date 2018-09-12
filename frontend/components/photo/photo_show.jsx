@@ -118,10 +118,14 @@ class PhotoShow extends React.Component {
             {editableFields}
             <div className="photo-show-edit-errors">{this.renderErrors()}</div>
           </div>
-          <CommentIndexContainer photo={this.props.photo}/>
-          <CommentCreateContainer photo={this.props.photo}/>
-          <TagIndexContainer photo={this.props.photo}/>
-          <TagCreateContainer photo={this.props.photo}/>
+          <div className="photo-show-ui">
+            <CommentIndexContainer photo={this.props.photo}/>
+            <CommentCreateContainer photo={this.props.photo}/>
+            <div className="tags-container">
+              <TagCreateContainer photo={this.props.photo}/>
+              <TagIndexContainer photo={this.props.photo}/>
+            </div>
+          </div>
         </div>
       );
     } else {
@@ -136,10 +140,14 @@ class PhotoShow extends React.Component {
             <p className="photo-show-title">{this.state.title}</p>
             <p className="photo-show-description">{this.state.description}</p>
           </div>
-          <CommentIndexContainer photo={this.props.photo}/>
-          <CommentCreateContainer photo={this.props.photo}/>
-          <TagIndexContainer photo={this.props.photo}/>
-          <TagCreateContainer photo={this.props.photo}/>
+          <div className="photo-show-ui">
+            <CommentIndexContainer photo={this.props.photo}/>
+            <CommentCreateContainer photo={this.props.photo}/>
+            <div className="tags-container">
+              <TagCreateContainer photo={this.props.photo}/>
+              <TagIndexContainer photo={this.props.photo}/>
+            </div>
+          </div>
         </div>
       );
     }
