@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const CommentIndexItem = props => {
-  const deleteLink = props.userId === props.photo.user_id ?
+  const delComment = props.userId === props.photo.user_id ?
   <div className="comment-index-delete">
     <Link
       onClick={() => props.deleteComment(props.comment.id)}
@@ -21,7 +21,7 @@ const CommentIndexItem = props => {
             <p>
               {props.comment.description}
             </p>
-            {deleteLink}
+            {delComment}
           </div>
         </div>
       </div>
