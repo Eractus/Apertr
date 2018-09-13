@@ -7,11 +7,13 @@ class PhotoCreate extends React.Component {
       title: '',
       description: '',
       imageFile: null,
-      imageUrl: null
+      imageUrl: null,
+      toggledUploadPhotoButton: false
     };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.updateFile = this.updateFile.bind(this);
     this.removeImage = this.removeImage.bind(this);
+    this.displayPhotoUpload = this.displayPhotoUpload.bind(this);
   }
 
   componentWillUnmount() {
@@ -51,6 +53,10 @@ class PhotoCreate extends React.Component {
     this.props.createPhoto(formData).then(data => this.props.history.push(`/photos/${data.photo.id}`));
   }
 
+  displayPhotoUpload() {
+    this.setState({ toggledUploadPhotoButton: true })
+  }
+
   renderErrors() {
     return(
       <ul>
@@ -74,32 +80,43 @@ class PhotoCreate extends React.Component {
         <p className="photo-create-no-photo">Select a photo to preview before uploading!</p>
       </div>
 
-    return (
-      <div className="photo-create-background">
-        <div className="photo-create-container">
-          <div className="photo-create-image">
-            <input className="photo-upload" type="file" onChange={this.updateFile} />
-            {uploadedImage}
+    if (this.state.toggledUploadPhotoButton === false) {
+      return (
+        <div className="photo-create-background">
+          <div className="photo-create-greeting-container">
+            <p>Upload photos here</p>
+            <button onClick={this.displayPhotoUpload}>Choose photos to upload</button>
           </div>
-          <form onSubmit={this.handleSubmit} className="photo-create-form">
-            <div>{this.renderErrors()}</div>
-            <input
-              className="photo-create-title"
-              type="text"
-              value={this.state.title}
-              placeholder="Enter a title"
-              onChange={this.update('title')} />
-            <textarea
-              className="photo-create-description"
-              type="text"
-              value={this.state.description}
-              placeholder="Enter a description"
-              onChange={this.update('description')} />
-            <input className="photo-create-button" type="submit" value="Upload Photo" />
-          </form>
         </div>
-      </div>
-    );
+      );
+    } else if (this.state.toggledUploadPhotoButton === true) {
+      return (
+        <div className="photo-create-background">
+          <div className="photo-create-container">
+            <div className="photo-create-image">
+              <input className="photo-upload" type="file" onChange={this.updateFile} />
+              {uploadedImage}
+            </div>
+            <form onSubmit={this.handleSubmit} className="photo-create-form">
+              <div>{this.renderErrors()}</div>
+              <input
+                className="photo-create-title"
+                type="text"
+                value={this.state.title}
+                placeholder="Enter a title"
+                onChange={this.update('title')} />
+              <textarea
+                className="photo-create-description"
+                type="text"
+                value={this.state.description}
+                placeholder="Enter a description"
+                onChange={this.update('description')} />
+              <input className="photo-create-button" type="submit" value="Upload Photo" />
+            </form>
+          </div>
+        </div>
+      );
+    }
   }
 }
 
