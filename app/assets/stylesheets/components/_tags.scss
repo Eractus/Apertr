@@ -8,7 +8,7 @@
 }
 
 .tags-header {
-  width: 50%;
+  width: 45%;
   display: flex;
   justify-content: space-between;
 }
@@ -70,16 +70,34 @@
   text-decoration: underline;
 }
 
+.tags-index-container {
+  margin-top: 20px;
+  width: 45%;
+}
+
 .tags-index-list {
   display: flex;
   flex-wrap: wrap;
 }
 
-.tag-index-item-container {
+.tag-index-item {
+  background-color: #cfd6d9;
   display: flex;
+  font-weight: 350;
   margin: 5px;
+  border-radius: 4px;
+  padding: 3px 5px;
 }
 
-.tag-index-item {
-  
+.tag-index-item:hover {
+  background-color: #868d91;
+}
+
+.tag-index-item > p:hover {
+  color: #fff;
+}
+
+.tag-index-item-delete {
+  font-size: 8px;
+  color: red;
 }

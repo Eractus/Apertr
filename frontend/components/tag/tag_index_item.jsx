@@ -9,8 +9,9 @@ const TagIndexItem = props => {
           <div className="tag-index-item">
             <p>{props.tag.word}</p>
             <Link
-            onClick={() => props.deleteTag(props.tag.id)}
-            to={`/photos/${props.photo.id}`}
+              className="tag-index-item-delete"
+              onClick={() => props.deleteTag(props.tag.id)}
+              to={`/photos/${props.photo.id}`}
             >x</Link>
           </div>
         </div>
