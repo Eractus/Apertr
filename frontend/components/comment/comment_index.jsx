@@ -10,7 +10,7 @@ class CommentIndex extends React.Component {
   }
 
   componentDidMount() {
-    this.props.fetchAllComments(this.props.photoId)
+    this.props.fetchAllComments(this.props.photo.id)
   }
 
   render () {
@@ -27,7 +27,8 @@ class CommentIndex extends React.Component {
         <CommentIndexItem
           key={comment.id}
           comment={comment}
-          photoId={this.props.photoId}
+          photo={this.props.photo}
+          userId={this.props.userId}
           deleteComment={this.props.deleteComment} />
       );
     });
