@@ -125,20 +125,40 @@
 }
 
 .photo-create-container {
-  padding: 0 10%;
-  margin-top: calc(4% + 50px);
-  margin-bottom: 4%;
+  border: 1px solid rgba(220,220,220,0.2);
+  border-radius: 1px;
+  background-color: rgba(0,0,0,0.1);
+  width: 275px;
+  margin-top: calc(2% + 90px);
+  margin-left: 2%;
+  opacity: 1;
+}
+
+.photo-create-container > p {
+  padding: 15px;
+  color: #999;
+  border-bottom: 1px solid rgba(220,220,220,0.2);
 }
 
 .photo-create-image {
-  margin-bottom: 25px;
-  min-height: 300px
+  min-height: 300px;
+  border-bottom: 1px solid rgba(220,220,220,0.2);
 }
 
 .photo-create-image > img {
-  // border: 1px solid green;
-  min-width: 250px;
-  min-height: 300px;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  margin-top: 20px;
+  margin-left: 30px;
+  min-width: 200px;
+  min-height: 200px;
+}
+
+.photo-upload {
+  padding: 15px;
+  font-size: 12px;
+  color: #ccc;
 }
 
 .photo-preview {
@@ -146,18 +166,27 @@
   max-width: 35%;
 }
 
-.photo-create-no-photo {
-  font-weight: 500;
-  font-size: 22px;
-  margin-top: 10%;
-}
-
 .photo-create-form {
   display: flex;
   flex-direction: column;
 }
 
-.photo-create-title {
+.photo-create-details {
+  padding: 15px;
+  height: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  font-size: 16px;
+  font-weight: 300;
+  border-bottom: 1px solid rgba(220,220,220,0.2);
+}
+
+.photo-create-details:hover {
+  background-color: rgba(0,0,0,0.25);
+}
+
+.photo-create-title-edit {
   width: 300px;
   font-size: 16px;
   font-weight: 500;
@@ -168,7 +197,14 @@
   background-color: #fff;
 }
 
-.photo-create-description {
+.photo-create-title-display {
+  font-weight: 500;
+  font-size: 18px;
+  color: #ccc;
+  cursor: pointer;
+}
+
+.photo-create-description-edit {
   width: 300px;
   font-size: 14px;
   border: 1px solid #B8B8B8;
@@ -178,16 +214,21 @@
   background-color: #fff;
 }
 
+.photo-create-description-display {
+  color: #ccc;
+  cursor: pointer;
+}
+
 .photo-create-button {
-  font-size: 16px;
-  font-weight: 400;
+  width: 150px;
   color: #fff;
-  background-color: #128fdc;
+  margin: 20px 30px;
+  background-color: #0063dc;
   border-radius: 3px;
   padding: 5px 30px;
-  max-width: 100px;
+  text-align: center;
 }
 
 .photo-create-button:hover {
-  background-color: #1c9be9;
+  background-color: #0054bd;
 }
