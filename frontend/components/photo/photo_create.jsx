@@ -70,16 +70,6 @@ class PhotoCreate extends React.Component {
   }
 
   render() {
-    const uploadedImage = (this.state.imageUrl !== null) ?
-      <img
-        src={this.state.imageUrl}
-        onClick={this.removeImage}
-        className="photo-preview"
-      /> :
-      <div>
-        <p className="photo-create-no-photo">Select a photo to preview before uploading!</p>
-      </div>
-
     if (this.state.toggledUploadPhotoButton === false) {
       return (
         <div className="photo-create-background">
@@ -95,7 +85,11 @@ class PhotoCreate extends React.Component {
           <div className="photo-create-container">
             <div className="photo-create-image">
               <input className="photo-upload" type="file" onChange={this.updateFile} />
-              {uploadedImage}
+              <img
+                src={this.state.imageUrl}
+                onClick={this.removeImage}
+                className="photo-preview"
+              />
             </div>
             <form onSubmit={this.handleSubmit} className="photo-create-form">
               <div>{this.renderErrors()}</div>

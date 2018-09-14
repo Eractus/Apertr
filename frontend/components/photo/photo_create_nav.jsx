@@ -42,7 +42,6 @@ class PhotoCreateNav extends React.Component {
             <Link to="/" className="photo-create-logo-link">
               <h1>apertr</h1>
             </Link>
-            &nbsp;
             <div className="photo-create-nav-links">
               <Link
                 className="photo-create-nav-photostream"
@@ -50,7 +49,6 @@ class PhotoCreateNav extends React.Component {
               >Your Photostream</Link>
             </div>
           </div>
-          &nbsp;
           <div className="photo-create-nav-right">
             <div className="photo-create-profile-popup">
               <span>
