@@ -16,8 +16,8 @@ class CommentIndex extends React.Component {
   render () {
     if (this.props.comments.length === 0) {
       return (
-        <div className="comment-none">
-          No comments yet...
+        <div className="comment-index-container">
+          <p className="comment-none">No comments yet...</p>
         </div>
       )
     }

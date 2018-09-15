@@ -8,16 +8,12 @@ class PhotoCreate extends React.Component {
       description: '',
       imageFile: null,
       imageUrl: null,
-      toggledUploadPhotoButton: false,
-      toggleEditTitle: false,
-      toggleEditDescription: false
+      toggledUploadPhotoButton: false
     };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.updateFile = this.updateFile.bind(this);
     this.removeImage = this.removeImage.bind(this);
     this.displayPhotoUpload = this.displayPhotoUpload.bind(this);
-    this.enableTitleEdit = this.enableTitleEdit.bind(this);
-    this.enableDescriptionEdit = this.enableDescriptionEdit.bind(this);
   }
 
   componentWillUnmount() {
@@ -61,17 +57,9 @@ class PhotoCreate extends React.Component {
     this.setState({ toggledUploadPhotoButton: true })
   }
 
-  enableTitleEdit() {
-    this.setState({ toggledEditTitle: true })
-  }
-
-  enableDescriptionEdit() {
-    this.setState({ toggledEditDescription: true })
-  }
-
   renderErrors() {
     return(
-      <ul>
+      <ul className="photo-create-errors">
         {this.props.errors.map((error, i) => (
           <li key={`error-${i}`}>
             {error}
@@ -82,28 +70,6 @@ class PhotoCreate extends React.Component {
   }
 
   render() {
-    const photoCreateTitle = this.props.toggleEditTitle ?
-    <input
-      className="photo-create-title-edit"
-      type="text"
-      value={this.state.title}
-      placeholder="Add a title"
-      onChange={this.update('title')} /> :
-    <div className="photo-create-title-display" onClick={this.enableTitleEdit}>
-      <h1>Add a title</h1>
-    </div>
-
-    const photoCreateDescription = this.props.toggleEditDescription ?
-    <input
-      className="photo-create-description-edit"
-      type="text"
-      value={this.state.description}
-      placeholder="Add a description"
-      onChange={this.update('description')} /> :
-    <div className="photo-create-description-display" onClick={this.enableDescriptionEdit}>
-      <p>Add a description</p>
-    </div>
-
     if (this.state.toggledUploadPhotoButton === false) {
       return (
         <div className="photo-create-background">
@@ -121,8 +87,18 @@ class PhotoCreate extends React.Component {
             <form onSubmit={this.handleSubmit} className="photo-create-form">
               <div>{this.renderErrors()}</div>
               <div className="photo-create-details">
-                {photoCreateTitle}
-                {photoCreateDescription}
+                <input
+                  className="photo-create-title"
+                  type="text"
+                  value={this.state.title}
+                  placeholder="Add a title"
+                  onChange={this.update('title')} />
+                <input
+                  className="photo-create-description"
+                  type="text"
+                  value={this.state.description}
+                  placeholder="Add a description"
+                  onChange={this.update('description')} />
               </div>
               <div className="photo-create-image">
                 <input className="photo-upload" type="file" onChange={this.updateFile} />
