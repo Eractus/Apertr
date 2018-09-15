@@ -172,7 +172,6 @@
 }
 
 .photo-create-details {
-  z-index: 10;
   padding: 15px;
   height: 50px;
   display: flex;
@@ -196,8 +195,11 @@
 .photo-create-title {
   font-weight: 500;
   font-size: 18px;
-  color: #ccc;
   cursor: pointer;
+}
+
+.photo-create-title::placeholder {
+  color: #ccc;
 }
 
 .photo-create-title:focus {
@@ -210,8 +212,11 @@
 }
 
 .photo-create-description {
-  color: #ccc;
   cursor: pointer;
+}
+
+.photo-create-description::placeholder {
+  color: #999;
 }
 
 .photo-create-description:focus{
