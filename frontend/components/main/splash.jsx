@@ -14,8 +14,7 @@ class SplashPage extends React.Component {
           <h1 className="intro-header">Find your inspiration.</h1>
           <br/>
           <div className="intro-text">
-            <p>Join the Apertr community, home to billions of</p>
-            <p>photos and millions of groups.</p>
+            <p>Join the Apertr community, home to photos from people who ran out of free storage on Flickr.</p>
           </div>
           <br/>
            <button

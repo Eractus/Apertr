@@ -5,6 +5,7 @@ import photosReducer from "./photos_reducer";
 import albumsReducer from "./albums_reducer";
 import commentsReducer from "./comments_reducer";
 import tagsReducer from "./tags_reducer";
+import searchReducer from "./search_reducer";
 
 const rootReducer = combineReducers({
   errors: errorsReducer,
@@ -12,7 +13,8 @@ const rootReducer = combineReducers({
   photos: photosReducer,
   albums: albumsReducer,
   comments: commentsReducer,
-  tags: tagsReducer
+  tags: tagsReducer,
+  search: searchReducer
 });
 
 export default rootReducer;

@@ -4,31 +4,52 @@ export const RECEIVE_PHOTOS = 'RECEIVE_PHOTOS';
 export const RECEIVE_PHOTO = 'RECEIVE_PHOTO';
 export const REMOVE_PHOTO = 'REMOVE_PHOTO';
 export const RECEIVE_PHOTO_ERRORS = 'RECEIVE_PHOTO_ERRORS';
+export const RECEIVE_SEARCH_PHOTOS = 'RECEIVE_SEARCH_PHOTOS';
+
+export const searchTaggedPhotos = (tag) => (dispatch) => (
+  PhotoApiUtil.searchTaggedPhotos(tag).then(
+    photos => dispatch(receiveSearchPhotos(photos)),
+    errors => dispatch(receiveErrors(errors.responseJSON))
+  )
+);
 
 export const fetchPhotos = () => dispatch => (
-  PhotoApiUtil.fetchPhotos().then(photos => dispatch(receivePhotos(photos)))
+  PhotoApiUtil.fetchPhotos().then(
+    photos => dispatch(receivePhotos(photos))
+  )
 );
 
 export const fetchPhoto = id => dispatch => (
-  PhotoApiUtil.fetchPhoto(id).then(photo => dispatch(receivePhoto(photo)),
-  error => dispatch(receiveErrors(error.responseJSON)))
+  PhotoApiUtil.fetchPhoto(id).then(
+    photo => dispatch(receivePhoto(photo)),
+    error => dispatch(receiveErrors(error.responseJSON))
+  )
 );
 
 export const createPhoto = photo => dispatch => (
   PhotoApiUtil.createPhoto(photo).then(
     ajaxPhoto => dispatch(receivePhoto(ajaxPhoto)),
-    error => dispatch(receiveErrors(error.responseJSON)))
+    error => dispatch(receiveErrors(error.responseJSON))
+  )
 );
 
 export const updatePhoto = photo => dispatch => (
   PhotoApiUtil.updatePhoto(photo).then(
     ajaxPhoto => dispatch(receivePhoto(ajaxPhoto)),
-    error => dispatch(receiveErrors(error.responseJSON)))
+    error => dispatch(receiveErrors(error.responseJSON))
+  )
 );
 
 export const deletePhoto = photoId => dispatch => (
-  PhotoApiUtil.deletePhoto(photoId).then(photo => dispatch(removePhoto(photoId)))
+  PhotoApiUtil.deletePhoto(photoId).then(
+    photo => dispatch(removePhoto(photoId))
+  )
 );
+
+const receiveSearchPhotos = photos => ({
+  type: RECEIVE_SEARCH_PHOTOS,
+  photos
+});
 
 export const receivePhotos = photos => ({
   type: RECEIVE_PHOTOS,

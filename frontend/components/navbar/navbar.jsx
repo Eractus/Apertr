@@ -32,12 +32,6 @@ class Navbar extends React.Component {
           <Link to="/" className="logo-link-logged-out">
             <h1>apertr</h1>
           </Link>
-          <div className="search-bar-logged-out">
-            <input
-              type="text"
-              placeholder="Photos, people, or groups"
-            />
-          </div>
           <div className="navbar-logged-out-links">
             <Link to="/signup" className="signup-button"><button>Sign Up</button></Link>
             &nbsp;

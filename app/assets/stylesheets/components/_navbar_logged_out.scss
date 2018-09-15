@@ -2,35 +2,20 @@
   background-color: rgba(0, 0, 0, 0.25);
   height: 64px;
   display: flex;
+  justify-content: space-between;
   position: absolute;
   width: 100vw;
 }
 
 .logo-link-logged-out {
-  margin-left: 25px;
+  margin-left: 35px;
   margin-top: 15px;
-  flex-grow: 1;
   font-size: 26px;
   font-weight: 700;
   color: #fff;
 }
 
-.search-bar-logged-out {
-  display: flex;
-  flex-grow: 2;
-  background-color: #fff;
-  border-radius: 2px;
-  padding: 5px;
-  height: 24px;
-  margin: auto;
-}
-
-.search-bar-logged-out > input {
-  width: 280px;
-}
-
 .navbar-logged-out-links {
-  flex-grow: 1;
 }
 
 .login-link {
@@ -43,7 +28,7 @@
 
 .signup-button {
   margin-top: 15px;
-  margin-right: 25px;
+  margin-right: 35px;
   font-size: 15px;
   font-weight: 500;
   color: black;

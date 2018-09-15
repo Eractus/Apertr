@@ -1,3 +1,10 @@
+export const searchTaggedPhotos = (tag) => (
+  $.ajax({
+    url: `api/search/photos/${tag}`,
+    method: 'GET'
+  })
+);
+
 export const fetchPhotos = () => (
   $.ajax({
     method: "GET",
