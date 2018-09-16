@@ -100,7 +100,7 @@
   background-image: image-url("photo-create-background.png");
   background-repeat: repeat;
   flex: 1 0 auto;
-}
+  display: flex;}
 
 .photo-create-greeting-container {
   position: fixed;
@@ -131,6 +131,7 @@
   width: 275px;
   margin-top: calc(2% + 90px);
   margin-left: 2%;
+  margin-bottom: auto;
   opacity: 1;
 }
 
@@ -239,4 +240,12 @@
 
 .photo-create-button:hover {
   background-color: #0054bd;
+}
+
+.photo-create-placeholder-image {
+  background-image: image-url("photo-create-background-image.png");
+  width: 750px;
+  height: 600px;
+  margin-top: 5%;
+  margin-left: 13%;
 }

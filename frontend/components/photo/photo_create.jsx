@@ -111,6 +111,7 @@ class PhotoCreate extends React.Component {
               <input className="photo-create-button" type="submit" value="Upload Photo" />
             </form>
           </div>
+          <div className="photo-create-placeholder-image"></div>
         </div>
       );
     }
