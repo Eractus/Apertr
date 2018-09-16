@@ -5,7 +5,7 @@ const TagIndexItem = props => {
   const delTag = props.userId === props.photo.user_id ?
   <Link
     className="tag-index-item-delete"
-    onClick={() => props.deleteTag(props.tag.id)}
+    onClick={() => props.deleteTag(props.tag.id, props.photo.id)}
     to={`/photos/${props.photo.id}`}
   >x</Link> : ""
 

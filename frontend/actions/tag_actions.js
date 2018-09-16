@@ -22,8 +22,8 @@ export const createTag = tag => dispatch => (
     error => dispatch(receiveErrors(error.responseJSON)))
 );
 
-export const deleteTag = tagId => dispatch => (
-  TagApiUtil.deleteTag(tagId).then(
+export const deleteTag = (tagId, photoId) => dispatch => (
+  TagApiUtil.deleteTag(tagId, photoId).then(
     tag => dispatch(removeTag(tagId)))
 );
 

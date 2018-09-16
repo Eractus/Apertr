@@ -12,7 +12,7 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = dispatch => ({
   fetchAllTags: photoId => dispatch(fetchAllTags(photoId)),
-  deleteTag: tagId => dispatch(deleteTag(tagId))
+  deleteTag: (tagId, photoId) => dispatch(deleteTag(tagId, photoId))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(TagIndex);

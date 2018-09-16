@@ -6,10 +6,11 @@ Rails.application.routes.draw do
       resources :tags, only: [:create, :index]
     end
     resources :comments, only: [:show, :destroy]
-    resources :tags, only: [:show, :destroy]
+    resources :tags, only: [:show]
     resources :users, only: [:create]
     resource :session, only: [:create, :destroy]
   end
+  delete 'api/tags/:id/photo/:photoId', :to => 'api/tags#destroy'
   root "static_pages#root"
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

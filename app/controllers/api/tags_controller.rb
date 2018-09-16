@@ -1,6 +1,6 @@
 class Api::TagsController < ApplicationController
   def create
-    @tag = Tag.find_by(word: params[:word])
+    @tag = Tag.find_by(word: params[:tag][:word])
     if @tag == nil
       @tag = Tag.new(tag_params)
     end
@@ -24,7 +24,6 @@ class Api::TagsController < ApplicationController
     photo_id = params[:photoId]
     photo_tag = PhotoTag.find_by(tag_id: @tag.id, photo_id: photo_id)
     photo_tag.destroy
-    @tag.destroy
     render :show
   end
 end
