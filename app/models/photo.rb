@@ -26,4 +26,12 @@ class Photo < ApplicationRecord
   has_many :tags,
     through: :photo_tags,
     source: :tag
+
+  def self.tagged_with(tag)
+    begin
+      Tag.find_by(word: tag).photos
+    rescue
+      []
+    end
+  end
 end

@@ -8,8 +8,7 @@ export const RECEIVE_SEARCH_PHOTOS = 'RECEIVE_SEARCH_PHOTOS';
 
 export const searchTaggedPhotos = (tag) => (dispatch) => (
   PhotoApiUtil.searchTaggedPhotos(tag).then(
-    photos => dispatch(receiveSearchPhotos(photos)),
-    errors => dispatch(receiveErrors(errors.responseJSON))
+    photos => dispatch(receiveSearchPhotos(photos))
   )
 );
 

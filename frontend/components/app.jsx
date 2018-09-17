@@ -14,6 +14,7 @@ import AlbumCreateContainer from './album/album_create_container';
 import AlbumIndexContainer from './album/album_index_container';
 import AlbumShowContainer from './album/album_show_container';
 import AlbumUpdateContainer from './album/album_update_container';
+import PhotosSearchContainer from './search/search_container';
 import Footer from './footer/footer';
 
 const App = () => (
@@ -33,6 +34,7 @@ const App = () => (
       <ProtectedRoute path="/albums/:albumId/edit" component={AlbumUpdateContainer} />
       <ProtectedRoute path="/albums/:albumId" component={AlbumShowContainer} />
       <ProtectedRoute path="/albums" component={AlbumIndexContainer} />
+      <ProtectedRoute exact path="/search/photos/:searchParams" component={PhotosSearchContainer} />
       <Route exact path="/" component={SplashPageContainer} />
     </Switch>
     <Footer />

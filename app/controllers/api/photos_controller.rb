@@ -31,8 +31,13 @@ class Api::PhotosController < ApplicationController
   end
 
   def index
-    @photos = Photo.all
-    render :index
+    if params[:tag]
+      @photos = Photo.tagged_with(params[:tag])
+      render :index
+    else
+      @photos = Photo.all
+      render :index
+    end
   end
 
   def destroy

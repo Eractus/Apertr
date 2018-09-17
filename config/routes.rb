@@ -11,6 +11,7 @@ Rails.application.routes.draw do
     resource :session, only: [:create, :destroy]
   end
   delete 'api/tags/:id/photo/:photoId', :to => 'api/tags#destroy'
+  get 'api/search/photos/:tag', :to => 'api/photos#index', as: 'tag', :defaults => {:format => :json}
   root "static_pages#root"
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

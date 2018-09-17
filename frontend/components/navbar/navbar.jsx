@@ -1,15 +1,19 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
+import SearchContainer from '../search/search_container'
 
 class Navbar extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      showProfilePopup: false
+      showProfilePopup: false,
+      search: this.props.searchParams
     };
     this.handleOpenProfilePopup = this.handleOpenProfilePopup.bind(this);
     this.handleCloseProfilePopup = this.handleCloseProfilePopup.bind(this);
     this.handleLogOut = this.handleLogOut.bind(this);
+    this.update = this.update.bind(this);
+    this.handleSubmitSearch = this.handleSubmitSearch.bind(this);
   }
 
   handleOpenProfilePopup() {
@@ -23,6 +27,20 @@ class Navbar extends React.Component {
   handleLogOut() {
     this.handleCloseProfilePopup();
     this.props.logout();
+  }
+
+  handleSubmitSearch() {
+    let searchParams = this.state.search;
+    this.setState({ search: '' });
+    this.props.searchTaggedPhotos(searchParams).then(
+      this.props.history.push(`/search/photos/${searchParams}`)
+    );
+  }
+
+  update(e) {
+    return this.setState({
+      search: e.target.value
+    })
   }
 
   sessionLoggedOut() {
@@ -74,10 +92,14 @@ class Navbar extends React.Component {
           &nbsp;
           <div className="navbar-logged-in-right">
             <div className="search-bar-logged-in">
-              <input
-                type="text"
-                placeholder="Photos, people, or groups"
-              />
+              <form onSubmit={this.handleSubmitSearch}>
+                <input
+                  type="text"
+                  onChange={this.update}
+                  placeholder="Search photos"
+                  value={this.state.search}
+                />
+                </form>
             </div>
             <Link className="header-upload-photo" to="/photos/new">
               <img src="https://s3-us-west-1.amazonaws.com/apertr-dev/photos/images/static+images/upload_logo.png" />
@@ -104,4 +126,4 @@ class Navbar extends React.Component {
   }
 }
 
-export default Navbar;
+export default withRouter(Navbar);
