@@ -93,6 +93,7 @@ class Navbar extends React.Component {
           <div className="navbar-logged-in-right">
             <div className="search-bar-logged-in">
               <form onSubmit={this.handleSubmitSearch}>
+                <span className="fas fa-search"></span>
                 <input
                   type="text"
                   onChange={this.update}
