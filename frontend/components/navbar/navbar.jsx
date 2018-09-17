@@ -6,7 +6,8 @@ class Navbar extends React.Component {
     super(props);
     this.state = {
       showProfilePopup: false,
-      search: this.props.searchParams
+      search: this.props.searchParams,
+      searchErrorMessage: '',
     };
     this.handleOpenProfilePopup = this.handleOpenProfilePopup.bind(this);
     this.handleCloseProfilePopup = this.handleCloseProfilePopup.bind(this);
@@ -30,6 +31,17 @@ class Navbar extends React.Component {
 
   handleSubmitSearch() {
     let searchParams = this.state.search;
+    if (!searchParams || searchParams.trim().length === 0) {
+      this.setState({
+        searchErrorMessage: 'Search field cannot be empty.',
+        search: ''
+      })
+      return;
+    } else {
+      this.setState({
+        searchErrorMessage: '',
+      })
+    }
     this.setState({ search: '' });
     this.props.searchTaggedPhotos(searchParams).then(
       this.props.history.push(`/search/photos/${searchParams}`)
@@ -91,6 +103,7 @@ class Navbar extends React.Component {
           &nbsp;
           <div className="navbar-logged-in-right">
             <div className="search-bar-logged-in">
+              <p className="search-bar-nav-error">{this.state.searchErrorMessage}</p>
               <form className="search-bar-input-field" onSubmit={this.handleSubmitSearch}>
                 <span className="fas fa-search"></span>
                 <input
@@ -99,7 +112,7 @@ class Navbar extends React.Component {
                   placeholder="Search photos"
                   value={this.state.search}
                 />
-                </form>
+              </form>
             </div>
             <Link className="header-upload-photo" to="/photos/new">
               <img src="https://s3-us-west-1.amazonaws.com/apertr-dev/photos/images/static+images/upload_logo.png" />

@@ -48,7 +48,7 @@ class Search extends React.Component {
             placeholder="Photos" value={this.state.search}
           />
         </form>
-        <h3 className="search-error">{this.state.inputErrorMessage}</h3>
+        <p className="search-error">{this.state.inputErrorMessage}</p>
         <PhotosSearchContainer searchParams={this.state.searchParams} />
       </div>
     )

@@ -7,6 +7,7 @@ class PhotosSearch extends React.Component {
     super(props);
     this.state = {
       search: this.props.searchParams,
+      searchErrorMessage: ''
     }
     this.update = this.update.bind(this);
     this.handleSubmitSearch = this.handleSubmitSearch.bind(this);
@@ -25,7 +26,18 @@ class PhotosSearch extends React.Component {
 
   handleSubmitSearch() {
     let searchParams = this.state.search;
-    this.setState({ search: "" });
+    if (!searchParams || searchParams.trim().length === 0) {
+      this.setState({
+        searchErrorMessage: 'Search field cannot be empty.',
+        search: ''
+      })
+      return;
+    } else {
+      this.setState({
+        searchErrorMessage: '',
+      })
+    }
+    this.setState({ search: '' });
     this.props.searchTaggedPhotos(searchParams).then(
       this.props.history.push(`/search/photos/${searchParams}`)
     );
@@ -38,7 +50,9 @@ class PhotosSearch extends React.Component {
   }
 
   render () {
-    if (Object.keys(this.props.photos).length === 0) {
+    if (Object.keys(this.props.photos).length === 0 ||
+        !this.props.searchParams ||
+        this.props.searchParams.trim() === "") {
       return (
         <div className="no-results">
           <p>Oops! There are no matches for your search. Please try again.</p>
@@ -52,6 +66,7 @@ class PhotosSearch extends React.Component {
                 value={this.state.search}
               />
               </form>
+              <p className="search-error">{this.state.searchErrorMessage}</p>
           </div>
         </div>
       );
