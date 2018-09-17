@@ -44,17 +44,20 @@
 
 .search-bar-logged-in {
   display: flex;
-  background-color: #fff;
-  border-radius: 2px;
-  padding: 5px;
-  height: 24px;
-  width: 250px;
-  margin-top: 8px;
+  align-items: center;
   margin-right: 18px;
 }
 
-.search-bar-logged-in > input {
-  width: inherit;
+.search-bar-input-field {
+  display: flex;
+  align-items: center;
+  background-color:  #fff;
+  border-radius: 2px;
+  padding: 8px;
+}
+
+.search-bar-input-field > input {
+  margin-left: 8px;
 }
 
 .header-upload-photo {
