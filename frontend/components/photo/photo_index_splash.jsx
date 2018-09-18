@@ -20,10 +20,15 @@ class PhotoIndexSplash extends React.Component {
     });
 
     return (
-      <div className="photo-index-container-splash">
-        <ul className="photo-index-list-splash">
-          {photos}
-        </ul>
+      <div>
+        <div className="navbar-header">
+          <p>All Activity</p>
+        </div>
+        <div className="photo-index-container-splash">
+          <ul className="photo-index-list-splash">
+            {photos}
+          </ul>
+        </div>
       </div>
     );
   }

@@ -50,7 +50,7 @@ class SplashPage extends React.Component {
       return (
         <div>
           <div className="logged-out-splash-wallpaper">
-          {this.props.currentUser ? this.splashLoggedIn() : this.splashLoggedOut()}
+            {this.props.currentUser ? this.splashLoggedIn() : this.splashLoggedOut()}
           </div>
         </div>
       );

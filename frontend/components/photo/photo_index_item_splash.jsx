@@ -12,7 +12,9 @@ const PhotoIndexItemSplash = props => {
           <img src={props.photo.image_url} />
         </Link>
       </div>
-      <p className="photo-title">{props.photo.title}</p>
+      <div className="photo-title">
+        {props.photo.title}
+      </div>
     </li>
   );
 };

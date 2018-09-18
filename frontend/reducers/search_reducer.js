@@ -5,7 +5,6 @@ const searchReducer = (oldState={ photos: {} }, action) => {
   Object.freeze(oldState);
   switch (action.type) {
     case RECEIVE_SEARCH_PHOTOS:
-      console.log(`answer: ${Object.keys(action.photos)}`);
       return merge({}, { photos: action.photos });
     default:
       return oldState;

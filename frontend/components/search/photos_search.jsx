@@ -50,37 +50,34 @@ class PhotosSearch extends React.Component {
   }
 
   render () {
-    if (Object.keys(this.props.photos).length === 0 ||
-        !this.props.searchParams ||
-        this.props.searchParams.trim() === "") {
-      return (
-        <div className="no-results">
-          <p>Oops! There are no matches for your search. Please try again.</p>
-          <div className="search-bar-logged-in">
-            <form className="search-bar-input-field" onSubmit={this.handleSubmitSearch}>
-              <span className="fas fa-search"></span>
-              <input
-                type="text"
-                onChange={this.update}
-                placeholder="Search photos"
-                value={this.state.search}
-              />
-              </form>
-              <p className="search-error">{this.state.searchErrorMessage}</p>
-          </div>
+    const photos = Object.values(this.props.photos).map((photo, i) => (
+      <PhotoIndexItemUser key={photo.id} photo={photo} />
+    ));
+    const photosSearchContainer = (Object.keys(this.props.photos).length === 0) ?
+      <div className="no-results">
+        <p>Oops! There are no matches for your search. Please try again.</p>
+        <div className="search-bar-logged-in">
+          <form className="search-bar-input-field" onSubmit={this.handleSubmitSearch}>
+            <span className="fas fa-search"></span>
+            <input
+              type="text"
+              onChange={this.update}
+              placeholder="Search photos"
+              value={this.state.search}
+            />
+            </form>
+            <p className="search-error">{this.state.searchErrorMessage}</p>
         </div>
-      );
-    } else {
-      let photos = Object.values(this.props.photos).map((photo, i) => (
-        <PhotoIndexItemUser key={photo.id} photo={photo} />
-      ));
+      </div> :
+      <ul className="user-photos">
+        {photos}
+      </ul>
 
-      return (
-        <ul className="user-photos">
-          {photos}
-        </ul>
-      )
-    }
+    return (
+      <div className="photos-search-container">
+        {photosSearchContainer}
+      </div>
+    )
   }
 
 }

@@ -42,14 +42,13 @@ class Search extends React.Component {
 
   render () {
     return (
-      <div className="search-container">
-        <form onSubmit={this.handleSubmit} className="search-form-container">
-          <input type="text" onChange={this.update}
-            placeholder="Photos" value={this.state.search}
-          />
-        </form>
-        <p className="search-error">{this.state.inputErrorMessage}</p>
-        <PhotosSearchContainer searchParams={this.state.searchParams} />
+      <div>
+        <div className="navbar-header">
+          <p>Photos</p>
+        </div>
+        <div className="search-container">
+          <PhotosSearchContainer searchParams={this.state.searchParams} />
+        </div>
       </div>
     )
   }
