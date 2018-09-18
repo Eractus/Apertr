@@ -1,4 +1,17 @@
-.photos-search-container {
-  background-color: #f3f5f6;
+.search-container {
+  flex: 1 0 auto;
+}
+
+.search-results-container {
+  margin-top: 100px;
   padding: 3%;
+  background-color: #f3f5f6;
+}
+
+.photos-search-container {
+
+}
+
+.photo-search-no-results {
+
 }

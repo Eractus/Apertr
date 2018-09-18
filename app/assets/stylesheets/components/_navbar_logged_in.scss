@@ -12,7 +12,7 @@
 .navbar-logged-in-left {
   flex-grow: 0.6;
   display: flex;
-  margin-top: 5px;
+  align-items: center;
 }
 
 .logo-link-logged-in {
@@ -27,7 +27,6 @@
 
 .navbar-logged-in-links {
   color: #fff;
-  margin-top: 10px;
 }
 
 .navbar-left-links {
@@ -129,16 +128,21 @@
 }
 
 .navbar-header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 10;
   margin-top: 50px;
   display: flex;
   align-items: center;
   height: 50px;
-  padding: 0 11%;
+  padding: 0 12%;
+  background: #fff;
   border-bottom: 1px solid hsla(0,0%,54%,.3);
 }
 
 .navbar-header > p {
   padding: 15px;
-  border-bottom: solid 3px #006dac;
+  border-bottom: solid 3px #0091dc;
   cursor: pointer;
 }

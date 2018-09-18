@@ -54,7 +54,7 @@ class PhotosSearch extends React.Component {
       <PhotoIndexItemUser key={photo.id} photo={photo} />
     ));
     const photosSearchContainer = (Object.keys(this.props.photos).length === 0) ?
-      <div className="no-results">
+      <div className="photo-search-no-results">
         <p>Oops! There are no matches for your search. Please try again.</p>
         <div className="search-bar-logged-in">
           <form className="search-bar-input-field" onSubmit={this.handleSubmitSearch}>

@@ -42,11 +42,11 @@ class Search extends React.Component {
 
   render () {
     return (
-      <div>
+      <div className="search-container">
         <div className="navbar-header">
           <p>Photos</p>
         </div>
-        <div className="search-container">
+        <div className="search-results-container">
           <PhotosSearchContainer searchParams={this.state.searchParams} />
         </div>
       </div>
