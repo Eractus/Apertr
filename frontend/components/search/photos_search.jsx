@@ -69,12 +69,15 @@ class PhotosSearch extends React.Component {
             <p className="search-error">{this.state.searchErrorMessage}</p>
         </div>
       </div> :
-      <ul className="user-photos">
-        {photos}
-      </ul>
+      <div>
+        <h2>Everyone's photos</h2>
+        <ul className="photos-search-container">
+          {photos}
+        </ul>
+      </div>
 
     return (
-      <div className="photos-search-container">
+      <div>
         {photosSearchContainer}
       </div>
     )

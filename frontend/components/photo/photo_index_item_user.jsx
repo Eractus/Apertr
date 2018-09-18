@@ -4,9 +4,9 @@ import { Link } from "react-router-dom";
 const PhotoIndexItemUser = props => {
   return (
     <li className="photo-index-item-container">
-      <div className="photo-image">
+      <div className="photo-image-container">
         <Link to={`/photos/${props.photo.id}`}>
-          <img src={props.photo.image_url} />
+          <img className="photo-image" src={props.photo.image_url} />
         </Link>
       </div>
     </li>
