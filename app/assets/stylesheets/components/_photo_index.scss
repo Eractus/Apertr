@@ -12,14 +12,12 @@
 }
 
 .photo-index-item-container-splash {
-  border-radius: 3px;
+  transition: box-shadow .2s;
   margin: 50px;
-  background-color: #fff;
-  box-shadow: 1px 1px 8px #d6d6d6;
 }
 
-.photo-index-item-container-splash:hover {
-  box-shadow: 1px 1px 8px #B8B8B8;
+.photo-index-item-splash:hover {
+  box-shadow: 0 16px 32px 0 rgba(0,0,0,.1);
 }
 
 .photo-image-splash-container {
@@ -37,13 +35,17 @@
   font-size: 18px;
   padding: 12px;
   color: #333333;
+  background-color: #fff;
+  border-radius: 3px;
 }
 
 .photo-title {
   display: flex;
   align-items: center;
   padding: 12px;
-  color: #333
+  color: #333;
+  background-color: #fff;
+  border-radius: 3px;
 }
 
 .photo-index-container {
