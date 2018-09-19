@@ -54,24 +54,28 @@ class PhotosSearch extends React.Component {
       <PhotoIndexItemUser key={photo.id} photo={photo} />
     ));
     const photosSearchContainer = (Object.keys(this.props.photos).length === 0) ?
-      <div className="photo-search-no-results">
-        <p>Oops! There are no matches for your search. Please try again.</p>
-        <div className="search-bar-logged-in">
-          <form className="search-bar-input-field" onSubmit={this.handleSubmitSearch}>
+      <div className="photos-search-no-results">
+        <div className="photos-search-no-results-body">
+          <div className="photos-search-no-results-text">
+            <p>Oops! There are no matches for your search. Please try again.</p>
+          </div>
+          <form className="photos-search-no-results-search-bar" onSubmit={this.handleSubmitSearch}>
             <span className="fas fa-search"></span>
             <input
+              className="photos-search-no-results-input"
               type="text"
               onChange={this.update}
               placeholder="Search photos"
               value={this.state.search}
             />
-            </form>
-            <p className="search-error">{this.state.searchErrorMessage}</p>
+            <input className="photos-search-no-results-submit" type="submit" value="Search" />
+          </form>
+          <p className="photos-search-no-results-search-error">{this.state.searchErrorMessage}</p>
         </div>
       </div> :
-      <div>
+      <div className="photos-search-results">
         <h2>Everyone's photos</h2>
-        <ul className="photos-search-container">
+        <ul className="photos-search-items-container">
           {photos}
         </ul>
       </div>

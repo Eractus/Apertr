@@ -2,7 +2,6 @@
   margin-top: 100px;
   padding: 4% 0;
   background-color: #f3f5f6;
-  min-width: 1200px;
   flex: 1 0 auto;
 }
 
@@ -67,19 +66,17 @@
 }
 
 .photo-index-item-container {
-
-}
-
-.photo-index-item-container:hover {
-  box-shadow: 5px 10px 8px #B8B8B8;
-}
-
-.photo-image-container {
-  height: 200px;
   margin-left: 5px;
   margin-bottom: 5px;
 }
 
+.photo-image-container {
+  height: 200px;
+}
+
+.photo-image-container:hover {
+  box-shadow: 5px 10px 8px #B8B8B8;
+}
 
 .photo-image {
   object-fit: contain;

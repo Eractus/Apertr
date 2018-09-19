@@ -1,0 +1,72 @@
+.photos-search-results {
+
+  .photos-search-items-container {
+    display: flex;
+    flex-wrap: wrap;
+  }
+}
+
+.photos-search-results > h2 {
+  font-size: 18px;
+  margin-bottom: 18px;
+}
+
+.photos-search-no-results {
+  height: calc(100vh - 257px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+
+  .photos-search-no-results-body {
+    position: absolute;
+    top: 20%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .photos-search-no-results-text {
+      text-align: center;
+      width: 400px;
+      font-size: 20px;
+    }
+
+    .photos-search-no-results-search-bar {
+      display: flex;
+      margin-top: 45px;
+      background-color:  #fff;
+      border-radius: 2px;
+      padding: 8px;
+      width: 600px;
+      position: relative;
+      border: 1px solid grey;
+      border-radius: 3px;
+
+      .photos-search-no-results-input {
+        margin-left: 5px;
+        display: flex;
+        align-items: center;
+        width: 500px;
+      }
+
+      .photos-search-no-results-submit {
+        position: absolute;
+        right: 0;
+        top: 0;
+        color: #fff;
+        background-color: #128fdc;
+        padding: 8px 30px;
+      }
+
+      .photos-search-no-results-submit:hover {
+        background-color: #1c9be9;
+      }
+    }
+
+    .photos-search-no-results-search-error {
+      margin-top: 5px;
+      color: red;
+    }
+  }
+}
