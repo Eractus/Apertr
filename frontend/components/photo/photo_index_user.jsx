@@ -14,9 +14,11 @@ class PhotoIndexUser extends React.Component {
     const photos = []
     this.props.photos.forEach(photo => {
       if (this.props.userId === photo.user_id) {
-        photos.push(<PhotoIndexItemUser
+        photos.push(
+          <PhotoIndexItemUser
           key={photo.id}
-          photo={photo} />)
+          photo={photo} />
+        )
       }
     });
     if (photos.length === 0) {
