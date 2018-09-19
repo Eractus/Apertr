@@ -15,7 +15,8 @@ class PhotoIndexSplash extends React.Component {
       return (
         <PhotoIndexItemSplash
           key={photo.id}
-          photo={photo}/>
+          photo={photo}
+        />
       );
     });
 

@@ -16,6 +16,11 @@
   margin: 50px;
 }
 
+.photo-index-item-splash {
+  letter-spacing: 1px;
+  border-radius: 3px;
+}
+
 .photo-index-item-splash:hover {
   box-shadow: 0 16px 32px 0 rgba(0,0,0,.1);
 }
@@ -32,20 +37,33 @@
 
 .photo-author {
   letter-spacing: 2px;
-  font-size: 18px;
+  font-size: 14px;
+  font-weight: 600;
   padding: 12px;
   color: #333333;
   background-color: #fff;
-  border-radius: 3px;
 }
 
 .photo-title {
+  border-bottom: 1px solid rgba(0,0,0,0.15);
   display: flex;
   align-items: center;
   padding: 12px;
   color: #333;
+  font-size: 13px;
+  font-weight: 600;
+  text-overflow: ellipsis;
+  text-align: left;
   background-color: #fff;
-  border-radius: 3px;
+}
+
+.photo-details {
+  display: flex;
+  align-items: center;
+  color: #b3b3b3;
+  font-size: 12px;
+  padding: 12px;
+  background-color: #fff;
 }
 
 .photo-index-container {

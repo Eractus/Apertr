@@ -2,6 +2,8 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const PhotoIndexItemSplash = props => {
+  const commentsCount = props.photo.comments.length;
+  const comments = commentsCount <= 1 ? "comment" : "comments";
   return (
     <li className="photo-index-item-container-splash">
       <div className="photo-index-item-splash">
@@ -15,6 +17,9 @@ const PhotoIndexItemSplash = props => {
         </div>
         <div className="photo-title">
           {props.photo.title}
+        </div>
+        <div className="photo-details">
+          <p>{commentsCount} {comments}</p>
         </div>
       </div>
     </li>
