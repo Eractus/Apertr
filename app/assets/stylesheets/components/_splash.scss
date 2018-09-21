@@ -22,7 +22,7 @@
   right:0;
   height: calc(100vh - 40px);
   background-size: cover;
-  background-attachment: fixed;
+  // background-attachment: fixed;
 }
 
 .logged-out-splash-wallpaper img:nth-child(1) { animation-delay: 0s; }
