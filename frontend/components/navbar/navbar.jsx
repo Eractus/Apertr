@@ -126,8 +126,8 @@ class Navbar extends React.Component {
                 />
               </form>
             </div>
-            <Link className="header-upload-photo" to="/photos/new">
-              <img src="https://s3-us-west-1.amazonaws.com/apertr-dev/photos/images/static+images/upload_logo.png" />
+            <Link className="navbar-upload-photo" to="/photos/new">
+              <span></span>
             </Link>
             <div className="profile-popup">
               <span>

@@ -66,11 +66,18 @@
   color: red;
 }
 
-.header-upload-photo {
-  max-width: 35px;
-  max-height: 35px;
-  margin-top: 10px;
+.navbar-upload-photo {
+  width: 35px;
+  height: 25px;
+  margin-top: 12px;
   margin-right: 18px;
+  background-image: image-url("upload_logo.png");
+  background-size: contain;
+}
+
+.navbar-upload-photo:hover {
+  background-image: image-url("upload_logo_hover.png");
+  background-size: contain;
 }
 
 .profile-popup {
