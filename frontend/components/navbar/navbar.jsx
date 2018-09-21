@@ -74,13 +74,25 @@ class Navbar extends React.Component {
   sessionLoggedIn() {
     let email = this.props.currentUser.email;
     let name = email.substring(0, email.lastIndexOf("@"));
+    const greetings = [
+      ["Yo", "English"],
+      ["Ni hao", "Chinese"],
+      ["Li ho", "Taiwanese"],
+      ["Hola", "Spanish"],
+      ["Bonjour", "French"],
+      ["Konichiwa", "Japanese"],
+      ["Aloha", "Hawaiian"],
+      ["Góðan daginn", "Icelandic"]
+    ]
+    let selectGreeting = greetings[Math.floor(Math.random() * greetings.length)];
+    let currentGreetingPhrase = selectGreeting[0];
+    let currentGreetingLang = selectGreeting[1];
     const profilePopUp = (this.state.showProfilePopup) ?
     <div>
       <div onClick={this.handleCloseProfilePopup} className="popup-overlay"></div>
       <hgroup className="navbar-popup">
-        <h2 className="navbar-greet-name">Yo, {name}!</h2>
-        <br/>
-        <p className="navbar-greet-text">Now you know how to greet people in English</p>
+        <h2 className="navbar-greet-name">{currentGreetingPhrase}, {name}!</h2>
+        <p className="navbar-greet-text">Now you know how to greet people in {currentGreetingLang}</p>
         <Link className="navbar-signout-link" to="/" onClick={this.handleLogOut}>Sign Out</Link>
       </hgroup>
     </div> : "";

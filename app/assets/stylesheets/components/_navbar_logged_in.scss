@@ -106,25 +106,26 @@
   width: 325px;
   height: 150px;
   padding: 18px 12px;
-}
 
-.navbar-greet-name {
-  font-size: 22px;
-}
+  .navbar-greet-name {
+    font-size: 22px;
+    margin-bottom: 10px;
+  }
 
-.navbar-greet-text {
-  font-size: 14px;
-}
+  .navbar-greet-text {
+    font-size: 14px;
+  }
 
-.navbar-signout-link {
-  color: #006dac;
-  position: absolute;
-  bottom: 18px;
-  right: 12px;
-}
+  .navbar-signout-link {
+    color: #006dac;
+    position: absolute;
+    bottom: 18px;
+    right: 12px;
+  }
 
-.navbar-signout-link:hover {
-  text-decoration: underline;
+  .navbar-signout-link:hover {
+    text-decoration: underline;
+  }
 }
 
 .navbar-header {
