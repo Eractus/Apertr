@@ -114,9 +114,9 @@ class PhotoShow extends React.Component {
             </div>
           </div>
           <div className="photo-show-container">
-            <h3>{this.props.photo.userFname} {this.props.photo.userLname}</h3>
-            {editableFields}
             <div className="photo-show-edit-errors">{this.renderErrors()}</div>
+            <p className="photo-show-author">{this.props.photo.userFname} {this.props.photo.userLname}</p>
+            {editableFields}
           </div>
           <div className="photo-show-ui">
             <CommentIndexContainer photo={this.props.photo}/>
@@ -135,8 +135,8 @@ class PhotoShow extends React.Component {
             <img src={this.props.photo.image_url} />
           </div>
           <div className="photo-show-container">
-            <div>{this.renderErrors()}</div>
-            <h3>{this.props.photo.userFname} {this.props.photo.userLname}</h3>
+            <div className="photo-show-edit-errors">{this.renderErrors()}</div>
+            <p className="photo-show-author">{this.props.photo.userFname} {this.props.photo.userLname}</p>
             <p className="photo-show-title">{this.state.title}</p>
             <p className="photo-show-description">{this.state.description}</p>
           </div>

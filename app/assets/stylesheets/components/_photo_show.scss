@@ -32,7 +32,15 @@
   padding: 2% 10%;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
+  min-height: 100px;
   max-width: 400px;
+}
+
+.photo-show-author {
+  font-weight: 500;
+  font-size: 20px;
+  margin-bottom: 5px;
 }
 
 .photo-show-edit-errors {
@@ -77,23 +85,29 @@
   background-color: #1c9be9;
 }
 
+.photo-show-editable-fields {
+  min-height: 45px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.photo-show-editable-fields:hover {
+  padding: 5px;
+  border-radius: 3px;
+  background-color: #e9e9e9;
+  cursor: image-url("edit.png"), pointer;
+}
+
 .photo-show-title {
   font-weight: 500;
-  margin-bottom: 15px;
 }
 
 .photo-show-description {
   font-weight: 400;
   font-size: 14px;
-  margin-bottom: 15px;
 }
 
 .photo-show-ui {
   position: relative;
-}
-
-.photo-show-editable-fields:hover {
-  border-radius: 3px;
-  background-color: #e9e9e9;
-  cursor:url("../../images/edit_icon.png"), pointer;
 }
