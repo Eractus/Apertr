@@ -5,11 +5,12 @@ import PhotoIndexSplashContainer from '../photo/photo_index_splash_container';
 class SplashPage extends React.Component {
   constructor(props) {
     super(props);
+
   }
 
   splashLoggedOut() {
     return (
-      <div>
+      <div className="logged-out-splash-greeting-container">
         <div className="welcome-message">
           <h1 className="intro-header">Find your inspiration.</h1>
           <br/>
@@ -19,11 +20,6 @@ class SplashPage extends React.Component {
           <br/>
            <button
             onClick={() => this.props.login({email: "gabe@gabe.com", password: "password"})} className="signup-button-main">Demo</button>
-        </div>
-        <div className="wallpaper-sig">
-          <p>Dancing aurora borealis</p>
-          <br/>
-          <p>by unknown</p>
         </div>
       </div>
     );
@@ -50,8 +46,14 @@ class SplashPage extends React.Component {
       return (
         <div>
           <div className="logged-out-splash-wallpaper">
-            {this.props.currentUser ? this.splashLoggedIn() : this.splashLoggedOut()}
+            <img src={"/assets/background_splash1.jpg"} />
+            <img src={"/assets/background_splash2.jpg"} />
+            <img src={"/assets/background_splash3.jpg"} />
+            <img src={"/assets/background_splash4.jpg"} />
+            <img src={"/assets/background_splash5.jpg"} />
+            <img src={"/assets/background_splash6.jpg"} />
           </div>
+          {this.props.currentUser ? this.splashLoggedIn() : this.splashLoggedOut()}
         </div>
       );
     }
