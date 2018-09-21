@@ -4,13 +4,24 @@ import PhotoIndexItemSplash from "./photo_index_item_splash";
 class PhotoIndexSplash extends React.Component {
   constructor(props) {
     super(props);
+
+    this.shufflePhotos = this.shufflePhotos.bind(this);
   }
 
   componentDidMount() {
     this.props.fetchPhotos();
   }
 
+  shufflePhotos(photosArray) {
+    for (let i = photosArray.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [photosArray[i], photosArray[j]] = [photosArray[j], photosArray[i]];
+    }
+  }
+
   render () {
+    this.shufflePhotos(this.props.photos);
+
     const photos = this.props.photos.map(photo => {
       return (
         <PhotoIndexItemSplash
