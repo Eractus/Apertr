@@ -69,6 +69,19 @@
   border-bottom-right-radius: 4px;
 }
 
+.no-photos {
+  background-color: #f3f5f6;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.no-photos-message {
+  font-size: 30px;
+  font-weight: 600;
+}
+
 .photo-index-container {
   padding: 5% 7%;
   background-color: #f3f5f6;

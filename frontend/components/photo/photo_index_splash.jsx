@@ -10,6 +10,7 @@ class PhotoIndexSplash extends React.Component {
 
   componentDidMount() {
     this.props.fetchPhotos();
+    window.scrollTo(0, 0);
   }
 
   shufflePhotos(photosArray) {

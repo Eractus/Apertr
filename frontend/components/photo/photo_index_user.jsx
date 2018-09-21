@@ -22,9 +22,12 @@ class PhotoIndexUser extends React.Component {
       }
     });
     if (photos.length === 0) {
+      console.log("hello?");
       return (
-        <div className="no-albums">
-          <p>You have no photos yet! Upload one to start sharing!!!</p>
+        <div className="no-photos">
+          <div className="no-photos-message">
+            <p>You have no photos yet. Upload one to start sharing!</p>
+          </div>
         </div>
       );
     } else {

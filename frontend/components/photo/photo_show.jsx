@@ -16,11 +16,12 @@ class PhotoShow extends React.Component {
   }
 
   componentDidMount() {
-    this.props.fetchPhoto(this.props.match.params.photoId)
+    this.props.fetchPhoto(this.props.match.params.photoId);
+    window.scrollTo(0, 0);
   }
 
   componentWillUnmount() {
-    this.props.clearErrors()
+    this.props.clearErrors();
   }
 
   componentWillReceiveProps(nextProps) {
