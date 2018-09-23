@@ -4,6 +4,7 @@ import { fetchAllComments } from '../../actions/comment_actions';
 import PhotoIndexSplash from "./photo_index_splash";
 
 const mapStateToProps = state => ({
+  currentUser: state.session.currentUser,
   photos: Object.values(state.photos),
 });
 

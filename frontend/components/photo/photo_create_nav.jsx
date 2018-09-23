@@ -45,7 +45,7 @@ class PhotoCreateNav extends React.Component {
             <div className="photo-create-nav-links">
               <Link
                 className="photo-create-nav-photostream"
-                to={`/users/:${this.props.currentUser.id}"`}
+                to={`/users/${this.props.currentUser.id}`}
               >Your Photostream</Link>
             </div>
           </div>

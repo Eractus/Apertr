@@ -26,7 +26,7 @@ class PhotoIndexSplash extends React.Component {
     const photos = this.props.photos.map(photo => {
       return (
         <PhotoIndexItemSplash
-          key={photo.id}
+          currentUser={this.props.currentUser}
           photo={photo}
         />
       );

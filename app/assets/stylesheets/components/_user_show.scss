@@ -4,7 +4,10 @@
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  z-index: 50;
+}
+
+.user-show-cover-photo > img {
+  object-fit: cover;
 }
 
 .user-show-profile-details-container {
@@ -18,7 +21,7 @@
 .user-show-details-left {
   position: absolute;
   left: 150px;
-  bottom: 0;
+  bottom: 55px;
   padding: 1% 0;
   display: flex;
   align-items: center;
@@ -50,7 +53,7 @@
 .user-show-details-right {
   position: absolute;
   right: 150px;
-  bottom: 40px;
+  bottom: 30px;
   display: flex;
 }
 
