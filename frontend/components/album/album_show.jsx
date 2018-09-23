@@ -4,8 +4,10 @@ import { Link } from 'react-router-dom';
 class AlbumShow extends React.Component {
   constructor(props) {
     super(props);
-    this.state = this.props.album;
+    this.state = { toggledEditableFields: false };
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.openEditableFields = this.openEditableFields.bind(this);
+    this.closeEditableFields = this.closeEditableFields.bind(this);
   }
 
   componentDidMount() {
@@ -28,17 +30,30 @@ class AlbumShow extends React.Component {
     }
   }
 
+  openEditableFields() {
+    this.setState({ toggledEditableFields: true })
+  }
+
+  closeEditableFields() {
+    this.setState({ toggledEditableFields: false })
+  }
+
   update(field) {
     return(e) => {
-      this.setState({
-        [field]: e.target.value
-      });
+      this.setState({ [field]: e.target.value });
     };
   }
 
   handleSubmit(e) {
     e.preventDefault();
-    this.props.updateAlbum(this.state);
+    const formData = new FormData();
+    formData.append("id", this.props.match.params.albumId);
+    formData.append("album[title]", this.state.title);
+    formData.append("album[description]", this.state.description);
+    console.log(this.props.album.photos)
+    formData.append("photo_ids", JSON.stringify(Object.values(this.props.album.photos).map(photo => photo.id)));
+    this.props.updateAlbum(formData)
+    this.closeEditableFields();
   }
 
   renderErrors() {
@@ -60,42 +75,50 @@ class AlbumShow extends React.Component {
       );
     }
 
-    const albumPhotos = Object.values(this.state.photos).map(photo => {
+    const albumPhotos = Object.values(this.props.album.photos).map(photo => {
       return (
-        <li className="album-list-photo">
-          <Link to={`/photos/${photo.id}`}>
-            <img src={photo.image_url} />
-          </Link>
+        <li className="album-show-photo-container">
+          <div className="album-show-image-container">
+            <Link to={`/photos/${photo.id}`}>
+              <img className="album-show-image" src={photo.image_url} />
+            </Link>
+          </div>
         </li>
       );
     });
 
+    const albumDetails = this.state.toggledEditableFields ?
+      <form className="album-show-update-form" onSubmit={this.handleSubmit}>
+        <input
+          className="album-show-update-title"
+          type="text"
+          value={this.state.title}
+          onChange={this.update('title')} />
+        <input
+          className="album-show-update-description"
+          type="textarea"
+          value={this.state.description}
+          onChange={this.update('description')} />
+        <input className="album-show-update-button" type="submit" value="Done" />
+      </form> :
+      <div className="album-show-update-form" onClick={this.openEditableFields}>
+        <p className="album-show-update-title">{this.state.title}</p>
+        <p className="album-show-update-description">{this.state.description}</p>
+      </div>
+
     return (
       <div className="album-show-container">
-        <Link className="back-to-albums" to="/albums">{`<`}- Back to albums list</Link>
-        <div className="album-show-image">
-          <img src={Object.values(this.state.photos)[0].image_url} />
-          <form className="album-show-update-form" onSubmit={this.handleSubmit}>
-            <input
-              className="album-show-update-title"
-              type="text"
-              value={this.state.title}
-              onChange={this.update('title')} />
-            <input
-              className="album-show-update-description"
-              type="textarea"
-              value={this.state.description}
-              onChange={this.update('description')} />
-            <input className="album-show-update-button" type="submit" value="Done" />
-          </form>
-          <h3>by {this.props.album.ownerFname} {this.props.album.ownerLname}</h3>
+        <div className="album-show-cover-image">
+          <img src={Object.values(this.props.album.photos)[0].image_url} />
+          <div className="album-show-details-container">
+            {albumDetails}
+            <p>By: {this.props.album.ownerFname} {this.props.album.ownerLname}</p>
+          </div>
           <Link className="album-show-edit" to={`/albums/${this.props.album.id}/edit`}>edit</Link>
         </div>
-        <div>
-          <ul className="album-list-container">
-            {albumPhotos}
-          </ul>
-        </div>
+        <ul className="album-show-photos-list">
+          {albumPhotos}
+        </ul>
       </div>
     );
   }
