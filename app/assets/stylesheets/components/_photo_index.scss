@@ -4,7 +4,6 @@
 
 .photo-index-splash-loading {
   margin-top: 100px;
-  color: #000;
   padding: 2% 5%;
 }
 
@@ -76,6 +75,11 @@
   background-color: #fff;
   border-bottom-left-radius: 4px;
   border-bottom-right-radius: 4px;
+}
+
+.photo-index-user-loading {
+  margin-top: 50px;
+  padding: 2% 5%;
 }
 
 .no-photos {

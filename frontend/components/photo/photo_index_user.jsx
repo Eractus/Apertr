@@ -4,10 +4,11 @@ import PhotoIndexItemUser from "./photo_index_item_user";
 class PhotoIndexUser extends React.Component {
   constructor(props) {
     super(props);
+    this.state = { firstLoad: true }
   }
 
   componentDidMount() {
-    this.props.fetchPhotos();
+    this.props.fetchPhotos().then(() => this.setState({ firstLoad: false }));
   }
 
   render () {
@@ -21,8 +22,13 @@ class PhotoIndexUser extends React.Component {
         )
       }
     });
-    if (photos.length === 0) {
-      console.log("hello?");
+    if (this.state.firstLoad) {
+      return (
+        <div className="photo-index-user-loading">
+          <p>Loading...</p>
+        </div>
+      );
+    } else if (photos.length === 0) {
       return (
         <div className="no-photos">
           <div className="no-photos-message">

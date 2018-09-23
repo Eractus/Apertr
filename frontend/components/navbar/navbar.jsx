@@ -105,14 +105,10 @@ class Navbar extends React.Component {
             <Link to="/" className="logo-link-logged-in">
               <h1>apertr</h1>
             </Link>
-            &nbsp;
             <div className="navbar-logged-in-links">
-              <Link className="navbar-left-links" to="/photos">Photos</Link>
-              &nbsp;
-              <Link className="navbar-left-links" to="/albums">Albums</Link>
+              <Link className="navbar-left-links" to={`/users/${this.props.currentUser.id}`}>You</Link>
             </div>
           </div>
-          &nbsp;
           <div className="navbar-logged-in-right">
             <div className="search-bar-logged-in">
               <p className="search-bar-nav-error">{this.state.searchErrorMessage}</p>
