@@ -128,14 +128,14 @@
 }
 
 .photo-index-container {
-  padding: 4% 10%;
   background-color: #f3f5f6;
-  flex: 1 0 auto;
+  min-height: calc(100vh - 392px);
 }
 
 .photo-index-list-user {
   display: flex;
   flex-wrap: wrap;
+  padding: 4% 10%;
 }
 
 .photo-index-item-container {

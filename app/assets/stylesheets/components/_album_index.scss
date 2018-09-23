@@ -1,27 +1,23 @@
 .album-index-container {
-  padding: 5% 4%;
-  flex: 1 0 auto;
+  background-color: #f3f5f6;
+  min-height: calc(100vh - 402px);
+  padding: 5px 150px;
 }
 
-.album-index-header {
+.album-index-list {
   display: flex;
-  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 40px;
 }
 
-.album-index-header > h1 {
-  font-size: 50px;
-  font-weight: 500;
-}
-
-.album-index-image-container {
-  margin: 14% 7%;
+.album-index-item-container {
+  width: 250px;
+  height: 250px;
+  position: relative;
 }
 
 .album-index-image {
-  position: relative;
-  max-width: 400px;
-  border: 2px solid #898989;
-  border-radius: 3px;
+  height: 100%;
 }
 
 .album-index-image:hover {
@@ -30,14 +26,9 @@
 
 .album-index-title {
   position: absolute;
-  left: 5%;
-  bottom: 4%;
+  left: 10px;
+  bottom: 10px;
   color: #fff;
-}
-
-.album-index-list {
-  display: flex;
-  flex-wrap: wrap;
 }
 
 .album-index-delete {
@@ -51,32 +42,16 @@
   color: red;
 }
 
-.no-albums {
+.album-index-loading {
   background-color: #f3f5f6;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.no-albums-message {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  text-align: center;
-}
-
-.no-albums-message > p {
-  font-size: 30px;
-  font-weight: 600;
+  min-height: 100vh;
+  padding: 2% 5%;
 }
 
 .album-index-new-album {
-  font-size: 30px;
-  font-weight: 600;
-  color: #B8B8B8;
-}
-
-.album-index-new-album:hover {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  float: right;
+  font-size: 17px;
   color: #898989;
 }
