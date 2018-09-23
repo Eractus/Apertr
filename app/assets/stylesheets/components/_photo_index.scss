@@ -1,5 +1,6 @@
 .photo-index-background-splash {
-  min-height: calc(100vw - 50px);
+  min-height: calc(100vh - 50px);
+  background-color: #f3f5f6;
 }
 
 .photo-index-splash-loading {
@@ -78,38 +79,61 @@
 }
 
 .photo-index-user-loading {
-  margin-top: 50px;
+  background-color: #f3f5f6;
+  min-height: 100vh;
   padding: 2% 5%;
 }
 
 .no-photos {
   background-color: #f3f5f6;
-  height: 100vh;
+  min-height: calc(100vh - 392px);
+}
+
+.no-photos-message {
+  width: 100%;
+  height: 100%;
+  padding-top: 65px;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 
-.no-photos-message {
-  font-size: 30px;
-  font-weight: 600;
+.no-photos-message > h2 {
+  font-size: 24px;
+  font-weight: 300;
+  letter-spacing: 0.5px;
+  margin-bottom: 25px;
+}
+
+.no-photos-message > p {
+  text-align: center;
+  width: 650px;
+  font-size: 16px;
+  font-weight: normal;
+}
+
+.photo-index-no-photos-upload {
+  font-size: 16px;
+  font-weight: 500;
+  color: #fff;
+  background-color: #128fdc;
+  border-radius: 3px;
+  padding: 10px 30px;
+  margin-top: 35px;
+}
+
+.photo-index-no-photos-upload:hover {
+  background-color: #1c9be9;
 }
 
 .photo-index-container {
-  padding: 5% 7%;
+  padding: 4% 10%;
   background-color: #f3f5f6;
   flex: 1 0 auto;
 }
 
-.photo-index-container > h1 {
-  display: flex;
-  justify-content: center;
-  font-size: 50px;
-  font-weight: 500;
-}
-
 .photo-index-list-user {
-  padding: 2% 0;
   display: flex;
   flex-wrap: wrap;
 }

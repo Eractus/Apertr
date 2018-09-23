@@ -37,8 +37,9 @@ class UserShow extends React.Component {
     let email = this.props.currentUser.email;
     let name = email.substring(0, email.lastIndexOf("@"));
     let joinedYear = this.props.currentUser.created_at.substring(0, 4);
-    let numPhotos = this.props.currentUser.photo_ids.length;
-    let photo = numPhotos <= 1 ? "photo" : "photos";
+    let photosLength = this.props.currentUser.photo_ids.length;
+    let numPhotos = photosLength === 0 ? "" : photosLength;
+    let photo = photosLength === 0 ? "" : (photosLength === 1 ? "photo" : "photos");
 
     const renderTab = this.state.photostreamTabSelected ?
       <div className="user-show-tabs">

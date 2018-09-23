@@ -1,5 +1,6 @@
 import React from "react";
 import PhotoIndexItemUser from "./photo_index_item_user";
+import { Link } from 'react-router-dom';
 
 class PhotoIndexUser extends React.Component {
   constructor(props) {
@@ -32,14 +33,15 @@ class PhotoIndexUser extends React.Component {
       return (
         <div className="no-photos">
           <div className="no-photos-message">
-            <p>You have no photos yet. Upload one to start sharing!</p>
+            <h2>You have no photos.</h2>
+            <p>Your photostream is your public-facing portfolio. Upload some photos to populate your photostream.</p>
+            <Link to="/photos/new" className="photo-index-no-photos-upload">Select files to upload</Link>
           </div>
         </div>
       );
     } else {
       return (
         <div className="photo-index-container">
-          <h1>Your Photos</h1>
           <ul className="photo-index-list-user">
             {photos}
           </ul>

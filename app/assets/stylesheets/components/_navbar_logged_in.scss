@@ -2,7 +2,7 @@
   background-color: #000;
   height: 50px;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   position: fixed;
   top: 0;
   width: 100%;
@@ -10,7 +10,7 @@
 }
 
 .navbar-logged-in-left {
-  flex-grow: 0.6;
+  margin-left: 10%;
   display: flex;
   align-items: center;
 }
@@ -39,6 +39,7 @@
 
 .navbar-logged-in-right {
   display: flex;
+  margin-right: 10%;
 }
 
 .search-bar-logged-in {
