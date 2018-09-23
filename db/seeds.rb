@@ -9,14 +9,14 @@
 User.destroy_all
 Photo.destroy_all
 
-demo_user = User.create(first_name: "Gabriel", last_name: "Talavera", email: "gabe@gabe.com", password: "password")
-user1 = User.create(first_name: "Danny", last_name: "Peng", email: "danny@danny.com", password: "password")
-user2 = User.create(first_name: "Herbert", last_name: "Pan", email: "herbert@herbert.com", password: "password")
-user3 = User.create(first_name: "Polly", last_name: "Wang", email: "polly@polly.com", password: "password")
-user4 = User.create(first_name: "Chris", last_name: "Chun", email: "chris@chris.com", password: "password")
-user5 = User.create(first_name: "Michael", last_name: "Yeh", email: "mike@mike.com", password: "password")
-user6 = User.create(first_name: "Jonathan", last_name: "Shao", email: "jonathan@jonathan.com", password: "password")
-user7 = User.create(first_name: "Foger", last_name: "Rederer", email: "foger@foger.com", password: "password")
+demo_user = User.create(first_name: "Gabriel", last_name: "Talavera", email: "gabethecommie@gabriel.com", password: "password")
+user1 = User.create(first_name: "Danny", last_name: "Peng", email: "weijeipenguin@danny.com", password: "password")
+user2 = User.create(first_name: "Herbert", last_name: "Pan", email: "newegg4life@herbert.com", password: "password")
+user3 = User.create(first_name: "Polly", last_name: "Wang", email: "igobymanynames@polly.com", password: "password")
+user4 = User.create(first_name: "Chris", last_name: "Chun", email: "rootcanalsallday@chris.com", password: "password")
+user5 = User.create(first_name: "Michael", last_name: "Yeh", email: "m1key3h@michael.com", password: "password")
+user6 = User.create(first_name: "Jonathan", last_name: "Shao", email: "givemeahug@jonathan.com", password: "password")
+user7 = User.create(first_name: "Foger", last_name: "Rederer", email: "thegoat@foger.com", password: "password")
 
 
 seed_photo1 = Photo.create(title: "Ice Cave", description:"glacier has a natural blue hint", image: File.open(File.join(Rails.root, '/app/assets/images/seeds/iceland_seed1.jpg')), user_id: demo_user.id)

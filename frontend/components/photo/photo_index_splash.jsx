@@ -4,12 +4,12 @@ import PhotoIndexItemSplash from "./photo_index_item_splash";
 class PhotoIndexSplash extends React.Component {
   constructor(props) {
     super(props);
-
+    this.state = { firstLoad: true }
     this.shufflePhotos = this.shufflePhotos.bind(this);
   }
 
   componentDidMount() {
-    this.props.fetchPhotos();
+    this.props.fetchPhotos().then(() => this.setState({ firstLoad: false}));
     window.scrollTo(0, 0);
   }
 
@@ -31,19 +31,29 @@ class PhotoIndexSplash extends React.Component {
         />
       );
     });
-
-    return (
-      <div>
-        <div className="navbar-header">
-          <p>All Activity</p>
+    if (this.state.firstLoad) {
+      return (
+        <div className="photo-index-background-splash">
+          <div className="navbar-header">
+            <p>All Activity</p>
+          </div>
+          <p className="photo-index-splash-loading">Loading...</p>
         </div>
-        <div className="photo-index-container-splash">
-          <ul className="photo-index-list-splash">
-            {photos}
-          </ul>
+      );
+    } else {
+      return (
+        <div className="photo-index-background-splash">
+          <div className="navbar-header">
+            <p>All Activity</p>
+          </div>
+          <div className="photo-index-container-splash">
+            <ul className="photo-index-list-splash">
+              {photos}
+            </ul>
+          </div>
         </div>
-      </div>
-    );
+      );
+    }
   }
 }
 
