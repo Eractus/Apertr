@@ -1,6 +1,6 @@
 class Photo < ApplicationRecord
   validates :title, :description, :user_id, presence: true
-  has_attached_file :image, default_url: "profile-icon.png",
+  has_attached_file :image, default_url: "image-not-available.png",
   :url =>':s3_domain_url',
   :path => '/:class/:attachment/:id_partition/:style/:filename'
   validates_attachment_content_type :image, content_type: /\Aimage\/.*\Z/

@@ -53,7 +53,7 @@ class PhotoCreateNav extends React.Component {
             <div className="photo-create-profile-popup">
               <span>
                 <img
-                  src={this.props.currentUser.image_url}
+                  src={this.props.currentUser.profile_pic}
                   onClick={this.handleOpenProfilePopup}
                 />
                 {profilePopUp}

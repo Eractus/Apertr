@@ -128,7 +128,7 @@ class Navbar extends React.Component {
             <div className="profile-popup">
               <span>
                 <img
-                  src={this.props.currentUser.image_url}
+                  src={this.props.currentUser.profile_pic}
                   onClick={this.handleOpenProfilePopup}
                 />
                 {profilePopUp}

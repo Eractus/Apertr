@@ -52,10 +52,10 @@ class UserShow extends React.Component {
     return (
       <div>
         <div className="user-show-cover-photo">
-          <img src={"/assets/gabe1.jpg"}/>
+          <img src={this.props.currentUser.cover_photo}/>
           <div className="user-show-profile-details-container">
             <div className="user-show-details-left">
-              <img src={this.props.currentUser.image_url}/>
+              <img src={this.props.currentUser.profile_pic}/>
               <div className="user-show-names">
                 <h1>{this.props.currentUser.first_name} {this.props.currentUser.last_name}</h1>
                 <p>{name}</p>
