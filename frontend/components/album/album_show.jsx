@@ -87,8 +87,9 @@ class AlbumShow extends React.Component {
       );
     });
 
-    const albumDetails = this.state.toggledEditableFields ?
-      <form className="album-show-update-form" onSubmit={this.handleSubmit}>
+    const albumDetails = this.props.currentUser.id === this.props.album.owner_id ?
+      (this.state.toggledEditableFields ?
+      <form className="album-show-update-form-editing" onSubmit={this.handleSubmit}>
         <input
           className="album-show-update-title"
           type="text"
@@ -104,7 +105,16 @@ class AlbumShow extends React.Component {
       <div className="album-show-update-form" onClick={this.openEditableFields}>
         <p className="album-show-update-title">{this.state.title}</p>
         <p className="album-show-update-description">{this.state.description}</p>
+      </div>) :
+      <div className="album-show-details">
+        <p className="album-show-update-title">{this.state.title}</p>
+        <p className="album-show-update-description">{this.state.description}</p>
       </div>
+
+    let amtPhotos = Object.values(this.props.album.photos).length;
+    let photo = amtPhotos > 1 ? "photos" : "photo";
+    const numPhotos = this.state.toggledEditableFields ? "" :
+      <div className="album-show-num-photos">{amtPhotos} {photo}</div>
 
     return (
       <div className="album-show-container">
@@ -112,6 +122,7 @@ class AlbumShow extends React.Component {
           <img src={Object.values(this.props.album.photos)[0].image_url} />
           <div className="album-show-details-container">
             {albumDetails}
+            {numPhotos}
             <p>By: {this.props.album.ownerFname} {this.props.album.ownerLname}</p>
           </div>
           <Link className="album-show-edit" to={`/albums/${this.props.album.id}/edit`}>edit</Link>
