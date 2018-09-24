@@ -18,10 +18,12 @@
 
 .album-index-image {
   height: 100%;
+  border-top: 1px solid #000;
 }
 
 .album-index-image:hover {
   box-shadow: 1px 1px 8px #B8B8B8;
+  border-top: 3px solid #000;
 }
 
 .album-index-title {

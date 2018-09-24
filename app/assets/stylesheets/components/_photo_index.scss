@@ -137,6 +137,7 @@
 }
 
 .photo-index-container {
+  padding: 4% 10%;
   background-color: #f3f5f6;
   min-height: calc(100vh - 392px);
 }
@@ -144,12 +145,11 @@
 .photo-index-list-user {
   display: flex;
   flex-wrap: wrap;
-  padding: 4% 10%;
+  background-color: #f1f2f3;
 }
 
 .photo-index-item-container {
-  margin-left: 5px;
-  margin-bottom: 5px;
+  margin: 2.5px;
 }
 
 .photo-image-container {
