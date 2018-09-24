@@ -29,11 +29,33 @@
 }
 
 .photo-show-container {
-  padding: 2% 10%;
+  padding: 0 8%;
+  padding-top: 2%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  width: 35%;
+  width: 40%;
+}
+
+.photo-show-owner-specs {
+  display: flex;
+}
+
+.photo-show-owner-specs > img {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  margin-right: 30px;
+}
+
+.photo-show-owner-details {
+  width: 100%;
+  border-bottom: 1px solid #d8d8d8;
+  padding-bottom: 25px;
+}
+
+.photo-show-edit-errors {
+  color: red;
 }
 
 .photo-show-author {
@@ -42,13 +64,11 @@
   margin-bottom: 18px;
 }
 
-.photo-show-edit-errors {
-  color: red;
-}
-
 .update-form {
   display: flex;
   flex-direction: column;
+  position: relative;
+  margin-bottom: 15px;
 }
 
 .update-form-text {
@@ -61,13 +81,22 @@
   background-color: #fff;
 }
 
+.update-form-text:focus {
+  border: 1px solid #128fdc;
+}
+
 .update-form-textarea {
+  min-height: 100px;
   font-size: 14px;
   border: 1px solid #B8B8B8;
   border-radius: 3px;
   padding: 5px;
   margin-bottom: 10px;
   background-color: #fff;
+}
+
+.update-form-textarea:focus {
+  border: 1px solid #128fdc;
 }
 
 .update-button {
@@ -78,6 +107,9 @@
   border-radius: 3px;
   padding: 5px 30px;
   max-width: 40px;
+  position: absolute;
+  right: 0;
+  bottom: -28px;
 }
 
 .update-button:hover {
@@ -85,6 +117,7 @@
 }
 
 .photo-show-editable-fields {
+  width: 100%;
   min-height: 45px;
   display: flex;
   flex-direction: column;

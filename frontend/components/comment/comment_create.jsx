@@ -4,7 +4,7 @@ class CommentCreate extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      user_id: this.props.userId,
+      user_id: this.props.currentUser.id,
       photo_id: this.props.photo.id,
       description: ""
     };
@@ -43,6 +43,7 @@ class CommentCreate extends React.Component {
     return (
       <div className="comment-create-background">
         <div className="comment-create-container">
+          <img src={this.props.currentUser.profile_pic} />
           <form onSubmit={this.handleSubmit}>
             <textarea
               className="comment-create-description"

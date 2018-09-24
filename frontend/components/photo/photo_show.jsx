@@ -115,9 +115,14 @@ class PhotoShow extends React.Component {
             </div>
           </div>
           <div className="photo-show-container">
-            <div className="photo-show-edit-errors">{this.renderErrors()}</div>
-            <p className="photo-show-author">{this.props.photo.userFname} {this.props.photo.userLname}</p>
-            {editableFields}
+            <div className="photo-show-owner-specs">
+              <img src={this.props.currentUser.profile_pic} />
+              <div className="photo-show-owner-details">
+                <div className="photo-show-edit-errors">{this.renderErrors()}</div>
+                <p className="photo-show-author">{this.props.photo.userFname} {this.props.photo.userLname}</p>
+                {editableFields}
+              </div>
+            </div>
           </div>
           <div className="photo-show-ui">
             <CommentIndexContainer photo={this.props.photo}/>

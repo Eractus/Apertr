@@ -4,7 +4,7 @@ import CommentCreate from './comment_create';
 
 const mapStateToProps = state => ({
   errors: state.errors.comment,
-  userId: state.session.currentUser.id
+  currentUser: state.session.currentUser
 });
 
 const mapDispatchToProps = dispatch => ({
