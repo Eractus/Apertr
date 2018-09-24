@@ -8,15 +8,32 @@
 
 User.destroy_all
 Photo.destroy_all
+Album.destroy_all
+Comment.destroy_all
+Tag.destroy_all
 
-demo_user = User.create(first_name: "Gabriel", last_name: "Talavera", email: "gabethecommie@gabriel.com", password: "password")
-user1 = User.create(first_name: "Danny", last_name: "Peng", email: "weijeipenguin@danny.com", password: "password")
-user2 = User.create(first_name: "Herbert", last_name: "Pan", email: "newegg4life@herbert.com", password: "password")
-user3 = User.create(first_name: "Polly", last_name: "Wang", email: "igobymanynames@polly.com", password: "password")
-user4 = User.create(first_name: "Chris", last_name: "Chun", email: "rootcanalsallday@chris.com", password: "password")
-user5 = User.create(first_name: "Michael", last_name: "Yeh", email: "m1key3h@michael.com", password: "password")
-user6 = User.create(first_name: "Jonathan", last_name: "Shao", email: "givemeahug@jonathan.com", password: "password")
-user7 = User.create(first_name: "Foger", last_name: "Rederer", email: "thegoat@foger.com", password: "password")
+demo_user = User.create(first_name: "Gabriel", last_name: "Talavera", email: "gabethecommie@gabriel.com", password: "password", image: File.open(File.join(Rails.root, 'app/assets/images/seeds/profile photos/demo-user-profile.jpg')),
+cover_photo: File.open(File.join(Rails.root, 'app/assets/images/seeds/cover photos/demo-user-cover.jpg')))
+user1 = User.create(first_name: "Danny", last_name: "Peng", email: "weijeipenguin@danny.com", password: "password",
+image: File.open(File.join(Rails.root, 'app/assets/images/seeds/profile photos/user1-profile.jpg')),
+cover_photo: File.open(File.join(Rails.root, 'app/assets/images/seeds/cover photos/user1-cover.jpg')))
+user2 = User.create(first_name: "Herbert", last_name: "Pan", email: "newegg4life@herbert.com", password: "password",
+image: File.open(File.join(Rails.root, 'app/assets/images/seeds/profile photos/user2-profile.jpg')),
+cover_photo: File.open(File.join(Rails.root, 'app/assets/images/seeds/cover photos/user2-cover.jpg')))
+user3 = User.create(first_name: "Polly", last_name: "Wang", email: "igobymanynames@polly.com", password: "password",
+image: File.open(File.join(Rails.root, 'app/assets/images/seeds/profile photos/user3-profile.jpg')),
+cover_photo: File.open(File.join(Rails.root, 'app/assets/images/seeds/cover photos/user3-cover.jpg')))
+user4 = User.create(first_name: "Chris", last_name: "Chun", email: "rootcanalsallday@chris.com", password: "password",
+image: File.open(File.join(Rails.root, 'app/assets/images/seeds/profile photos/user4-profile.png')),
+cover_photo: File.open(File.join(Rails.root, 'app/assets/images/seeds/cover photos/user4-cover.jpg')))
+user5 = User.create(first_name: "Michael", last_name: "Yeh", email: "m1key3h@michael.com", password: "password",
+image: File.open(File.join(Rails.root, 'app/assets/images/seeds/profile photos/user5-profile.jpg')),
+cover_photo: File.open(File.join(Rails.root, 'app/assets/images/seeds/cover photos/user5-cover.jpg')))
+user6 = User.create(first_name: "Jonathan", last_name: "Shao", email: "givemeahug@jonathan.com", password: "password", image: File.open(File.join(Rails.root, 'app/assets/images/seeds/profile photos/user6-profile.jpg')),
+cover_photo: File.open(File.join(Rails.root, 'app/assets/images/seeds/cover photos/user6-cover.jpg')))
+user7 = User.create(first_name: "Foger", last_name: "Rederer", email: "thegoat@foger.com", password: "password",
+image: File.open(File.join(Rails.root, 'app/assets/images/seeds/profile photos/user7-profile.jpg')),
+cover_photo: File.open(File.join(Rails.root, 'app/assets/images/seeds/cover photos/user7-cover.jpg')))
 
 
 seed_photo1 = Photo.create(title: "Ice Cave", description:"glacier has a natural blue hint", image: File.open(File.join(Rails.root, '/app/assets/images/seeds/iceland_seed1.jpg')), user_id: demo_user.id)
@@ -58,3 +75,37 @@ seed_photo36 = Photo.create(title: "Inside Out Forehand", description:"this shot
 seed_photo37 = Photo.create(title: "Slice Approach", description:"timing is everything to make this shot count...or bust", image: File.open(File.join(Rails.root, '/app/assets/images/seeds/tennis_seed6.jpg')), user_id: user7.id)
 seed_photo38 = Photo.create(title: "Game, Set, Match!", description:"winner again", image: File.open(File.join(Rails.root, '/app/assets/images/seeds/tennis_seed7.jpg')), user_id: user7.id)
 seed_photo39 = Photo.create(title: "Wilson NCode Six One Tour", description:"weapon of choice for most of 2000's. shanked way too many balls before realizing it's time for a bigger frame.", image: File.open(File.join(Rails.root, '/app/assets/images/seeds/tennis_seed8.jpg')), user_id: user7.id)
+
+photos = Photo.all
+
+tag_words = ["beautiful", "nature", "outdoors", "tennis", "fan", "pentax", "canon", "nikon", "fujifilm", "leica", "iphone", "android", "nofilter", "iceland", "europe", "art", "hawaii", "night", "day", "colors", "awesome", "nice", "cool", "dream", "lights"]
+
+comments = ["Nice job!", "I've been here too.", "Wow!!!", "How...", "This is awesome", "Takes me back.", "...", "Simply amazing.", "Your photography is a gift to all of Apertr's community", "Like I was there myself, thanks!!", "Thx for sharing~!", "If this isn't talent, I don't know what is..", "Sweeeeet", "Dude...", "My man..", "Teach me please", "Where's the like button?!", "Stealing for my FB cover photo :)", "A-mazing!", "No way!!!!!"]
+
+tag_words.each do |word|
+  Tag.create(word: word)
+end
+
+photos.each do |photo|
+  tag_words.each do |tag|
+    photo_sample = Photo.all.sample
+    tag_sample = Tag.all.sample
+    PhotoTag.create(
+      photo_id: photo_sample.id,
+      tag_id: tag_sample.id
+    )
+  end
+end
+
+User.all.each do |user|
+  comments.each do |comment|
+    2.times do
+      photo_sample = Photo.all.sample
+      Comment.create!(
+        description: comment,
+        user_id: user.id,
+        photo_id: photo_sample.id
+      )
+    end
+  end
+end
