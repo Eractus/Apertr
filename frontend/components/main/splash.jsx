@@ -19,7 +19,7 @@ class SplashPage extends React.Component {
           </div>
           <br/>
            <button
-            onClick={() => this.props.login({email: "gabe@gabe.com", password: "password"})} className="signup-button-main">Demo</button>
+            onClick={() => this.props.login({email: "gabethecommie@gabriel.com", password: "password"})} className="signup-button-main">Demo</button>
         </div>
       </div>
     );

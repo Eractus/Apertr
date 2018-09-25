@@ -50,7 +50,6 @@ class AlbumShow extends React.Component {
     formData.append("id", this.props.match.params.albumId);
     formData.append("album[title]", this.state.title);
     formData.append("album[description]", this.state.description);
-    console.log(this.props.album.photos)
     formData.append("photo_ids", JSON.stringify(Object.values(this.props.album.photos).map(photo => photo.id)));
     this.props.updateAlbum(formData)
     this.closeEditableFields();

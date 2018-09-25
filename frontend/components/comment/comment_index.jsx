@@ -5,33 +5,43 @@ class CommentIndex extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      comments: this.props.comments
+      comments: this.props.comments,
+      firstLoad: true
     };
   }
 
   componentDidMount() {
-    this.props.fetchAllComments(this.props.photo.id)
+    this.props.fetchAllComments(this.props.photo.id);
+    this.props.fetchAllUsers().then(() => this.setState({ firstLoad: false}));
   }
 
   render () {
     const comments = this.props.comments.map(comment => {
       return (
         <CommentIndexItem
-          key={comment.id}
-          comment={comment}
-          photo={this.props.photo}
           currentUser={this.props.currentUser}
+          users={this.props.users}
+          photo={this.props.photo}
+          comment={comment}
           deleteComment={this.props.deleteComment} />
       );
     });
 
-    return (
-      <div className="comment-index-container">
-        <ul className="comment-index-list">
-          {comments}
-        </ul>
-      </div>
-    );
+    if (this.state.firstLoad) {
+      return (
+        <div className="comment-index-container">
+          <p className="comment-index-loading">Loading...</p>
+        </div>
+      );
+    } else {
+      return (
+        <div className="comment-index-container">
+          <ul className="comment-index-list">
+            {comments}
+          </ul>
+        </div>
+      );
+    }
   }
 }
 

@@ -28,7 +28,7 @@ const App = () => (
     </Switch>
 
     <Switch>
-      <ProtectedRoute path="/users/:userId" component={UserShowContainer} />
+      <ProtectedRoute exact path="/users/:userId" component={UserShowContainer} />
       <ProtectedRoute exact path="/photos/new" component={PhotoCreateContainer} />
       <ProtectedRoute path="/photos/:photoId" component={PhotoShowContainer} />
       <ProtectedRoute exact path="/albums/new" component={AlbumCreateContainer} />
@@ -36,6 +36,7 @@ const App = () => (
       <ProtectedRoute path="/albums/:albumId" component={AlbumShowContainer} />
       <ProtectedRoute exact path="/search/photos/:searchParams" component={SearchContainer} />
       <Route exact path="/" component={SplashPageContainer} />
+      <Redirect from='/' to="/"/>
     </Switch>
     <Footer />
   </div>

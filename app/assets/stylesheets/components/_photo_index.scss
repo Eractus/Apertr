@@ -59,8 +59,12 @@
   border-radius: 50%;
 }
 
-.photo-author > p {
+.photo-author > a {
   margin-left: 15px;
+}
+
+.photo-author > a:hover {
+  text-decoration: underline;
 }
 
 .photo-title {

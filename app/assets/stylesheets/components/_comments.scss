@@ -24,9 +24,13 @@
   position: relative;
 }
 
-.comment-index-username {
+.comment-index-item-details > a {
   color: #006dac;
   margin-bottom: 5px;
+}
+
+.comment-index-item-details > a:hover {
+  text-decoration: underline;
 }
 
 .comment-index-description {

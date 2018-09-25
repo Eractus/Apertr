@@ -31,6 +31,7 @@ class Api::PhotosController < ApplicationController
   end
 
   def index
+    # searched photos
     if params[:tag]
       @photos = Photo.tagged_with(params[:tag])
       render :index

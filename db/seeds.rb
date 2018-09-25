@@ -8,7 +8,6 @@
 
 User.destroy_all
 Photo.destroy_all
-Album.destroy_all
 Comment.destroy_all
 Tag.destroy_all
 

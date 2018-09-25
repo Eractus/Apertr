@@ -18,8 +18,8 @@ class PhotoIndexUser extends React.Component {
       if (this.props.userId === photo.user_id) {
         photos.push(
           <PhotoIndexItemUser
-          key={photo.id}
-          photo={photo} />
+            photo={photo}
+          />
         )
       }
     });

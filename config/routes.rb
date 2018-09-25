@@ -7,7 +7,7 @@ Rails.application.routes.draw do
     end
     resources :comments, only: [:show, :destroy]
     resources :tags, only: [:show]
-    resources :users, only: [:create]
+    resources :users, only: [:create, :show, :index]
     resource :session, only: [:create, :destroy]
   end
   delete 'api/tags/:id/photo/:photoId', :to => 'api/tags#destroy'

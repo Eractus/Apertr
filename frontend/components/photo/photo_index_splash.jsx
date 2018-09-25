@@ -9,6 +9,7 @@ class PhotoIndexSplash extends React.Component {
   }
 
   componentDidMount() {
+    this.props.fetchAllUsers();
     this.props.fetchPhotos().then(() => this.setState({ firstLoad: false}));
     window.scrollTo(0, 0);
   }
@@ -27,6 +28,7 @@ class PhotoIndexSplash extends React.Component {
       return (
         <PhotoIndexItemSplash
           currentUser={this.props.currentUser}
+          users={this.props.users}
           photo={photo}
         />
       );

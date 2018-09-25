@@ -21,13 +21,16 @@ class AlbumIndex extends React.Component {
       )
     }
 
-    const albums = this.props.albums.map(album => {
-      return (
-        <AlbumIndexItem
-        key={album.id}
-        album={album}
-        deleteAlbum={this.props.deleteAlbum} />
-      );
+    const albums = []
+    this.props.albums.forEach(album => {
+      if (this.props.userId === album.owner_id) {
+        albums.push(
+          <AlbumIndexItem
+            album={album}
+            deleteAlbum={this.props.deleteAlbum}
+          />
+        );
+      }
     });
     return (
       <div className="album-index-container">

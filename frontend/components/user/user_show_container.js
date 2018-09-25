@@ -1,11 +1,13 @@
-import { connect } from "react-redux";
-import UserShow from "./user_show";
+import { connect } from 'react-redux';
+import { fetchUser } from '../../actions/user_actions';
+import UserShow from './user_show';
 
-const mapStateToProps = state => ({
-  currentUser: state.session.currentUser
+const mapStateToProps = (state, ownProps) => ({
+  user: state.users[ownProps.match.params.userId]
 });
 
 const mapDispatchToProps = dispatch => ({
+  fetchUser: id => dispatch(fetchUser(id))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(UserShow);

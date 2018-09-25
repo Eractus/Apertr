@@ -14,8 +14,12 @@ class UserShow extends React.Component {
     this.toggleAlbumsTab = this.toggleAlbumsTab.bind(this);
   }
 
+  componentDidMount() {
+    this.props.fetchUser(this.props.match.params.userId);
+    window.scrollTo(0, 0);
+  }
+
   togglePhotostreamTab() {
-    console.log(document.getElementsByClassName("user-show-nav-photos"));
     document.getElementById("user-show-nav-photos").className += " user-show-current-tab";
     document.getElementById("user-show-nav-albums").className -= " user-show-current-tab";
     this.setState ({
@@ -34,30 +38,30 @@ class UserShow extends React.Component {
   }
 
   render() {
-    let email = this.props.currentUser.email;
+    let email = this.props.user.email;
     let name = email.substring(0, email.lastIndexOf("@"));
-    let joinedYear = this.props.currentUser.created_at.substring(0, 4);
-    let photosLength = this.props.currentUser.photo_ids.length;
+    let joinedYear = this.props.user.created_at.substring(0, 4);
+    let photosLength = this.props.user.photo_ids.length;
     let numPhotos = photosLength === 0 ? "" : photosLength;
     let photo = photosLength === 0 ? "" : (photosLength === 1 ? "photo" : "photos");
 
     const renderTab = this.state.photostreamTabSelected ?
       <div className="user-show-tabs">
-        <PhotoIndexUserContainer userId={this.props.currentUser.id}/>
+        <PhotoIndexUserContainer userId={this.props.user.id}/>
       </div> :
       <div className="user-show-tabs">
-        <AlbumIndexContainer userId={this.props.currentUser.id}/>
+        <AlbumIndexContainer userId={this.props.user.id}/>
       </div>
 
     return (
       <div>
         <div className="user-show-cover-photo">
-          <img src={this.props.currentUser.cover_photo}/>
+          <img src={this.props.user.cover_photo}/>
           <div className="user-show-profile-details-container">
             <div className="user-show-details-left">
-              <img src={this.props.currentUser.profile_pic}/>
+              <img src={this.props.user.profile_pic}/>
               <div className="user-show-names">
-                <h1>{this.props.currentUser.first_name} {this.props.currentUser.last_name}</h1>
+                <h1>{this.props.user.first_name} {this.props.user.last_name}</h1>
                 <p>{name}</p>
               </div>
             </div>
