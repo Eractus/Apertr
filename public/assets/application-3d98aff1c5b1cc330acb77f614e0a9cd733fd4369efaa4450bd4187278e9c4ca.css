@@ -565,21 +565,22 @@ main > div {
   height: 18px;
   padding: 12px;
   display: flex;
+  z-index: 25;
 }
 
-/* line 23, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_footer.scss */
+/* line 24, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_footer.scss */
 .footer-items {
   display: flex;
   text-align: center;
   margin: auto;
 }
 
-/* line 29, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_footer.scss */
+/* line 30, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_footer.scss */
 .footer-items > li {
   margin: 0 25px;
 }
 
-/* line 33, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_footer.scss */
+/* line 34, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_footer.scss */
 .footer-items > li:hover {
   color: #fff;
 }
@@ -1678,6 +1679,7 @@ main > div {
 /* line 1, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_splash.scss */
 .logged-out-splash-wallpaper {
   height: calc(100vh - 40px);
+  width: 100vw;
   flex: 1 0 auto;
   position: relative;
 }
@@ -1698,50 +1700,62 @@ main > div {
     opacity: 0;
   }
 }
-/* line 15, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_splash.scss */
-.logged-out-splash-wallpaper img {
+/* line 16, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_splash.scss */
+.logged-out-splash-wallpaper > div {
   opacity: 0;
   animation-name: slides;
   animation-duration: 35s;
   animation-iteration-count: infinite;
-  position: fixed;
+  position: absolute;
   left: 0;
-  right: 0;
-  height: calc(100vh - 40px);
-  background-size: cover;
-}
-
-/* line 27, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_splash.scss */
-.logged-out-splash-wallpaper img:nth-child(1) {
-  animation-delay: 0s;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
 }
 
 /* line 28, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_splash.scss */
-.logged-out-splash-wallpaper img:nth-child(2) {
+.logged-out-splash-wallpaper div:nth-child(1) {
+  animation-delay: 0s;
+  background: url(/assets/background-splash1-a5a2033f7993a1006c2b60c238151595af5d3ba5dcc77a86f2a63307b1128c9e.jpg);
+  background-size: 100% 100%;
+}
+
+/* line 33, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_splash.scss */
+.logged-out-splash-wallpaper div:nth-child(2) {
   animation-delay: 5s;
+  background: url(/assets/background-splash2-43956961c27df0ab51df9140b1bd102a53952bee181d449540d4c0a783c63aed.jpg);
+  background-size: 100% 100%;
 }
 
-/* line 29, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_splash.scss */
-.logged-out-splash-wallpaper img:nth-child(3) {
+/* line 38, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_splash.scss */
+.logged-out-splash-wallpaper div:nth-child(3) {
   animation-delay: 10s;
+  background: url(/assets/background-splash3-9825326543fcfb8e296eeef88d7c7b6bd9d96e3ec64d157e1ab280b859b517f2.jpg);
+  background-size: 100% 100%;
 }
 
-/* line 30, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_splash.scss */
-.logged-out-splash-wallpaper img:nth-child(4) {
+/* line 43, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_splash.scss */
+.logged-out-splash-wallpaper div:nth-child(4) {
   animation-delay: 15s;
+  background: url(/assets/background-splash4-8cd0671aae29f5b6a38a0311afbd660f80391ed56b15e5f364f7d0b976251e43.jpg);
+  background-size: 100% 100%;
 }
 
-/* line 31, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_splash.scss */
-.logged-out-splash-wallpaper img:nth-child(5) {
+/* line 48, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_splash.scss */
+.logged-out-splash-wallpaper div:nth-child(5) {
   animation-delay: 20s;
+  background: url(/assets/background-splash5-03808a0b03525ee3c098b5f0431fd6a7b9669b82cf9995beac818831697447cc.jpg);
+  background-size: 100% 100%;
 }
 
-/* line 32, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_splash.scss */
-.logged-out-splash-wallpaper img:nth-child(6) {
+/* line 53, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_splash.scss */
+.logged-out-splash-wallpaper div:nth-child(6) {
   animation-delay: 25s;
+  background: url(/assets/background-splash6-2b88a4614f7c3f0f2ee92e5ffaefa91483b2b0b06b4a2933a18906d6903fc442.jpg);
+  background-size: 100% 100%;
 }
 
-/* line 34, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_splash.scss */
+/* line 59, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_splash.scss */
 .welcome-message {
   display: flex;
   flex-direction: column;
@@ -1753,7 +1767,7 @@ main > div {
   margin-left: -300px;
 }
 
-/* line 45, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_splash.scss */
+/* line 70, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_splash.scss */
 .intro-header {
   font-size: 46px;
   font-weight: 450;
@@ -1761,7 +1775,7 @@ main > div {
   color: #fff;
 }
 
-/* line 52, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_splash.scss */
+/* line 77, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_splash.scss */
 .intro-text {
   font-size: 24px;
   font-weight: 400;
@@ -1773,7 +1787,7 @@ main > div {
   text-align: center;
 }
 
-/* line 63, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_splash.scss */
+/* line 88, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_splash.scss */
 .signup-button-main {
   background-color: #fff;
   padding: 18px 60px;
@@ -1783,12 +1797,12 @@ main > div {
   margin-top: 20px;
 }
 
-/* line 72, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_splash.scss */
+/* line 97, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_splash.scss */
 .signup-button-main:hover {
   color: #888888;
 }
 
-/* line 76, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_splash.scss */
+/* line 101, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_splash.scss */
 .logged-in-background {
   flex: 1 0 auto;
 }
