@@ -147,21 +147,22 @@ input[type="submit"] {
   width: 250px;
   height: 250px;
   position: relative;
+  margin: 15px;
 }
 
-/* line 19, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_album_index.scss */
+/* line 20, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_album_index.scss */
 .album-index-image {
   height: 100%;
   border-top: 1px solid #000;
 }
 
-/* line 24, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_album_index.scss */
+/* line 25, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_album_index.scss */
 .album-index-image:hover {
   box-shadow: 1px 1px 8px #B8B8B8;
   border-top: 3px solid #000;
 }
 
-/* line 29, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_album_index.scss */
+/* line 30, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_album_index.scss */
 .album-index-title {
   position: absolute;
   left: 10px;
@@ -169,7 +170,7 @@ input[type="submit"] {
   color: #fff;
 }
 
-/* line 36, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_album_index.scss */
+/* line 37, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_album_index.scss */
 .album-index-delete {
   position: absolute;
   top: 15px;
@@ -177,19 +178,19 @@ input[type="submit"] {
   color: #fff;
 }
 
-/* line 43, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_album_index.scss */
+/* line 44, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_album_index.scss */
 .album-index-delete:hover {
   color: red;
 }
 
-/* line 47, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_album_index.scss */
+/* line 48, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_album_index.scss */
 .album-index-loading {
   background-color: #f3f5f6;
   min-height: 100vh;
   padding: 2% 5%;
 }
 
-/* line 53, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_album_index.scss */
+/* line 54, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_album_index.scss */
 .album-index-new-album {
   padding-top: 10px;
   padding-bottom: 10px;
