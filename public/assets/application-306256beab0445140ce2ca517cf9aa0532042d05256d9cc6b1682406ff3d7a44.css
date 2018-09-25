@@ -1,0 +1,2198 @@
+html, body, header, nav, h1, a,
+ul, li, strong, main, button, i,
+section, img, div, h2, p, form,
+fieldset, label, input, textarea,
+span, article, footer, time, small {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  font: inherit;
+  font-family: Proxima Nova, helvetica neue, helvetica, arial, sans-serif;
+  color: inherit;
+  text-align: inherit;
+  text-decoration: inherit;
+  vertical-align: inherit;
+  box-sizing: inherit;
+  background: transparent;
+}
+
+ul {
+  list-style: none;
+}
+
+img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+input[type="password"],
+input[type="email"],
+input[type="text"],
+input[type="submit"],
+textarea,
+button {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+button,
+input[type="submit"] {
+  cursor: pointer;
+}
+
+.group:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+/* line 1, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_album_create.scss */
+.album-create-background {
+  background-color: #f3f5f6;
+  flex: 1 0 auto;
+}
+
+/* line 6, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_album_create.scss */
+.album-create-container {
+  padding: 0% 10%;
+  margin-top: calc(4% + 50px);
+  margin-bottom: 4%;
+}
+
+/* line 12, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_album_create.scss */
+.album-created-selected-photos-container {
+  min-height: 50vh;
+}
+
+/* line 16, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_album_create.scss */
+.album-create-user-photos-list {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+/* line 21, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_album_create.scss */
+.album-create-list-image {
+  max-width: 100px;
+  max-height: 56.25px;
+  margin-right: 5px;
+  margin-bottom: 15px;
+}
+
+/* line 28, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_album_create.scss */
+.album-create-selected-photos-list {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 5%;
+}
+
+/* line 34, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_album_create.scss */
+.album-create-no-photos {
+  font-weight: 500;
+  font-size: 28px;
+  width: 75%;
+  margin: auto;
+  text-align: center;
+  margin-top: 10%;
+}
+
+/* line 43, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_album_create.scss */
+.album-create-selected-photos-list-item {
+  max-width: 200px;
+  max-height: 112.5px;
+  margin-right: 5px;
+  margin-bottom: 25px;
+}
+
+/* line 50, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_album_create.scss */
+.album-create-input {
+  border: 1px solid #B8B8B8;
+  border-radius: 2px;
+  padding: 2px 4px;
+  margin-right: 10px;
+  margin-bottom: 20px;
+  background-color: #fff;
+}
+
+/* line 59, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_album_create.scss */
+.album-create-button {
+  font-size: 16px;
+  font-weight: 400;
+  color: #fff;
+  background-color: #128fdc;
+  border-radius: 3px;
+  padding: 5px 30px;
+}
+
+/* line 68, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_album_create.scss */
+.album-create-button:hover {
+  background-color: #1c9be9;
+}
+/* line 1, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_album_index.scss */
+.album-index-container {
+  background-color: #f3f5f6;
+  min-height: calc(100vh - 402px);
+  padding: 5px 150px;
+}
+
+/* line 7, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_album_index.scss */
+.album-index-list {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 40px;
+}
+
+/* line 13, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_album_index.scss */
+.album-index-item-container {
+  width: 250px;
+  height: 250px;
+  position: relative;
+}
+
+/* line 19, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_album_index.scss */
+.album-index-image {
+  height: 100%;
+  border-top: 1px solid #000;
+}
+
+/* line 24, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_album_index.scss */
+.album-index-image:hover {
+  box-shadow: 1px 1px 8px #B8B8B8;
+  border-top: 3px solid #000;
+}
+
+/* line 29, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_album_index.scss */
+.album-index-title {
+  position: absolute;
+  left: 10px;
+  bottom: 10px;
+  color: #fff;
+}
+
+/* line 36, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_album_index.scss */
+.album-index-delete {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  color: #fff;
+}
+
+/* line 43, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_album_index.scss */
+.album-index-delete:hover {
+  color: red;
+}
+
+/* line 47, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_album_index.scss */
+.album-index-loading {
+  background-color: #f3f5f6;
+  min-height: 100vh;
+  padding: 2% 5%;
+}
+
+/* line 53, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_album_index.scss */
+.album-index-new-album {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  float: right;
+  font-size: 17px;
+  color: #898989;
+}
+/* line 1, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_album_show.scss */
+.album-show-container {
+  margin-top: 50px;
+  padding: 4% 10%;
+  background-color: #f3f5f6;
+  text-shadow: 1px 1px #000;
+}
+
+/* line 8, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_album_show.scss */
+.album-show-cover-image {
+  height: 325px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  background: black;
+}
+
+/* line 18, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_album_show.scss */
+.album-show-cover-image > img {
+  height: 100%;
+  object-fit: cover;
+  opacity: .5;
+}
+
+/* line 24, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_album_show.scss */
+.album-show-details-container {
+  height: 325px;
+  position: absolute;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* line 34, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_album_show.scss */
+.album-show-update-form {
+  display: flex;
+  flex-direction: column;
+  margin-top: 35px;
+  width: 750px;
+  border-radius: 2px;
+  cursor: url(/assets/edit-white-890ee23a8d2f6fc3522b0b662c4c731bba7a5d3a875e24ef673b435272d134fe.png), pointer;
+}
+
+/* line 43, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_album_show.scss */
+.album-show-update-form:hover {
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+/* line 47, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_album_show.scss */
+.album-show-update-form-editing {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  margin-top: 35px;
+  width: 750px;
+  border-radius: 2px;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+/* line 57, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_album_show.scss */
+.album-show-update-title {
+  width: 100%;
+  font-size: 48px;
+  color: #fff;
+  padding: 5px;
+  text-align: center;
+}
+
+/* line 65, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_album_show.scss */
+.album-show-update-description {
+  width: 100%;
+  font-size: 20px;
+  color: #fff;
+  padding: 5px;
+  text-align: center;
+}
+
+/* line 73, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_album_show.scss */
+.album-show-update-button {
+  font-size: 16px;
+  font-weight: 400;
+  color: #E8E8E8;
+  border: 1px solid #E8E8E8;
+  border-radius: 3px;
+  padding: 5px 20px;
+  margin: auto;
+  position: absolute;
+  left: calc(50% - 40px);
+  bottom: -50px;
+}
+
+/* line 86, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_album_show.scss */
+.album-show-num-photos {
+  font-size: 14px;
+  color: #fff;
+}
+
+/* line 91, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_album_show.scss */
+.album-show-update-button:hover {
+  color: #fff;
+  border: 1px solid #fff;
+}
+
+/* line 96, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_album_show.scss */
+.album-show-details-container > a {
+  color: #fff;
+  font-size: 16px;
+  font-weight: 400;
+  margin-bottom: 35px;
+}
+
+/* line 103, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_album_show.scss */
+.album-show-details-container > a:hover {
+  text-decoration: underline;
+}
+
+/* line 107, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_album_show.scss */
+.album-show-edit {
+  color: #fff;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+/* line 114, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_album_show.scss */
+.album-show-edit:hover {
+  color: #B8B8B8;
+}
+
+/* line 118, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_album_show.scss */
+.album-show-photos-list {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 5px;
+  background-color: #f1f2f3;
+}
+
+/* line 125, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_album_show.scss */
+.album-show-photo-container {
+  margin: 2.5px;
+}
+
+/* line 129, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_album_show.scss */
+.album-show-photo-container:hover {
+  box-shadow: 5px 10px 8px #B8B8B8;
+}
+
+/* line 133, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_album_show.scss */
+.album-show-image-container {
+  height: 200px;
+}
+
+/* line 137, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_album_show.scss */
+.album-show-image {
+  object-fit: contain;
+  width: auto;
+  height: 100%;
+}
+/* line 1, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_album_update.scss */
+.album-update-container {
+  padding: 5% 10%;
+  background-color: #f3f5f6;
+}
+
+/* line 6, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_album_update.scss */
+.album-updated-selected-photos-container {
+  min-height: 50vh;
+}
+
+/* line 10, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_album_update.scss */
+.album-update-user-photos-list {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+/* line 15, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_album_update.scss */
+.album-update-list-image {
+  max-width: 100px;
+  max-height: 56.25px;
+  margin-right: 5px;
+  margin-bottom: 15px;
+}
+
+/* line 22, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_album_update.scss */
+.album-update-selected-photos-list {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 5%;
+}
+
+/* line 28, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_album_update.scss */
+.album-update-selected-photos-list-item {
+  max-width: 200px;
+  max-height: 112.5px;
+  margin-right: 5px;
+  margin-bottom: 25px;
+}
+
+/* line 35, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_album_update.scss */
+.album-update-form {
+  position: relative;
+}
+
+/* line 39, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_album_update.scss */
+.album-update-button {
+  font-size: 16px;
+  font-weight: 400;
+  color: #fff;
+  background-color: #128fdc;
+  border-radius: 3px;
+  padding: 5px 30px;
+  position: absolute;
+  right: 2%;
+  bottom: 10px;
+}
+
+/* line 51, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_album_update.scss */
+.album-update-button:hover {
+  background-color: #1c9be9;
+}
+/* line 1, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_comments.scss */
+.comment-index-container {
+  margin-left: 3.5%;
+  width: 37%;
+  padding: 0 8%;
+}
+
+/* line 7, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_comments.scss */
+.comment-index-item {
+  display: flex;
+  align-items: center;
+}
+
+/* line 12, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_comments.scss */
+.comment-index-item > img {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  margin-right: 12px;
+}
+
+/* line 19, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_comments.scss */
+.comment-index-item-details {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  margin: 3% 1%;
+  position: relative;
+}
+
+/* line 27, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_comments.scss */
+.comment-index-item-details > a {
+  color: #006dac;
+  margin-bottom: 5px;
+}
+
+/* line 32, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_comments.scss */
+.comment-index-item-details > a:hover {
+  text-decoration: underline;
+}
+
+/* line 36, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_comments.scss */
+.comment-index-description {
+  font-size: 14px;
+}
+
+/* line 40, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_comments.scss */
+.comment-index-delete {
+  color: red;
+  position: absolute;
+  top: 15px;
+  right: 10px;
+  font-size: 12px;
+}
+
+/* line 48, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_comments.scss */
+.comment-create-background {
+  width: 105%;
+  margin-left: 5.5%;
+  padding: 0 6%;
+  padding-top: 1%;
+  margin-bottom: 2%;
+}
+
+/* line 56, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_comments.scss */
+.comment-create-container {
+  width: 100%;
+  display: flex;
+}
+
+/* line 61, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_comments.scss */
+.comment-create-container > img {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  margin-right: 12px;
+}
+
+/* line 68, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_comments.scss */
+.comment-create-container > form {
+  display: flex;
+  flex-direction: column;
+  width: 30%;
+}
+
+/* line 74, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_comments.scss */
+.comment-create-description {
+  background-color: white;
+  width: 100%;
+  min-height: 80px;
+  border: 1px solid #d8d8d8;
+  border-radius: 3px;
+  padding: 10px 10px;
+  vertical-align: top;
+}
+
+/* line 84, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_comments.scss */
+.comment-create-description:focus {
+  border: 1px solid #128fdc;
+}
+
+/* line 88, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_comments.scss */
+.comment-create-errors {
+  color: red;
+}
+
+/* line 92, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_comments.scss */
+.comment-create-button {
+  margin-top: 10px;
+  font-size: 16px;
+  font-weight: 400;
+  color: #fff;
+  background-color: #128fdc;
+  border-radius: 3px;
+  padding: 5px 20px;
+  width: 75px;
+  float: right;
+}
+
+/* line 104, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_comments.scss */
+.comment-create-button:hover {
+  background-color: #1c9be9;
+}
+/* line 1, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_footer.scss */
+html, body, main {
+  height: 100%;
+}
+
+/* line 6, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_footer.scss */
+main > div {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+/* line 12, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_footer.scss */
+.footer {
+  flex-shrink: 0;
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.8);
+  background-color: #000;
+  height: 18px;
+  padding: 12px;
+  display: flex;
+}
+
+/* line 23, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_footer.scss */
+.footer-items {
+  display: flex;
+  text-align: center;
+  margin: auto;
+}
+
+/* line 29, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_footer.scss */
+.footer-items > li {
+  margin: 0 25px;
+}
+
+/* line 33, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_footer.scss */
+.footer-items > li:hover {
+  color: #fff;
+}
+/* line 1, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_navbar_logged_in.scss */
+.logged-in-navbar {
+  background-color: #000;
+  height: 50px;
+  display: flex;
+  justify-content: space-between;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 10;
+}
+
+/* line 12, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_navbar_logged_in.scss */
+.navbar-logged-in-left {
+  margin-left: 10%;
+  display: flex;
+  align-items: center;
+}
+
+/* line 18, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_navbar_logged_in.scss */
+.logo-link-logged-in {
+  font-size: 28px;
+  font-weight: 700;
+  color: #fff;
+}
+
+/* line 24, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_navbar_logged_in.scss */
+.logo-link-logged-in:hover {
+  color: #B8B8B8;
+}
+
+/* line 28, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_navbar_logged_in.scss */
+.navbar-logged-in-links {
+  color: #fff;
+}
+
+/* line 32, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_navbar_logged_in.scss */
+.navbar-left-links {
+  margin-left: 30px;
+}
+
+/* line 36, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_navbar_logged_in.scss */
+.navbar-left-links:hover {
+  color: #B8B8B8;
+}
+
+/* line 40, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_navbar_logged_in.scss */
+.navbar-logged-in-right {
+  display: flex;
+  margin-right: 10%;
+}
+
+/* line 45, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_navbar_logged_in.scss */
+.search-bar-logged-in {
+  display: flex;
+  align-items: center;
+  margin-right: 18px;
+}
+
+/* line 51, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_navbar_logged_in.scss */
+.search-bar-input-field {
+  display: flex;
+  align-items: center;
+  background-color: #fff;
+  border-radius: 2px;
+  padding: 8px;
+}
+
+/* line 59, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_navbar_logged_in.scss */
+.search-bar-input-field > input {
+  margin-left: 8px;
+}
+
+/* line 63, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_navbar_logged_in.scss */
+.search-bar-nav-error {
+  margin-top: 10px;
+  margin-right: 8px;
+  font-size: 14px;
+  color: red;
+}
+
+/* line 70, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_navbar_logged_in.scss */
+.navbar-upload-photo {
+  width: 35px;
+  height: 25px;
+  margin-top: 12px;
+  margin-right: 18px;
+  background-image: url(/assets/upload-logo-e405f5afd92e4aa4aa2eeba9f06e3414b1a8ce10e0ee06c98be1005c85b6b1e7.png);
+  background-size: contain;
+}
+
+/* line 79, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_navbar_logged_in.scss */
+.navbar-upload-photo:hover {
+  background-image: url(/assets/upload-logo-hover-6f5e02db6c7834958e0a35041a6ae083abf5079536dc8ffee9a81da024e3906c.png);
+  background-size: contain;
+}
+
+/* line 84, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_navbar_logged_in.scss */
+.profile-popup {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+/* line 90, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_navbar_logged_in.scss */
+.profile-popup img {
+  border-radius: 50%;
+  height: 35px;
+  width: 35px;
+  cursor: pointer;
+}
+
+/* line 97, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_navbar_logged_in.scss */
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 40;
+}
+
+/* line 106, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_navbar_logged_in.scss */
+.navbar-popup {
+  background-color: #fff;
+  position: absolute;
+  z-index: 50;
+  border: 1px solid #B8B8B8;
+  border-radius: 3px;
+  top: 54px;
+  right: 0;
+  width: 325px;
+  height: 150px;
+  padding: 18px 12px;
+}
+/* line 118, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_navbar_logged_in.scss */
+.navbar-popup .navbar-greet-name {
+  font-size: 22px;
+  margin-bottom: 10px;
+}
+/* line 123, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_navbar_logged_in.scss */
+.navbar-popup .navbar-greet-text {
+  font-size: 14px;
+}
+/* line 127, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_navbar_logged_in.scss */
+.navbar-popup .navbar-signout-link {
+  color: #006dac;
+  position: absolute;
+  bottom: 18px;
+  right: 12px;
+}
+/* line 134, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_navbar_logged_in.scss */
+.navbar-popup .navbar-signout-link:hover {
+  text-decoration: underline;
+}
+
+/* line 139, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_navbar_logged_in.scss */
+.navbar-header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  margin-top: 50px;
+  display: flex;
+  align-items: center;
+  height: 50px;
+  padding: 0 12%;
+  background: #fff;
+  border-bottom: 1px solid rgba(138, 138, 138, 0.3);
+}
+
+/* line 152, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_navbar_logged_in.scss */
+.navbar-header > p {
+  padding: 15px;
+  border-bottom: solid 3px #0091dc;
+  cursor: pointer;
+}
+/* line 1, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_navbar_logged_out.scss */
+.logged-out-navbar {
+  background-color: rgba(0, 0, 0, 0.25);
+  height: 64px;
+  display: flex;
+  justify-content: space-between;
+  position: absolute;
+  width: 100%;
+  z-index: 25;
+}
+
+/* line 11, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_navbar_logged_out.scss */
+.logo-link-logged-out {
+  margin-left: 35px;
+  margin-top: 15px;
+  font-size: 26px;
+  font-weight: 700;
+  color: #fff;
+}
+
+/* line 22, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_navbar_logged_out.scss */
+.login-link {
+  margin-top: 22px;
+  margin-right: 20px;
+  font-size: 15px;
+  color: #fff;
+  float: right;
+}
+
+/* line 30, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_navbar_logged_out.scss */
+.signup-button {
+  margin-top: 15px;
+  margin-right: 35px;
+  font-size: 15px;
+  font-weight: 500;
+  color: black;
+  background-color: #fff;
+  border-radius: 3px;
+  padding: 8px 20px;
+  float: right;
+}
+
+/* line 42, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_navbar_logged_out.scss */
+.signup-button:hover {
+  color: #888888;
+}
+/* line 1, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_photo_create.scss */
+.photo-create-navbar {
+  background-color: #fff;
+  height: 45px;
+  display: flex;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 10;
+  justify-content: space-between;
+}
+
+/* line 12, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_photo_create.scss */
+.photo-create-nav-left {
+  display: flex;
+  align-items: center;
+  margin-left: 1%;
+}
+
+/* line 18, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_photo_create.scss */
+.photo-create-logo-link {
+  font-size: 28px;
+  font-weight: 700;
+  color: #0063dc;
+}
+
+/* line 24, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_photo_create.scss */
+.photo-create-nav-links {
+  font-size: 15px;
+  font-weight: 600;
+  color: #666;
+  margin-left: 35px;
+}
+
+/* line 31, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_photo_create.scss */
+.photo-create-nav-photostream:hover {
+  color: #0063dc;
+}
+
+/* line 35, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_photo_create.scss */
+.photo-create-nav-right {
+  display: flex;
+  padding-right: 1%;
+}
+
+/* line 40, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_photo_create.scss */
+.photo-create-profile-popup {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+/* line 46, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_photo_create.scss */
+.photo-create-profile-popup img {
+  border: 1px #f3f5f6 solid;
+  border-radius: 20%;
+  height: 35px;
+  width: 35px;
+  cursor: pointer;
+}
+
+/* line 54, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_photo_create.scss */
+.photo-create-profile-popup img:hover {
+  border: 1px #0b4791 solid;
+}
+
+/* line 58, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_photo_create.scss */
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 2;
+}
+
+/* line 67, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_photo_create.scss */
+.photo-create-navbar-popup {
+  background-color: #fff;
+  position: absolute;
+  z-index: 20;
+  border: 1px solid #B8B8B8;
+  border-radius: 3px;
+  top: 45px;
+  right: -10px;
+  width: 100px;
+  padding: 8px 0;
+}
+
+/* line 79, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_photo_create.scss */
+.photo-create-navbar-signout-link {
+  display: flex;
+  font-size: 12px;
+  justify-content: center;
+  padding: 4px 0;
+}
+
+/* line 86, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_photo_create.scss */
+.photo-create-navbar-signout-link:hover {
+  color: #0063dc;
+  background-color: #f1f1f1;
+}
+
+/* line 91, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_photo_create.scss */
+.photo-create-header {
+  background-color: #f1f1f1;
+  width: 100vw;
+  height: 45px;
+  position: fixed;
+  top: 45px;
+}
+
+/* line 99, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_photo_create.scss */
+.photo-create-background {
+  background-image: url(/assets/photo-create-background-099488ecc6a0110c7fe1f352ae6e690ab791dcf7ed5cd48b0b037fa067efdec5.png);
+  background-repeat: repeat;
+  flex: 1 0 auto;
+  display: flex;
+}
+
+/* line 105, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_photo_create.scss */
+.photo-create-greeting-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 28px;
+  font-weight: 600;
+  color: #fff;
+  text-align: center;
+}
+
+/* line 117, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_photo_create.scss */
+.photo-create-greeting-container > button {
+  text-shadow: 1px 1px #000;
+  padding: 4px 8px;
+  background-color: #0063dc;
+  border-radius: 3px;
+  margin-top: 50px;
+}
+
+/* line 125, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_photo_create.scss */
+.photo-create-greeting-container > button:hover {
+  background-color: #0b4791;
+}
+
+/* line 129, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_photo_create.scss */
+.photo-create-container {
+  border: 1px solid rgba(220, 220, 220, 0.2);
+  border-radius: 1px;
+  background-color: rgba(0, 0, 0, 0.1);
+  width: 275px;
+  margin-top: calc(2% + 90px);
+  margin-left: 2%;
+  margin-bottom: auto;
+  opacity: 1;
+}
+
+/* line 140, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_photo_create.scss */
+.photo-create-container > p {
+  padding: 15px;
+  color: #999;
+  border-bottom: 1px solid rgba(220, 220, 220, 0.2);
+}
+
+/* line 146, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_photo_create.scss */
+.photo-create-image {
+  padding: 20px 0;
+  border-bottom: 1px solid rgba(220, 220, 220, 0.2);
+}
+
+/* line 151, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_photo_create.scss */
+.photo-create-image > img {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  margin-top: 20px;
+  margin-left: 30px;
+  min-width: 200px;
+  min-height: 200px;
+}
+
+/* line 161, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_photo_create.scss */
+.photo-upload {
+  margin-left: 15px;
+  font-size: 12px;
+  color: #ccc;
+}
+
+/* line 167, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_photo_create.scss */
+.photo-preview {
+  max-height: 35%;
+  max-width: 35%;
+}
+
+/* line 172, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_photo_create.scss */
+.photo-create-form {
+  display: flex;
+  flex-direction: column;
+}
+
+/* line 177, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_photo_create.scss */
+.photo-create-details {
+  padding: 15px;
+  height: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  font-size: 16px;
+  font-weight: 300;
+  border-bottom: 1px solid rgba(220, 220, 220, 0.2);
+}
+
+/* line 188, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_photo_create.scss */
+.photo-create-details:hover {
+  background-color: rgba(0, 0, 0, 0.25);
+}
+
+/* line 192, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_photo_create.scss */
+.photo-create-errors {
+  margin-left: 15px;
+  color: red;
+  font-size: 14px;
+}
+
+/* line 198, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_photo_create.scss */
+.photo-create-title {
+  font-weight: 500;
+  font-size: 18px;
+  cursor: pointer;
+  color: #999;
+}
+
+/* line 205, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_photo_create.scss */
+.photo-create-title::placeholder {
+  color: #ccc;
+}
+
+/* line 209, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_photo_create.scss */
+.photo-create-title:focus {
+  color: #000;
+  font-size: 16px;
+  font-weight: 500;
+  border-radius: 3px;
+  padding: 3px;
+  background-color: #fff;
+}
+
+/* line 218, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_photo_create.scss */
+.photo-create-description {
+  cursor: pointer;
+  color: #999;
+}
+
+/* line 223, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_photo_create.scss */
+.photo-create-description::placeholder {
+  color: #999;
+}
+
+/* line 227, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_photo_create.scss */
+.photo-create-description:focus {
+  color: #000;
+  font-size: 16px;
+  border-radius: 3px;
+  padding: 3px;
+  background-color: #fff;
+}
+
+/* line 235, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_photo_create.scss */
+.photo-create-button {
+  width: 150px;
+  color: #fff;
+  margin: 20px 30px;
+  background-color: #0063dc;
+  border-radius: 3px;
+  padding: 5px 30px;
+  text-align: center;
+}
+
+/* line 245, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_photo_create.scss */
+.photo-create-button:hover {
+  background-color: #0054bd;
+}
+
+/* line 249, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_photo_create.scss */
+.photo-create-placeholder-image {
+  background-image: url(/assets/photo-create-background-image-29d96cc9a2ee0eff292cd7e559e23d2bf7e142370b356c7e663c9e4486b9ec3b.png);
+  width: 750px;
+  height: 600px;
+  margin-top: 5%;
+  margin-left: 13%;
+}
+/* line 1, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_photo_index.scss */
+.photo-index-background-splash {
+  min-height: calc(100vh - 50px);
+  background-color: #f3f5f6;
+}
+
+/* line 6, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_photo_index.scss */
+.photo-index-splash-loading {
+  margin-top: 100px;
+  padding: 2% 5%;
+}
+
+/* line 11, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_photo_index.scss */
+.photo-index-container-splash {
+  margin-top: 100px;
+  padding: 4% 0;
+  background-color: #f3f5f6;
+}
+
+/* line 17, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_photo_index.scss */
+.photo-index-list-splash {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+/* line 23, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_photo_index.scss */
+.photo-index-item-container-splash {
+  margin: 50px;
+}
+
+/* line 27, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_photo_index.scss */
+.photo-image-item-splash {
+  border-radius: 3px;
+}
+
+/* line 31, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_photo_index.scss */
+.photo-index-item-splash:hover {
+  box-shadow: 0 16px 32px 0 rgba(0, 0, 0, 0.1);
+}
+
+/* line 35, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_photo_index.scss */
+.photo-image-splash-container {
+  width: 475px;
+}
+
+/* line 39, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_photo_index.scss */
+.photo-image-splash {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+/* line 45, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_photo_index.scss */
+.photo-author {
+  display: flex;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+  font-size: 16px;
+  font-weight: 500;
+  padding: 12px;
+  color: #333333;
+  background-color: #fff;
+}
+
+/* line 56, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_photo_index.scss */
+.photo-author > img {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+}
+
+/* line 62, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_photo_index.scss */
+.photo-author > a {
+  margin-left: 15px;
+}
+
+/* line 66, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_photo_index.scss */
+.photo-author > a:hover {
+  text-decoration: underline;
+}
+
+/* line 70, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_photo_index.scss */
+.photo-title {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+  display: flex;
+  align-items: center;
+  padding: 12px;
+  color: #333;
+  font-size: 13px;
+  font-weight: 600;
+  text-overflow: ellipsis;
+  text-align: left;
+  background-color: #fff;
+}
+
+/* line 83, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_photo_index.scss */
+.photo-details {
+  display: flex;
+  align-items: center;
+  color: #b3b3b3;
+  font-size: 12px;
+  padding: 12px;
+  background-color: #fff;
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
+}
+
+/* line 94, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_photo_index.scss */
+.photo-index-user-loading {
+  background-color: #f3f5f6;
+  min-height: 100vh;
+  padding: 2% 5%;
+}
+
+/* line 100, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_photo_index.scss */
+.no-photos {
+  background-color: #f3f5f6;
+  min-height: calc(100vh - 392px);
+}
+
+/* line 105, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_photo_index.scss */
+.no-photos-message {
+  width: 100%;
+  height: 100%;
+  padding-top: 65px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* line 115, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_photo_index.scss */
+.no-photos-message > h2 {
+  font-size: 24px;
+  font-weight: 300;
+  letter-spacing: 0.5px;
+  margin-bottom: 25px;
+}
+
+/* line 122, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_photo_index.scss */
+.no-photos-message > p {
+  text-align: center;
+  width: 650px;
+  font-size: 16px;
+  font-weight: normal;
+}
+
+/* line 129, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_photo_index.scss */
+.photo-index-no-photos-upload {
+  font-size: 16px;
+  font-weight: 500;
+  color: #fff;
+  background-color: #128fdc;
+  border-radius: 3px;
+  padding: 10px 30px;
+  margin-top: 35px;
+}
+
+/* line 139, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_photo_index.scss */
+.photo-index-no-photos-upload:hover {
+  background-color: #1c9be9;
+}
+
+/* line 143, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_photo_index.scss */
+.photo-index-container {
+  padding: 4% 10%;
+  background-color: #f3f5f6;
+  min-height: calc(100vh - 392px);
+}
+
+/* line 149, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_photo_index.scss */
+.photo-index-list-user {
+  display: flex;
+  flex-wrap: wrap;
+  background-color: #f1f2f3;
+}
+
+/* line 155, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_photo_index.scss */
+.photo-index-item-container {
+  margin: 2.5px;
+}
+
+/* line 159, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_photo_index.scss */
+.photo-image-container {
+  height: 200px;
+}
+
+/* line 163, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_photo_index.scss */
+.photo-image-container:hover {
+  box-shadow: 5px 10px 8px #B8B8B8;
+}
+
+/* line 167, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_photo_index.scss */
+.photo-image {
+  object-fit: contain;
+  width: auto;
+  height: 100%;
+}
+/* line 1, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_photo_show.scss */
+.photo-show-background {
+  background-color: #f3f5f6;
+  flex: 1 0 auto;
+}
+
+/* line 6, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_photo_show.scss */
+.photo-show {
+  background: #212124;
+  margin-top: 50px;
+  padding: 4% 3%;
+  position: relative;
+  height: 500px;
+}
+
+/* line 14, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_photo_show.scss */
+.photo-show > img {
+  object-fit: contain;
+  width: 100%;
+  height: 100%;
+}
+
+/* line 20, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_photo_show.scss */
+.delete-link {
+  color: #fff;
+  position: absolute;
+  bottom: 2%;
+  right: 3%;
+}
+
+/* line 27, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_photo_show.scss */
+.delete-link:hover {
+  color: red;
+}
+
+/* line 31, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_photo_show.scss */
+.photo-show-container {
+  padding: 0 8%;
+  padding-top: 2%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 40%;
+}
+
+/* line 40, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_photo_show.scss */
+.photo-show-owner-specs {
+  display: flex;
+}
+
+/* line 44, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_photo_show.scss */
+.photo-show-owner-specs > img {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  margin-right: 30px;
+}
+
+/* line 51, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_photo_show.scss */
+.photo-show-owner-details {
+  width: 100%;
+  border-bottom: 1px solid #d8d8d8;
+  padding-bottom: 25px;
+}
+
+/* line 57, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_photo_show.scss */
+.photo-show-edit-errors {
+  color: red;
+}
+
+/* line 61, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_photo_show.scss */
+.photo-show-author {
+  font-weight: 500;
+  font-size: 20px;
+}
+
+/* line 66, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_photo_show.scss */
+.photo-show-author:hover {
+  color: #006dac;
+  text-decoration: underline;
+}
+
+/* line 71, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_photo_show.scss */
+.update-form {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  padding-top: 15px;
+  margin-bottom: 15px;
+}
+
+/* line 79, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_photo_show.scss */
+.update-form-text {
+  font-size: 16px;
+  font-weight: 500;
+  border: 1px solid #B8B8B8;
+  border-radius: 3px;
+  padding: 5px;
+  margin-bottom: 20px;
+  background-color: #fff;
+}
+
+/* line 89, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_photo_show.scss */
+.update-form-text:focus {
+  border: 1px solid #128fdc;
+}
+
+/* line 93, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_photo_show.scss */
+.update-form-textarea {
+  min-height: 100px;
+  font-size: 14px;
+  border: 1px solid #B8B8B8;
+  border-radius: 3px;
+  padding: 5px;
+  margin-bottom: 10px;
+  background-color: #fff;
+}
+
+/* line 103, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_photo_show.scss */
+.update-form-textarea:focus {
+  border: 1px solid #128fdc;
+}
+
+/* line 107, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_photo_show.scss */
+.update-button {
+  font-size: 16px;
+  font-weight: 400;
+  color: #fff;
+  background-color: #128fdc;
+  border-radius: 3px;
+  padding: 5px 30px;
+  max-width: 40px;
+  position: absolute;
+  right: 0;
+  bottom: -28px;
+}
+
+/* line 120, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_photo_show.scss */
+.update-button:hover {
+  background-color: #1c9be9;
+}
+
+/* line 124, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_photo_show.scss */
+.photo-show-editable-details {
+  margin-top: 15px;
+  width: 100%;
+  min-height: 45px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* line 133, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_photo_show.scss */
+.photo-show-editable-details:hover {
+  padding: 5px;
+  border-radius: 3px;
+  background-color: #e9e9e9;
+  cursor: url(/assets/edit-b6be61fd3357ccde6e3e4db173dfa5b0162d51ab54dd23e607e5df230bba732a.png), pointer;
+}
+
+/* line 140, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_photo_show.scss */
+.photo-show-static-details {
+  padding-top: 15px;
+}
+
+/* line 144, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_photo_show.scss */
+.photo-show-title {
+  font-weight: 500;
+}
+
+/* line 148, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_photo_show.scss */
+.photo-show-description {
+  font-weight: 400;
+  font-size: 14px;
+  margin-top: 10px;
+}
+
+/* line 154, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_photo_show.scss */
+.photo-show-ui {
+  position: relative;
+}
+/* line 1, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_photos_search.scss */
+.photos-search-loading {
+  min-height: calc(100vh - 100px);
+}
+
+/* line 7, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_photos_search.scss */
+.photos-search-results .photos-search-items-container {
+  display: flex;
+  flex-wrap: wrap;
+  background-color: #f1f2f3;
+}
+
+/* line 14, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_photos_search.scss */
+.photos-search-results > h2 {
+  font-size: 18px;
+  margin-bottom: 18px;
+}
+
+/* line 19, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_photos_search.scss */
+.photos-search-no-results {
+  height: calc(100vh - 257px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+/* line 27, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_photos_search.scss */
+.photos-search-no-results .photos-search-no-results-body {
+  position: absolute;
+  top: 20%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+/* line 34, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_photos_search.scss */
+.photos-search-no-results .photos-search-no-results-body .photos-search-no-results-text {
+  text-align: center;
+  width: 400px;
+  font-size: 20px;
+}
+/* line 40, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_photos_search.scss */
+.photos-search-no-results .photos-search-no-results-body .photos-search-no-results-search-bar {
+  display: flex;
+  margin-top: 45px;
+  background-color: #fff;
+  border-radius: 2px;
+  padding: 8px;
+  width: 600px;
+  position: relative;
+  border: 1px solid grey;
+  border-radius: 3px;
+}
+/* line 51, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_photos_search.scss */
+.photos-search-no-results .photos-search-no-results-body .photos-search-no-results-search-bar .photos-search-no-results-input {
+  margin-left: 5px;
+  display: flex;
+  align-items: center;
+  width: 500px;
+}
+/* line 58, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_photos_search.scss */
+.photos-search-no-results .photos-search-no-results-body .photos-search-no-results-search-bar .photos-search-no-results-submit {
+  position: absolute;
+  right: 0;
+  top: 0;
+  color: #fff;
+  background-color: #128fdc;
+  padding: 8px 30px;
+}
+/* line 67, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_photos_search.scss */
+.photos-search-no-results .photos-search-no-results-body .photos-search-no-results-search-bar .photos-search-no-results-submit:hover {
+  background-color: #1c9be9;
+}
+/* line 72, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_photos_search.scss */
+.photos-search-no-results .photos-search-no-results-body .photos-search-no-results-search-error {
+  margin-top: 5px;
+  color: red;
+}
+/* line 1, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_search.scss */
+.search-container {
+  background-color: #f3f5f6;
+  flex: 1 0 auto;
+}
+/* line 5, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_search.scss */
+.search-container .search-results-container {
+  margin-top: 100px;
+  padding: 4% 5%;
+}
+/* line 1, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_session_form.scss */
+.session-form-page {
+  flex: 1 0 auto;
+}
+
+/* line 5, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_session_form.scss */
+.session-form-container {
+  display: flex;
+  justify-content: flex-end;
+  padding-top: 2%;
+  padding-bottom: 6%;
+  padding-right: 12%;
+  background-color: rgba(0, 0, 0, 0.025);
+}
+
+/* line 14, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_session_form.scss */
+.session-form-box {
+  box-shadow: 1px 1px 5px 1px rgba(0, 0, 0, 0.15);
+  background-color: #FFF;
+}
+
+/* line 19, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_session_form.scss */
+.session-form {
+  display: flex;
+  flex-direction: column;
+  padding: 25px 25px;
+}
+
+/* line 25, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_session_form.scss */
+.session-form-logo-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+
+/* line 31, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_session_form.scss */
+.session-form-signin-logo {
+  height: 50px;
+  width: 200px;
+}
+
+/* line 36, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_session_form.scss */
+.session-text {
+  text-align: center;
+}
+
+/* line 40, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_session_form.scss */
+.session-text > h2 {
+  margin: 10px;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+/* line 46, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_session_form.scss */
+.session-input {
+  border-bottom: 1px solid #B8B8B8;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  padding: 5px 5px;
+}
+
+/* line 53, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_session_form.scss */
+.session-input::placeholder {
+  color: #B8B8B8;
+}
+
+/* line 57, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_session_form.scss */
+.session-input:focus {
+  border-bottom: 2px solid #188fff;
+}
+
+/* line 61, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_session_form.scss */
+.session-submit {
+  font-size: 18px;
+  font-weight: 400;
+  color: #fff;
+  background-color: #188fff;
+  border-radius: 2px;
+  padding: 15px 125px;
+  margin-top: 10px;
+  margin-bottom: 45%;
+}
+
+/* line 72, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_session_form.scss */
+.session-submit:hover {
+  background-color: #68b3f9;
+}
+
+/* line 76, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_session_form.scss */
+.session-text-bottom {
+  font-size: 14px;
+  margin: auto;
+  display: flex;
+}
+
+/* line 82, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_session_form.scss */
+.session-text-bottom > p {
+  margin-right: 5px;
+}
+
+/* line 86, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_session_form.scss */
+.session-text-bottom > div {
+  color: #188fff;
+}
+
+/* line 90, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_session_form.scss */
+.session-text-bottom > div:hover {
+  color: blue;
+}
+/* line 1, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_splash.scss */
+.logged-out-splash-wallpaper {
+  height: calc(100vh - 40px);
+  flex: 1 0 auto;
+  position: relative;
+}
+@keyframes slides {
+  0% {
+    opacity: 0;
+  }
+  11.11% {
+    opacity: 1;
+  }
+  33.33% {
+    opacity: 1;
+  }
+  44.44% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+/* line 15, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_splash.scss */
+.logged-out-splash-wallpaper img {
+  opacity: 0;
+  animation-name: slides;
+  animation-duration: 35s;
+  animation-iteration-count: infinite;
+  position: fixed;
+  left: 0;
+  right: 0;
+  height: calc(100vh - 40px);
+  background-size: cover;
+}
+
+/* line 27, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_splash.scss */
+.logged-out-splash-wallpaper img:nth-child(1) {
+  animation-delay: 0s;
+}
+
+/* line 28, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_splash.scss */
+.logged-out-splash-wallpaper img:nth-child(2) {
+  animation-delay: 5s;
+}
+
+/* line 29, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_splash.scss */
+.logged-out-splash-wallpaper img:nth-child(3) {
+  animation-delay: 10s;
+}
+
+/* line 30, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_splash.scss */
+.logged-out-splash-wallpaper img:nth-child(4) {
+  animation-delay: 15s;
+}
+
+/* line 31, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_splash.scss */
+.logged-out-splash-wallpaper img:nth-child(5) {
+  animation-delay: 20s;
+}
+
+/* line 32, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_splash.scss */
+.logged-out-splash-wallpaper img:nth-child(6) {
+  animation-delay: 25s;
+}
+
+/* line 34, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_splash.scss */
+.welcome-message {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  margin-left: -300px;
+}
+
+/* line 45, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_splash.scss */
+.intro-header {
+  font-size: 46px;
+  font-weight: 450;
+  letter-spacing: 1px;
+  color: #fff;
+}
+
+/* line 52, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_splash.scss */
+.intro-text {
+  font-size: 24px;
+  font-weight: 400;
+  letter-spacing: 1px;
+  color: #fff;
+  width: 600px;
+  margin-top: 18px;
+  margin-bottom: 50px;
+  text-align: center;
+}
+
+/* line 63, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_splash.scss */
+.signup-button-main {
+  background-color: #fff;
+  padding: 18px 60px;
+  border-radius: 3px;
+  font-size: 20px;
+  font-weight: 500;
+  margin-top: 20px;
+}
+
+/* line 72, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_splash.scss */
+.signup-button-main:hover {
+  color: #888888;
+}
+
+/* line 76, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_splash.scss */
+.logged-in-background {
+  flex: 1 0 auto;
+}
+/* line 1, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_tags.scss */
+.tags-container {
+  position: absolute;
+  top: -10%;
+  right: 12%;
+  border-top: 1px solid #d8d8d8;
+  width: 35%;
+  padding: 30px 0;
+}
+
+/* line 10, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_tags.scss */
+.tags-header {
+  width: 45%;
+  display: flex;
+  justify-content: space-between;
+}
+
+/* line 16, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_tags.scss */
+.tags-header > p {
+  color: #006dac;
+}
+
+/* line 20, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_tags.scss */
+.tag-create-fields {
+  margin-top: 5px;
+  display: flex;
+  justify-content: flex-start;
+}
+
+/* line 26, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_tags.scss */
+.tag-input-field {
+  background-color: white;
+  border: 1px solid #B8B8B8;
+  border-radius: 3px;
+  padding: 4px;
+}
+
+/* line 33, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_tags.scss */
+.tag-input-field:focus {
+  border: 1px solid #008ddf;
+}
+
+/* line 37, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_tags.scss */
+.tag-input-add {
+  margin-left: 5px;
+  font-size: 14px;
+  font-weight: 400;
+  color: #fff;
+  background-color: #128fdc;
+  border-radius: 3px;
+  padding: 1px 5px;
+}
+
+/* line 47, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_tags.scss */
+.tag-input-cancel {
+  display: flex;
+  align-items: flex-end;
+  margin-left: 5px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+/* line 55, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_tags.scss */
+.tag-input-cancel:hover {
+  text-decoration: underline;
+}
+
+/* line 59, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_tags.scss */
+.tag-create-container {
+  position: relative;
+}
+
+/* line 63, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_tags.scss */
+.tag-add {
+  font-size: 15px;
+  color: #006dac;
+  cursor: pointer;
+}
+
+/* line 69, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_tags.scss */
+.tag-add:hover {
+  text-decoration: underline;
+}
+
+/* line 73, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_tags.scss */
+.tags-index-container {
+  margin-top: 20px;
+  width: 45%;
+}
+
+/* line 78, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_tags.scss */
+.tags-index-list {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+/* line 83, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_tags.scss */
+.tag-index-item {
+  background-color: #cfd6d9;
+  display: flex;
+  font-weight: 350;
+  margin: 5px;
+  border-radius: 4px;
+  padding: 3px 5px;
+}
+
+/* line 92, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_tags.scss */
+.tag-index-item:hover {
+  background-color: #868d91;
+}
+
+/* line 96, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_tags.scss */
+.tag-index-item > p:hover {
+  color: #fff;
+}
+
+/* line 100, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_tags.scss */
+.tag-index-item-delete {
+  font-size: 8px;
+  color: red;
+}
+/* line 1, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_user_form.scss */
+.signup-form-page {
+  flex: 1 0 auto;
+}
+
+/* line 5, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_user_form.scss */
+.signup-form-container {
+  display: flex;
+  justify-content: center;
+  padding-top: 5%;
+  padding-bottom: 5%;
+  background-color: rgba(0, 0, 0, 0.025);
+}
+
+/* line 13, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_user_form.scss */
+.signup-form-navbar {
+  padding-left: 5%;
+}
+
+/* line 17, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_user_form.scss */
+.signup-form-navbar-logo {
+  height: 50px;
+  width: 200px;
+  cursor: pointer;
+}
+
+/* line 23, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_user_form.scss */
+.signup-form-box {
+  box-shadow: 1px 1px 5px 1px rgba(0, 0, 0, 0.15);
+  background-color: #FFF;
+}
+
+/* line 28, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_user_form.scss */
+.signup-form {
+  display: flex;
+  flex-direction: column;
+  padding: 45px 25px;
+}
+
+/* line 34, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_user_form.scss */
+.signup-text {
+  text-align: center;
+}
+
+/* line 38, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_user_form.scss */
+.signup-text > h2 {
+  margin-bottom: 25px;
+  font-family: Proxima Nova, helvetica neue, helvetica, arial, sans-serif;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+/* line 45, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_user_form.scss */
+.signup-name {
+  display: flex;
+}
+
+/* line 49, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_user_form.scss */
+.signup-fname {
+  border-bottom: 1px solid #B8B8B8;
+  margin: 12px 0;
+  margin-right: 14px;
+  padding: 5px 5px;
+}
+
+/* line 56, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_user_form.scss */
+.signup-fname::placeholder {
+  color: #B8B8B8;
+}
+
+/* line 60, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_user_form.scss */
+.signup-fname:focus {
+  border-bottom: 2px solid #188fff;
+}
+
+/* line 64, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_user_form.scss */
+.signup-lname {
+  border-bottom: 1px solid #B8B8B8;
+  margin: 12px 0;
+  padding: 5px 5px;
+}
+
+/* line 71, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_user_form.scss */
+.signup-lname::placeholder {
+  color: #B8B8B8;
+}
+
+/* line 75, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_user_form.scss */
+.signup-lname:focus {
+  border-bottom: 2px solid #188fff;
+}
+
+/* line 79, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_user_form.scss */
+.signup-input {
+  border-bottom: 1px solid #B8B8B8;
+  margin: 12px 0;
+  padding: 5px 5px;
+}
+
+/* line 85, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_user_form.scss */
+.signup-input::placeholder {
+  color: #B8B8B8;
+}
+
+/* line 89, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_user_form.scss */
+.signup-input:focus {
+  border-bottom: 2px solid #188fff;
+}
+
+/* line 93, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_user_form.scss */
+.signup-submit {
+  font-family: Proxima Nova, helvetica neue, helvetica, arial, sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  color: #fff;
+  background-color: #188fff;
+  border-radius: 2px;
+  padding: 15px 125px;
+  margin-top: 15%;
+  display: flex;
+  justify-content: center;
+}
+
+/* line 106, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_user_form.scss */
+.signup-submit:hover {
+  background-color: #68b3f9;
+}
+
+/* line 110, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_user_form.scss */
+.signup-text-bottom {
+  font-family: Proxima Nova, helvetica neue, helvetica, arial, sans-serif;
+  font-size: 14px;
+  margin: auto;
+  display: flex;
+}
+
+/* line 117, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_user_form.scss */
+.signup-text-bottom > p {
+  margin-right: 5px;
+}
+
+/* line 121, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_user_form.scss */
+.signup-text-bottom > div {
+  color: #188fff;
+}
+
+/* line 125, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_user_form.scss */
+.signup-text-bottom > div:hover {
+  color: blue;
+}
+/* line 1, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_user_show.scss */
+.user-show-loading {
+  margin-top: 50px;
+  padding: 2% 5%;
+  min-height: calc(100vh - 50px);
+}
+
+/* line 7, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_user_show.scss */
+.user-show-cover-photo {
+  margin-top: 50px;
+  height: 250px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+/* line 15, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_user_show.scss */
+.user-show-cover-photo > img {
+  object-fit: cover;
+}
+
+/* line 19, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_user_show.scss */
+.user-show-profile-details-container {
+  position: relative;
+  height: 125px;
+  font-weight: 300;
+  font-size: 17px;
+  color: #fff;
+}
+
+/* line 27, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_user_show.scss */
+.user-show-details-left {
+  position: absolute;
+  left: 150px;
+  bottom: 55px;
+  padding: 1% 0;
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+/* line 37, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_user_show.scss */
+.user-show-details-left > img {
+  height: 100px;
+  width: 100px;
+  border-radius: 50%;
+}
+
+/* line 43, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_user_show.scss */
+.user-show-names {
+  height: inherit;
+  margin-left: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* line 51, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_user_show.scss */
+.user-show-names > h1 {
+  font-size: 30px;
+}
+
+/* line 55, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_user_show.scss */
+.user-show-names > p {
+  margin-top: 20px;
+}
+
+/* line 59, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_user_show.scss */
+.user-show-details-right {
+  position: absolute;
+  right: 150px;
+  bottom: 30px;
+  display: flex;
+}
+
+/* line 66, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_user_show.scss */
+.user-show-details-right > p:last-child {
+  margin-left: 20px;
+}
+
+/* line 70, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_user_show.scss */
+.user-show-nav-bar {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 50px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  height: 50px;
+  padding: 0 12%;
+  background: #fff;
+  border-bottom: 1px solid rgba(138, 138, 138, 0.3);
+}
+
+/* line 83, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_user_show.scss */
+.user-show-nav-bar > p {
+  padding: 15px;
+  cursor: pointer;
+  color: #333333;
+}
+
+/* line 89, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_user_show.scss */
+.user-show-nav-bar > p:hover {
+  color: #000;
+  border-bottom: solid 3px #0091dc;
+}
+
+/* line 94, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_user_show.scss */
+.user-show-nav-bar > p:last-child {
+  margin-left: 18px;
+}
+
+/* line 98, /Users/dannywpeng/Desktop/Apertr/app/assets/stylesheets/components/_user_show.scss */
+.user-show-current-tab {
+  border-bottom: solid 3px #0091dc;
+  color: #000;
+}
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+
+
+ */
+
