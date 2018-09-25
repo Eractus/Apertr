@@ -3,6 +3,7 @@ import { Provider } from 'react-redux';
 import { Route, Redirect, Switch, Link, HashRouter} from 'react-router-dom';
 import NavbarContainer from './navbar/navbar_container';
 import { AuthRoute, ProtectedRoute } from '../util/route.util';
+import UserCreateNav from './user/user_create_nav';
 import UserCreateContainer from './user/user_create_container';
 import SessionFormContainer from './session/session_form_container';
 import SplashPageContainer from './main/splash_container';
@@ -21,13 +22,15 @@ import Footer from './footer/footer';
 const App = () => (
   <div>
     <Switch>
-      <AuthRoute exact path="/signup" component={UserCreateContainer} />
-      <AuthRoute exact path="/login" component={SessionFormContainer} />
+      <AuthRoute exact path="/signup" component={UserCreateNav} />
+      <AuthRoute exact path="/login" component={UserCreateNav} />
       <ProtectedRoute exact path="/photos/new" component={PhotoCreateNavContainer} />
       <Route path="/" component={NavbarContainer} />
     </Switch>
 
     <Switch>
+      <AuthRoute exact path="/signup" component={UserCreateContainer} />
+      <AuthRoute exact path="/login" component={SessionFormContainer} />
       <ProtectedRoute exact path="/users/:userId" component={UserShowContainer} />
       <ProtectedRoute exact path="/photos/new" component={PhotoCreateContainer} />
       <ProtectedRoute path="/photos/:photoId" component={PhotoShowContainer} />

@@ -40,15 +40,6 @@ class SessionForm extends React.Component {
   render () {
     return (
       <div className="session-form-page">
-        <nav className="signup-form-navbar">
-          <div className="signup-form-navbar-logo-container">
-            <img
-              onClick={()=>this.props.history.push('/')}
-              className="signup-form-navbar-logo"
-              src="https://s3-us-west-1.amazonaws.com/apertr-dev/photos/images/static+images/yeehaw.png"
-            />
-          </div>
-        </nav>
         <div className="session-form-container">
           <form onSubmit={this.handleSubmit} className="session-form-box">
             <div className="session-form">

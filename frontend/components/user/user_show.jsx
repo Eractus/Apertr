@@ -85,7 +85,7 @@ class UserShow extends React.Component {
           </div>
           {renderTab}
         </div>
-      )
+      );
     }
   }
 }
