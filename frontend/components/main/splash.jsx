@@ -46,12 +46,12 @@ class SplashPage extends React.Component {
       return (
         <div>
           <div className="logged-out-splash-wallpaper">
-            <img src={"/assets/background_splash1.jpg"} />
-            <img src={"/assets/background_splash2.jpg"} />
-            <img src={"/assets/background_splash3.jpg"} />
-            <img src={"/assets/background_splash4.jpg"} />
-            <img src={"/assets/background_splash5.jpg"} />
-            <img src={"/assets/background_splash6.jpg"} />
+            <img src={"/assets/seeds/background images/background_splash1.jpg"} />
+            <img src={"/assets/seeds/background images/background_splash2.jpg"} />
+            <img src={"/assets/seeds/background images/background_splash3.jpg"} />
+            <img src={"/assets/seeds/background images/background_splash4.jpg"} />
+            <img src={"/assets/seeds/background images/background_splash5.jpg"} />
+            <img src={"/assets/seeds/background images/background_splash6.jpg"} />
           </div>
           {this.props.currentUser ? this.splashLoggedIn() : this.splashLoggedOut()}
         </div>
