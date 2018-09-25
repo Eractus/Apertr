@@ -6,6 +6,7 @@ class PhotosSearch extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      firstLoad: true,
       search: this.props.searchParams,
       searchErrorMessage: ''
     }
@@ -15,7 +16,7 @@ class PhotosSearch extends React.Component {
 
   componentDidMount() {
     this.setState({ search: "" });
-    this.props.searchTaggedPhotos(this.props.searchParams);
+    this.props.searchTaggedPhotos(this.props.searchParams).then(() => this.setState({ firstLoad: false }));
   }
 
   componentDidUpdate(prevProps) {
@@ -50,6 +51,14 @@ class PhotosSearch extends React.Component {
   }
 
   render () {
+    if (this.state.firstLoad) {
+      return (
+        <div className="photos-search-loading">
+          <p>Loading...</p>
+        </div>
+      );
+    }
+
     const photos = Object.values(this.props.photos).map((photo, i) => (
       <PhotoIndexItemUser key={photo.id} photo={photo} />
     ));
