@@ -98,7 +98,7 @@ class PhotoShow extends React.Component {
           onChange={this.update('description')} />
         <input className="update-button" type="submit" value="Done" />
       </form> :
-      <div onClick={this.openEditableFields} className="photo-show-editable-fields">
+      <div onClick={this.openEditableFields} className="photo-show-editable-details">
         <p className="photo-show-title">{this.state.title}</p>
         <p className="photo-show-description">{this.state.description}</p>
       </div>
@@ -119,7 +119,9 @@ class PhotoShow extends React.Component {
               <img src={this.props.currentUser.profile_pic} />
               <div className="photo-show-owner-details">
                 <div className="photo-show-edit-errors">{this.renderErrors()}</div>
-                <p className="photo-show-author">{this.props.photo.userFname} {this.props.photo.userLname}</p>
+                <Link to={`/users/${this.props.photo.user_id}`} className="photo-show-author">
+                  {this.props.photo.userFname} {this.props.photo.userLname}
+                </Link>
                 {editableFields}
               </div>
             </div>
@@ -145,11 +147,15 @@ class PhotoShow extends React.Component {
               <img src={this.props.currentUser.profile_pic} />
               <div className="photo-show-owner-details">
                 <div className="photo-show-edit-errors">{this.renderErrors()}</div>
-                <p className="photo-show-author">{this.props.photo.userFname} {this.props.photo.userLname}</p>
-                <p className="photo-show-title">{this.state.title}</p>
-                <p className="photo-show-description">{this.state.description}</p>
+                <Link to={`/users/${this.props.photo.user_id}`} className="photo-show-author">
+                  {this.props.photo.userFname} {this.props.photo.userLname}
+                </Link>
+                <div className="photo-show-static-details">
+                  <p className="photo-show-title">{this.state.title}</p>
+                  <p className="photo-show-description">{this.state.description}</p>
+                </div>
               </div>
-            </div>            
+            </div>
           </div>
           <div className="photo-show-ui">
             <CommentIndexContainer photo={this.props.photo}/>

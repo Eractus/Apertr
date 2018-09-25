@@ -3,8 +3,7 @@ import { fetchPhotos } from '../../actions/photo_actions.js';
 import PhotoIndexUser from "./photo_index_user";
 
 const mapStateToProps = state => ({
-  photos: Object.values(state.photos),
-  userId: state.session.currentUser.id
+  photos: Object.values(state.photos)
 });
 
 const mapDispatchToProps = dispatch => ({

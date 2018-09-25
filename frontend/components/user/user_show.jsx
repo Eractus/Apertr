@@ -7,6 +7,7 @@ class UserShow extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      firstLoad: true,
       photostreamTabSelected: true,
       albumsTabSelected: false
     }
@@ -15,7 +16,7 @@ class UserShow extends React.Component {
   }
 
   componentDidMount() {
-    this.props.fetchUser(this.props.match.params.userId);
+    this.props.fetchUser(this.props.match.params.userId).then(() => this.setState({ firstLoad: false }));
     window.scrollTo(0, 0);
   }
 
@@ -53,31 +54,39 @@ class UserShow extends React.Component {
         <AlbumIndexContainer userId={this.props.user.id}/>
       </div>
 
-    return (
-      <div>
-        <div className="user-show-cover-photo">
-          <img src={this.props.user.cover_photo}/>
-          <div className="user-show-profile-details-container">
-            <div className="user-show-details-left">
-              <img src={this.props.user.profile_pic}/>
-              <div className="user-show-names">
-                <h1>{this.props.user.first_name} {this.props.user.last_name}</h1>
-                <p>{name}</p>
+    if (this.state.firstLoad) {
+      return (
+        <div className="user-show-loading">
+          <p>Loading...</p>
+        </div>
+      );
+    } else {
+      return (
+        <div>
+          <div className="user-show-cover-photo">
+            <img src={this.props.user.cover_photo}/>
+            <div className="user-show-profile-details-container">
+              <div className="user-show-details-left">
+                <img src={this.props.user.profile_pic}/>
+                <div className="user-show-names">
+                  <h1>{this.props.user.first_name} {this.props.user.last_name}</h1>
+                  <p>{name}</p>
+                </div>
+              </div>
+              <div className="user-show-details-right">
+                <p>{numPhotos} {photo}</p>
+                <p>Joined {joinedYear}</p>
               </div>
             </div>
-            <div className="user-show-details-right">
-              <p>{numPhotos} {photo}</p>
-              <p>Joined {joinedYear}</p>
-            </div>
           </div>
+          <div className="user-show-nav-bar">
+            <p id="user-show-nav-photos" className="user-show-current-tab" onClick={this.togglePhotostreamTab}>Photostream</p>
+            <p id="user-show-nav-albums" onClick={this.toggleAlbumsTab}>Albums</p>
+          </div>
+          {renderTab}
         </div>
-        <div className="user-show-nav-bar">
-          <p id="user-show-nav-photos" className="user-show-current-tab" onClick={this.togglePhotostreamTab}>Photostream</p>
-          <p id="user-show-nav-albums" onClick={this.toggleAlbumsTab}>Albums</p>
-        </div>
-        {renderTab}
-      </div>
-    )
+      )
+    }
   }
 }
 

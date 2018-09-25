@@ -122,7 +122,9 @@ class AlbumShow extends React.Component {
           <div className="album-show-details-container">
             {albumDetails}
             {numPhotos}
-            <p>By: {this.props.album.ownerFname} {this.props.album.ownerLname}</p>
+            <Link to={`/users/${this.props.album.owner_id}`}>
+              By: {this.props.album.ownerFname} {this.props.album.ownerLname}
+            </Link>
           </div>
           <Link className="album-show-edit" to={`/albums/${this.props.album.id}/edit`}>edit</Link>
         </div>

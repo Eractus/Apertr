@@ -93,11 +93,15 @@
   border: 1px solid #fff;
 }
 
-.album-show-details-container > p {
+.album-show-details-container > a {
   color: #fff;
   font-size: 16px;
   font-weight: 400;
   margin-bottom: 35px;
+}
+
+.album-show-details-container > a:hover {
+  text-decoration: underline;
 }
 
 .album-show-edit {
