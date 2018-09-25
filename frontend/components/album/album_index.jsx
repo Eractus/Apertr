@@ -21,6 +21,9 @@ class AlbumIndex extends React.Component {
       )
     }
 
+    const newAlbum = this.props.currentUser.id === this.props.userId ?
+      <Link to="/albums/new" className="album-index-new-album">New album</Link> : ""
+      
     const albums = []
     this.props.albums.forEach(album => {
       if (this.props.userId === album.owner_id) {
@@ -34,7 +37,7 @@ class AlbumIndex extends React.Component {
     });
     return (
       <div className="album-index-container">
-        <Link to="/albums/new" className="album-index-new-album">New album</Link>
+        {newAlbum}
         <ul className="album-index-list">
           {albums}
         </ul>
