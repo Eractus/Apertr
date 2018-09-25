@@ -1,7 +1,8 @@
 .comment-index-container {
-  margin-left: 3.5%;
-  width: 37%;
-  padding: 0 8%;
+  width: 100%;
+  padding: 0 6%;
+  padding-top: 1%;
+  margin-bottom: 2%;
 }
 
 .comment-index-item {
@@ -45,16 +46,9 @@
   font-size: 12px;
 }
 
-.comment-create-background {
-  width: 105%;
-  margin-left: 5.5%;
-  padding: 0 6%;
-  padding-top: 1%;
-  margin-bottom: 2%;
-}
-
 .comment-create-container {
   width: 100%;
+  padding: 0 6%;
   display: flex;
 }
 
@@ -68,7 +62,7 @@
 .comment-create-container > form {
   display: flex;
   flex-direction: column;
-  width: 30%;
+  width: 82%;
 }
 
 .comment-create-description {

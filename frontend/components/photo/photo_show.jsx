@@ -9,14 +9,17 @@ class PhotoShow extends React.Component {
   constructor(props) {
     super(props);
     this.state = this.props.photo;
-    this.state = { toggledEditableFields: false };
+    this.state = {
+      firstLoad: true,
+      toggledEditableFields: false
+    };
     this.handleSubmitUpdate = this.handleSubmitUpdate.bind(this);
     this.openEditableFields = this.openEditableFields.bind(this);
     this.closeEditableFields = this.closeEditableFields.bind(this);
   }
 
   componentDidMount() {
-    this.props.fetchPhoto(this.props.match.params.photoId);
+    this.props.fetchPhoto(this.props.match.params.photoId).then(() => this.setState({ firstLoad: false }));
     window.scrollTo(0, 0);
   }
 
@@ -68,21 +71,13 @@ class PhotoShow extends React.Component {
     );
   }
 
-  photoLoggedOut() {
-    return (
-      <div className="photo-show-background">
-        <div className="photo-show">
-          <img src={this.props.photo.image_url} />
-        </div>
-      </div>
-    );
-  }
-
-  photoLoggedIn() {
-    if (!this.props.photo) {
+  render() {
+    if (this.state.firstLoad) {
       return (
-        <div>Loading...</div>
-      )
+        <div className="photo-show-loading">
+          <p>Loading...</p>
+        </div>
+      );
     }
 
     const editableFields = (this.state.toggledEditableFields) ?
@@ -127,9 +122,11 @@ class PhotoShow extends React.Component {
             </div>
           </div>
           <div className="photo-show-ui">
-            <CommentIndexContainer photo={this.props.photo}/>
-            <CommentCreateContainer photo={this.props.photo}/>
-            <div className="tags-container">
+            <div className="photo-show-comments-container">
+              <CommentIndexContainer photo={this.props.photo}/>
+              <CommentCreateContainer photo={this.props.photo}/>
+            </div>
+            <div className="photo-show-tags-container">
               <TagCreateContainer photo={this.props.photo}/>
               <TagIndexContainer photo={this.props.photo}/>
             </div>
@@ -158,9 +155,11 @@ class PhotoShow extends React.Component {
             </div>
           </div>
           <div className="photo-show-ui">
-            <CommentIndexContainer photo={this.props.photo}/>
-            <CommentCreateContainer photo={this.props.photo}/>
-            <div className="tags-container">
+            <div className="photo-show-comments-container">
+              <CommentIndexContainer photo={this.props.photo}/>
+              <CommentCreateContainer photo={this.props.photo}/>
+            </div>
+            <div className="photo-show-tags-container">
               <TagCreateContainer photo={this.props.photo}/>
               <TagIndexContainer photo={this.props.photo}/>
             </div>
@@ -168,17 +167,6 @@ class PhotoShow extends React.Component {
         </div>
       );
     }
-  }
-
-  render() {
-    if (!this.props.photo) {
-      return (
-        <div>Loading...</div>
-      )
-    }
-    return (
-      this.props.currentUser ? this.photoLoggedIn() : this.photoLoggedOut()
-    );
   }
 }
 
