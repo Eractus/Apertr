@@ -105,7 +105,6 @@ class PhotoCreate extends React.Component {
                 <img
                   src={this.state.imageUrl}
                   onClick={this.removeImage}
-                  className="photo-preview"
                 />
               </div>
               <input className="photo-create-button" type="submit" value="Upload Photo" />

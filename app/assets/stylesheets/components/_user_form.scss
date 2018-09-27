@@ -5,8 +5,9 @@
 .signup-form-container {
   display: flex;
   justify-content: center;
-  padding-top: 5%;
-  padding-bottom: 5%;
+  height: calc(100vh - 142px);
+  padding-top: 50px;
+  padding-bottom: 50px;
   background-color: rgba(0,0,0,.025);
 }
 
@@ -23,6 +24,7 @@
 .signup-form-box {
   box-shadow: 1px 1px 5px 1px rgba(0, 0, 0, 0.15);
   background-color: #FFF;
+  height: 525px;
 }
 
 .signup-form {
@@ -111,6 +113,7 @@
   font-family: Proxima Nova, helvetica neue, helvetica, arial, sans-serif;
   font-size: 14px;
   margin: auto;
+  margin-top: 15px;
   display: flex;
 }
 
