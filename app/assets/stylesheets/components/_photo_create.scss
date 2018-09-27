@@ -99,8 +99,10 @@
 .photo-create-background {
   background-image: image-url("photo-create-background.png");
   background-repeat: repeat;
-  flex: 1 0 auto;
-  display: flex;}
+  margin-top: 90px;
+  height: calc(100vh - 132px);
+  display: flex;
+}
 
 .photo-create-greeting-container {
   width: 100%;
@@ -131,10 +133,9 @@
   border-radius: 1px;
   background-color: rgba(0,0,0,0.1);
   width: 275px;
-  margin-top: calc(2% + 90px);
-  margin-left: 2%;
-  margin-bottom: auto;
-  opacity: 1;
+  height: calc(100% - 27px);
+  margin: 15px;
+  opacity: 15px;
 }
 
 .photo-create-container > p {
@@ -248,8 +249,6 @@
 
 .photo-create-placeholder-image {
   background-image: image-url("photo-create-background-image.png");
-  width: 750px;
-  height: 600px;
-  margin-top: 5%;
-  margin-left: 13%;
+  width: 100%;
+  height: 100%;
 }
