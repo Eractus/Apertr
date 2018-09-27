@@ -13,7 +13,9 @@ const TagIndexItem = props => {
     <li>
       <div className="tag-index-item-container">
         <div className="tag-index-item">
-          <p>{props.tag.word}</p>
+          <Link to={`/search/photos/${props.tag.word}`}>
+            {props.tag.word}
+          </Link>
           {delTag}
         </div>
       </div>
