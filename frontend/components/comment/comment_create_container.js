@@ -3,8 +3,7 @@ import { createComment, receiveErrors } from '../../actions/comment_actions';
 import CommentCreate from './comment_create';
 
 const mapStateToProps = state => ({
-  errors: state.errors.comment,
-  currentUser: state.session.currentUser
+  errors: state.errors.comment
 });
 
 const mapDispatchToProps = dispatch => ({

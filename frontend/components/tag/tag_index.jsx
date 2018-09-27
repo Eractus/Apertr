@@ -20,7 +20,7 @@ class TagIndex extends React.Component {
           key={tag.id}
           tag={tag}
           photo={this.props.photo}
-          userId={this.props.userId}
+          userId={this.props.currentUser.id}
           deleteTag={this.props.deleteTag} />
       );
     });

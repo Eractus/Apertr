@@ -19,7 +19,8 @@ class PhotoShow extends React.Component {
   }
 
   componentDidMount() {
-    this.props.fetchPhoto(this.props.match.params.photoId).then(() => this.setState({ firstLoad: false }));
+    this.props.fetchPhoto(this.props.match.params.photoId);
+    this.props.fetchAllUsers().then(() => this.setState({ firstLoad: false }));
     window.scrollTo(0, 0);
   }
 
@@ -111,7 +112,7 @@ class PhotoShow extends React.Component {
           </div>
           <div className="photo-show-container">
             <div className="photo-show-owner-specs">
-              <img src={this.props.currentUser.profile_pic} />
+              <img src={this.props.users[this.props.photo.user_id].profile_pic} />
               <div className="photo-show-owner-details">
                 <div className="photo-show-edit-errors">{this.renderErrors()}</div>
                 <Link to={`/users/${this.props.photo.user_id}`} className="photo-show-author">
@@ -123,12 +124,22 @@ class PhotoShow extends React.Component {
           </div>
           <div className="photo-show-ui">
             <div className="photo-show-comments-container">
-              <CommentIndexContainer photo={this.props.photo}/>
-              <CommentCreateContainer photo={this.props.photo}/>
+              <CommentIndexContainer
+                photo={this.props.photo}
+                users={this.props.users}
+                currentUser={this.props.currentUser}
+              />
+              <CommentCreateContainer
+                photo={this.props.photo}
+                currentUser={this.props.currentUser}
+              />
             </div>
             <div className="photo-show-tags-container">
               <TagCreateContainer photo={this.props.photo}/>
-              <TagIndexContainer photo={this.props.photo}/>
+              <TagIndexContainer
+                photo={this.props.photo}
+                currentUser={this.props.currentUser}
+              />
             </div>
           </div>
         </div>
@@ -141,7 +152,7 @@ class PhotoShow extends React.Component {
           </div>
           <div className="photo-show-container">
             <div className="photo-show-owner-specs">
-              <img src={this.props.currentUser.profile_pic} />
+              <img src={this.props.users[this.props.photo.user_id].profile_pic} />
               <div className="photo-show-owner-details">
                 <div className="photo-show-edit-errors">{this.renderErrors()}</div>
                 <Link to={`/users/${this.props.photo.user_id}`} className="photo-show-author">
@@ -156,12 +167,22 @@ class PhotoShow extends React.Component {
           </div>
           <div className="photo-show-ui">
             <div className="photo-show-comments-container">
-              <CommentIndexContainer photo={this.props.photo}/>
-              <CommentCreateContainer photo={this.props.photo}/>
+              <CommentIndexContainer
+                photo={this.props.photo}
+                users={this.props.users}
+                currentUser={this.props.currentUser}
+              />
+              <CommentCreateContainer
+                photo={this.props.photo}
+                currentUser={this.props.currentUser}
+              />
             </div>
             <div className="photo-show-tags-container">
               <TagCreateContainer photo={this.props.photo}/>
-              <TagIndexContainer photo={this.props.photo}/>
+              <TagIndexContainer
+                photo={this.props.photo}
+                currentUser={this.props.currentUser}
+              />
             </div>
           </div>
         </div>

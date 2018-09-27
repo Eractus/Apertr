@@ -11,11 +11,18 @@ class CommentIndex extends React.Component {
   }
 
   componentDidMount() {
-    this.props.fetchAllComments(this.props.photo.id);
-    this.props.fetchAllUsers().then(() => this.setState({ firstLoad: false}));
+    this.props.fetchAllComments(this.props.photo.id).then(() => this.setState({ firstLoad: false }));
   }
 
   render () {
+    if (this.state.firstLoad) {
+      return (
+        <div className="comment-index-container">
+          <p className="comment-index-loading">Loading...</p>
+        </div>
+      );
+    }
+
     const comments = this.props.comments.map(comment => {
       return (
         <CommentIndexItem
@@ -27,21 +34,13 @@ class CommentIndex extends React.Component {
       );
     });
 
-    if (this.state.firstLoad) {
-      return (
-        <div className="comment-index-container">
-          <p className="comment-index-loading">Loading...</p>
-        </div>
-      );
-    } else {
-      return (
-        <div className="comment-index-container">
-          <ul className="comment-index-list">
-            {comments}
-          </ul>
-        </div>
-      );
-    }
+    return (
+      <div className="comment-index-container">
+        <ul className="comment-index-list">
+          {comments}
+        </ul>
+      </div>
+    );
   }
 }
 
