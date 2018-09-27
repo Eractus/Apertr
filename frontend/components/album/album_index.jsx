@@ -21,10 +21,10 @@ class AlbumIndex extends React.Component {
       )
     }
 
-    const newAlbum = this.props.currentUser.id === this.props.userId ?
+    const newAlbum = this.props.currentUser.id === this.props.user.id ?
       <Link to="/albums/new" className="album-index-new-album">New album</Link> : ""
-      
-    const albums = []
+
+    let albums = []
     this.props.albums.forEach(album => {
       if (this.props.userId === album.owner_id) {
         albums.push(
@@ -35,14 +35,31 @@ class AlbumIndex extends React.Component {
         );
       }
     });
-    return (
-      <div className="album-index-container">
-        {newAlbum}
-        <ul className="album-index-list">
-          {albums}
-        </ul>
-      </div>
-    );
+
+    let user = this.props.user.id === this.props.currentUser.id ?
+      "You have" : `${this.props.user.first_name} has`;
+
+    if (albums.length === 0) {
+      return (
+        <div className="album-index-container">
+          {newAlbum}
+          <div className="album-index-no-albums">
+            <div className="album-index-no-albums-message">
+              <h2>{user} not created any albums yet.</h2>
+            </div>
+          </div>
+        </div>
+      );
+    } else {
+      return (
+        <div className="album-index-container">
+          {newAlbum}
+          <ul className="album-index-list">
+            {albums}
+          </ul>
+        </div>
+      );
+    }
   }
 }
 

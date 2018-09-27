@@ -56,10 +56,10 @@ class UserShow extends React.Component {
 
     const renderTab = this.state.photostreamTabSelected ?
       <div className="user-show-tabs">
-        <PhotoIndexUserContainer userId={this.props.user.id}/>
+        <PhotoIndexUserContainer user={this.props.user}/>
       </div> :
       <div className="user-show-tabs">
-        <AlbumIndexContainer userId={this.props.user.id}/>
+        <AlbumIndexContainer user={this.props.user}/>
       </div>
 
     return (
