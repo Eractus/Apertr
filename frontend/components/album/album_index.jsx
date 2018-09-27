@@ -26,7 +26,7 @@ class AlbumIndex extends React.Component {
 
     let albums = []
     this.props.albums.forEach(album => {
-      if (this.props.userId === album.owner_id) {
+      if (this.props.user.id === album.owner_id) {
         albums.push(
           <AlbumIndexItem
             album={album}

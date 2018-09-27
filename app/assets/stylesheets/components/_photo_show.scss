@@ -36,12 +36,15 @@
 }
 
 .photo-show-container {
-  width: 35%;
-  padding: 0 10%;
-  padding-top: 2%;
+  padding: 2% 10%;
+  display: flex;
+  justify-content: center;
+}
+
+.photo-show-left-column {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  width: 500px
 }
 
 .photo-show-owner-specs {
@@ -52,7 +55,7 @@
   width: 70px;
   height: 70px;
   border-radius: 50%;
-  margin-right: 30px;
+  margin-right: 8%;
 }
 
 .photo-show-owner-details {
@@ -158,24 +161,16 @@
   margin-top: 10px;
 }
 
-.photo-show-ui {
-  width: 100%;
-  padding-bottom: 5%;
-  position: relative;
-  display: flex;
-  justify-content: space-between;
-}
-
 .photo-show-comments-container {
   width: 32%;
   margin-left: 3.5%;
   padding: 0 8%;
 }
 
-.photo-show-tags-container {
-  position: absolute;
-  top: -45px;
-  right: 0;
-  width: 35%;
-  margin-right: 12%;
+.photo-show-right-column {
+  width: 450px;
+  padding-top: 65px;
+  margin-left: 35px;
+  position: relative;
+  display: flex;
 }

@@ -81,7 +81,15 @@ class PhotoShow extends React.Component {
       );
     }
 
-    const editableFields = (this.state.toggledEditableFields) ?
+    const delPhoto = this.props.currentUser.id === this.props.photo.user_id ?
+      <div>
+        <Link className="delete-link" onClick={() => this.props.deletePhoto(this.state.id)} to="/">
+        Delete
+        </Link>
+      </div> : ""
+
+    const editableFields = this.props.currentUser.id === this.props.photo.user_id ?
+      (this.state.toggledEditableFields ?
       <form className="update-form" onSubmit={this.handleSubmitUpdate}>
         <input
           className="update-form-text"
@@ -97,20 +105,20 @@ class PhotoShow extends React.Component {
       <div onClick={this.openEditableFields} className="photo-show-editable-details">
         <p className="photo-show-title">{this.state.title}</p>
         <p className="photo-show-description">{this.state.description}</p>
+      </div>) :
+      <div className="photo-show-static-details">
+        <p className="photo-show-title">{this.state.title}</p>
+        <p className="photo-show-description">{this.state.description}</p>
       </div>
 
-    if (this.props.currentUser.id === this.props.photo.user_id) {
-      return (
-        <div className="photo-show-background">
-          <div className="photo-show">
-            <img src={this.props.photo.image_url} />
-            <div>
-              <Link className="delete-link" onClick={() => this.props.deletePhoto(this.state.id)} to="/">
-              Delete
-              </Link>
-            </div>
-          </div>
-          <div className="photo-show-container">
+    return (
+      <div className="photo-show-background">
+        <div className="photo-show">
+          <img src={this.props.photo.image_url} />
+          {delPhoto}
+        </div>
+        <div className="photo-show-container">
+          <div className="photo-show-left-column">
             <div className="photo-show-owner-specs">
               <img src={this.props.users[this.props.photo.user_id].profile_pic} />
               <div className="photo-show-owner-details">
@@ -121,8 +129,6 @@ class PhotoShow extends React.Component {
                 {editableFields}
               </div>
             </div>
-          </div>
-          <div className="photo-show-ui">
             <div className="photo-show-comments-container">
               <CommentIndexContainer
                 photo={this.props.photo}
@@ -134,6 +140,8 @@ class PhotoShow extends React.Component {
                 currentUser={this.props.currentUser}
               />
             </div>
+          </div>
+          <div className="photo-show-right-column">
             <div className="photo-show-tags-container">
               <TagCreateContainer photo={this.props.photo}/>
               <TagIndexContainer
@@ -143,51 +151,8 @@ class PhotoShow extends React.Component {
             </div>
           </div>
         </div>
-      );
-    } else {
-      return (
-        <div className="photo-show-background">
-          <div className="photo-show">
-            <img src={this.props.photo.image_url} />
-          </div>
-          <div className="photo-show-container">
-            <div className="photo-show-owner-specs">
-              <img src={this.props.users[this.props.photo.user_id].profile_pic} />
-              <div className="photo-show-owner-details">
-                <div className="photo-show-edit-errors">{this.renderErrors()}</div>
-                <Link to={`/users/${this.props.photo.user_id}`} className="photo-show-author">
-                  {this.props.photo.userFname} {this.props.photo.userLname}
-                </Link>
-                <div className="photo-show-static-details">
-                  <p className="photo-show-title">{this.state.title}</p>
-                  <p className="photo-show-description">{this.state.description}</p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="photo-show-ui">
-            <div className="photo-show-comments-container">
-              <CommentIndexContainer
-                photo={this.props.photo}
-                users={this.props.users}
-                currentUser={this.props.currentUser}
-              />
-              <CommentCreateContainer
-                photo={this.props.photo}
-                currentUser={this.props.currentUser}
-              />
-            </div>
-            <div className="photo-show-tags-container">
-              <TagCreateContainer photo={this.props.photo}/>
-              <TagIndexContainer
-                photo={this.props.photo}
-                currentUser={this.props.currentUser}
-              />
-            </div>
-          </div>
-        </div>
-      );
-    }
+      </div>
+    );
   }
 }
 

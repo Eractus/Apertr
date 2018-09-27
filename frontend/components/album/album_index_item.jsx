@@ -11,7 +11,7 @@ const AlbumIndexItem = props => {
         {props.album.title}
       </div>
       <div className="album-index-delete">
-        <Link to="/albums" onClick={() => props.deleteAlbum(props.album.id)}>
+        <Link to={`/users/${props.album.owner_id}`} onClick={() => props.deleteAlbum(props.album.id)}>
           X
         </Link>
       </div>

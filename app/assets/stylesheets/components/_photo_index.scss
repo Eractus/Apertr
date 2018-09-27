@@ -1,6 +1,7 @@
 .photo-index-background-splash {
   min-height: calc(100vh - 50px);
   background-color: #f3f5f6;
+  margin-top: 100px;
 }
 
 .photo-index-splash-loading {
@@ -9,15 +10,17 @@
 }
 
 .photo-index-container-splash {
-  margin-top: 100px;
   padding: 4% 0;
   background-color: #f3f5f6;
+  display: flex;
+  justify-content: center;
 }
 
 .photo-index-list-splash {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  max-width: 1725px;
 }
 
 .photo-index-item-container-splash {
@@ -141,9 +144,9 @@
 }
 
 .photo-index-container {
-  padding: 4% 10%;
+  padding: 50px 10%;
   background-color: #f3f5f6;
-  min-height: calc(100vh - 392px);
+  min-height: calc(100vh - 492px);
 }
 
 .photo-index-list-user {
