@@ -73,13 +73,23 @@ class AlbumCreate extends React.Component {
   }
 
   render () {
-    if (this.state.firstLoad) return <div>Loading...</div>;
+    if (this.state.firstLoad) {
+      return (
+        <div className="album-create-loading">
+          <p>Loading...</p>
+        </div>
+      )
+    }
+
+    const albumCover = this.state.photos.length === 0 ?
+      <div></div> :
+      <img src={this.state.photos[0].image_url} />;
 
     const photos = this.props.photos.map((photo, i) => {
       return (
         <li key={`${i}`} className="album-create-user-photos-list-item" onClick={this.addPhoto(photo)}>
           <div className="album-create-list-image">
-            <img src={photo.image_url} />
+            <img src={photo.image_url}/>
           </div>
         </li>
       );
@@ -99,32 +109,34 @@ class AlbumCreate extends React.Component {
     return (
       <div className="album-create-background">
         <div className="album-create-container">
-          <div className="album-created-selected-photos-container">
+          <form onSubmit={this.handleSubmit} className="album-create-form">
+            <div className="album-create-cover-image">
+              {albumCover}
+            </div>
+            <div>{this.renderErrors()}</div>
+            <input
+              className="album-create-title"
+              type="text"
+              value={this.state.title}
+              placeholder="new album"
+              onChange={this.update('title')} />
+            <textarea
+              className="album-create-description"
+              type="textarea"
+              value={this.state.description}
+              onChange={this.update('description')} />
+            <input className="album-create-button" type="submit" value="SAVE" />
+          </form>
+          <div className="album-create-selected-photos-container">
             <ul className="album-create-selected-photos-list">
               {uploadedPhotos}
             </ul>
           </div>
-          <form onSubmit={this.handleSubmit} className="album-create-form">
-            <div>{this.renderErrors()}</div>
-            <input
-              className="album-create-input"
-              type="text"
-              value={this.state.title}
-              placeholder="Name"
-              onChange={this.update('title')} />
-            <input
-              className="album-create-input"
-              type="text"
-              value={this.state.description}
-              placeholder="Description"
-              onChange={this.update('description')} />
-            <input className="album-create-button" type="submit" value="Create Album" />
-          </form>
-          <div>
-            <ul className="album-create-user-photos-list">
-              { photos }
-            </ul>
-          </div>
+        </div>
+        <div className="album-create-user-photos-container">
+          <ul className="album-create-user-photos-list">
+            { photos }
+          </ul>
         </div>
       </div>
     );

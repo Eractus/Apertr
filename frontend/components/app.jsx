@@ -12,6 +12,7 @@ import PhotoCreateNavContainer from './photo/photo_create_nav_container';
 import PhotoCreateContainer from './photo/photo_create_container';
 import PhotoShowContainer from './photo/photo_show_container';
 import PhotoIndexUserContainer from './photo/photo_index_user_container';
+import AlbumCreateNavContainer from './album/album_create_nav_container';
 import AlbumCreateContainer from './album/album_create_container';
 import AlbumIndexContainer from './album/album_index_container';
 import AlbumShowContainer from './album/album_show_container';
@@ -25,6 +26,7 @@ const App = () => (
       <AuthRoute exact path="/signup" component={UserCreateNav} />
       <AuthRoute exact path="/login" component={UserCreateNav} />
       <ProtectedRoute exact path="/photos/new" component={PhotoCreateNavContainer} />
+      <ProtectedRoute exact path="/albums/new" component={AlbumCreateNavContainer} />
       <Route path="/" component={NavbarContainer} />
     </Switch>
 
