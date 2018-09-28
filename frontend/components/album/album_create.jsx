@@ -85,6 +85,10 @@ class AlbumCreate extends React.Component {
       <div></div> :
       <img src={this.state.photos[0].image_url} />;
 
+    const numPhotos = this.state.photos.length === 0 ? "0 items" : (
+      this.state.photos.length === 1 ? "1 item" : `${this.state.photos.length} items`
+    )
+
     const photos = this.props.photos.map((photo, i) => {
       return (
         <li key={`${i}`} className="album-create-user-photos-list-item" onClick={this.addPhoto(photo)}>
@@ -110,8 +114,11 @@ class AlbumCreate extends React.Component {
       <div className="album-create-background">
         <div className="album-create-container">
           <form onSubmit={this.handleSubmit} className="album-create-form">
-            <div className="album-create-cover-image">
-              {albumCover}
+            <div className="album-create-form-header">
+              <div className="album-create-cover-image">
+                {albumCover}
+              </div>
+              <p>{numPhotos} in the album</p>
             </div>
             <div>{this.renderErrors()}</div>
             <input
