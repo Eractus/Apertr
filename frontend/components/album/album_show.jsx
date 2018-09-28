@@ -70,7 +70,9 @@ class AlbumShow extends React.Component {
   render() {
     if (!this.props.album) {
       return (
-        <div>Loading...</div>
+        <div className="album-show-loading">
+          <p>Loading...</p>
+        </div>
       );
     }
 
@@ -114,6 +116,10 @@ class AlbumShow extends React.Component {
     let photo = amtPhotos > 1 ? "photos" : "photo";
     const numPhotos = this.state.toggledEditableFields ? "" :
       <div className="album-show-num-photos">{amtPhotos} {photo}</div>
+    const albumEdit = this.props.album.owner_id === this.props.currentUser.id ?
+      <Link className="album-show-edit" to={`/albums/${this.props.album.id}/edit`}>
+        edit
+      </Link> : "";
 
     return (
       <div className="album-show-container">
@@ -126,7 +132,7 @@ class AlbumShow extends React.Component {
               By: {this.props.album.ownerFname} {this.props.album.ownerLname}
             </Link>
           </div>
-          <Link className="album-show-edit" to={`/albums/${this.props.album.id}/edit`}>edit</Link>
+          {albumEdit}
         </div>
         <ul className="album-show-photos-list">
           {albumPhotos}

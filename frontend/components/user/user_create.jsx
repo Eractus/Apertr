@@ -47,7 +47,7 @@ class UserCreate extends React.Component {
             <div className="signup-form">
               <div className="signup-text">
                 <h2>Sign Up</h2>
-                {this.renderErrors()}
+                <p>{this.renderErrors()}</p>
                 <br/>
               </div>
               <div className="signup-name">

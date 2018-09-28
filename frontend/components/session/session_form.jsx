@@ -51,7 +51,7 @@ class SessionForm extends React.Component {
               </div>
               <div className="session-text">
                 <h2>Sign In</h2>
-                {this.renderErrors()}
+                <p>{this.renderErrors()}</p>
                 <br/>
               </div>
               <input

@@ -16,6 +16,7 @@ import AlbumCreateNavContainer from './album/album_create_nav_container';
 import AlbumCreateContainer from './album/album_create_container';
 import AlbumIndexContainer from './album/album_index_container';
 import AlbumShowContainer from './album/album_show_container';
+import AlbumUpdateNavContainer from './album/album_update_nav_container'
 import AlbumUpdateContainer from './album/album_update_container';
 import SearchContainer from './search/search_container';
 import Footer from './footer/footer';
@@ -27,6 +28,7 @@ const App = () => (
       <AuthRoute exact path="/login" component={UserCreateNav} />
       <ProtectedRoute exact path="/photos/new" component={PhotoCreateNavContainer} />
       <ProtectedRoute exact path="/albums/new" component={AlbumCreateNavContainer} />
+      <ProtectedRoute path="/albums/:albumId/edit" component={AlbumUpdateNavContainer} />
       <Route path="/" component={NavbarContainer} />
     </Switch>
 

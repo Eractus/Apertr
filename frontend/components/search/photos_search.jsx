@@ -59,8 +59,8 @@ class PhotosSearch extends React.Component {
       );
     }
 
-    const photos = Object.values(this.props.photos).map((photo, i) => (
-      <PhotoIndexItemUser key={photo.id} photo={photo} />
+    const photos = Object.values(this.props.photos).map(photo => (
+      <PhotoIndexItemUser photo={photo} />
     ));
     const photosSearchContainer = (Object.keys(this.props.photos).length === 0) ?
       <div className="photos-search-no-results">

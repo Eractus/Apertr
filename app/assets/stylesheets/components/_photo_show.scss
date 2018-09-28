@@ -168,9 +168,13 @@
 }
 
 .photo-show-right-column {
-  width: 450px;
+  width: 430px;
   padding-top: 65px;
   margin-left: 35px;
   position: relative;
   display: flex;
+}
+
+.photo-show-tags-container {
+  width: 100%;
 }

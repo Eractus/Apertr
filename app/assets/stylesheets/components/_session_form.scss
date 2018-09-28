@@ -5,7 +5,7 @@
 .session-form-container {
   display: flex;
   justify-content: flex-end;
-  height: calc(100vh - 107px);
+  min-height: calc(100vh - 117px);
   padding-top: 15px;
   padding-right: 20%;
   padding-bottom: 15px;
@@ -43,6 +43,11 @@
   margin: 10px;
   font-size: 18px;
   font-weight: 500;
+}
+
+.session-text > p {
+  font-size: 14px;
+  color: red;
 }
 
 .session-input {

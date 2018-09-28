@@ -5,7 +5,7 @@
 .signup-form-container {
   display: flex;
   justify-content: center;
-  height: calc(100vh - 142px);
+  min-height: calc(100vh - 187px);
   padding-top: 50px;
   padding-bottom: 50px;
   background-color: rgba(0,0,0,.025);
@@ -24,7 +24,8 @@
 .signup-form-box {
   box-shadow: 1px 1px 5px 1px rgba(0, 0, 0, 0.15);
   background-color: #FFF;
-  height: 525px;
+  min-height: 525px;
+  max-height: 575px;
 }
 
 .signup-form {
@@ -35,6 +36,11 @@
 
 .signup-text {
   text-align: center;
+}
+
+.signup-text > p {
+  font-size: 14px;
+  color: red;
 }
 
 .signup-text > h2 {

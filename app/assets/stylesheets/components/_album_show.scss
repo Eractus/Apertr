@@ -1,8 +1,15 @@
+.album-show-loading {
+  margin-top: 45px;
+  padding: 2% 5%;
+  min-height: 100vh;
+}
+
 .album-show-container {
   margin-top: 50px;
   padding: 4% 10%;
   background-color: #f3f5f6;
   text-shadow: 1px 1px #000;
+  flex: 1 0 auto;
 }
 
 .album-show-cover-image {
@@ -23,6 +30,7 @@
 
 .album-show-details-container {
   height: 325px;
+  width: 100%;
   position: absolute;
   top: 0;
   display: flex;
@@ -35,7 +43,7 @@
   display: flex;
   flex-direction: column;
   margin-top: 35px;
-  width: 750px;
+  width: 75%;
   border-radius: 2px;
   cursor: image-url("edit-white.png"), pointer;
 }
@@ -49,7 +57,7 @@
   display: flex;
   flex-direction: column;
   margin-top: 35px;
-  width: 750px;
+  width: 75%;
   border-radius: 2px;
   background-color: rgba(0,0,0,.6);
 }

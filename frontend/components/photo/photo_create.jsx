@@ -100,12 +100,14 @@ class PhotoCreate extends React.Component {
                   placeholder="Add a description"
                   onChange={this.update('description')} />
               </div>
-              <div className="photo-create-image">
+              <div className="photo-create-image-container">
                 <input className="photo-upload" type="file" onChange={this.updateFile} />
-                <img
-                  src={this.state.imageUrl}
-                  onClick={this.removeImage}
-                />
+                <div className="photo-create-image">
+                  <img
+                    src={this.state.imageUrl}
+                    onClick={this.removeImage}
+                  />
+                </div>
               </div>
               <input className="photo-create-button" type="submit" value="Upload Photo" />
             </form>

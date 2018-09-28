@@ -6,13 +6,11 @@
 
 .album-index-no-albums {
   background-color: #f3f5f6;
-  min-height: calc(100vh - 392px);
+  min-height: calc(100vh - 492px);
 }
 
 .album-index-no-albums-message {
-  width: 100%;
-  height: 100%;
-  padding-top: 65px;
+  padding: 4%;
   display: flex;
   flex-direction: column;
   justify-content: center;
