@@ -1,99 +1,98 @@
-.session-form-page {
+.session-create-page {
   flex: 1 0 auto;
-}
 
-.session-form-container {
-  display: flex;
-  justify-content: flex-end;
-  min-height: calc(100vh - 117px);
-  padding-top: 15px;
-  padding-right: 20%;
-  padding-bottom: 15px;
-  background-color: rgba(0,0,0,.025);
-}
+  .session-create-container {
+    display: flex;
+    justify-content: flex-end;
+    min-height: calc(100vh - 117px);
+    padding-top: 15px;
+    padding-right: 18%;
+    padding-bottom: 15px;
+    background-color: rgba(0,0,0,.025);
 
-.session-form-box {
-  box-shadow: 1px 1px 5px 1px rgba(0, 0, 0, 0.15);
-  background-color: #FFF;
-  height: 525px;
-}
+    .session-create-form {
+      box-shadow: 1px 1px 5px 1px rgba(0, 0, 0, 0.15);
+      background-color: #FFF;
+      height: 525px;
 
-.session-form {
-  display: flex;
-  flex-direction: column;
-  padding: 25px 25px;
-}
+      .session-create-details {
+        display: flex;
+        flex-direction: column;
+        padding: 25px 25px;
 
-.session-form-logo-container {
-  display: flex;
-  justify-content: center;
-  margin-bottom: 10px;
-}
+        .session-create-logo-container {
+          display: flex;
+          justify-content: center;
+          margin-bottom: 10px;
+        }
 
-.session-form-signin-logo {
-  height: 50px;
-  width: 200px;
-}
+        .session-create-logo-container > img {
+          height: 50px;
+          width: 200px;
+        }
 
-.session-text {
-  text-align: center;
-}
+        .session-create-text-top {
+          text-align: center;
+        }
 
-.session-text > h2 {
-  margin: 10px;
-  font-size: 18px;
-  font-weight: 500;
-}
+        .session-create-text-top > p {
+          font-size: 14px;
+          color: red;
+        }
 
-.session-text > p {
-  font-size: 14px;
-  color: red;
-}
+        .session-create-text-top > h2 {
+          margin: 10px;
+          font-size: 18px;
+          font-weight: 500;
+        }
 
-.session-input {
-  border-bottom: 1px solid #B8B8B8;
-  margin-top: 5px;
-  margin-bottom: 5px;
-  padding: 5px 5px;
-}
+        .session-create-input {
+          border-bottom: 1px solid #B8B8B8;
+          margin-top: 5%;
+          padding: 5px 10px;
+        }
 
-.session-input::placeholder {
-  color: #B8B8B8;
-}
+        .session-create-input::placeholder {
+          color: #B8B8B8;
+        }
 
-.session-input:focus {
-  border-bottom: 2px solid #188fff;
-}
+        .session-create-input:focus {
+          border-bottom: 2px solid #188fff;
+        }
 
-.session-submit {
-  font-size: 18px;
-  font-weight: 400;
-  color: #fff;
-  background-color: #188fff;
-  border-radius: 2px;
-  padding: 15px 125px;
-  margin-top: 10px;
-  margin-bottom: 45%;
-}
+        .session-create-submit {
+          font-size: 18px;
+          font-weight: 400;
+          color: #fff;
+          background-color: #188fff;
+          border-radius: 2px;
+          padding: 15px 125px;
+          margin-top: 10%;
+          margin-bottom: 50%;
+        }
 
-.session-submit:hover {
-  background-color: #68b3f9;
-}
+        .session-create-submit:hover {
+          background-color: #68b3f9;
+        }
 
-.session-text-bottom {
-  font-size: 14px;
-  margin: auto;
-  display: flex;
-}
+        .session-create-text-bottom {
+          font-size: 14px;
+          margin: auto;
+          display: flex;
+        }
 
-.session-text-bottom > p {
-  margin-right: 5px;
-}
+        .session-create-text-bottom > p {
+          margin-right: 5px;
+        }
 
-.session-text-bottom > div {
-  color: #188fff;
-}
+        .session-create-text-bottom > div {
+          color: #188fff;
+        }
 
-.session-text-bottom > div:hover {
-  color: blue;
+        .session-create-text-bottom > div:hover {
+          color: blue;
+        }
+      }
+    }
+  }
 }

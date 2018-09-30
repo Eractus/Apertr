@@ -39,17 +39,16 @@ class SessionForm extends React.Component {
 
   render () {
     return (
-      <div className="session-form-page">
-        <div className="session-form-container">
-          <form onSubmit={this.handleSubmit} className="session-form-box">
-            <div className="session-form">
-              <div className="session-form-logo-container">
+      <div className="session-create-page">
+        <div className="session-create-container">
+          <form onSubmit={this.handleSubmit} className="session-create-form">
+            <div className="session-create-details">
+              <div className="session-create-logo-container">
                 <img
-                  className="session-form-signin-logo"
                   src="https://s3-us-west-1.amazonaws.com/apertr-dev/photos/images/static+images/yeehaw.png"
                 />
               </div>
-              <div className="session-text">
+              <div className="session-create-text-top">
                 <h2>Sign In</h2>
                 <p>{this.renderErrors()}</p>
                 <br/>
@@ -59,20 +58,17 @@ class SessionForm extends React.Component {
                 value={this.state.email}
                 placeholder="Enter your email"
                 onChange={this.update('email')}
-                className="session-input"
+                className="session-create-input"
               />
-              <br/>
               <input
                 type="password"
                 value={this.state.password}
                 placeholder="Password"
                 onChange={this.update('password')}
-                className="session-input"
+                className="session-create-input"
               />
-              <br/>
-              <input type="submit" value="Sign in" className="session-submit" />
-              <br/>
-              <div className="session-text-bottom">
+              <input type="submit" value="Sign in" className="session-create-submit" />
+              <div className="session-create-text-bottom">
                 <p>Don't have an account?</p>
                 <div>{this.props.navLink}</div>
               </div>

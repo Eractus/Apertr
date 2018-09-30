@@ -35,21 +35,21 @@ class PhotoIndexSplash extends React.Component {
     });
     if (this.state.firstLoad) {
       return (
-        <div className="photo-index-background-splash">
+        <div className="photo-index-feed-background">
           <div className="navbar-header">
             <p>All Activity</p>
           </div>
-          <p className="photo-index-splash-loading">Loading...</p>
+          <p className="photo-index-feed-loading">Loading...</p>
         </div>
       );
     } else {
       return (
-        <div className="photo-index-background-splash">
+        <div className="photo-index-feed-background">
           <div className="navbar-header">
             <p>All Activity</p>
           </div>
-          <div className="photo-index-container-splash">
-            <ul className="photo-index-list-splash">
+          <div className="photo-index-feed-container">
+            <ul className="photo-index-feed-list">
               {photos}
             </ul>
           </div>

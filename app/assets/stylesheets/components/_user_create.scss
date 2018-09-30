@@ -1,0 +1,127 @@
+.user-create-navbar {
+  padding-left: 5%;
+
+  .user-create-navbar-logo {
+    height: 50px;
+    width: 200px;
+    cursor: pointer;
+  }
+}
+
+.user-create-page {
+  flex: 1 0 auto;
+
+  .user-create-container {
+    display: flex;
+    justify-content: center;
+    min-height: calc(100vh - 187px);
+    padding-top: 50px;
+    padding-bottom: 50px;
+    background-color: rgba(0,0,0,.025);
+
+    .user-create-form {
+      box-shadow: 1px 1px 5px 1px rgba(0, 0, 0, 0.15);
+      background-color: #FFF;
+      width: 20%;
+      padding: 45px 25px;
+
+      .user-create-details {
+        display: flex;
+        flex-direction: column;
+
+        .user-create-text-top {
+          text-align: center;
+        }
+
+        .user-create-text-top > h2 {
+          margin-bottom: 25px;
+          font-size: 18px;
+          font-weight: 500;
+        }
+
+        .user-create-text-top > p {
+          font-size: 14px;
+          color: red;
+        }
+
+        .user-create-name-fields {
+          display: flex;
+          margin-top: 5%;
+        }
+
+        .user-create-name-fields > input {
+          width: 50%;
+          border-bottom: 1px solid #B8B8B8;
+          margin: 12px 0;
+          padding: 5px 10px;
+        }
+
+        .user-create-name-fields > input:first-child {
+          margin-right: 7px;
+        }
+
+        .user-create-name-fields > input:last-child {
+          margin-left: 7px;
+        }
+
+        .user-create-name-fields > input:focus {
+          border-bottom: 2px solid #188fff;
+        }
+
+        .user-create-name-fields > input::placeholder {
+          color: #B8B8B8;
+        }
+
+        .user-create-creds {
+          border-bottom: 1px solid #B8B8B8;
+          margin: 12px 0;
+          padding: 5px 10px;
+          margin-top: 5%;
+        }
+
+        .user-create-creds:focus {
+          border-bottom: 2px solid #188fff;
+        }
+
+        .user-create-creds::placeholder {
+          color: #B8B8B8;
+        }
+
+        .user-create-submit {
+          font-size: 18px;
+          font-weight: 400;
+          color: #fff;
+          background-color: #188fff;
+          border-radius: 2px;
+          padding: 15px 125px;
+          margin-top: 18%;
+          display: flex;
+          justify-content: center;
+        }
+
+        .user-create-submit:hover {
+          background-color: #68b3f9;
+        }
+
+        .user-create-text-bottom {
+          font-size: 14px;
+          margin: auto;
+          margin-top: 5%;
+          display: flex;
+        }
+
+        .user-create-text-bottom > p {
+          margin-right: 5px;
+        }
+
+        .user-create-text-bottom > div {
+          color: #188fff;
+        }
+
+        .user-create-text-bottom > div:hover {
+          color: blue;
+        }
+      }
+    }
+  }
+}

@@ -7,11 +7,10 @@ class UserCreateNav extends React.Component {
 
   render() {
     return (
-      <nav className="signup-form-navbar">
-        <div className="signup-form-navbar-logo-container">
+      <nav className="user-create-navbar">
+        <div className="user-create-navbar-logo">
           <img
             onClick={()=>this.props.history.push('/')}
-            className="signup-form-navbar-logo"
             src="https://s3-us-west-1.amazonaws.com/apertr-dev/photos/images/static+images/yeehaw.png"/>
         </div>
       </nav>

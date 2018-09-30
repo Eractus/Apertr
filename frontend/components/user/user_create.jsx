@@ -41,51 +41,44 @@ class UserCreate extends React.Component {
 
   render () {
     return (
-      <div className="signup-form-page">
-        <div className="signup-form-container">
-          <form onSubmit={this.handleSubmit} className="signup-form-box">
-            <div className="signup-form">
-              <div className="signup-text">
+      <div className="user-create-page">
+        <div className="user-create-container">
+          <form onSubmit={this.handleSubmit} className="user-create-form">
+            <div className="user-create-details">
+              <div className="user-create-text-top">
                 <h2>Sign Up</h2>
                 <p>{this.renderErrors()}</p>
-                <br/>
               </div>
-              <div className="signup-name">
+              <div className="user-create-name-fields">
                 <input
                   type="text"
                   value={this.state.first_name}
                   placeholder="First Name"
                   onChange={this.update('first_name')}
-                  className="signup-fname"
                 />
                 <input
                   type="text"
                   value={this.state.last_name}
                   placeholder="Last Name"
                   onChange={this.update('last_name')}
-                  className="signup-lname"
                 />
               </div>
-              <br/>
               <input
                 type="text"
                 value={this.state.email}
                 placeholder="Your current email address"
                 onChange={this.update('email')}
-                className="signup-input"
+                className="user-create-creds"
               />
-              <br/>
               <input
                 type="password"
                 value={this.state.password}
                 placeholder="Password"
                 onChange={this.update('password')}
-                className="signup-input"
+                className="user-create-creds"
               />
-              <br/>
-              <input type="submit" value="Continue" className="signup-submit" />
-              <br/>
-              <div className="signup-text-bottom">
+              <input type="submit" value="Continue" className="user-create-submit" />
+              <div className="user-create-text-bottom">
                 <p>Already have an account?</p>
                 <div>{this.props.navLink}</div>
               </div>

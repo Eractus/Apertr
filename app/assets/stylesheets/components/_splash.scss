@@ -1,3 +1,7 @@
+.logged-in-background {
+  flex: 1 0 auto;
+}
+
 .logged-out-splash-wallpaper {
   height: calc(100vh - 40px);
   width: 100vw;
@@ -13,7 +17,7 @@
   }
 }
 
-.logged-out-splash-wallpaper > div {
+.logged-out-splash-wallpaper > span {
   opacity: 0;
   animation-name: slides;
   animation-duration: 35s;
@@ -25,38 +29,43 @@
   height: 100%;
 }
 
-.logged-out-splash-wallpaper div:nth-child(1) {
+.logged-out-splash-wallpaper span:nth-child(1) {
   animation-delay: 0s;
   background: image-url("background-splash1.jpg");
   background-size: 100% 100%;
 }
-.logged-out-splash-wallpaper div:nth-child(2) {
+
+.logged-out-splash-wallpaper span:nth-child(2) {
   animation-delay: 5s;
   background: image-url("background-splash2.jpg");
   background-size: 100% 100%;
 }
-.logged-out-splash-wallpaper div:nth-child(3) {
+
+.logged-out-splash-wallpaper span:nth-child(3) {
   animation-delay: 10s;
   background: image-url("background-splash3.jpg");
   background-size: 100% 100%;
 }
-.logged-out-splash-wallpaper div:nth-child(4) {
+
+.logged-out-splash-wallpaper span:nth-child(4) {
   animation-delay: 15s;
   background: image-url("background-splash4.jpg");
   background-size: 100% 100%;
 }
-.logged-out-splash-wallpaper div:nth-child(5) {
+
+.logged-out-splash-wallpaper span:nth-child(5) {
   animation-delay: 20s;
   background: image-url("background-splash5.jpg");
   background-size: 100% 100%;
 }
-.logged-out-splash-wallpaper div:nth-child(6) {
+
+.logged-out-splash-wallpaper span:nth-child(6) {
   animation-delay: 25s;
   background: image-url("background-splash6.jpg");
   background-size: 100% 100%;
 }
 
-.welcome-message {
+.logged-out-splash-welcome-message {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -64,39 +73,35 @@
   position: absolute;
   top: calc(50% - 150px);
   left: calc(50% - 300px);
-}
 
-.intro-header {
-  font-size: 46px;
-  font-weight: 450;
-  letter-spacing: 1px;
-  color: #fff;
-}
+  .logged-out-splash-intro-header {
+    font-size: 46px;
+    font-weight: 450;
+    letter-spacing: 1px;
+    color: #fff;
+  }
 
-.intro-text {
-  font-size: 24px;
-  font-weight: 400;
-  letter-spacing: 1px;
-  color: #fff;
-  width: 600px;
-  margin-top: 18px;
-  margin-bottom: 50px;
-  text-align: center;
-}
+  .logged-out-splash-intro-text {
+    font-size: 24px;
+    font-weight: 400;
+    letter-spacing: 1px;
+    color: #fff;
+    width: 600px;
+    margin-top: 18px;
+    margin-bottom: 50px;
+    text-align: center;
+  }
 
-.signup-button-main {
-  background-color: #fff;
-  padding: 18px 60px;
-  border-radius: 3px;
-  font-size: 20px;
-  font-weight: 500;
-  margin-top: 20px;
-}
+  .logged-out-splash-signup-button-main {
+    background-color: #fff;
+    padding: 18px 60px;
+    border-radius: 3px;
+    font-size: 20px;
+    font-weight: 500;
+    margin-top: 20px;
+  }
 
-.signup-button-main:hover {
-  color: #888888;
-}
-
-.logged-in-background {
-  flex: 1 0 auto;
+  .logged-out-splash-signup-button-main:hover {
+    color: #888888;
+  }
 }
