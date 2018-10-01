@@ -17,6 +17,16 @@ span, article, footer, time, small {
   background: transparent;
 }
 
+html, body, main {
+  height: 100%;
+}
+
+main > div {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
 ul {
   list-style: none;
 }
@@ -46,4 +56,13 @@ input[type="submit"] {
   content: "";
   display: block;
   clear: both;
+}
+
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 10;
 }

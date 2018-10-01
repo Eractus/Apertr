@@ -1,7 +1,7 @@
 import React from "react";
-import PhotoIndexItemSplash from "./photo_index_item_splash";
+import PhotoIndexFeedItem from "./photo_index_feed_item";
 
-class PhotoIndexSplash extends React.Component {
+class PhotoIndexFeed extends React.Component {
   constructor(props) {
     super(props);
     this.state = { firstLoad: true }
@@ -26,7 +26,7 @@ class PhotoIndexSplash extends React.Component {
 
     const photos = this.props.photos.map(photo => {
       return (
-        <PhotoIndexItemSplash
+        <PhotoIndexFeedItem
           currentUser={this.props.currentUser}
           users={this.props.users}
           photo={photo}
@@ -36,7 +36,7 @@ class PhotoIndexSplash extends React.Component {
     if (this.state.firstLoad) {
       return (
         <div className="photo-index-feed-background">
-          <div className="navbar-header">
+          <div className="navbar-logged-in-header">
             <p>All Activity</p>
           </div>
           <p className="photo-index-feed-loading">Loading...</p>
@@ -45,7 +45,7 @@ class PhotoIndexSplash extends React.Component {
     } else {
       return (
         <div className="photo-index-feed-background">
-          <div className="navbar-header">
+          <div className="navbar-logged-in-header">
             <p>All Activity</p>
           </div>
           <div className="photo-index-feed-container">
@@ -59,4 +59,4 @@ class PhotoIndexSplash extends React.Component {
   }
 }
 
-export default PhotoIndexSplash;
+export default PhotoIndexFeed;

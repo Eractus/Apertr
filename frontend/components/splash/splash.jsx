@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import PhotoIndexSplashContainer from '../photo/photo_index_splash_container';
+import PhotoIndexFeedContainer from '../photo/photo_index_feed_container';
 
 class SplashPage extends React.Component {
   constructor(props) {
@@ -13,7 +13,7 @@ class SplashPage extends React.Component {
       return (
         <div>
           <div className="logged-in-background">
-            <PhotoIndexSplashContainer />
+            <PhotoIndexFeedContainer />
           </div>
         </div>
       );

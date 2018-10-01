@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const PhotoIndexItemSplash = props => {
+const PhotoIndexFeedItem = props => {
   const commentsCount = props.photo.comments.length;
   const comments = commentsCount <= 1 ? "comment" : "comments";
   return (
@@ -29,4 +29,4 @@ const PhotoIndexItemSplash = props => {
   );
 };
 
-export default PhotoIndexItemSplash;
+export default PhotoIndexFeedItem;

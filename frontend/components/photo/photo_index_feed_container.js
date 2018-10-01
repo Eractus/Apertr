@@ -2,7 +2,7 @@ import { connect } from "react-redux";
 import { fetchAllUsers } from "../../actions/user_actions";
 import { fetchPhotos } from '../../actions/photo_actions';
 import { fetchAllComments } from '../../actions/comment_actions';
-import PhotoIndexSplash from "./photo_index_splash";
+import PhotoIndexFeed from "./photo_index_feed";
 
 const mapStateToProps = state => ({
   users: state.users,
@@ -15,4 +15,4 @@ const mapDispatchToProps = dispatch => ({
   fetchPhotos: photos => dispatch(fetchPhotos())
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(PhotoIndexSplash);
+export default connect(mapStateToProps, mapDispatchToProps)(PhotoIndexFeed);

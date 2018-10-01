@@ -57,14 +57,13 @@ class Navbar extends React.Component {
   sessionLoggedOut() {
     return (
       <header>
-        <nav className="logged-out-navbar">
-          <Link to="/" className="logo-link-logged-out">
+        <nav className="navbar-logged-out">
+          <Link to="/" className="navbar-logged-out-logo">
             <h1>apertr</h1>
           </Link>
-          <div className="navbar-logged-out-links">
-            <Link to="/signup" className="signup-button"><button>Sign Up</button></Link>
-            &nbsp;
-            <Link to="/login" className="login-link">Log In</Link>
+          <div className="navbar-logged-out-redirects">
+            <Link to="/login" className="navbar-logged-out-login-link">Log In</Link>
+            <Link to="/signup" className="navbar-logged-out-signup-button"><button>Sign Up</button></Link>
           </div>
         </nav>
       </header>
@@ -90,29 +89,30 @@ class Navbar extends React.Component {
     const profilePopUp = (this.state.showProfilePopup) ?
     <div>
       <div onClick={this.handleCloseProfilePopup} className="popup-overlay"></div>
-      <hgroup className="navbar-popup">
-        <h2 className="navbar-greet-name">{currentGreetingPhrase}, {name}!</h2>
-        <p className="navbar-greet-text">Now you know how to greet people in {currentGreetingLang}</p>
-        <Link className="navbar-signout-link" to="/" onClick={this.handleLogOut}>Sign Out</Link>
+      <hgroup className="navbar-logged-in-popup">
+        <h2 className="navbar-logged-in-greet-name">{currentGreetingPhrase}, {name}!</h2>
+        <p className="navbar-logged-in-greet-text">Now you know how to greet people in {currentGreetingLang}</p>
+        <Link className="navbar-logged-in-signout-link" to="/" onClick={this.handleLogOut}>Sign Out</Link>
       </hgroup>
     </div> : "";
 
-
     return (
       <header>
-        <nav className="logged-in-navbar">
+        <nav className="navbar-logged-in">
           <div className="navbar-logged-in-left">
-            <Link to="/" className="logo-link-logged-in">
+            <Link to="/" className="navbar-logged-in-logo">
               <h1>apertr</h1>
             </Link>
             <div className="navbar-logged-in-links">
-              <Link className="navbar-left-links" to={`/users/${this.props.currentUser.id}`}>You</Link>
+              <Link to={`/users/${this.props.currentUser.id}`}>You</Link>
             </div>
           </div>
           <div className="navbar-logged-in-right">
-            <div className="search-bar-logged-in">
-              <p className="search-bar-nav-error">{this.state.searchErrorMessage}</p>
-              <form className="search-bar-input-field" onSubmit={this.handleSubmitSearch}>
+            <div className="navbar-logged-in-search-bar">
+              <p
+                className="navbar-logged-in-search-bar-error"
+              >{this.state.searchErrorMessage}</p>
+              <form className="navbar-logged-in-search-bar-input-field" onSubmit={this.handleSubmitSearch}>
                 <span className="fas fa-search"></span>
                 <input
                   type="text"
@@ -122,17 +122,14 @@ class Navbar extends React.Component {
                 />
               </form>
             </div>
-            <Link className="navbar-upload-photo" to="/photos/new">
-              <span></span>
+            <Link className="navbar-logged-in-upload-icon" to="/photos/new">
             </Link>
-            <div className="profile-popup">
-              <span>
-                <img
-                  src={this.props.currentUser.profile_pic}
-                  onClick={this.handleOpenProfilePopup}
-                />
-                {profilePopUp}
-              </span>
+            <div className="navbar-logged-in-profile-popup">
+              <img
+                src={this.props.currentUser.profile_pic}
+                onClick={this.handleOpenProfilePopup}
+              />
+              {profilePopUp}
             </div>
           </div>
         </nav>

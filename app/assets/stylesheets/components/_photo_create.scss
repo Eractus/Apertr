@@ -5,7 +5,7 @@
   position: fixed;
   top: 0;
   width: 100%;
-  z-index: 10;
+  z-index: 5;
   justify-content: space-between;
 }
 
@@ -55,19 +55,10 @@
   border: 1px #0b4791 solid;
 }
 
-.popup-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 100%;
-  z-index: 2;
-}
-
 .photo-create-navbar-popup {
   background-color: #fff;
   position: absolute;
-  z-index: 20;
+  z-index: 15;
   border: 1px solid #B8B8B8;
   border-radius: 3px;
   top: 45px;

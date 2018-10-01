@@ -43,7 +43,7 @@ class Search extends React.Component {
   render () {
     return (
       <div className="search-container">
-        <div className="navbar-header">
+        <div className="navbar-logged-in-header">
           <p>Photos</p>
         </div>
         <div className="search-results-container">
