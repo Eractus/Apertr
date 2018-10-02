@@ -30,6 +30,7 @@ class CommentIndex extends React.Component {
           users={this.props.users}
           photo={this.props.photo}
           comment={comment}
+          updateComment={this.props.updateComment}
           deleteComment={this.props.deleteComment} />
       );
     });

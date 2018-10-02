@@ -77,23 +77,49 @@
 }
 
 .tag-index-item {
+  width: inherit;
   background-color: #cfd6d9;
   display: flex;
-  font-weight: 350;
   margin: 5px;
   border-radius: 4px;
   padding: 3px 5px;
+  position: relative;
+}
+
+.tag-index-item-photo-owner {
+  width: inherit;
+  transition: all 0.5s;
+  background-color: #cfd6d9;
+  display: flex;
+  margin: 5px;
+  border-radius: 4px;
+  padding: 3px 5px;
+  position: relative;
+}
+
+.tag-index-item-photo-owner:hover .tag-index-item-delete {
+  visibility: visible;
 }
 
 .tag-index-item:hover {
   background-color: #868d91;
 }
 
-.tag-index-item > p:hover {
+.tag-index-item-photo-owner:hover {
+  background-color: #868d91;
+  padding-right: 20px;
+}
+
+.tag-index-item-word:hover {
   color: #fff;
 }
 
 .tag-index-item-delete {
-  font-size: 8px;
-  color: red;
+  visibility: hidden;
+  position: absolute;
+  right: 5px;
+}
+
+.tag-index-item-delete:hover {
+  color: #fff;
 }

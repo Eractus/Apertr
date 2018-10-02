@@ -25,7 +25,10 @@
 }
 
 .delete-link {
-  color: #fff;
+  width: 20px;
+  height: 20px;
+  background-image: image-url("delete.png");
+  background-size: cover;
   position: absolute;
   bottom: 2%;
   right: 3%;

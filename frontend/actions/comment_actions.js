@@ -22,6 +22,13 @@ export const createComment = comment => dispatch => (
     error => dispatch(receiveErrors(error.responseJSON)))
 );
 
+export const updateComment = (comment, id) => dispatch => (
+  CommentApiUtil.updateComment(comment, id).then(
+    ajaxComment => dispatch(receiveComment(ajaxComment)),
+    error => dispatch(receiveErrors(error.responseJSON))
+  )
+);
+
 export const deleteComment = commentId => dispatch => (
   CommentApiUtil.deleteComment(commentId).then(
     comment => dispatch(removeComment(commentId)))

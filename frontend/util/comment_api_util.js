@@ -20,6 +20,14 @@ export const createComment = comment => (
   })
 );
 
+export const updateComment = (comment, id) => (
+  $.ajax({
+    method: "PATCH",
+    url: `api/photos/${comment.photo_id}/comments/${id}`,
+    data: { comment }
+  })
+);
+
 export const deleteComment = id => (
   $.ajax({
     method: "DELETE",
