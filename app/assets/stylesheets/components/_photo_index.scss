@@ -58,18 +58,47 @@
 }
 
 .photo-index-item-container {
-  margin: 2.5px;
-}
-
-.photo-image-container {
   height: 200px;
+  margin: 2.5px;
+  position: relative;
 }
 
-.photo-image-container:hover {
-  box-shadow: 5px 10px 8px #B8B8B8;
+.photo-index-item-container:hover .photo-index-item-hover {
+  visibility: visible;
 }
 
-.photo-image {
+.photo-index-item-hover {
+  visibility: hidden;
+  background-image: linear-gradient(transparent 45%, rgba(0,0,0,0.35));
+  position: absolute;
+  width: calc(100% - 20px);
+  height: 20%;
+  bottom: 0;
+  left: 0;
+  padding: 10px;
+  text-shadow: 1px 1px #000;
+}
+
+.photo-index-item-hover > p:first-child {
+  color: #fff;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.photo-index-item-hover > a {
+  color: #a3a5a6;
+  font-size: 12px;
+}
+
+.photo-index-item-hover > a:hover {
+  color: #fff;
+}
+
+.photo-index-item-image-container {
+  height: 100%;
+}
+
+.photo-index-item-image {
   object-fit: contain;
   width: auto;
   height: 100%;

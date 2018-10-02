@@ -12,14 +12,12 @@
 }
 
 .comment-create-container > form {
-  display: flex;
-  flex-direction: column;
-  width: 82%;
+  width: 100%;
 }
 
 .comment-create-description {
   background-color: white;
-  width: 100%;
+  width: calc(100% - 20px);
   min-height: 80px;
   border: 1px solid #d8d8d8;
   border-radius: 3px;

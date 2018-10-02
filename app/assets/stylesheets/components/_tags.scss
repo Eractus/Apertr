@@ -87,8 +87,8 @@
 }
 
 .tag-index-item-photo-owner {
+  transition: all 0.25s;
   width: inherit;
-  transition: all 0.5s;
   background-color: #cfd6d9;
   display: flex;
   margin: 5px;

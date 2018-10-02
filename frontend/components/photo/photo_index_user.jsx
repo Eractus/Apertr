@@ -9,7 +9,8 @@ class PhotoIndexUser extends React.Component {
   }
 
   componentDidMount() {
-    this.props.fetchPhotos().then(() => this.setState({ firstLoad: false }));
+    this.props.fetchPhotos();
+    this.props.fetchAllUsers().then(() => this.setState({ firstLoad: false }));
   }
 
   render () {
@@ -26,6 +27,8 @@ class PhotoIndexUser extends React.Component {
       if (this.props.user.id === photo.user_id) {
         photos.push(
           <PhotoIndexItemUser
+            users={this.props.users}
+            currentUser={this.props.currentUser}
             photo={photo}
           />
         )

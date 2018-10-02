@@ -16,7 +16,8 @@ class PhotosSearch extends React.Component {
 
   componentDidMount() {
     this.setState({ search: "" });
-    this.props.searchTaggedPhotos(this.props.searchParams).then(() => this.setState({ firstLoad: false }));
+    this.props.searchTaggedPhotos(this.props.searchParams);
+    this.props.fetchAllUsers().then(() => this.setState({ firstLoad: false }));
   }
 
   componentDidUpdate(prevProps) {
@@ -60,7 +61,11 @@ class PhotosSearch extends React.Component {
     }
 
     const photos = Object.values(this.props.photos).map(photo => (
-      <PhotoIndexItemUser photo={photo} />
+      <PhotoIndexItemUser
+        users={this.props.users}
+        currentUser={this.props.currentUser}
+        photo={photo}
+      />
     ));
     const photosSearchContainer = (Object.keys(this.props.photos).length === 0) ?
       <div className="photos-search-no-results">

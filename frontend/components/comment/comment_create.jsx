@@ -49,7 +49,7 @@ class CommentCreate extends React.Component {
             value={this.state.description}
             placeholder="Add a comment"
             onChange={this.update('description')} />
-            <div className="comment-create-errors">{this.renderErrors()}</div>
+          <div className="comment-create-errors">{this.renderErrors()}</div>
           <input className="comment-create-button" type="submit" value="Comment" />
         </form>
       </div>
