@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import PhotoIndexUserContainer from '../photo/photo_index_user_container';
+import PhotoIndexContainer from '../photo/photo_index_container';
 import AlbumIndexContainer from '../album/album_index_container';
 
 class UserShow extends React.Component {
@@ -56,7 +56,7 @@ class UserShow extends React.Component {
 
     const renderTab = this.state.photostreamTabSelected ?
       <div className="user-show-tabs">
-        <PhotoIndexUserContainer user={this.props.user}/>
+        <PhotoIndexContainer user={this.props.user}/>
       </div> :
       <div className="user-show-tabs">
         <AlbumIndexContainer user={this.props.user}/>

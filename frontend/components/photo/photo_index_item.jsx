@@ -1,13 +1,15 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const PhotoIndexItemUser = props => {
+const PhotoIndexItem = props => {
   let userId = props.photo.user_id;
   const photoAuthor = props.currentUser.id === userId ?
     "YOU!" : props.users[userId].first_name + " " + props.users[userId].last_name;
   return (
     <li className="photo-index-item-container">
-      <Link to={`/photos/${props.photo.id}`} className="photo-index-item-hover">
+      <Link
+        className="photo-index-item-hover"      to={`/photos/${props.photo.id}`}
+      >
         <p>{props.photo.title}</p>
         <Link to={`/users/${userId}`}>by {photoAuthor}</Link>
       </Link>
@@ -20,4 +22,4 @@ const PhotoIndexItemUser = props => {
   );
 };
 
-export default PhotoIndexItemUser;
+export default PhotoIndexItem;

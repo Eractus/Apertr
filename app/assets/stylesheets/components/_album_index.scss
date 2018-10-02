@@ -4,76 +4,76 @@
   padding: 2% 5%;
 }
 
-.album-index-no-albums {
-  background-color: #f3f5f6;
-  min-height: calc(100vh - 492px);
-}
-
-.album-index-no-albums-message {
-  padding: 4%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-.album-index-no-albums-message > h2 {
-  font-size: 24px;
-  font-weight: 300;
-  letter-spacing: 0.5px;
-}
-
 .album-index-container {
   padding: 50px 10%;
   background-color: #f3f5f6;
   min-height: calc(100vh - 492px);
   position: relative;
-}
 
-.album-index-new-album {
-  position: absolute;
-  top: 25px;
-  right: 10%;
-  font-size: 17px;
-  color: #898989;
-}
+  .album-index-new-album {
+    position: absolute;
+    top: 25px;
+    right: 10%;
+    font-size: 17px;
+    color: #898989;
+  }
 
-.album-index-list {
-  display: flex;
-  flex-wrap: wrap;
-}
+  .album-index-no-albums {
+    background-color: #f3f5f6;
+    min-height: calc(100vh - 492px);
 
-.album-index-item-container {
-  width: 250px;
-  height: 250px;
-  position: relative;
-  margin: 15px;
-}
+    .album-index-no-albums-message {
+      padding: 4%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
 
-.album-index-image {
-  height: 100%;
-  border-top: 1px solid #000;
-}
+    .album-index-no-albums-message > h2 {
+      font-size: 24px;
+      font-weight: 300;
+      letter-spacing: 0.5px;
+    }
+  }
 
-.album-index-image:hover {
-  box-shadow: 1px 1px 8px #B8B8B8;
-  border-top: 3px solid #000;
-}
+  .album-index-list {
+    display: flex;
+    flex-wrap: wrap;
 
-.album-index-title {
-  position: absolute;
-  left: 10px;
-  bottom: 10px;
-  color: #fff;
-}
+    .album-index-item-container {
+      width: 250px;
+      height: 250px;
+      position: relative;
+      margin: 15px;
 
-.album-index-delete {
-  position: absolute;
-  top: 15px;
-  right: 15px;
-  color: #fff;
-}
+      .album-index-image {
+        height: 100%;
+        border-top: 1px solid #000;
+      }
 
-.album-index-delete:hover {
-  color: red;
+      .album-index-image:hover {
+        box-shadow: 1px 1px 8px #B8B8B8;
+        border-top: 3px solid #000;
+      }
+
+      .album-index-title {
+        position: absolute;
+        left: 10px;
+        bottom: 10px;
+        color: #fff;
+      }
+
+      .album-index-delete {
+        position: absolute;
+        top: 15px;
+        right: 15px;
+        color: #fff;
+      }
+
+      .album-index-delete:hover {
+        color: red;
+      }
+    }
+  }
 }

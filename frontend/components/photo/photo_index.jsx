@@ -1,8 +1,8 @@
 import React from "react";
-import PhotoIndexItemUser from "./photo_index_item_user";
+import PhotoIndexItem from "./photo_index_item";
 import { Link } from 'react-router-dom';
 
-class PhotoIndexUser extends React.Component {
+class PhotoIndex extends React.Component {
   constructor(props) {
     super(props);
     this.state = { firstLoad: true }
@@ -16,7 +16,7 @@ class PhotoIndexUser extends React.Component {
   render () {
     if (this.state.firstLoad) {
       return (
-        <div className="photo-index-user-loading">
+        <div className="photo-index-loading">
           <p>Loading...</p>
         </div>
       );
@@ -26,7 +26,7 @@ class PhotoIndexUser extends React.Component {
     this.props.photos.forEach(photo => {
       if (this.props.user.id === photo.user_id) {
         photos.push(
-          <PhotoIndexItemUser
+          <PhotoIndexItem
             users={this.props.users}
             currentUser={this.props.currentUser}
             photo={photo}
@@ -36,25 +36,25 @@ class PhotoIndexUser extends React.Component {
     });
 
     const noPhotosMessage = this.props.user.id === this.props.currentUser.id ?
-      <div className="no-photos-message">
+      <div className="photo-index-no-photos-message">
         <h2>You have no photos.</h2>
         <p>Your photostream is your public-facing portfolio. Upload some photos to populate your photostream.</p>
-        <Link to="/photos/new" className="photo-index-no-photos-upload">Select files to upload</Link>
+        <Link to="/photos/new">Select files to upload</Link>
       </div> :
-      <div className="no-photos-message">
+      <div className="photo-index-no-photos-message">
         <h2>{this.props.user.first_name} has not uploaded any photos yet.</h2>
       </div>
 
     if (photos.length === 0) {
       return (
-        <div className="no-photos">
+        <div className="photo-index-no-photos">
           {noPhotosMessage}
         </div>
       );
     } else {
       return (
         <div className="photo-index-container">
-          <ul className="photo-index-list-user">
+          <ul className="photo-index-list">
             {photos}
           </ul>
         </div>
@@ -63,4 +63,4 @@ class PhotoIndexUser extends React.Component {
   }
 }
 
-export default PhotoIndexUser;
+export default PhotoIndex;

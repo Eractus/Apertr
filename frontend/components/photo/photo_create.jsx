@@ -101,7 +101,7 @@ class PhotoCreate extends React.Component {
                   onChange={this.update('description')} />
               </div>
               <div className="photo-create-image-container">
-                <input className="photo-upload" type="file" onChange={this.updateFile} />
+                <input className="photo-create-upload" type="file" onChange={this.updateFile} />
                 <div className="photo-create-image">
                   <img
                     src={this.state.imageUrl}

@@ -1,6 +1,6 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
-import PhotoIndexItemUser from '../photo/photo_index_item_user';
+import PhotoIndexItem from '../photo/photo_index_item';
 
 class PhotosSearch extends React.Component {
   constructor(props) {
@@ -61,7 +61,7 @@ class PhotosSearch extends React.Component {
     }
 
     const photos = Object.values(this.props.photos).map(photo => (
-      <PhotoIndexItemUser
+      <PhotoIndexItem
         users={this.props.users}
         currentUser={this.props.currentUser}
         photo={photo}
