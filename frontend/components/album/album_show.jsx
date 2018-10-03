@@ -20,6 +20,7 @@ class AlbumShow extends React.Component {
         () => this.setState({ firstLoad: false })
       )
     );
+    window.scrollTo(0, 0);
   }
 
   componentWillUnmount() {

@@ -11,7 +11,7 @@ class AlbumCreateNav extends React.Component {
     return (
       <header>
         <nav className="album-create-navbar">
-          <Link to="/" className="album-create-logo-link">
+          <Link to="/feed" className="album-create-logo-link">
             <h1>apertr</h1>
           </Link>
           <div className="album-create-nav-links">

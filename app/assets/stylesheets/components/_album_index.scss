@@ -47,33 +47,54 @@
       position: relative;
       margin: 15px;
 
-      .album-index-image {
+      .album-index-item-background-gradient {
+        position: absolute;
+        bottom: 0;
+        height: 100%;
+        width: 100%;
+        background-image: linear-gradient(transparent 25%, rgba(0,0,0,0.65));
+      }
+
+      .album-index-item-image {
         height: 100%;
         border-top: 1px solid #000;
       }
 
-      .album-index-image:hover {
+      .album-index-item-image:hover {
         box-shadow: 1px 1px 8px #B8B8B8;
         border-top: 3px solid #000;
       }
 
-      .album-index-title {
+      .album-index-item-details {
         position: absolute;
-        left: 10px;
-        bottom: 10px;
+        left: 15px;
+        bottom: 15px;
         color: #fff;
+        text-shadow: 1px 1px #000;
+        font-weight: 300;
+        font-size: 18px;
       }
 
-      .album-index-delete {
+      .album-index-item-details > p:last-child {
+        font-size: 14px;
+        font-weight: 400;
+      }
+
+      .album-index-item-delete {
+        visibility: hidden;
         position: absolute;
-        top: 15px;
+        bottom: 15px;
         right: 15px;
         color: #fff;
       }
 
-      .album-index-delete:hover {
+      .album-index-item-delete:hover {
         color: red;
       }
+    }
+
+    .album-index-item-container:hover .album-index-item-delete {
+      visibility: visible;
     }
   }
 }

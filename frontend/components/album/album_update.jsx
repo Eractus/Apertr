@@ -72,8 +72,8 @@ class AlbumUpdate extends React.Component {
     e.preventDefault();
     const formData = new FormData();
     formData.append("id", this.props.match.params.albumId);
-    formData.append("album[title]", this.props.album.title);
-    formData.append("album[description]", this.props.album.description);
+    formData.append("album[title]", this.state.title);
+    formData.append("album[description]", this.state.description);
     formData.append("photo_ids", JSON.stringify(this.state.photos.map(photo => photo.id)));
     this.props.updateAlbum(formData).then(
       data => this.props.history.push(`/albums/${data.album.id}`)

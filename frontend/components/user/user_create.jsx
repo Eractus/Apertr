@@ -24,7 +24,7 @@ class UserCreate extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     const user = Object.assign({}, this.state);
-    this.props.signupForm(user).then(() => this.props.history.push('/'));
+    this.props.signupForm(user).then(() => this.props.history.push('/feed'));
   }
 
   renderErrors() {

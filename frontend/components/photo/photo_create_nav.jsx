@@ -22,7 +22,7 @@ class PhotoCreateNav extends React.Component {
 
   handleLogOut() {
     this.handleCloseProfilePopup();
-    this.props.logout();
+    this.props.logout().then(() => this.props.history.push("/"));
   }
 
   render() {
@@ -30,7 +30,7 @@ class PhotoCreateNav extends React.Component {
     <div>
       <div onClick={this.handleCloseProfilePopup} className="popup-overlay"></div>
       <hgroup className="photo-create-navbar-popup">
-        <Link className="photo-create-navbar-signout-link" to="/" onClick={this.handleLogOut}>Sign Out</Link>
+        <a className="photo-create-navbar-signout-link" onClick={this.handleLogOut}>Sign Out</a>
       </hgroup>
     </div> : "";
 
@@ -39,7 +39,7 @@ class PhotoCreateNav extends React.Component {
       <header>
         <nav className="photo-create-navbar">
           <div className="photo-create-nav-left">
-            <Link to="/" className="photo-create-logo-link">
+            <Link to="/feed" className="photo-create-logo-link">
               <h1>apertr</h1>
             </Link>
             <div className="photo-create-nav-links">

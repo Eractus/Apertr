@@ -26,7 +26,7 @@ class Navbar extends React.Component {
 
   handleLogOut() {
     this.handleCloseProfilePopup();
-    this.props.logout();
+    this.props.logout().then(() => this.props.history.push("/"));
   }
 
   handleSubmitSearch() {
@@ -92,7 +92,7 @@ class Navbar extends React.Component {
       <hgroup className="navbar-logged-in-popup">
         <h2 className="navbar-logged-in-greet-name">{currentGreetingPhrase}, {name}!</h2>
         <p className="navbar-logged-in-greet-text">Now you know how to greet people in {currentGreetingLang}</p>
-        <Link className="navbar-logged-in-signout-link" to="/" onClick={this.handleLogOut}>Sign Out</Link>
+        <a className="navbar-logged-in-signout-link" onClick={this.handleLogOut}>Sign Out</a>
       </hgroup>
     </div> : "";
 
@@ -100,7 +100,7 @@ class Navbar extends React.Component {
       <header>
         <nav className="navbar-logged-in">
           <div className="navbar-logged-in-left">
-            <Link to="/" className="navbar-logged-in-logo">
+            <Link to="/feed" className="navbar-logged-in-logo">
               <h1>apertr</h1>
             </Link>
             <div className="navbar-logged-in-links">
@@ -122,7 +122,7 @@ class Navbar extends React.Component {
                 />
               </form>
             </div>
-            <Link className="navbar-logged-in-upload-icon" to="/photos/new">
+            <Link className="navbar-logged-in-upload-icon" to="/photos/upload">
             </Link>
             <div className="navbar-logged-in-profile-popup">
               <img

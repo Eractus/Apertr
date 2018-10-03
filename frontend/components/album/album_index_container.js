@@ -4,8 +4,8 @@ import { selectAllCurrentUserAlbums } from '../../reducers/selectors';
 import AlbumIndex from './album_index';
 
 const mapStateToProps = state => ({
-  albums: Object.values(state.albums),
-  currentUser: state.session.currentUser
+  currentUser: state.session.currentUser,
+  albums: Object.values(state.albums)
 });
 
 const mapDispatchToProps = dispatch => ({

@@ -86,7 +86,7 @@ class PhotoShow extends React.Component {
 
     const delPhoto = this.props.currentUser.id === this.props.photo.user_id ?
       <div>
-        <Link className="delete-link" onClick={() => this.props.deletePhoto(this.state.id)} to="/">
+        <Link className="delete-link" onClick={() => this.props.deletePhoto(this.state.id)} to="/feed">
         </Link>
       </div> : ""
 

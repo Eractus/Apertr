@@ -29,6 +29,7 @@ class AlbumIndex extends React.Component {
       if (this.props.user.id === album.owner_id) {
         albums.push(
           <AlbumIndexItem
+            currentUser={this.props.currentUser}
             album={album}
             deleteAlbum={this.props.deleteAlbum}
           />

@@ -21,6 +21,7 @@ class PhotosSearch extends React.Component {
         () => this.setState({ firstLoad: false })
       )
     );
+    window.scrollTo(0, 0);
   }
 
   componentDidUpdate(prevProps) {

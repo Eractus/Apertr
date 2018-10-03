@@ -42,7 +42,7 @@ class PhotoIndex extends React.Component {
       <div className="photo-index-no-photos-message">
         <h2>You have no photos.</h2>
         <p>Your photostream is your public-facing portfolio. Upload some photos to populate your photostream.</p>
-        <Link to="/photos/new">Select files to upload</Link>
+        <Link to="/photos/upload">Select files to upload</Link>
       </div> :
       <div className="photo-index-no-photos-message">
         <h2>{this.props.user.first_name} has not uploaded any photos yet.</h2>
