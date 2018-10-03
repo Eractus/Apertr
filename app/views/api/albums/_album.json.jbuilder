@@ -3,6 +3,8 @@ json.set! "photos" do
   album.photos.each do |photo|
     json.set! photo.id do
       json.id photo.id
+      json.title photo.title
+      json.user_id photo.user_id
       json.image_url asset_path(photo.image.url)
     end
   end

@@ -1,17 +1,25 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import PhotoIndexItem from "../photo/photo_index_item";
 
 class AlbumShow extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { toggledEditableFields: false };
+    this.state = {
+      firstLoad: true,
+      toggledEditableFields: false
+    };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.openEditableFields = this.openEditableFields.bind(this);
     this.closeEditableFields = this.closeEditableFields.bind(this);
   }
 
   componentDidMount() {
-    this.props.fetchAlbum(this.props.match.params.albumId);
+    this.props.fetchAlbum(this.props.match.params.albumId).then(
+      this.props.fetchAllUsers().then(
+        () => this.setState({ firstLoad: false })
+      )
+    );
   }
 
   componentWillUnmount() {
@@ -68,7 +76,7 @@ class AlbumShow extends React.Component {
   }
 
   render() {
-    if (!this.props.album) {
+    if (this.state.firstLoad) {
       return (
         <div className="album-show-loading">
           <p>Loading...</p>
@@ -78,13 +86,11 @@ class AlbumShow extends React.Component {
 
     const albumPhotos = Object.values(this.props.album.photos).map(photo => {
       return (
-        <li className="album-show-photo-container">
-          <div className="album-show-image-container">
-            <Link to={`/photos/${photo.id}`}>
-              <img className="album-show-image" src={photo.image_url} />
-            </Link>
-          </div>
-        </li>
+        <PhotoIndexItem
+          users={this.props.users}
+          currentUser={this.props.currentUser}
+          photo={photo}
+        />
       );
     });
 

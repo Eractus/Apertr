@@ -9,8 +9,11 @@ class PhotoIndexFeed extends React.Component {
   }
 
   componentDidMount() {
-    this.props.fetchAllUsers();
-    this.props.fetchPhotos().then(() => this.setState({ firstLoad: false}));
+    this.props.fetchAllUsers().then(
+      this.props.fetchPhotos().then(
+        () => this.setState({ firstLoad: false})
+      )
+    );
     window.scrollTo(0, 0);
   }
 

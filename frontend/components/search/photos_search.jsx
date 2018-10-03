@@ -16,8 +16,11 @@ class PhotosSearch extends React.Component {
 
   componentDidMount() {
     this.setState({ search: "" });
-    this.props.searchTaggedPhotos(this.props.searchParams);
-    this.props.fetchAllUsers().then(() => this.setState({ firstLoad: false }));
+    this.props.fetchAllUsers().then(
+      this.props.searchTaggedPhotos(this.props.searchParams).then(
+        () => this.setState({ firstLoad: false })
+      )
+    );
   }
 
   componentDidUpdate(prevProps) {

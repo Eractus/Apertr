@@ -19,8 +19,11 @@ class PhotoShow extends React.Component {
   }
 
   componentDidMount() {
-    this.props.fetchPhoto(this.props.match.params.photoId);
-    this.props.fetchAllUsers().then(() => this.setState({ firstLoad: false }));
+    this.props.fetchPhoto(this.props.match.params.photoId).then(
+      this.props.fetchAllUsers().then(
+        () => this.setState({ firstLoad: false })
+      )
+    );
     window.scrollTo(0, 0);
   }
 
