@@ -37,6 +37,7 @@ gem 'figaro'
 # Newest version of aws-sdk gem currently not supported by paperclip
 gem 'aws-sdk', '< 3.0'
 gem 'jquery-rails'
+gem 'redis-rails'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
