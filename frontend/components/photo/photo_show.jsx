@@ -113,6 +113,27 @@ class PhotoShow extends React.Component {
         <p className="photo-show-description">{this.state.description}</p>
       </div>
 
+    let numComments = Object.values(this.props.photo.comments).length;
+    let comment = numComments === 1 ? "comment" : "comments";
+    const months = {
+      "01": "January",
+      "02": "February",
+      "03": "March",
+      "04": "April",
+      "05": "May",
+      "06": "June",
+      "07": "July",
+      "08": "August",
+      "09": "September",
+      "10": "October",
+      "11": "November",
+      "12": "December",
+    }
+    const createDate = this.props.photo.created_at;
+    let uploadMonth = months[createDate.slice(5,7)];
+    let uploadDay = createDate.slice(8,10);
+    let uploadYear = createDate.slice(0,4);
+
     return (
       <div className="photo-show-background">
         <div className="photo-show">
@@ -144,6 +165,13 @@ class PhotoShow extends React.Component {
             </div>
           </div>
           <div className="photo-show-right-column">
+            <div className="photo-show-photo-summary">
+              <div className="photo-show-photo-details">
+                <h1>{numComments}</h1>
+                <p>{comment}</p>
+              </div>
+              <p>Uploaded on {uploadMonth} {uploadDay} {uploadYear}</p>
+            </div>
             <div className="photo-show-tags-container">
               <TagCreateContainer photo={this.props.photo}/>
               <TagIndexContainer
