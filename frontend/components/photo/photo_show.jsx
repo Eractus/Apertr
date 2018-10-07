@@ -170,7 +170,7 @@ class PhotoShow extends React.Component {
                 <h1>{numComments}</h1>
                 <p>{comment}</p>
               </div>
-              <p>Uploaded on {uploadMonth} {uploadDay} {uploadYear}</p>
+              <p>Uploaded on {uploadMonth} {uploadDay}, {uploadYear}</p>
             </div>
             <div className="photo-show-tags-container">
               <TagCreateContainer photo={this.props.photo}/>
