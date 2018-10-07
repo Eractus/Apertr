@@ -83,7 +83,7 @@ class PhotosSearch extends React.Component {
               className="photos-search-no-results-input"
               type="text"
               onChange={this.update}
-              placeholder="Search photos"
+              placeholder="Search photos (try 'nature', 'canon', or 'tennis')"
               value={this.state.search}
             />
             <input className="photos-search-no-results-submit" type="submit" value="Search" />

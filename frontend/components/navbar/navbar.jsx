@@ -117,7 +117,7 @@ class Navbar extends React.Component {
                 <input
                   type="text"
                   onChange={this.update}
-                  placeholder="Search photos"
+                  placeholder="Search photos (try 'nature', 'canon', or 'tennis')"
                   value={this.state.search}
                 />
               </form>
