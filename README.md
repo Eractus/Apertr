@@ -2,6 +2,8 @@
 
 [Live Demo](https://apertr.herokuapp.com/#/)
 
+![Live Demo](https://github.com/Eractus/Apertr/blob/master/app/assets/images/splash.gif)
+
 Created using a combination of Rails/PostgreSQL on the backend and React/Redux on the frontend, Apertr is intended to be a clone of the popular photo hosting site Flickr.
 
 The project was built on an approximately 10 day timeline. Future additions/improvements are planned to further build on its existing features.
