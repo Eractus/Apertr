@@ -1,19 +1,17 @@
 .session-create-page {
+  background-color: rgba(0,0,0,.025);
   flex: 1 0 auto;
 
   .session-create-container {
     display: flex;
     justify-content: flex-end;
-    min-height: calc(100vh - 117px);
-    padding-top: 15px;
+    padding: 15px 0;
     padding-right: 18%;
-    padding-bottom: 15px;
-    background-color: rgba(0,0,0,.025);
 
     .session-create-form {
       box-shadow: 1px 1px 5px 1px rgba(0, 0, 0, 0.15);
       background-color: #FFF;
-      height: 525px;
+      min-height: 525px;
 
       .session-create-details {
         display: flex;

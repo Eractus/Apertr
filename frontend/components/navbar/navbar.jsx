@@ -113,7 +113,7 @@ class Navbar extends React.Component {
                 className="navbar-logged-in-search-bar-error"
               >{this.state.searchErrorMessage}</p>
               <form className="navbar-logged-in-search-bar-input-field" onSubmit={this.handleSubmitSearch}>
-                <span className="fas fa-search"></span>
+                <span id="navbar-logged-in-search-bar-logo" className="fas fa-search"></span>
                 <input
                   type="text"
                   onChange={this.update}

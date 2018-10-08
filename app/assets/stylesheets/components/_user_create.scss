@@ -9,20 +9,19 @@
 }
 
 .user-create-page {
+  background-color: rgba(0,0,0,.025);
   flex: 1 0 auto;
 
   .user-create-container {
     display: flex;
     justify-content: center;
-    min-height: calc(100vh - 187px);
-    padding-top: 50px;
-    padding-bottom: 50px;
-    background-color: rgba(0,0,0,.025);
+    padding: 50px 0;
 
     .user-create-form {
       box-shadow: 1px 1px 5px 1px rgba(0, 0, 0, 0.15);
       background-color: #FFF;
-      width: 20%;
+      width: 300px;
+      min-height: 400px;
       padding: 45px 25px;
 
       .user-create-details {

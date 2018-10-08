@@ -84,12 +84,10 @@
     margin-right: 10%;
 
     .navbar-logged-in-search-bar {
-      transition: all 0.5s;
       display: flex;
       align-items: center;
       margin-right: 18px;
       position: relative;
-      width: 200px;
 
       .navbar-logged-in-search-bar-error {
         position: absolute;
@@ -103,18 +101,36 @@
         align-items: center;
         background-color:  #fff;
         border-radius: 2px;
-        padding: 8px;
-        width: 100%;
+        position: relative;
+      }
+
+      #navbar-logged-in-search-bar-logo {
+        margin-left: 8px;
+        color: #4e4e4e;
+        position: absolute;
+        left: 0;
       }
 
       .navbar-logged-in-search-bar-input-field > input {
-        width: 100%;
-        margin-left: 8px;
+        transition: all 0.5s;
+        background-color: #d3d5d6;
+        width: 175px;
+        padding-top: 8px;
+        padding-bottom: 8px;
+        padding-left: 35px;
+        border-radius: 2px;
       }
-    }
 
-    .navbar-logged-in-search-bar:hover {
-      width: 400px;
+      .navbar-logged-in-search-bar-input-field > input:focus {
+        background-color: #fff;
+        width: 375px;
+      }
+
+      .navbar-logged-in-search-bar-input-field > input::placeholder {
+        font-size: 14px;
+        font-weight: normal;
+        color: #8e8e8e;
+      }
     }
 
     .navbar-logged-in-upload-icon {
