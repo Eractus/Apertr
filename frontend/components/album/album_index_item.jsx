@@ -13,6 +13,9 @@ const AlbumIndexItem = props => {
 
   return (
     <li className="album-index-item-container">
+      <span className="album-index-item-aesthetics-layer1"></span>
+      <span className="album-index-item-aesthetics-layer2"></span>
+      <div className="album-index-item-aesthetics-shadow"></div>
       <Link to={`/albums/${props.album.id}`} className="album-index-item-background-gradient"></Link>
       <img className="album-index-item-image" src={Object.values(props.album.photos)[0].image_url} />
       <div className="album-index-item-details">
