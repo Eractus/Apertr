@@ -29,7 +29,7 @@ After logging in, the feed page shows a list of photos from all users in a polar
 
 Users can click the cloud upload icon on navbar to upload photos to their photostream. The process is as simple as selecting the file, adding a title and description, and hitting upload. Currently, users can only upload one photo at a time; this will be addressed in the future, possibly with a drag and drop feature.
 
-![alt text](https://github.com/Eractus/Apertr/blob/master/app/assets/images/photo-upload.png =250x)
+<img src="https://github.com/Eractus/Apertr/blob/master/app/assets/images/photo-upload.png" width="40%">
 
 #### Personalized User Profile Page
 
