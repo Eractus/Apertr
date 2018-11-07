@@ -10,140 +10,122 @@
   background-color: #f3f5f6;
   text-shadow: 1px 1px #000;
   flex: 1 0 auto;
-}
 
-.album-show-cover-image {
-  height: 325px;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  position: relative;
-  background: rgba(0,0,0,1);
-}
+  .album-show-cover-image {
+    height: 325px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    background: rgba(0,0,0,1);
 
-.album-show-cover-image > img {
-  height: 100%;
-  object-fit: cover;
-  opacity: .5;
-}
+    .album-show-details-container {
+      height: 325px;
+      width: 100%;
+      position: absolute;
+      top: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
 
-.album-show-details-container {
-  height: 325px;
-  width: 100%;
-  position: absolute;
-  top: 0;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-}
+      .album-show-update-form {
+        display: flex;
+        flex-direction: column;
+        margin-top: 35px;
+        width: 75%;
+        border-radius: 2px;
+        cursor: image-url("edit-white.png"), pointer;
+      }
 
-.album-show-update-form {
-  display: flex;
-  flex-direction: column;
-  margin-top: 35px;
-  width: 75%;
-  border-radius: 2px;
-  cursor: image-url("edit-white.png"), pointer;
-}
+      .album-show-update-form:hover {
+        background-color: rgba(0,0,0,.6);
+      }
 
-.album-show-update-form:hover {
-  background-color: rgba(0,0,0,.6);
-}
+      .album-show-update-form-editing {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        margin-top: 35px;
+        width: 75%;
+        border-radius: 2px;
+        background-color: rgba(0,0,0,.6);
 
-.album-show-update-form-editing {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  margin-top: 35px;
-  width: 75%;
-  border-radius: 2px;
-  background-color: rgba(0,0,0,.6);
-}
+        .album-show-update-button {
+          font-size: 16px;
+          font-weight: 400;
+          color: #E8E8E8;
+          border: 1px solid #E8E8E8;
+          border-radius: 3px;
+          padding: 5px 20px;
+          margin: auto;
+          position: absolute;
+          left: calc(50% - 40px);
+          bottom: -50px;
+        }
 
-.album-show-update-title {
-  width: 100%;
-  font-size: 48px;
-  color: #fff;
-  padding: 5px;
-  text-align: center;
-}
+        .album-show-update-button:hover {
+          color: #fff;
+          border: 1px solid #fff;
+        }
+      }
 
-.album-show-update-description {
-  width: 100%;
-  font-size: 20px;
-  color: #fff;
-  padding: 5px;
-  text-align: center;
-}
+      .album-show-update-title {
+        width: 100%;
+        font-size: 48px;
+        color: #fff;
+        padding: 5px;
+        text-align: center;
+      }
 
-.album-show-update-button {
-  font-size: 16px;
-  font-weight: 400;
-  color: #E8E8E8;
-  border: 1px solid #E8E8E8;
-  border-radius: 3px;
-  padding: 5px 20px;
-  margin: auto;
-  position: absolute;
-  left: calc(50% - 40px);
-  bottom: -50px;
-}
+      .album-show-update-description {
+        width: 100%;
+        font-size: 20px;
+        color: #fff;
+        padding: 5px;
+        text-align: center;
+      }
 
-.album-show-num-photos {
-  font-size: 14px;
-  color: #fff;
-}
+      .album-show-num-photos {
+        font-size: 14px;
+        color: #fff;
+      }
+    }
 
-.album-show-update-button:hover {
-  color: #fff;
-  border: 1px solid #fff;
-}
+    .album-show-details-container > a {
+      color: #fff;
+      font-size: 16px;
+      font-weight: 400;
+      margin-bottom: 35px;
+    }
 
-.album-show-details-container > a {
-  color: #fff;
-  font-size: 16px;
-  font-weight: 400;
-  margin-bottom: 35px;
-}
+    .album-show-details-container > a:hover {
+      text-decoration: underline;
+    }
 
-.album-show-details-container > a:hover {
-  text-decoration: underline;
-}
+    .album-show-edit {
+      color: #fff;
+      position: absolute;
+      top: 10px;
+      right: 10px;
+    }
 
-.album-show-edit {
-  color: #fff;
-  position: absolute;
-  top: 10px;
-  right: 10px;
-}
+    .album-show-edit:hover {
+      color: #B8B8B8;
+    }
+  }
 
-.album-show-edit:hover {
-  color: #B8B8B8;
-}
+  .album-show-cover-image > img {
+    height: 100%;
+    object-fit: cover;
+    opacity: .5;
+  }
 
-.album-show-photos-list {
-  display: flex;
-  flex-wrap: wrap;
-  margin-top: 5px;
-  background-color: #f1f2f3;
-}
-
-.album-show-photo-container {
-  margin: 2.5px;
-}
-
-.album-show-photo-container:hover {
-  box-shadow: 5px 10px 8px #B8B8B8;
-}
-
-.album-show-image-container {
-  height: 200px;
-}
-
-.album-show-image {
-  object-fit: contain;
-  width: auto;
-  height: 100%;
+  .album-show-photos-list {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 5px;
+    background-color: #f1f2f3;
+  }
 }

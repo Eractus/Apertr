@@ -85,16 +85,6 @@ class AlbumShow extends React.Component {
       );
     }
 
-    const albumPhotos = Object.values(this.props.album.photos).map(photo => {
-      return (
-        <PhotoIndexItem
-          users={this.props.users}
-          currentUser={this.props.currentUser}
-          photo={photo}
-        />
-      );
-    });
-
     const albumDetails = this.props.currentUser.id === this.props.album.owner_id ?
       (this.state.toggledEditableFields ?
       <form className="album-show-update-form-editing" onSubmit={this.handleSubmit}>
@@ -123,10 +113,21 @@ class AlbumShow extends React.Component {
     let photo = amtPhotos > 1 ? "photos" : "photo";
     const numPhotos = this.state.toggledEditableFields ? "" :
       <div className="album-show-num-photos">{amtPhotos} {photo}</div>
+
     const albumEdit = this.props.album.owner_id === this.props.currentUser.id ?
       <Link className="album-show-edit" to={`/albums/${this.props.album.id}/edit`}>
         edit
       </Link> : "";
+
+    const albumPhotos = Object.values(this.props.album.photos).map(photo => {
+      return (
+        <PhotoIndexItem
+          users={this.props.users}
+          currentUser={this.props.currentUser}
+          photo={photo}
+        />
+      );
+    });
 
     return (
       <div className="album-show-container">
