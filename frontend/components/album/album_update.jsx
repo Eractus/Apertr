@@ -95,7 +95,7 @@ class AlbumUpdate extends React.Component {
   render () {
     if (this.state.firstLoad) {
       return (
-        <div className="album-update-loading">
+        <div className="album-create-loading">
           <p>Loading...</p>
         </div>
       );
@@ -130,7 +130,6 @@ class AlbumUpdate extends React.Component {
         );
       });
 
-    console.log(this.state);
     return (
       <div className="album-create-background">
         <div className="album-create-container">
