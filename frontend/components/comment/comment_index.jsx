@@ -18,7 +18,7 @@ class CommentIndex extends React.Component {
     if (this.state.firstLoad) {
       return (
         <div className="comment-index-container">
-          <p className="comment-index-loading">Loading...</p>
+          <p>Loading...</p>
         </div>
       );
     }
@@ -37,7 +37,7 @@ class CommentIndex extends React.Component {
 
     return (
       <div className="comment-index-container">
-        <ul className="comment-index-list">
+        <ul>
           {comments}
         </ul>
       </div>

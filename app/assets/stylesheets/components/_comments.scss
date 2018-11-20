@@ -13,40 +13,40 @@
 
 .comment-create-container > form {
   width: 100%;
-}
 
-.comment-create-description {
-  background-color: white;
-  width: calc(100% - 20px);
-  min-height: 80px;
-  border: 1px solid #d8d8d8;
-  border-radius: 3px;
-  padding: 10px 10px;
-  vertical-align: top;
-}
+  .comment-create-description {
+    background-color: white;
+    width: calc(100% - 20px);
+    min-height: 80px;
+    border: 1px solid #d8d8d8;
+    border-radius: 3px;
+    padding: 10px 10px;
+    vertical-align: top;
+  }
 
-.comment-create-description:focus {
-  border: 1px solid #128fdc;
-}
+  .comment-create-description:focus {
+    border: 1px solid #128fdc;
+  }
 
-.comment-create-errors {
-  color: red;
-}
+  .comment-create-errors {
+    color: red;
+  }
 
-.comment-create-button {
-  margin-top: 10px;
-  font-size: 16px;
-  font-weight: 400;
-  color: #fff;
-  background-color: #128fdc;
-  border-radius: 3px;
-  padding: 5px 20px;
-  width: 75px;
-  float: right;
-}
+  .comment-create-button {
+    margin-top: 10px;
+    font-size: 16px;
+    font-weight: 400;
+    color: #fff;
+    background-color: #128fdc;
+    border-radius: 3px;
+    padding: 5px 20px;
+    width: 75px;
+    float: right;
+  }
 
-.comment-create-button:hover {
-  background-color: #1c9be9;
+  .comment-create-button:hover {
+    background-color: #1c9be9;
+  }
 }
 
 .comment-index-container {
