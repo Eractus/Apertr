@@ -65,22 +65,20 @@ class CommentIndexItem extends React.Component {
 
     return (
       <li>
-        <div className="comment-index-item-container">
-          <div className="comment-index-item">
-            <img src={this.props.users[this.props.comment.user_id].profile_pic} />
-            <div className="comment-index-item-details">
-              <div className="comment-index-owner">
-                <Link to={`/users/${this.props.comment.user_id}`}>
-                  {this.props.comment.userFname} {this.props.comment.userLname}
-                </Link>
-              </div>
-              <div className="comment-index-description">
-                {commentDescription}
-              </div>
-              <div className="comment-index-item-functions">
-                {commentEdit}
-                {commentDelete}
-              </div>
+        <div className="comment-index-item">
+          <img src={this.props.users[this.props.comment.user_id].profile_pic} />
+          <div className="comment-index-item-details">
+            <div className="comment-index-owner">
+              <Link to={`/users/${this.props.comment.user_id}`}>
+                {this.props.comment.userFname} {this.props.comment.userLname}
+              </Link>
+            </div>
+            <div className="comment-index-description">
+              {commentDescription}
+            </div>
+            <div className="comment-index-item-functions">
+              {commentEdit}
+              {commentDelete}
             </div>
           </div>
         </div>
