@@ -58,10 +58,85 @@
 .comment-index-item {
   display: flex;
   align-items: center;
-}
 
-.comment-index-item:hover .comment-index-item-functions {
-  visibility: visible;
+  .comment-index-item-details {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin: 3% 1%;
+    position: relative;
+
+    .comment-index-owner {
+      color: #006dac;
+      margin-bottom: 5px;
+    }
+
+    .comment-index-owner > a:hover {
+      text-decoration: underline;
+    }
+
+    .comment-index-description {
+      font-size: 14px;
+
+      .comment-index-item-update-form {
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        padding-top: 15px;
+        margin-bottom: 15px;
+
+        .comment-index-item-update-form-textarea {
+          min-height: 50px;
+          font-size: 14px;
+          border: 1px solid #B8B8B8;
+          border-radius: 3px;
+          padding: 5px;
+          margin-bottom: 10px;
+          background-color: #fff;
+        }
+
+        .comment-index-item-update-form-textarea:focus {
+          border: 1px solid #128fdc;
+        }
+
+        .comment-index-item-update-button {
+          font-size: 16px;
+          font-weight: 400;
+          color: #fff;
+          background-color: #128fdc;
+          border-radius: 3px;
+          padding: 5px 30px;
+          max-width: 40px;
+          position: absolute;
+          right: 0;
+          bottom: -28px;
+        }
+
+        .comment-index-item-update-button:hover {
+          background-color: #1c9be9;
+        }
+      }
+    }
+
+    .comment-index-item-functions {
+      visibility: hidden;
+      display: flex;
+      position: absolute;
+      font-size: 12px;
+      top: 0;
+      right: 15px;
+    }
+
+    .comment-index-item-functions > p {
+      color: #000;
+      cursor: pointer;
+    }
+
+    .comment-index-item-functions > a {
+      color: red;
+      margin-left: 5px;
+    }
+  }
 }
 
 .comment-index-item > img {
@@ -71,81 +146,6 @@
   margin-right: 12px;
 }
 
-.comment-index-item-details {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  margin: 3% 1%;
-  position: relative;
-}
-
-.comment-index-owner {
-  color: #006dac;
-  margin-bottom: 5px;
-}
-
-.comment-index-owner > a:hover {
-  text-decoration: underline;
-}
-
-.comment-index-description {
-  font-size: 14px;
-}
-
-.comment-index-item-update-form {
-  display: flex;
-  flex-direction: column;
-  position: relative;
-  padding-top: 15px;
-  margin-bottom: 15px;
-}
-
-.comment-index-item-update-form-textarea {
-  min-height: 50px;
-  font-size: 14px;
-  border: 1px solid #B8B8B8;
-  border-radius: 3px;
-  padding: 5px;
-  margin-bottom: 10px;
-  background-color: #fff;
-}
-
-.comment-index-item-update-form-textarea:focus {
-  border: 1px solid #128fdc;
-}
-
-.comment-index-item-update-button {
-  font-size: 16px;
-  font-weight: 400;
-  color: #fff;
-  background-color: #128fdc;
-  border-radius: 3px;
-  padding: 5px 30px;
-  max-width: 40px;
-  position: absolute;
-  right: 0;
-  bottom: -28px;
-}
-
-.comment-index-item-update-button:hover {
-  background-color: #1c9be9;
-}
-
-.comment-index-item-functions {
-  visibility: hidden;
-  display: flex;
-  position: absolute;
-  font-size: 12px;
-  top: 0;
-  right: 15px;
-}
-
-.comment-index-item-functions > p {
-  color: #000;
-  cursor: pointer;
-}
-
-.comment-index-item-functions > a {
-  color: red;
-  margin-left: 5px;
+.comment-index-item:hover .comment-index-item-functions {
+  visibility: visible;
 }
