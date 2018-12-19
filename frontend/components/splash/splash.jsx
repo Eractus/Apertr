@@ -1,6 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import PhotoIndexFeedContainer from '../photo/photo_index_feed_container';
 
 class SplashPage extends React.Component {
   constructor(props) {

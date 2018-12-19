@@ -1,6 +1,5 @@
 import React from 'react';
-import { Provider } from 'react-redux';
-import { Route, Redirect, Switch, Link, HashRouter} from 'react-router-dom';
+import { Route, Redirect, Switch } from 'react-router-dom';
 import { AuthRoute, ProtectedRoute } from '../util/route.util';
 import NavbarContainer from './navbar/navbar_container';
 import SplashPageContainer from './splash/splash_container';
