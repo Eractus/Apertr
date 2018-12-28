@@ -23,11 +23,13 @@ class AlbumUpdate extends React.Component {
     }));
   }
 
-  componentWillReceiveProps(nextProps) {
-    if (this.props.album !== nextProps.album) {
-      this.setState({
-        photos: Object.values(nextProps.album.photos)
-      });
+  componentDidUpdate(prevProps) {
+    if (prevProps !== this.props) {
+      if (prevProps.album !== this.props.album) {
+        this.setState({
+          photo: Object.values(this.props.album.photos)
+        });
+      }
     }
   }
 

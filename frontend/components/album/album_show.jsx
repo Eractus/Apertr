@@ -23,20 +23,22 @@ class AlbumShow extends React.Component {
     window.scrollTo(0, 0);
   }
 
-  componentWillUnmount() {
-    this.props.clearErrors();
+  componentDidUpdate(prevProps) {
+    if (prevProps !== this.props) {
+      if (prevProps.match.params.albumId !== this.props.match.params.albumId) {
+        this.props.fetchAlbum(this.props.match.params.albumId);
+      } else {
+        this.setState({ id: this.props.album.id,
+          title: this.props.album.title,
+          description: this.props.album.description,
+          photos: this.props.album.photos
+        });
+      }
+    }
   }
 
-  componentWillReceiveProps(nextProps) {
-    if (this.props.match.params.albumId != nextProps.match.params.albumId) {
-      this.props.fetchAlbum(nextProps.match.params.albumId);
-    } else {
-      this.setState({ id: nextProps.album.id,
-        title: nextProps.album.title,
-        description: nextProps.album.description,
-        photos: nextProps.album.photos
-      });
-    }
+  componentWillUnmount() {
+    this.props.clearErrors();
   }
 
   openEditableFields() {
