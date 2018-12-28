@@ -1,11 +1,11 @@
 import React from "react";
 import PhotoIndexFeedItem from "./photo_index_feed_item";
+import shuffle from 'lodash/shuffle';
 
 class PhotoIndexFeed extends React.Component {
   constructor(props) {
     super(props);
     this.state = { firstLoad: true }
-    this.shufflePhotos = this.shufflePhotos.bind(this);
   }
 
   componentDidMount() {
@@ -17,17 +17,10 @@ class PhotoIndexFeed extends React.Component {
     window.scrollTo(0, 0);
   }
 
-  shufflePhotos(photosArray) {
-    for (let i = photosArray.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [photosArray[i], photosArray[j]] = [photosArray[j], photosArray[i]];
-    }
-  }
-
   render () {
-    this.shufflePhotos(this.props.photos);
+    const photosArray = shuffle(this.props.photos);
 
-    const photos = this.props.photos.map(photo => {
+    const photos = photosArray.map(photo => {
       return (
         <PhotoIndexFeedItem
           currentUser={this.props.currentUser}
