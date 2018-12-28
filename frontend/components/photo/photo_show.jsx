@@ -11,11 +11,10 @@ class PhotoShow extends React.Component {
     this.state = this.props.photo;
     this.state = {
       firstLoad: true,
-      toggledEditableFields: false
+      openEditableFields: false
     };
     this.handleSubmitUpdate = this.handleSubmitUpdate.bind(this);
-    this.openEditableFields = this.openEditableFields.bind(this);
-    this.closeEditableFields = this.closeEditableFields.bind(this);
+    this.toggleEditableFields = this.toggleEditableFields.bind(this);
   }
 
   componentDidMount() {
@@ -27,28 +26,26 @@ class PhotoShow extends React.Component {
     window.scrollTo(0, 0);
   }
 
+  componentDidUpdate(prevProps) {
+    if (prevProps !== this.props) {
+      if (prevProps.match.params.photoId != this.props.match.params.photoId) {
+        this.props.fetchPhoto(this.props.match.params.photoId);
+      } else {
+        this.setState({ id: this.props.photo.id,
+          title: this.props.photo.title,
+          description: this.props.photo.description,
+          image_url: this.props.photo.image_url
+        });
+      }
+    }
+  }
+
   componentWillUnmount() {
     this.props.clearErrors();
   }
 
-  componentWillReceiveProps(nextProps) {
-    if (this.props.match.params.photoId != nextProps.match.params.photoId) {
-      this.props.fetchPhoto(nextProps.match.params.photoId);
-    } else {
-      this.setState({ id: nextProps.photo.id,
-        title: nextProps.photo.title,
-        description: nextProps.photo.description,
-        image_url: nextProps.photo.image_url
-      });
-    }
-  }
-
-  openEditableFields() {
-    this.setState({ toggledEditableFields: true })
-  }
-
-  closeEditableFields() {
-    this.setState({ toggledEditableFields: false })
+  toggleEditableFields() {
+    this.setState({ openEditableFields: !this.state.openEditableFields })
   }
 
   update(field) {
@@ -60,7 +57,7 @@ class PhotoShow extends React.Component {
   handleSubmitUpdate(e) {
     e.preventDefault();
     this.props.updatePhoto(this.state);
-    this.closeEditableFields();
+    this.toggleEditableFields();
   }
 
   renderErrors() {
@@ -91,7 +88,7 @@ class PhotoShow extends React.Component {
       </div> : ""
 
     const editableFields = this.props.currentUser.id === this.props.photo.user_id ?
-      (this.state.toggledEditableFields ?
+      (this.state.openEditableFields ?
       <form className="update-form" onSubmit={this.handleSubmitUpdate}>
         <input
           className="update-form-text"
@@ -104,7 +101,7 @@ class PhotoShow extends React.Component {
           onChange={this.update('description')} />
         <input className="update-button" type="submit" value="Done" />
       </form> :
-      <div onClick={this.openEditableFields} className="photo-show-editable-details">
+      <div onClick={this.toggleEditableFields} className="photo-show-editable-details">
         <p className="photo-show-title">{this.state.title}</p>
         <p className="photo-show-description">{this.state.description}</p>
       </div>) :
