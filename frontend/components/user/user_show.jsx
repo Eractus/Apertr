@@ -8,8 +8,7 @@ class UserShow extends React.Component {
     super(props);
     this.state = {
       firstLoad: true,
-      photostreamTabSelected: true,
-      albumsTabSelected: false
+      currentTabSelected: "photostream",
     }
     this.togglePhotostreamTab = this.togglePhotostreamTab.bind(this);
     this.toggleAlbumsTab = this.toggleAlbumsTab.bind(this);
@@ -21,21 +20,19 @@ class UserShow extends React.Component {
   }
 
   togglePhotostreamTab() {
-    document.getElementById("user-show-nav-photos").className += " user-show-current-tab";
-    document.getElementById("user-show-nav-albums").className -= " user-show-current-tab";
+    document.getElementById(this.state.currentTabSelected).className -= " user-show-current-tab";
+    document.getElementById("photostream").className += " user-show-current-tab";
     this.setState ({
-      photostreamTabSelected: true,
-      albumsTabSelected: false
-    })
+      currentTabSelected: "photostream",
+    });
   }
 
   toggleAlbumsTab() {
-    document.getElementById("user-show-nav-albums").className += " user-show-current-tab";
-    document.getElementById("user-show-nav-photos").className -= " user-show-current-tab";
+    document.getElementById(this.state.currentTabSelected).className -= " user-show-current-tab";
+    document.getElementById("albums").className += " user-show-current-tab";
     this.setState ({
-      photostreamTabSelected: false,
-      albumsTabSelected: true
-    })
+      currentTabSelected: "albums",
+    });
   }
 
   render() {
@@ -54,13 +51,23 @@ class UserShow extends React.Component {
     let numPhotos = photosLength === 0 ? "" : photosLength;
     let photo = photosLength === 0 ? "" : (photosLength === 1 ? "photo" : "photos");
 
-    const renderTab = this.state.photostreamTabSelected ?
-      <div className="user-show-tabs">
-        <PhotoIndexContainer user={this.props.user}/>
-      </div> :
-      <div className="user-show-tabs">
-        <AlbumIndexContainer user={this.props.user}/>
-      </div>
+    let renderTab;
+
+    switch (this.state.currentTabSelected) {
+      case "photostream":
+        renderTab =
+        <div className="user-show-tabs">
+          <PhotoIndexContainer user={this.props.user}/>
+        </div>
+        break;
+      case "albums":
+        renderTab =
+        <div className="user-show-tabs">
+          <AlbumIndexContainer user={this.props.user}/>
+        </div>
+        break;
+    }
+
 
     return (
       <div>
@@ -81,8 +88,8 @@ class UserShow extends React.Component {
           </div>
         </div>
         <div className="user-show-nav-bar">
-          <p id="user-show-nav-photos" className="user-show-current-tab" onClick={this.togglePhotostreamTab}>Photostream</p>
-          <p id="user-show-nav-albums" onClick={this.toggleAlbumsTab}>Albums</p>
+          <p id="photostream" className="user-show-current-tab" onClick={this.togglePhotostreamTab}>Photostream</p>
+          <p id="albums" onClick={this.toggleAlbumsTab}>Albums</p>
         </div>
         {renderTab}
       </div>
