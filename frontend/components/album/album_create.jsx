@@ -77,7 +77,7 @@ class AlbumCreate extends React.Component {
   }
 
   render () {
-    // display loading until all necessary data are loaded into state
+    // display loading until all necessary data are loaded into props
     if (this.state.firstLoad) {
       return (
         <div className="album-create-loading">

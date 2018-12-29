@@ -31,7 +31,8 @@ class PhotoShow extends React.Component {
       if (prevProps.match.params.photoId !== this.props.match.params.photoId) {
         this.props.fetchPhoto(this.props.match.params.photoId);
       } else {
-        this.setState({ id: this.props.photo.id,
+        this.setState({
+          id: this.props.photo.id,
           title: this.props.photo.title,
           description: this.props.photo.description,
           image_url: this.props.photo.image_url
@@ -44,6 +45,7 @@ class PhotoShow extends React.Component {
     this.props.clearErrors();
   }
 
+  // photo's owner can click to edit the title/description while hovering over them (a pencil icon appears to show editable)
   toggleEditableFields() {
     this.setState({ openEditableFields: !this.state.openEditableFields })
   }
@@ -60,6 +62,7 @@ class PhotoShow extends React.Component {
     this.toggleEditableFields();
   }
 
+  // renders errors based on Rails model validations
   renderErrors() {
     return(
       <ul>
@@ -73,6 +76,7 @@ class PhotoShow extends React.Component {
   }
 
   render() {
+    // page shows loading until required data is loaded into state
     if (this.state.firstLoad) {
       return (
         <div className="photo-show-loading">
@@ -81,12 +85,14 @@ class PhotoShow extends React.Component {
       );
     }
 
+    // only photo owner can see the icon for deleting a photo
     const delPhoto = this.props.currentUser.id === this.props.photo.user_id ?
       <div>
         <Link className="delete-link" onClick={() => this.props.deletePhoto(this.state.id)} to="/feed">
         </Link>
       </div> : ""
 
+    // photo owner can toggle editable fields for the title/description when hovering over them
     const editableFields = this.props.currentUser.id === this.props.photo.user_id ?
       (this.state.openEditableFields ?
       <form className="update-form" onSubmit={this.handleSubmitUpdate}>
@@ -110,6 +116,7 @@ class PhotoShow extends React.Component {
         <p className="photo-show-description">{this.state.description}</p>
       </div>
 
+    // some code logic for interpolating non-data text
     let numComments = Object.values(this.props.photo.comments).length;
     let comment = numComments === 1 ? "comment" : "comments";
     const months = {

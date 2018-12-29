@@ -32,7 +32,7 @@ class PhotoIndexFeed extends React.Component {
       );
     });
 
-    // display Loading until all relevant data are loaded into state
+    // display Loading until all relevant data are loaded into props
     if (this.state.firstLoad) {
       return (
         <div className="photo-index-feed-background">

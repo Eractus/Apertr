@@ -26,7 +26,7 @@ class CommentIndex extends React.Component {
     }
   }
 
-  // display loading until data is loaded into state
+  // display loading until data is loaded into props
   render () {
     if (this.state.firstLoad) {
       return (

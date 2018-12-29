@@ -25,6 +25,7 @@ class Search extends React.Component {
 
   handleSubmit(e) {
     let search = this.state.search;
+    // update state for error message if user tries to submit an empty search (or with spaces), otherwise redirect to search page based on searched tag word
     if (search.trim().length === 0) {
       this.setState({
         inputErrorMessage: 'Search parameters cannot be blank!',

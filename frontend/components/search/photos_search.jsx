@@ -25,13 +25,14 @@ class PhotosSearch extends React.Component {
   }
 
   componentDidUpdate(prevProps) {
-    if (this.props.searchParams !== prevProps.searchParams) {
-      this.props.searchTaggedPhotos(prevProps.searchParams);
+    if (prevProps.searchParams !== this.props.searchParams) {
+      this.props.searchTaggedPhotos(this.props.searchParams);
     }
   }
 
   handleSubmitSearch() {
     let searchParams = this.state.search;
+    // update state for error message if user tries to submit an empty search (or with spaces), otherwise redirect to search page based on searched tag word
     if (!searchParams || searchParams.trim().length === 0) {
       this.setState({
         searchErrorMessage: 'Search field cannot be empty.',
@@ -56,6 +57,7 @@ class PhotosSearch extends React.Component {
   }
 
   render () {
+    // display loading until ComponentDidMount finishes loading data into props
     if (this.state.firstLoad) {
       return (
         <div className="photos-search-loading">
@@ -64,6 +66,7 @@ class PhotosSearch extends React.Component {
       );
     }
 
+    // map photo objects from props that're based on searchParams and pass each object as props to reusable PhotoIndexItem component
     const photos = Object.values(this.props.photos).map(photo => (
       <PhotoIndexItem
         users={this.props.users}
@@ -71,6 +74,8 @@ class PhotosSearch extends React.Component {
         photo={photo}
       />
     ));
+
+    // body of search page either shows search results of PhotoIndexItem objects or a template message and search bar for user to try again - there are suggested tag words given to search
     const photosSearchContainer = (Object.keys(this.props.photos).length === 0) ?
       <div className="photos-search-no-results">
         <div className="photos-search-no-results-body">

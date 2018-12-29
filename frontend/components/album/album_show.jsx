@@ -77,7 +77,7 @@ class AlbumShow extends React.Component {
   }
 
   render() {
-    // display loading until data is loaded to state
+    // display loading until data is loaded to props
     if (this.state.firstLoad) {
       return (
         <div className="album-show-loading">
