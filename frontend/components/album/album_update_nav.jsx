@@ -14,7 +14,9 @@ class AlbumUpdateNav extends React.Component {
   }
 
   render() {
+    // when updating, the album's "tab" that's part of the navbar displays loading until data for its title is loaded into state
     const albumTitle =  this.state.firstLoad ? "Loading..." : this.props.album.title;
+
     return (
       <header>
         <nav className="album-create-navbar">

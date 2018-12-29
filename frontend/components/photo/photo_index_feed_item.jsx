@@ -2,8 +2,10 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const PhotoIndexFeedItem = props => {
+  // some logic for interpolating non-data text
   const commentsCount = props.photo.comments.length;
   const comments = commentsCount <= 1 ? "comment" : "comments";
+
   return (
     <li className="photo-index-feed-item-container">
       <div className="photo-index-feed-item">

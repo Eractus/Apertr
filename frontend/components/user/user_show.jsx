@@ -52,7 +52,6 @@ class UserShow extends React.Component {
     let photo = photosLength === 0 ? "" : (photosLength === 1 ? "photo" : "photos");
 
     let renderTab;
-
     switch (this.state.currentTabSelected) {
       case "photostream":
         renderTab =

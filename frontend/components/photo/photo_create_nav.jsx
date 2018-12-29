@@ -7,33 +7,29 @@ class PhotoCreateNav extends React.Component {
     this.state = {
       showProfilePopup: false
     };
-    this.handleOpenProfilePopup = this.handleOpenProfilePopup.bind(this);
-    this.handleCloseProfilePopup = this.handleCloseProfilePopup.bind(this);
+    this.toggleProfilePopup = this.toggleProfilePopup.bind(this);
     this.handleLogOut = this.handleLogOut.bind(this);
   }
 
-  handleOpenProfilePopup() {
-    this.setState({ showProfilePopup: true})
-  }
-
-  handleCloseProfilePopup() {
-    this.setState({ showProfilePopup: false})
+  // opens/closes profile popup where user can log out
+  toggleProfilePopup() {
+    this.setState({ showProfilePopup: !this.state.showProfilePopup})
   }
 
   handleLogOut() {
-    this.handleCloseProfilePopup();
+    this.toggleProfilePopup();
     this.props.logout().then(() => this.props.history.push("/"));
   }
 
   render() {
+    // displays HTML for profile popup on page based on boolean value
     const profilePopUp = (this.state.showProfilePopup) ?
     <div>
-      <div onClick={this.handleCloseProfilePopup} className="popup-overlay"></div>
+      <div onClick={this.toggleProfilePopup} className="popup-overlay"></div>
       <hgroup className="photo-create-navbar-popup">
         <a className="photo-create-navbar-signout-link" onClick={this.handleLogOut}>Sign Out</a>
       </hgroup>
     </div> : "";
-
 
     return (
       <header>
@@ -54,7 +50,7 @@ class PhotoCreateNav extends React.Component {
               <span>
                 <img
                   src={this.props.currentUser.profile_pic}
-                  onClick={this.handleOpenProfilePopup}
+                  onClick={this.toggleProfilePopup}
                 />
                 {profilePopUp}
               </span>

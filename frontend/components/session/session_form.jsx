@@ -19,12 +19,14 @@ class SessionForm extends React.Component {
     return (e) => this.setState({ [field]: e.currentTarget.value });
   }
 
+  // successful session creation will log in the user and redirect to the /feed page
   handleSubmit(e) {
     e.preventDefault();
     const user = Object.assign({}, this.state);
     this.props.loginForm(user).then(() => this.props.history.push('/feed'));
   }
 
+  // renders errors based on Rails controller json response for unsuccessful session creation
   renderErrors() {
     return(
       <ul>

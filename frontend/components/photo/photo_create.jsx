@@ -12,7 +12,6 @@ class PhotoCreate extends React.Component {
     };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.updateFile = this.updateFile.bind(this);
-    this.removeImage = this.removeImage.bind(this);
     this.displayPhotoUpload = this.displayPhotoUpload.bind(this);
   }
 
@@ -26,6 +25,7 @@ class PhotoCreate extends React.Component {
     };
   }
 
+  // logic for reading and loading selected file
   updateFile(e) {
     const file = e.currentTarget.files[0];
     const fileReader = new FileReader();
@@ -38,12 +38,9 @@ class PhotoCreate extends React.Component {
     }
   }
 
-  removeImage() {
-    this.setState({ imageFile: null, imageUrl: null });
-  }
-
   handleSubmit(e) {
     e.preventDefault();
+    // append required data as formData, a json object, to send to the Rails backend
     const formData = new FormData();
     formData.append("photo[title]", this.state.title);
     formData.append("photo[description]", this.state.description);
@@ -53,10 +50,12 @@ class PhotoCreate extends React.Component {
     this.props.createPhoto(formData).then(data => this.props.history.push(`/photos/${data.photo.id}`));
   }
 
+  // just DOM manipulation to emulate (as close as I am capable of) the design of Flickr's photo upload page
   displayPhotoUpload() {
     this.setState({ toggledUploadPhotoButton: true })
   }
 
+  // renders errors based on Rails model validations
   renderErrors() {
     return(
       <ul className="photo-create-errors">
@@ -105,7 +104,6 @@ class PhotoCreate extends React.Component {
                 <div className="photo-create-image">
                   <img
                     src={this.state.imageUrl}
-                    onClick={this.removeImage}
                   />
                 </div>
               </div>

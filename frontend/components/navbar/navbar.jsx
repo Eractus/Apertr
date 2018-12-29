@@ -9,28 +9,25 @@ class Navbar extends React.Component {
       search: this.props.searchParams,
       searchErrorMessage: '',
     };
-    this.handleOpenProfilePopup = this.handleOpenProfilePopup.bind(this);
-    this.handleCloseProfilePopup = this.handleCloseProfilePopup.bind(this);
+    this.toggleProfilePopup = this.toggleProfilePopup.bind(this);
     this.handleLogOut = this.handleLogOut.bind(this);
     this.update = this.update.bind(this);
     this.handleSubmitSearch = this.handleSubmitSearch.bind(this);
   }
 
-  handleOpenProfilePopup() {
-    this.setState({ showProfilePopup: true})
-  }
-
-  handleCloseProfilePopup() {
-    this.setState({ showProfilePopup: false})
+  // opens/closes profile popup where user can log out
+  toggleProfilePopup() {
+    this.setState({ showProfilePopup: !this.state.showProfilePopup})
   }
 
   handleLogOut() {
-    this.handleCloseProfilePopup();
+    this.toggleProfilePopup();
     this.props.logout().then(() => this.props.history.push("/"));
   }
 
   handleSubmitSearch() {
     let searchParams = this.state.search;
+    // populate search error message field in state if user tries to search without typing anything
     if (!searchParams || searchParams.trim().length === 0) {
       this.setState({
         searchErrorMessage: 'Search field cannot be empty.',
@@ -42,6 +39,7 @@ class Navbar extends React.Component {
         searchErrorMessage: '',
       })
     }
+    // resets search bar field to blank before redirecting user to page (since navbar is shared between the pages) based on their searched parameter
     this.setState({ search: '' });
     this.props.searchTaggedPhotos(searchParams).then(
       this.props.history.push(`/search/photos/${searchParams}`)
@@ -54,6 +52,7 @@ class Navbar extends React.Component {
     })
   }
 
+  // navbar for splash while not logged in
   sessionLoggedOut() {
     return (
       <header>
@@ -70,7 +69,9 @@ class Navbar extends React.Component {
     );
   }
 
+  // navbar for splash while logged in with added features
   sessionLoggedIn() {
+    // code logic for interpolating non-data text in the profile popup
     let email = this.props.currentUser.email;
     let name = email.substring(0, email.lastIndexOf("@"));
     const greetings = [
@@ -83,12 +84,15 @@ class Navbar extends React.Component {
       ["Aloha", "Hawaiian"],
       ["Góðan daginn", "Icelandic"]
     ]
+    // randomly picks a greeting when user opens profile popup, just like Flickr's site
     let selectGreeting = greetings[Math.floor(Math.random() * greetings.length)];
     let currentGreetingPhrase = selectGreeting[0];
     let currentGreetingLang = selectGreeting[1];
+
+    // displays HTML for profile popup on page based on boolean value
     const profilePopUp = (this.state.showProfilePopup) ?
     <div>
-      <div onClick={this.handleCloseProfilePopup} className="popup-overlay"></div>
+      <div onClick={this.toggleProfilePopup} className="popup-overlay"></div>
       <hgroup className="navbar-logged-in-popup">
         <h2 className="navbar-logged-in-greet-name">{currentGreetingPhrase}, {name}!</h2>
         <p className="navbar-logged-in-greet-text">Now you know how to greet people in {currentGreetingLang}</p>
@@ -127,7 +131,7 @@ class Navbar extends React.Component {
             <div className="navbar-logged-in-profile-popup">
               <img
                 src={this.props.currentUser.profile_pic}
-                onClick={this.handleOpenProfilePopup}
+                onClick={this.toggleProfilePopup}
               />
               {profilePopUp}
             </div>
@@ -137,6 +141,7 @@ class Navbar extends React.Component {
     );
   }
 
+  // renders the appropriate navbar based on whether user logged in
   render() {
     return (
       this.props.currentUser ? this.sessionLoggedIn() : this.sessionLoggedOut()

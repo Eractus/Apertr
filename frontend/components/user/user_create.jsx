@@ -21,12 +21,14 @@ class UserCreate extends React.Component {
     return (e) => this.setState({ [field]: e.currentTarget.value });
   }
 
+  // successful user creation will also create session for (log in) the user and redirect to the /feed page
   handleSubmit(e) {
     e.preventDefault();
     const user = Object.assign({}, this.state);
     this.props.signupForm(user).then(() => this.props.history.push('/feed'));
   }
 
+  // renders errors based on Rails model validations for each field
   renderErrors() {
     return(
       <ul>

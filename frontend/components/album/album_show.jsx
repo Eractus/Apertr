@@ -7,11 +7,10 @@ class AlbumShow extends React.Component {
     super(props);
     this.state = {
       firstLoad: true,
-      toggledEditableFields: false
+      openEditableFields: false
     };
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.openEditableFields = this.openEditableFields.bind(this);
-    this.closeEditableFields = this.closeEditableFields.bind(this);
+    this.toggleEditableFields = this.toggleEditableFields.bind(this);
   }
 
   componentDidMount() {
@@ -41,12 +40,9 @@ class AlbumShow extends React.Component {
     this.props.clearErrors();
   }
 
-  openEditableFields() {
-    this.setState({ toggledEditableFields: true })
-  }
-
-  closeEditableFields() {
-    this.setState({ toggledEditableFields: false })
+  // opens/closes editable fields for album's title and description
+  toggleEditableFields() {
+    this.setState({ openEditableFields: !this.state.openEditableFields })
   }
 
   update(field) {
@@ -57,15 +53,17 @@ class AlbumShow extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
+    // use formData once again to create album object with relevant data points appended to be updated to the backend
     const formData = new FormData();
     formData.append("id", this.props.match.params.albumId);
     formData.append("album[title]", this.state.title);
     formData.append("album[description]", this.state.description);
     formData.append("photo_ids", JSON.stringify(Object.values(this.props.album.photos).map(photo => photo.id)));
     this.props.updateAlbum(formData)
-    this.closeEditableFields();
+    this.toggleEditableFields();
   }
 
+  // renders errors based on Rails model validations
   renderErrors() {
     return (
       <ul>
@@ -79,6 +77,7 @@ class AlbumShow extends React.Component {
   }
 
   render() {
+    // display loading until data is loaded to state
     if (this.state.firstLoad) {
       return (
         <div className="album-show-loading">
@@ -87,6 +86,7 @@ class AlbumShow extends React.Component {
       );
     }
 
+    // if user owns the current album, then they can edit the title/description
     const albumDetails = this.props.currentUser.id === this.props.album.owner_id ?
       (this.state.toggledEditableFields ?
       <form className="album-show-update-form-editing" onSubmit={this.handleSubmit}>
@@ -111,16 +111,19 @@ class AlbumShow extends React.Component {
         <p className="album-show-update-description">{this.state.description}</p>
       </div>
 
+    // logic for interpolating non-data text
     let amtPhotos = Object.values(this.props.album.photos).length;
     let photo = amtPhotos > 1 ? "photos" : "photo";
     const numPhotos = this.state.toggledEditableFields ? "" :
       <div className="album-show-num-photos">{amtPhotos} {photo}</div>
 
+    // user can only see edit link to update album if they are the album's owner
     const albumEdit = this.props.album.owner_id === this.props.currentUser.id ?
       <Link className="album-show-edit" to={`/albums/${this.props.album.id}/edit`}>
         edit
       </Link> : "";
 
+    // reuses photo index item component to display album's photos
     const albumPhotos = Object.values(this.props.album.photos).map(photo => {
       return (
         <PhotoIndexItem

@@ -43,6 +43,7 @@ class AlbumUpdate extends React.Component {
     };
   }
 
+  // soft dup of state's current photos array and check if it contains photo user is trying to add and updates changes by resetting state's value and exits the function if a dup is being added
   addPhoto(photo) {
     return () => {
       let currentPhotos = this.state.photos.slice();
@@ -62,6 +63,7 @@ class AlbumUpdate extends React.Component {
     };
   }
 
+  // use JS's filter method for array to "remove" selected photo by keeping those whose id's are different
   removePhoto(photo) {
     return () => {
       this.setState({
@@ -72,6 +74,7 @@ class AlbumUpdate extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
+    // append required data as formData, a json object, to send to the Rails backend
     const formData = new FormData();
     formData.append("id", this.props.match.params.albumId);
     formData.append("album[title]", this.state.title);
@@ -82,6 +85,7 @@ class AlbumUpdate extends React.Component {
     );
   }
 
+  // renders errors based on Rails model validations
   renderErrors() {
     return(
       <ul>
@@ -95,6 +99,7 @@ class AlbumUpdate extends React.Component {
   }
 
   render () {
+    // display loading until all necessary data are loaded into state
     if (this.state.firstLoad) {
       return (
         <div className="album-create-loading">
@@ -103,14 +108,17 @@ class AlbumUpdate extends React.Component {
       );
     }
 
+    // chooses first photo chosen as the album's cover photo
     const albumCover = this.state.photos.length === 0 ?
       <div></div> :
       <img src={this.state.photos[0].image_url} />;
 
+    // logic for interpolating non-data text
     const numPhotos = this.state.photos.length === 0 ? "0 items" : (
       this.state.photos.length === 1 ? "1 item" : `${this.state.photos.length} items`
     )
 
+    // collection of user's uploaded photos that can be added to album
     const photos = this.props.userPhotos.map((photo, i) => {
       return (
         <li key={`${i}`} className="album-create-user-photos-list-item" onClick={this.addPhoto(photo)}>
@@ -121,6 +129,7 @@ class AlbumUpdate extends React.Component {
       );
     });
 
+    // user's selection of photos for creating album - default template message is displayed if no photos are chosen
     const uploadedPhotos = (this.state.photos.length === 0) ?
         <li className="album-create-no-photos">
           <p>You haven't selected any photos yet. Select from your uploaded photos below to create your album!</p>

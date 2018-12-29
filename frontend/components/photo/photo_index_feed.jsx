@@ -18,8 +18,10 @@ class PhotoIndexFeed extends React.Component {
   }
 
   render () {
+    // lodash shuffle method so the photo index feed array serves the photo index feed items in a random order everytime - eventually they will be sorted based on popularity ("faves") once that feature is built
     const photosArray = shuffle(this.props.photos);
 
+    // photo objects are passed as props to the PhotoIndexFeedItem component as data to help render the component
     const photos = photosArray.map(photo => {
       return (
         <PhotoIndexFeedItem
@@ -29,6 +31,8 @@ class PhotoIndexFeed extends React.Component {
         />
       );
     });
+
+    // display Loading until all relevant data are loaded into state
     if (this.state.firstLoad) {
       return (
         <div className="photo-index-feed-background">
