@@ -6,24 +6,16 @@ class CommentIndexItem extends React.Component {
     super(props)
     this.state = {
       description: this.props.comment.description,
-      toggledEditComment: false
+      openEditComment: false
     };
 
-    this.openEditComment = this.openEditComment.bind(this);
-    this.closeEditComment = this.closeEditComment.bind(this);
+    this.toggleEditComment = this.toggleEditComment.bind(this);
     this.handleSubmitUpdate = this.handleSubmitUpdate.bind(this);
   }
 
-  openEditComment() {
-    this.setState({ toggledEditComment: true })
-  }
-
-  closeEditComment() {
-    this.setState({ toggledEditComment: false })
-  }
-
-  showCommentFunctions() {
-
+  // open/close editable fields for comment's description if user created the comment
+  toggleEditComment() {
+    this.setState({ openEditComment: !this.state.openEditComment })
   }
 
   update(field) {
@@ -40,11 +32,13 @@ class CommentIndexItem extends React.Component {
       photo_id: this.props.comment.photo_id
     }
     this.props.updateComment(comment, this.props.comment.id);
-    this.closeEditComment();
+    // after updating state with new comment description, close the editable fields
+    this.toggleEditComment();
   }
 
   render() {
-    const commentDescription = this.state.toggledEditComment ?
+    // display either the editable field or just the description of the comment depending on state's value
+    const commentDescription = this.state.openEditComment ?
     <form className="comment-index-item-update-form" onSubmit={this.handleSubmitUpdate}>
       <textarea
         className="comment-index-item-update-form-textarea"
@@ -54,9 +48,9 @@ class CommentIndexItem extends React.Component {
     </form>
     : this.props.comment.description;
 
-
+    //users can edit comments they created and photo owners can delete comments
     const commentEdit = this.props.currentUser.id === this.props.comment.user_id ?
-      <p onClick={this.openEditComment}>edit</p> : "";
+      <p onClick={this.toggleEditComment}>edit</p> : "";
     const commentDelete = this.props.currentUser.id === this.props.photo.user_id ?
       <Link
         onClick={() => this.props.deleteComment(this.props.comment.id)}

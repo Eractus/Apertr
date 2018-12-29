@@ -27,6 +27,7 @@ class CommentCreate extends React.Component {
     this.setState({description: ""});
   }
 
+  // renders errors based on Rails model validations
   renderErrors() {
     return(
       <ul>

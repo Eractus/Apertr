@@ -14,6 +14,19 @@ class CommentIndex extends React.Component {
     this.props.fetchAllComments(this.props.photo.id).then(() => this.setState({ firstLoad: false }));
   }
 
+  componentDidUpdate(prevProps) {
+    if (prevProps !== this.props) {
+      if (prevProps.photo.id !== this.props.photo.id) {
+        this.props.fetchAllComments(this.props.photo.id);
+      } else {
+        this.setState({
+          comments: this.props.comments,
+        });
+      }
+    }
+  }
+
+  // display loading until data is loaded into state
   render () {
     if (this.state.firstLoad) {
       return (
@@ -23,6 +36,7 @@ class CommentIndex extends React.Component {
       );
     }
 
+    // create an array of comment objects that are passed along with other data/methods as props to comment index item component
     const comments = this.props.comments.map(comment => {
       return (
         <CommentIndexItem

@@ -13,7 +13,20 @@ class TagIndex extends React.Component {
     this.props.fetchAllTags(this.props.photo.id)
   }
 
+  componentDidUpdate(prevProps) {
+    if (prevProps !== this.props) {
+      if (prevProps.photo.id !== this.props.photo.id) {
+        this.props.fetchAllTags(this.props.photo.id);
+      } else {
+        this.setState({
+          tags: this.props.tags,
+        });
+      }
+    }
+  }
+
   render () {
+    // array of tag objects each to be passed as props to render TagIndexItem components
     const tags = this.props.tags.map(tag => {
       return (
         <TagIndexItem

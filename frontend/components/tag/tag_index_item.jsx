@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const TagIndexItem = props => {
+  // if user owns the photo they can delete the photo tags (not the tag words themselves)
   if (props.userId === props.photo.user_id) {
     return(
       <li>
@@ -18,6 +19,7 @@ const TagIndexItem = props => {
       </li>
     )
   } else {
+    // if user is not the photo owner they cannot delete the photo tags, only click it to search by the tag word
     return (
       <li>
         <div className="tag-index-item">
