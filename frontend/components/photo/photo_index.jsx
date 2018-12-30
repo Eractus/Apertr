@@ -3,28 +3,7 @@ import PhotoIndexItem from "./photo_index_item";
 import { Link } from 'react-router-dom';
 
 class PhotoIndex extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = { firstLoad: true }
-  }
-
-  componentDidMount() {
-    this.props.fetchAllUsers().then(
-      this.props.fetchPhotos().then(
-        () => this.setState({ firstLoad: false })
-      )
-    );
-  }
-
   render () {
-    if (this.state.firstLoad) {
-      return (
-        <div className="photo-index-loading">
-          <p>Loading...</p>
-        </div>
-      );
-    }
-
     const photos = []
     this.props.photos.forEach(photo => {
       if (this.props.user.id === photo.user_id) {
@@ -48,20 +27,28 @@ class PhotoIndex extends React.Component {
         <h2>{this.props.user.first_name} has not uploaded any photos yet.</h2>
       </div>
 
-    if (photos.length === 0) {
+    if (this.props.photos.length === 0) {
       return (
-        <div className="photo-index-no-photos">
-          {noPhotosMessage}
+        <div className="photo-index-loading">
+          <p>Loading...</p>
         </div>
-      );
+      )
     } else {
-      return (
-        <div className="photo-index-container">
-          <ul className="photo-index-list">
-            {photos}
-          </ul>
-        </div>
-      );
+      if (photos.length === 0) {
+        return (
+          <div className="photo-index-no-photos">
+            {noPhotosMessage}
+          </div>
+        );
+      } else {
+        return (
+          <div className="photo-index-container">
+            <ul className="photo-index-list">
+              {photos}
+            </ul>
+          </div>
+        );
+      }
     }
   }
 }

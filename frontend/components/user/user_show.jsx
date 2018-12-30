@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import PhotoIndexContainer from '../photo/photo_index_container';
+import PhotoIndex from '../photo/photo_index';
 import AlbumIndexContainer from '../album/album_index_container';
 
 class UserShow extends React.Component {
@@ -15,7 +15,13 @@ class UserShow extends React.Component {
   }
 
   componentDidMount() {
-    this.props.fetchUser(this.props.match.params.userId).then(() => this.setState({ firstLoad: false }));
+    this.props.fetchAllUsers().then(
+      this.props.fetchPhotos().then(
+        this.props.fetchUser(this.props.match.params.userId).then(
+          () => this.setState({ firstLoad: false })
+        )
+      )
+    );
     window.scrollTo(0, 0);
   }
 
@@ -56,7 +62,12 @@ class UserShow extends React.Component {
       case "photostream":
         renderTab =
         <div className="user-show-tabs">
-          <PhotoIndexContainer user={this.props.user}/>
+          <PhotoIndex
+            user={this.props.user}
+            currentUser={this.props.currentUser}
+            users={this.props.users}
+            photos={this.props.photos}
+          />
         </div>
         break;
       case "albums":
