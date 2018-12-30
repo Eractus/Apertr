@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import PhotoIndex from '../photo/photo_index';
-import AlbumIndexContainer from '../album/album_index_container';
+import AlbumIndex from '../album/album_index';
 
 class UserShow extends React.Component {
   constructor(props) {
@@ -14,16 +14,22 @@ class UserShow extends React.Component {
     this.toggleAlbumsTab = this.toggleAlbumsTab.bind(this);
   }
 
+  // due to design of the UserShow component, its container fetches data to pass down as props for the PhotosIndex and AlbumsIndex compoents (and their children components as well) - page should display loading until all data has been fetched
   componentDidMount() {
     this.props.fetchAllUsers().then(
       this.props.fetchPhotos().then(
-        this.props.fetchUser(this.props.match.params.userId).then(
-          () => this.setState({ firstLoad: false })
+        this.props.fetchAlbums().then(
+          this.props.fetchUser(this.props.match.params.userId).then(
+            () => this.setState({ firstLoad: false })
+          )
         )
       )
     );
     window.scrollTo(0, 0);
   }
+
+  // logic for tab toggling methods: if current user toggles a tab, the element based on this.state's currentTabSelected value is selected and has the user-show-current-tab class removed - at the same time, this tab's element is selected and the user-show-current-tab class is added to it while also updating state's value of currentTabSelected accordingly.
+  // the user-show-current-tab class has styling that dictates visibility of content of the tab's element it's attached to
 
   togglePhotostreamTab() {
     document.getElementById(this.state.currentTabSelected).className -= " user-show-current-tab";
@@ -42,6 +48,7 @@ class UserShow extends React.Component {
   }
 
   render() {
+    // loading until all data is fetched
     if (this.state.firstLoad) {
       return (
         <div className="user-show-loading">
@@ -50,6 +57,7 @@ class UserShow extends React.Component {
       );
     }
 
+    // logic for interpolating non-data text
     let email = this.props.user.email;
     let name = email.substring(0, email.lastIndexOf("@"));
     let joinedYear = this.props.user.created_at.substring(0, 4);
@@ -57,6 +65,7 @@ class UserShow extends React.Component {
     let numPhotos = photosLength === 0 ? "" : photosLength;
     let photo = photosLength === 0 ? "" : (photosLength === 1 ? "photo" : "photos");
 
+    // switch statement to determine which tab's content is visible based on state's value for currentTabSelected - this setup allows easy adding of new tabs and components in the future
     let renderTab;
     switch (this.state.currentTabSelected) {
       case "photostream":
@@ -73,7 +82,12 @@ class UserShow extends React.Component {
       case "albums":
         renderTab =
         <div className="user-show-tabs">
-          <AlbumIndexContainer user={this.props.user}/>
+          <AlbumIndex
+            user={this.props.user}
+            currentUser={this.props.currentUser}
+            albums={this.props.albums}
+            deleteAlbum={this.props.deleteAlbum}
+          />
         </div>
         break;
     }

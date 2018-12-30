@@ -5,7 +5,7 @@ const AlbumIndexItem = props => {
   // logic for inteporlating non-data text
   const numPhotos = Object.values(props.album.photos).length;
   let photos = numPhotos === 1 ? "photo" : "photos";
-  // users can only see link to delete album if they are the album owner
+  // users can only see link to delete album if they are the album owner, passed down as props from UserShow component
   const albumDelete = props.currentUser.id === props.album.owner_id ?
     <div className="album-index-item-delete">
       <Link to={`/users/${props.album.owner_id}`} onClick={() => props.deleteAlbum(props.album.id)}>

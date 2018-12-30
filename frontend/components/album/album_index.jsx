@@ -3,27 +3,12 @@ import { Link } from 'react-router-dom';
 import AlbumIndexItem from './album_index_item';
 
 class AlbumIndex extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = { firstLoad: true }
-  }
-
-  componentDidMount() {
-    this.props.fetchAlbums().then(() => this.setState({ firstLoad: false }));
-  }
-
   render() {
-    if (this.state.firstLoad) {
-      return (
-        <div className="album-index-loading">
-          <p>Loading...</p>
-        </div>
-      )
-    }
-
+    // if current user viewing own album index tab they will see this link to create a new album
     const newAlbum = this.props.currentUser.id === this.props.user.id ?
       <Link to="/albums/new" className="album-index-new-album">New album</Link> : ""
 
+    // UserShow parent component fetches data for all albums (array) and this user(object) based on id in url and pass down as props in order to create an array filtered with only this user's albums
     let albums = []
     this.props.albums.forEach(album => {
       if (this.props.user.id === album.owner_id) {
@@ -37,9 +22,11 @@ class AlbumIndex extends React.Component {
       }
     });
 
+    // some logic to interpolate non-data text
     let user = this.props.user.id === this.props.currentUser.id ?
       "You have" : `${this.props.user.first_name} has`;
 
+    // display a template message if this user has no albums
     if (albums.length === 0) {
       return (
         <div className="album-index-container">
