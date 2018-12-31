@@ -10,6 +10,7 @@ module Apertr
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 5.1
+    # instructions for paperclip storing uploaded image to AWS S3 bucket
     config.paperclip_defaults = {
       :storage => :s3,
       :s3_credentials => {
@@ -20,6 +21,7 @@ module Apertr
         :s3_host_name => "s3.#{ENV["s3_region"]}.amazonaws.com"
       }
     }
+    # instructions for factory bot generating factory instances for unit testing
     config.generators do |g|
       g.test_frame_work :rspec,
         :fixtures => true,

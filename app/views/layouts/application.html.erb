@@ -3,14 +3,14 @@
   <head>
     <title>Apertr</title>
     <%= csrf_meta_tags %>
-
+    <!-- application.js and .css will compile all javascript and css files in their respective folders under /app/assets by virtue of webpack/bundle.js and sass precompiler, respectively -->
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
     <%= favicon_link_tag 'favicon.ico' %>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
   </head>
-
   <body>
+    <!-- based on the controller and action invoked, yield will render the jbuilder template as a JSON object on the frontend with the associated data extracted in the respective jbuilder file -->
     <%= yield %>
   </body>
 </html>

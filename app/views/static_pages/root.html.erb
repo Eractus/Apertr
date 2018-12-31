@@ -1,3 +1,4 @@
+<!-- bootstrap currentUser to the window when page loads to ensure app is always aware of who currentUser is if and when one is logged in-->
 <% if logged_in? %>
   <script type="text/javascript">
     window.currentUser = <%= render(
@@ -7,4 +8,5 @@
   </script>
 <% end %>
 
+<!-- container where Root component from frontend apertr.jsx entry file mounts to - display content of main tag if the component fails to mount -->
 <main id="root">Something's wrong.</main>
