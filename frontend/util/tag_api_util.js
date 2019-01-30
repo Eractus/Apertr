@@ -8,7 +8,7 @@ export const fetchTags = (photoId) => (
 export const fetchTag = id => (
   $.ajax({
     method: "GET",
-    url: `api/tag/${id}`
+    url: `api/tags/${id}`
   })
 );
 
