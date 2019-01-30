@@ -1,13 +1,12 @@
 class Api::FavesController < ApplicationController
   def create
-    @fave = Fave.find_by(user_id: params[:user_id], photo_id: params[:photo_id])
-    if @fave == nil
-      @fave = Fave.new(fave_params)
-    end
-    if !@fave.save
-      render json: ['Something went wrong, try again later.'], status: 422
-    else
+    @fave = Fave.new(fave_params)
+    @fave.user_id = current_user.id
+    @fave.photo_id = params[:photo_id]
+    if @fave.save
       render :show
+    else
+      render json: @fave.errors.full_messages, status: 422
     end
   end
 
@@ -26,5 +25,5 @@ end
 private
 
 def fave_params
-  params.require(:fave).permit(:user_id, :photo_id)
+  params.require(:fave).permit(:photo_id)
 end
