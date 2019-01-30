@@ -10,9 +10,9 @@ export const fetchAllComments = (photoId) => dispatch => (
     comments => dispatch(receiveAllComments(comments)))
 );
 
-export const fetchComment = comment => dispatch => (
-  CommentApiUtil.fetchComment(comment).then(
-    ajaxComment => dispatch(receiveComment(ajaxComment)),
+export const fetchComment = id => dispatch => (
+  CommentApiUtil.fetchComment(id).then(
+    comment => dispatch(receiveComment(comment)),
     error => dispatch(receiveErrors(error.responseJSON)))
 );
 

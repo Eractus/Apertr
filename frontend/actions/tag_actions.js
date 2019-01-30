@@ -10,9 +10,9 @@ export const fetchAllTags = (photoId) => dispatch => (
     tags => dispatch(receiveAllTags(tags)))
 );
 
-export const fetchTag = tag => dispatch => (
-  TagApiUtil.fetchTag(tag).then(
-    ajaxTag => dispatch(receiveTag(ajaxTag)),
+export const fetchTag = id => dispatch => (
+  TagApiUtil.fetchTag(id).then(
+    tag => dispatch(receiveTag(tag)),
     error => dispatch(receiveErrors(error.responseJSON)))
 );
 
