@@ -5,6 +5,7 @@ import photoErrorsReducer from "./photo_errors_reducer";
 import albumErrorsReducer from "./album_errors_reducer";
 import commentErrorsReducer from "./comment_errors_reducer";
 import tagErrorsReducer from "./tag_errors_reducer";
+import faveErrorsReducer from "./fave_errors_reducer";
 
 const errorsReducer = combineReducers({
   session: sessionErrorsReducer,
@@ -12,7 +13,8 @@ const errorsReducer = combineReducers({
   photo: photoErrorsReducer,
   album: albumErrorsReducer,
   comment: commentErrorsReducer,
-  tag: tagErrorsReducer
+  tag: tagErrorsReducer,
+  fave: faveErrorsReducer
 });
 
 export default errorsReducer;
