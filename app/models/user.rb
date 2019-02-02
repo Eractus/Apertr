@@ -31,6 +31,11 @@ class User < ApplicationRecord
     foreign_key: :user_id,
     class_name: :Comment
 
+  has_many :faves,
+    dependent: :destroy,
+    foreign_key: :user_id,
+    class_name: :Fave
+
   attr_reader :password
 
   def self.find_by_credentials(email, password)

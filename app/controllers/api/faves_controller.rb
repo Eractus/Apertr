@@ -1,6 +1,6 @@
 class Api::FavesController < ApplicationController
   def create
-    @fave = Fave.new(fave_params)
+    @fave = Fafe.new(fave_params)
     @fave.user_id = current_user.id
     @fave.photo_id = params[:photo_id]
     if @fave.save
@@ -16,7 +16,7 @@ class Api::FavesController < ApplicationController
   end
 
   def destroy
-    @fave = Fave.find(params[:id])
+    @fave = Fafe.find(params[:id])
     @fave.destroy
     render :show
   end
@@ -25,5 +25,5 @@ end
 private
 
 def fave_params
-  params.require(:fave).permit(:photo_id)
+  params.require(:fafe).permit(:photo_id)
 end
