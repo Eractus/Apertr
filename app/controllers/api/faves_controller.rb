@@ -25,5 +25,5 @@ end
 private
 
 def fave_params
-  params.require(:fafe).permit(:photo_id)
+  params.require(:fave).permit(:photo_id)
 end

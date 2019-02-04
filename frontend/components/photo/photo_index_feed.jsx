@@ -1,6 +1,5 @@
 import React from "react";
 import PhotoIndexFeedItem from "./photo_index_feed_item";
-import shuffle from 'lodash/shuffle';
 
 class PhotoIndexFeed extends React.Component {
   constructor(props) {
@@ -18,16 +17,36 @@ class PhotoIndexFeed extends React.Component {
   }
 
   render () {
-    // lodash shuffle method so the photo index feed array serves the photo index feed items in a random order everytime - eventually they will be sorted based on popularity ("faves") once that feature is built
-    const photosArray = shuffle(this.props.photos);
+    let photosArray = [];
+    let favesArr = [];
+    this.props.photos.forEach(photo => {
+      favesArr.push([photo.id, photo.faves.length]);
+    });
+    favesArr.sort(function(a, b) {
+        return b[1] - a[1];
+    });
 
+    favesArr.forEach(arr => {
+      photosArray.push(this.props.photos[arr[0]-1])
+    });
     // photo objects are passed as props to the PhotoIndexFeedItem component as data to help render the component
     const photos = photosArray.map(photo => {
+      let currentUserFave;
+      photo.faves.forEach(fave => {
+        if (fave.user_id === this.props.currentUser.id) {
+          currentUserFave = fave;
+          return;
+        }
+      });
+
       return (
         <PhotoIndexFeedItem
           currentUser={this.props.currentUser}
           users={this.props.users}
           photo={photo}
+          fave={currentUserFave}
+          createFave={this.props.createFave}
+          deleteFave={this.props.deleteFave}
         />
       );
     });

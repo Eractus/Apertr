@@ -1,34 +1,73 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const PhotoIndexFeedItem = props => {
-  // some logic for interpolating non-data text
-  const commentsCount = props.photo.comments.length;
-  const comments = commentsCount <= 1 ? "comment" : "comments";
+class PhotoIndexFeedItem extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      faves: this.props.photo.faves,
+      photoIsFaved: null
+    }
 
-  return (
-    <li className="photo-index-feed-item-container">
-      <div className="photo-index-feed-item">
-        <div className="photo-index-feed-author">
-          <img src={props.users[props.photo.user_id].profile_pic}/>
-          <Link to={`/users/${props.photo.user_id}`}>
-            {props.photo.userFname} {props.photo.userLname}
-          </Link>
+    this.toggleFave = this.toggleFave.bind(this);
+  }
+
+  componentDidMount() {
+    if (this.props.fave) {
+      this.state.fave = this.props.fave;
+      this.state.photoIsFaved = true;
+    } else {
+      this.state.photoIsFaved = false
+    }
+  }
+
+  toggleFave() {
+    if (!this.props.photoIsFaved) {
+      this.props.createFave({ photo_id: this.props.photo.id });
+      this.setState({ photoIsFaved: true });
+    } else {
+      this.props.deleteFave(this.state.fave.id);
+      this.setState({ photoIsFaved: false });
+    }
+  }
+
+  render() {
+    // some logic for interpolating non-data text
+    const commentsCount = this.props.photo.comments.length;
+    const comments = commentsCount === 1 ? "comment" : "comments";
+    const favesCount = this.state.faves.length;
+    const faves = favesCount === 1 ? "fave" : "faves";
+
+    return (
+      <li className="photo-index-feed-item-container">
+        <div className="photo-index-feed-item">
+          <div className="photo-index-feed-author">
+            <img src={this.props.users[this.props.photo.user_id].profile_pic}/>
+            <Link to={`/users/${this.props.photo.user_id}`}>
+              {this.props.photo.userFname} {this.props.photo.userLname}
+            </Link>
+          </div>
+          <div className="photo-index-feed-image-container">
+            <Link to={`/photos/${this.props.photo.id}`}>
+              <img className="photo-index-feed-image" src={this.props.photo.image_url} />
+            </Link>
+          </div>
+          <div className="photo-index-feed-title">
+            {this.props.photo.title}
+          </div>
+          <div className="photo-index-feed-details">
+            <div className="photo-index-feed-text">
+              <p>{favesCount} {faves}</p>
+              <p>{commentsCount} {comments}</p>
+            </div>
+            <div className="photo-index-feed-icons">
+              <i onClick={this.toggleFave} className={this.state.photoIsFaved ? "fas fa-star" : "far fa-star"}></i>
+            </div>
+          </div>
         </div>
-        <div className="photo-index-feed-image-container">
-          <Link to={`/photos/${props.photo.id}`}>
-            <img className="photo-index-feed-image" src={props.photo.image_url} />
-          </Link>
-        </div>
-        <div className="photo-index-feed-title">
-          {props.photo.title}
-        </div>
-        <div className="photo-index-feed-details">
-          <p>{commentsCount} {comments}</p>
-        </div>
-      </div>
-    </li>
-  );
+      </li>
+    );
+  }
 };
 
 export default PhotoIndexFeedItem;
