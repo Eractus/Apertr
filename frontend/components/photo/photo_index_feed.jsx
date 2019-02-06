@@ -31,20 +31,12 @@ class PhotoIndexFeed extends React.Component {
     });
     // photo objects are passed as props to the PhotoIndexFeedItem component as data to help render the component
     const photos = photosArray.map(photo => {
-      let currentUserFave;
-      photo.faves.forEach(fave => {
-        if (fave.user_id === this.props.currentUser.id) {
-          currentUserFave = fave;
-          return;
-        }
-      });
 
       return (
         <PhotoIndexFeedItem
           currentUser={this.props.currentUser}
           users={this.props.users}
           photo={photo}
-          fave={currentUserFave}
           createFave={this.props.createFave}
           deleteFave={this.props.deleteFave}
         />

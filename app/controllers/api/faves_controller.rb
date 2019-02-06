@@ -1,12 +1,17 @@
 class Api::FavesController < ApplicationController
   def create
-    @fave = Fafe.new(fave_params)
-    @fave.user_id = current_user.id
-    @fave.photo_id = params[:photo_id]
-    if @fave.save
-      render :show
+    @fave = Fafe.find_by(user_id: current_user.id, photo_id: params[:photo_id])
+    if @fave != nil
+      render json: [ "Photo already liked!" ], status: 422
     else
-      render json: @fave.errors.full_messages, status: 422
+      @fave = Fafe.new(fave_params)
+      @fave.user_id = current_user.id
+      @fave.photo_id = params[:photo_id]
+      if @fave.save
+        render :show
+      else
+        render json: @fave.errors.full_messages, status: 422
+      end
     end
   end
 

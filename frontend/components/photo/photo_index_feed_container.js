@@ -13,6 +13,7 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => ({
   fetchAllUsers: users => dispatch(fetchAllUsers()),
   fetchPhotos: photos => dispatch(fetchPhotos()),
+  fetchFaves: faves => dispatch(fetchAllFaves()),
   createFave: fave => dispatch(createFave(fave)),
   deleteFave: faveId => dispatch(deleteFave(faveId))
 });

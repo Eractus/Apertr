@@ -5,29 +5,45 @@ class PhotoIndexFeedItem extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      faves: this.props.photo.faves,
-      photoIsFaved: null
+      favesLoaded: false,
+      currentUserFaveIds: this.props.currentUser.fave_ids,
+      photoFaveIds: this.props.photo.faves,
+      currentFaveId: null,
+      photoIsFaved: false
     }
 
     this.toggleFave = this.toggleFave.bind(this);
   }
 
   componentDidMount() {
-    if (this.props.fave) {
-      this.state.fave = this.props.fave;
-      this.state.photoIsFaved = true;
-    } else {
-      this.state.photoIsFaved = false
-    }
+    this.state.currentUserFaveIds.forEach(id => {
+      if (this.state.photoFaveIds.includes(id)) {
+        this.state.currentFaveId = id;
+        this.state.photoIsFaved = true;
+        return;
+      }
+    });
+    this.setState({ favesLoaded: true });
   }
 
   toggleFave() {
-    if (!this.props.photoIsFaved) {
+    if (!this.state.photoIsFaved) {
       this.props.createFave({ photo_id: this.props.photo.id });
-      this.setState({ photoIsFaved: true });
+      this.setState({
+        currentFaveId: this.state.currentUserFaveIds[this.state.currentUserFaveIds.length - 1],
+        currentUserFaveIds: this.state.currentUserFaveIds.push(this.state.currentFaveId),
+        photoFaveIds: this.state.photoFaveIds.push(this.state.currentFaveId),
+        photoIsFaved: true,
+      });
+      console.log(this.state.faves)
     } else {
-      this.props.deleteFave(this.state.fave.id);
-      this.setState({ photoIsFaved: false });
+      this.props.deleteFave(this.state.currentFaveId);
+      this.setState({
+        currentUserFaveIds: this.state.currentUserFaveIds.filter(id => id !== this.state.currentFaveId),
+        photoFaveIds: this.state.photoFaveIds.filter(id => id !== this.state.currentFaveId),
+        photoIsFaved: false,
+      });
+      console.log(this.state.faves)
     }
   }
 
@@ -35,8 +51,14 @@ class PhotoIndexFeedItem extends React.Component {
     // some logic for interpolating non-data text
     const commentsCount = this.props.photo.comments.length;
     const comments = commentsCount === 1 ? "comment" : "comments";
-    const favesCount = this.state.faves.length;
+    const favesCount = this.state.photoFaveIds.length;
     const faves = favesCount === 1 ? "fave" : "faves";
+
+    if (!this.state.favesLoaded) {
+      return(
+        <div>Loading...</div>
+      )
+    }
 
     return (
       <li className="photo-index-feed-item-container">

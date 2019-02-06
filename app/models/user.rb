@@ -34,7 +34,7 @@ class User < ApplicationRecord
   has_many :faves,
     dependent: :destroy,
     foreign_key: :user_id,
-    class_name: :Fave
+    class_name: :Fafe
 
   attr_reader :password
 
