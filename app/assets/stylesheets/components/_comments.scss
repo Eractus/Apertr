@@ -18,7 +18,7 @@
     background-color: white;
     width: calc(100% - 20px);
     min-height: 80px;
-    border: 1px solid #d8d8d8;
+    border: 1px solid #9ea4a7;
     border-radius: 3px;
     padding: 10px 10px;
     vertical-align: top;
@@ -26,6 +26,10 @@
 
   .comment-create-description:focus {
     border: 1px solid #128fdc;
+  }
+
+  .comment-create-description::placeholder {
+    font-size: 14px;
   }
 
   .comment-create-errors {

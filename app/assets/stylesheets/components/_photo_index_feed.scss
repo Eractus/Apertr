@@ -95,7 +95,33 @@
 
             .photo-index-feed-icons {
               display: flex;
+              position: relative;
               font-size: 16px;
+
+              .photo-index-feed-comment-popup {
+                background-color: #fff;
+                position: absolute;
+                z-index: 15;
+                border: 1px solid #B8B8B8;
+                border-radius: 3px;
+                bottom: 28px;
+                right: 0;
+                padding: 18px 12px;
+
+                .photo-index-feed-comment-description {
+                  color: #333;
+                  font-size: 14px;
+                }
+              }
+
+              .photo-index-feed-comment-popup > a {
+                color: #006dac;
+                font-size: 14px;
+              }
+
+              .photo-index-feed-comment-popup > a:hover {
+                text-decoration: underline;
+              }
             }
 
             .photo-index-feed-icons > i {
