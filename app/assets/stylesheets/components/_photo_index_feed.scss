@@ -79,7 +79,6 @@
             display: flex;
             justify-content: space-between;
             color: #b3b3b3;
-            font-size: 12px;
             padding: 12px;
             background-color: #fff;
             border-bottom-left-radius: 4px;
@@ -87,6 +86,7 @@
 
             .photo-index-feed-text {
               display: flex;
+              font-size: 12px;
             }
 
             .photo-index-feed-text > p {
@@ -95,6 +95,15 @@
 
             .photo-index-feed-icons {
               display: flex;
+              font-size: 16px;
+            }
+
+            .photo-index-feed-icons > i {
+              cursor: pointer;
+            }
+
+            .photo-index-feed-icons > i:hover {
+              color: black;
             }
           }
         }
