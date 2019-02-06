@@ -8,6 +8,7 @@ class PhotoIndexFeedItem extends React.Component {
       favesLoaded: false,
       currentUserFaveIds: this.props.currentUser.fave_ids,
       photoFaveIds: this.props.photo.faves,
+      numFaves: this.props.photo.faves.length,
       currentFaveId: null,
       photoIsFaved: false
     }
@@ -16,6 +17,7 @@ class PhotoIndexFeedItem extends React.Component {
   }
 
   componentDidMount() {
+    // when feed photo index item first loads, update state if one of the photo's fave id's is the same as one of the current user's fave id to show photo is already faved by current user.
     this.state.currentUserFaveIds.forEach(id => {
       if (this.state.photoFaveIds.includes(id)) {
         this.state.currentFaveId = id;
@@ -27,23 +29,25 @@ class PhotoIndexFeedItem extends React.Component {
   }
 
   toggleFave() {
+    // if current user has not faved this photo, create the fave joins table row between the current user and this photo by their id's, then update this newly created fave's unique id into state in case user clicks again to delete it before ever refreshing the page. increment/decrement a counter in the state appropriately to update the text tracking number of faves currently for the photo.
     if (!this.state.photoIsFaved) {
-      this.props.createFave({ photo_id: this.props.photo.id });
-      this.setState({
-        currentFaveId: this.state.currentUserFaveIds[this.state.currentUserFaveIds.length - 1],
-        currentUserFaveIds: this.state.currentUserFaveIds.push(this.state.currentFaveId),
-        photoFaveIds: this.state.photoFaveIds.push(this.state.currentFaveId),
-        photoIsFaved: true,
-      });
-      console.log(this.state.faves)
+      this.props.createFave({ photo_id: this.props.photo.id }).then(data => {
+        this.setState({
+          currentFaveId: data.fave.id,
+        })
+      }).then(
+        this.setState({
+          numFaves: this.state.numFaves + 1,
+          photoIsFaved: true
+        })
+      )
     } else {
-      this.props.deleteFave(this.state.currentFaveId);
-      this.setState({
-        currentUserFaveIds: this.state.currentUserFaveIds.filter(id => id !== this.state.currentFaveId),
-        photoFaveIds: this.state.photoFaveIds.filter(id => id !== this.state.currentFaveId),
-        photoIsFaved: false,
-      });
-      console.log(this.state.faves)
+      this.props.deleteFave(this.state.currentFaveId).then(
+        this.setState({
+          numFaves: this.state.numFaves - 1,
+          photoIsFaved: false
+        })
+      )
     }
   }
 
@@ -51,7 +55,7 @@ class PhotoIndexFeedItem extends React.Component {
     // some logic for interpolating non-data text
     const commentsCount = this.props.photo.comments.length;
     const comments = commentsCount === 1 ? "comment" : "comments";
-    const favesCount = this.state.photoFaveIds.length;
+    const favesCount = this.state.numFaves;
     const faves = favesCount === 1 ? "fave" : "faves";
 
     if (!this.state.favesLoaded) {

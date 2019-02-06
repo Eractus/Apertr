@@ -1,7 +1,7 @@
 import { connect } from "react-redux";
 import { fetchAllUsers } from "../../actions/user_actions";
 import { fetchPhotos } from '../../actions/photo_actions';
-import { fetchAllFaves, createFave, deleteFave } from '../../actions/fave_actions';
+import { createFave, deleteFave } from '../../actions/fave_actions';
 import PhotoIndexFeed from "./photo_index_feed";
 
 const mapStateToProps = state => ({
@@ -13,7 +13,6 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => ({
   fetchAllUsers: users => dispatch(fetchAllUsers()),
   fetchPhotos: photos => dispatch(fetchPhotos()),
-  fetchFaves: faves => dispatch(fetchAllFaves()),
   createFave: fave => dispatch(createFave(fave)),
   deleteFave: faveId => dispatch(deleteFave(faveId))
 });
