@@ -88,6 +88,7 @@ class PhotoIndexFeedItem extends React.Component {
             </div>
             <div className="photo-index-feed-icons">
               <i onClick={this.toggleFave} className={this.state.photoIsFaved ? "fas fa-star" : "far fa-star"}></i>
+              <i className="far fa-comment"></i>
             </div>
           </div>
         </div>
