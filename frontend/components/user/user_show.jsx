@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import PhotoIndex from '../photo/photo_index';
 import AlbumIndex from '../album/album_index';
 

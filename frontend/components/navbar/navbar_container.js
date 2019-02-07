@@ -1,7 +1,6 @@
 import { connect } from "react-redux";
 import { logout } from "../../actions/session_actions";
 import { searchTaggedPhotos } from "../../actions/photo_actions";
-import { withRouter } from "react-router-dom";
 import Navbar from "./navbar";
 
 const mapStateToProps = (state, ownProps) => {

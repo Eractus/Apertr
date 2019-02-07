@@ -1,5 +1,4 @@
 import React from 'react';
-import merge from 'lodash/merge';
 
 class AlbumUpdate extends React.Component {
   constructor(props) {

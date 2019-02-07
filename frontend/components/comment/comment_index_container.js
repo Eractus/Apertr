@@ -1,5 +1,4 @@
 import { connect } from 'react-redux';
-import { fetchAllUsers } from '../../actions/user_actions';
 import { fetchAllComments, updateComment, deleteComment } from '../../actions/comment_actions';
 import CommentIndex from './comment_index';
 
