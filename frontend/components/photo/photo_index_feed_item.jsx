@@ -6,6 +6,8 @@ class PhotoIndexFeedItem extends React.Component {
     super(props)
     this.state = {
       commentsLoaded: false,
+      photoCommentIds: this.props.photo.comments,
+      numComments: this.props.photo.comments.length,
       favesLoaded: false,
       currentUserFaveIds: this.props.currentUser.fave_ids,
       photoFaveIds: this.props.photo.faves,
@@ -45,15 +47,26 @@ class PhotoIndexFeedItem extends React.Component {
     };
   }
 
-  // after creating comment, reset value of description to empty string and close comments popup
+  // after creating comment, pull the new comment object from data in promise and update the state for comments object as well as array of photo's comment ids and set it to state as well as resetting value of description to empty string and close comments popup
   handleSubmit(e) {
     e.preventDefault();
     this.props.createComment({
       description: this.state.description,
       user_id: this.props.currentUser.id,
       photo_id: this.props.photo.id
+    }).then(data => {
+      let newComment = data.comment;
+      let updatedComments = this.state.comments;
+      updatedComments[newComment.id] = newComment;
+      let updatedCommentIds = this.state.photoCommentIds.slice();
+      updatedCommentIds.push(newComment.id);
+      this.setState({
+        comments: updatedComments,
+        photoCommentIds: updatedCommentIds,
+        numComments: this.state.numComments + 1,
+        description: ""
+      });
     });
-    this.setState({description: ""});
     this.toggleComments();
   }
 
@@ -88,24 +101,25 @@ class PhotoIndexFeedItem extends React.Component {
 
   render() {
     // some logic for interpolating non-data text
-    const commentsArr = this.props.photo.comments;
-    const comments = commentsArr.length === 1 ? "comment" : "comments";
+    const commentsCount = this.state.numComments;
+    const comments = commentsCount === 1 ? "comment" : "comments";
     const favesCount = this.state.numFaves;
     const faves = favesCount === 1 ? "fave" : "faves";
-
-    // depending on how many comments the photo has, determine which (up to the last 3) of the photo item's comment id's should be used for its comments popup
-    let displayedComments;
-    if (commentsArr.length === 0) {
-      displayedComments = [];
-    } else if (commentsArr.length > 0 && commentsArr.length <= 3){
-      displayedComments = commentsArr;
-    } else {
-      displayedComments = commentsArr.slice(commentsArr.length - 3, commentsArr.length);
-    }
 
     // when popup is toggled open, determine the actual (up to 3) comment objects to display
     let lastThreeComments;
     if (this.state.toggledCommentsPopUp) {
+      // depending on how many comments the photo has, determine which (up to the last 3) of the photo item's comment id's should be used for its comments popup
+      let commentsArr = this.state.photoCommentIds;
+      let displayedComments;
+      if (commentsArr.length === 0) {
+        displayedComments = [];
+      } else if (commentsArr.length > 0 && commentsArr.length <= 3){
+        displayedComments = commentsArr;
+      } else {
+        displayedComments = commentsArr.slice(commentsArr.length - 3, commentsArr.length);
+      }
+
       if (displayedComments.length === 0) {
         lastThreeComments = "";
       } else {
@@ -177,7 +191,7 @@ class PhotoIndexFeedItem extends React.Component {
           <div className="photo-index-feed-details">
             <div className="photo-index-feed-text">
               <p>{favesCount} {faves}</p>
-              <p>{commentsArr.length} {comments}</p>
+              <p>{commentsCount} {comments}</p>
             </div>
             <div className="photo-index-feed-icons">
               <i onClick={this.toggleFave} className={this.state.photoIsFaved ? "fas fa-star" : "far fa-star"}></i>
