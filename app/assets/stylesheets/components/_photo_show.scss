@@ -177,6 +177,7 @@
   left: -45px;
   top: 18px;
   font-size: 20px;
+  cursor: pointer;
 }
 
 .photo-show-faves-users {
@@ -207,11 +208,19 @@
   padding-bottom: 25px;
 }
 
-.photo-show-photo-details > h1 {
+.photo-show-photo-details {
+  display: flex;
+
+  .photo-show-details-wrapper {
+    margin-right: 25px;
+  }
+}
+
+.photo-show-photo-details h1 {
   font-size: 18px;
 }
 
-.photo-show-photo-details > p {
+.photo-show-photo-details p {
   color: #898989;
   font-size: 14px;
 }

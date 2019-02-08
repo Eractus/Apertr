@@ -15,14 +15,15 @@ class PhotoShow extends React.Component {
       numComments: null,
       faves: null,
       faveIds: null,
-      numFaves:null,
       currentFaveId: null,
-      photoIsFaved: false
+      photoIsFaved: false,
+      favedUsers: null
     };
     this.handleSubmitUpdate = this.handleSubmitUpdate.bind(this);
     this.toggleEditableFields = this.toggleEditableFields.bind(this);
     this.commentCreated = this.commentCreated.bind(this);
     this.commentDeleted = this.commentDeleted.bind(this);
+    this.toggleFave = this.toggleFave.bind(this);
   }
 
   componentDidMount() {
@@ -48,7 +49,6 @@ class PhotoShow extends React.Component {
               faves: this.props.faves,
               faveIds: this.props.photo.faves,
               favedUsers: favedUsers,
-              numFaves: this.props.photo.faves.length,
               firstLoad: false
             })
           })
@@ -107,6 +107,31 @@ class PhotoShow extends React.Component {
     })
   }
 
+  toggleFave() {
+    let updatedFavedUsers = this.state.favedUsers.slice();
+    if (!this.state.photoIsFaved) {
+      this.props.createFave({ photo_id: this.props.photo.id }).then(data => {
+        updatedFavedUsers.push(this.props.currentUser);
+        this.setState({
+          currentFaveId: data.fave.id,
+          favedUsers: updatedFavedUsers
+        })
+      }).then(
+        this.setState({
+          photoIsFaved: true
+        })
+      )
+    } else {
+      this.props.deleteFave(this.state.currentFaveId).then(data => {
+        updatedFavedUsers = updatedFavedUsers.filter(user => user.id !== this.props.currentUser.id);
+        this.setState({
+          favedUsers: updatedFavedUsers,
+          photoIsFaved: false
+        })
+      })
+    }
+  }
+
   // renders errors based on Rails model validations
   renderErrors() {
     return(
@@ -162,17 +187,22 @@ class PhotoShow extends React.Component {
       </div>
 
     let faves;
-    if (this.state.numFaves === 0) {
+    if (this.state.favedUsers.length === 0) {
       faves = <p>This photo has not been faved yet. Be the first!</p>
     } else {
-      if (this.state.numFaves === 1) {
+      if (this.state.favedUsers.length === 1) {
         let favedUser = this.state.favedUsers[0];
         let favedUserName = favedUser.id === this.props.currentUser.id ? "You" : favedUser.first_name + " " + favedUser.last_name
         faves = <p>
                   <Link to={`/users/${favedUser.id}`}>{favedUserName}</Link> faved this.
                 </p>
-      } else if (this.state.numFaves === 2) {
-        let favedUserNames = this.state.favedUsers.map(user => user.id === this.props.currentUser.id ? "You" : user.first_name + " " + user.last_name)
+      } else if (this.state.favedUsers.length === 2) {
+        let favedUserNames = []
+        this.state.favedUsers.forEach(user => {
+          user.id === this.props.currentUser.id ?
+          favedUserNames.unshift("You") :
+          favedUserNames.push(user.first_name + " " + user.last_name)
+        })
         let favedUser1 = this.state.favedUsers[0];
         let favedUserName1 = favedUserNames[0];
         let favedUser2 = this.state.favedUsers[1];
@@ -184,6 +214,8 @@ class PhotoShow extends React.Component {
     }
 
     // some code logic for interpolating non-data text
+    let numFaves = this.state.favedUsers.length;
+    let fave = numFaves === 1 ? "fave" : "faves";
     let numComments = this.state.numComments;
     let comment = numComments === 1 ? "comment" : "comments";
     const months = {
@@ -249,8 +281,14 @@ class PhotoShow extends React.Component {
           <div className="photo-show-right-column">
             <div className="photo-show-photo-summary">
               <div className="photo-show-photo-details">
-                <h1>{numComments}</h1>
-                <p>{comment}</p>
+                <div className="photo-show-details-wrapper">
+                  <h1>{numFaves}</h1>
+                  <p>{fave}</p>
+                </div>
+                <div className="photo-show-details-wrapper">
+                  <h1>{numComments}</h1>
+                  <p>{comment}</p>
+                </div>
               </div>
               <p>Taken on {uploadMonth} {uploadDay}, {uploadYear}</p>
             </div>
