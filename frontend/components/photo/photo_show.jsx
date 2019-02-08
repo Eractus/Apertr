@@ -13,6 +13,9 @@ class PhotoShow extends React.Component {
       firstLoad: true,
       openEditableFields: false,
       numComments: null,
+      faves: null,
+      faveIds: null,
+      numFaves:null,
       currentFaveId: null,
       photoIsFaved: false
     };
@@ -25,19 +28,31 @@ class PhotoShow extends React.Component {
   componentDidMount() {
     this.props.fetchPhoto(this.props.match.params.photoId).then(
       this.props.fetchAllComments(this.props.match.params.photoId).then(
-        this.props.fetchAllUsers().then(data => {
-          this.props.currentUser.fave_ids.forEach(id => {
-            if (this.props.photo.faves.includes(id)) {
-              this.state.currentFaveId = id;
-              this.state.photoIsFaved = true;
-              return;
+        this.props.fetchAllFaves(this.props.match.params.photoId).then(
+          this.props.fetchAllUsers().then(data => {
+            let photoFaveIds = this.props.photo.faves;
+            this.props.currentUser.fave_ids.forEach(id => {
+              if (photoFaveIds.includes(id)) {
+                this.state.currentFaveId = id;
+                this.state.photoIsFaved = true;
+                return;
+              }
+            });
+            let favedUsers = [];
+            for (let i=0; i<photoFaveIds.length; i++) {
+              let user = this.props.users[this.props.faves[photoFaveIds[i]].user_id]
+              favedUsers.push(user)
             }
-          });
-          this.setState({
-            numComments: this.props.comments.length,
-            firstLoad: false
+            this.setState({
+              numComments: this.props.comments.length,
+              faves: this.props.faves,
+              faveIds: this.props.photo.faves,
+              favedUsers: favedUsers,
+              numFaves: this.props.photo.faves.length,
+              firstLoad: false
+            })
           })
-        })
+        )
       )
     );
     window.scrollTo(0, 0);
@@ -68,8 +83,6 @@ class PhotoShow extends React.Component {
   }
 
   update(field) {
-    console.log(this.props.comments);
-    console.log(this.state.comments);
     return (e) => {
       this.setState({ [field]: e.target.value });
     };
@@ -148,6 +161,28 @@ class PhotoShow extends React.Component {
         <p className="photo-show-description">{this.state.description}</p>
       </div>
 
+    let faves;
+    if (this.state.numFaves === 0) {
+      faves = <p>This photo has not been faved yet. Be the first!</p>
+    } else {
+      if (this.state.numFaves === 1) {
+        let favedUser = this.state.favedUsers[0];
+        let favedUserName = favedUser.id === this.props.currentUser.id ? "You" : favedUser.first_name + " " + favedUser.last_name
+        faves = <p>
+                  <Link to={`/users/${favedUser.id}`}>{favedUserName}</Link> faved this.
+                </p>
+      } else if (this.state.numFaves === 2) {
+        let favedUserNames = this.state.favedUsers.map(user => user.id === this.props.currentUser.id ? "You" : user.first_name + " " + user.last_name)
+        let favedUser1 = this.state.favedUsers[0];
+        let favedUserName1 = favedUserNames[0];
+        let favedUser2 = this.state.favedUsers[1];
+        let favedUserName2 = favedUserNames[1];
+        faves = <p>
+                  <Link to={`/users/${favedUser1.id}`}>{favedUserName1}</Link> and <Link to={`/users/${favedUser2.id}`}>{favedUserName2}</Link> faved this.
+                </p>
+      }
+    }
+
     // some code logic for interpolating non-data text
     let numComments = this.state.numComments;
     let comment = numComments === 1 ? "comment" : "comments";
@@ -191,7 +226,7 @@ class PhotoShow extends React.Component {
             <div className="photo-show-faves-container">
               <i onClick={this.toggleFave} className={this.state.photoIsFaved ? "fas fa-star" : "far fa-star"}></i>
               <div className="photo-show-faves-users">
-                <p>This photo has not been faved yet. Be the first!</p>
+                {faves}
               </div>
             </div>
             <div className="photo-show-comments-container">

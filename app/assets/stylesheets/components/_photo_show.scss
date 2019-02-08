@@ -167,8 +167,8 @@
 .photo-show-faves-container {
   display: flex;
   position: relative;
-  font-size: 16px;
   margin-left: 110px;
+  padding: 18px 0;
   border-bottom: 1px solid #d8d8d8;
 }
 
@@ -180,7 +180,11 @@
 }
 
 .photo-show-faves-users {
-  padding: 15px 0;
+  font-size: 14px;
+}
+
+.photo-show-faves-users a {
+  color: #006dac;
 }
 
 .photo-show-comments-container {

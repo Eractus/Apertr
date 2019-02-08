@@ -7,6 +7,7 @@ import {
   receiveErrors
 } from '../../actions/photo_actions.js';
 import { fetchAllComments, updateComment, deleteComment } from '../../actions/comment_actions';
+import { fetchAllFaves } from '../../actions/fave_actions';
 import PhotoShow from './photo_show';
 
 const mapStateToProps = (state, ownProps) => ({
@@ -14,7 +15,8 @@ const mapStateToProps = (state, ownProps) => ({
   users: state.users,
   currentUser: state.session.currentUser,
   photo: state.photos[ownProps.match.params.photoId],
-  comments: Object.values(state.comments)
+  comments: Object.values(state.comments),
+  faves: state.faves
 });
 
 const mapDispatchToProps = dispatch => ({
@@ -25,7 +27,8 @@ const mapDispatchToProps = dispatch => ({
   clearErrors: () => dispatch(receiveErrors([])),
   fetchAllComments: photoId => dispatch(fetchAllComments(photoId)),
   updateComment: (comment, id) => dispatch(updateComment(comment, id)),
-  deleteComment: commentId => dispatch(deleteComment(commentId))
+  deleteComment: commentId => dispatch(deleteComment(commentId)),
+  fetchAllFaves: photoId => dispatch(fetchAllFaves(photoId))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(PhotoShow);
