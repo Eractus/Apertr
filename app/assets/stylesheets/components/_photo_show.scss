@@ -164,6 +164,25 @@
   margin-top: 10px;
 }
 
+.photo-show-faves-container {
+  display: flex;
+  position: relative;
+  font-size: 16px;
+  margin-left: 110px;
+  border-bottom: 1px solid #d8d8d8;
+}
+
+.photo-show-faves-container > i {
+  position: absolute;
+  left: -45px;
+  top: 18px;
+  font-size: 20px;
+}
+
+.photo-show-faves-users {
+  padding: 15px 0;
+}
+
 .photo-show-comments-container {
   width: 32%;
   margin-left: 3.5%;

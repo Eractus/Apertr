@@ -190,6 +190,9 @@ class PhotoShow extends React.Component {
             </div>
             <div className="photo-show-faves-container">
               <i onClick={this.toggleFave} className={this.state.photoIsFaved ? "fas fa-star" : "far fa-star"}></i>
+              <div className="photo-show-faves-users">
+                <p>This photo has not been faved yet. Be the first!</p>
+              </div>
             </div>
             <div className="photo-show-comments-container">
               <CommentIndex
