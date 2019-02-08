@@ -17,13 +17,15 @@ class PhotoShow extends React.Component {
       faveIds: null,
       currentFaveId: null,
       photoIsFaved: false,
-      favedUsers: null
+      favedUsers: null,
+      openFavedUsersPopup: false
     };
     this.handleSubmitUpdate = this.handleSubmitUpdate.bind(this);
     this.toggleEditableFields = this.toggleEditableFields.bind(this);
     this.commentCreated = this.commentCreated.bind(this);
     this.commentDeleted = this.commentDeleted.bind(this);
     this.toggleFave = this.toggleFave.bind(this);
+    this.toggleFavedUsersPopup = this.toggleFavedUsersPopup.bind(this);
   }
 
   componentDidMount() {
@@ -111,7 +113,7 @@ class PhotoShow extends React.Component {
     let updatedFavedUsers = this.state.favedUsers.slice();
     if (!this.state.photoIsFaved) {
       this.props.createFave({ photo_id: this.props.photo.id }).then(data => {
-        updatedFavedUsers.push(this.props.currentUser);
+        updatedFavedUsers.unshift(this.props.currentUser);
         this.setState({
           currentFaveId: data.fave.id,
           favedUsers: updatedFavedUsers
@@ -130,6 +132,10 @@ class PhotoShow extends React.Component {
         })
       })
     }
+  }
+
+  toggleFavedUsersPopup() {
+    this.setState({ openFavedUsersPopup: !this.state.openFavedUsersPopup })
   }
 
   // renders errors based on Rails model validations
@@ -189,26 +195,53 @@ class PhotoShow extends React.Component {
     let faves;
     if (this.state.favedUsers.length === 0) {
       faves = <p>This photo has not been faved yet. Be the first!</p>
+    } else if (this.state.favedUsers.length === 1) {
+      let favedUser = this.state.favedUsers[0];
+      let favedUserName = favedUser.id === this.props.currentUser.id ? "You" : favedUser.first_name + " " + favedUser.last_name
+      faves = <p>
+                <Link to={`/users/${favedUser.id}`}>{favedUserName}</Link> faved this.
+              </p>
     } else {
-      if (this.state.favedUsers.length === 1) {
-        let favedUser = this.state.favedUsers[0];
-        let favedUserName = favedUser.id === this.props.currentUser.id ? "You" : favedUser.first_name + " " + favedUser.last_name
-        faves = <p>
-                  <Link to={`/users/${favedUser.id}`}>{favedUserName}</Link> faved this.
-                </p>
-      } else if (this.state.favedUsers.length === 2) {
-        let favedUserNames = []
-        this.state.favedUsers.forEach(user => {
-          user.id === this.props.currentUser.id ?
-          favedUserNames.unshift("You") :
-          favedUserNames.push(user.first_name + " " + user.last_name)
-        })
-        let favedUser1 = this.state.favedUsers[0];
-        let favedUserName1 = favedUserNames[0];
-        let favedUser2 = this.state.favedUsers[1];
-        let favedUserName2 = favedUserNames[1];
+      let favedUserNames = [];
+      let orderedFavedUsers = [];
+      this.state.favedUsers.forEach(user => {
+        if (user.id === this.props.currentUser.id) {
+          orderedFavedUsers.unshift(user);
+          favedUserNames.unshift("You");
+        } else {
+          orderedFavedUsers.push(user);
+          favedUserNames.push(user.first_name + " " + user.last_name);
+        }
+      })
+      let favedUser1 = orderedFavedUsers[0];
+      let favedUserName1 = favedUserNames[0];
+      let favedUser2 = orderedFavedUsers[1];
+      let favedUserName2 = favedUserNames[1];
+
+      if (this.state.favedUsers.length === 2) {
         faves = <p>
                   <Link to={`/users/${favedUser1.id}`}>{favedUserName1}</Link> and <Link to={`/users/${favedUser2.id}`}>{favedUserName2}</Link> faved this.
+                </p>
+      } else {
+        let favedUsersList = orderedFavedUsers.slice(2).map(user => {
+          return (
+            <Link className="photo-show-faved-user" to={`/users/${user.id}`}>
+              <img src={user.profile_pic} />
+              {user.first_name} {user.last_name}
+            </Link>
+          )
+        });
+        const favedUsersPopup = this.state.openFavedUsersPopup ?
+          <div>
+            <div onClick={this.toggleFavedUsersPopup} className="popup-overlay"></div>
+            <hgroup className="photo-show-faved-users-popup">
+              {favedUsersList}
+            </hgroup>
+          </div> : "";
+
+        faves = <p>
+                  <Link to={`/users/${favedUser1.id}`}>{favedUserName1}</Link>, <Link to={`/users/${favedUser2.id}`}>{favedUserName2}</Link>, and <span onClick={this.toggleFavedUsersPopup}>{this.state.favedUsers.length - 2} more people</span> faved this.
+                  {favedUsersPopup}
                 </p>
       }
     }

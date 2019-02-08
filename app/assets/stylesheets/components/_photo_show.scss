@@ -181,11 +181,57 @@
 }
 
 .photo-show-faves-users {
+  position: relative;
   font-size: 14px;
+
+  .photo-show-faved-users-popup {
+    background-color: #fff;
+    position: absolute;
+    z-index: 15;
+    border: 1px solid #B8B8B8;
+    border-radius: 3px;
+    top: 25px;
+    right: 0;
+    padding: 10px 0;
+    min-width: 200px;
+    max-height: 500px;
+
+    .photo-show-faved-user {
+      display: flex;
+      padding: 0 15px;
+      align-items: center;
+      font-size: 16px;
+    }
+
+    .photo-show-faved-user:hover {
+      background-color: #f1f1f1;;
+    }
+
+    .photo-show-faved-user img {
+      width: 35px;
+      height: 35px;
+      border-radius: 50%;
+      margin-right: 12px;
+    }
+  }
 }
 
 .photo-show-faves-users a {
   color: #006dac;
+  cursor: pointer;
+}
+
+.photo-show-faves-users a:hover {
+  text-decoration: underline;
+}
+
+.photo-show-faves-users span {
+  color: #006dac;
+  cursor: pointer;
+}
+
+.photo-show-faves-users span:hover {
+  text-decoration: underline;
 }
 
 .photo-show-comments-container {
