@@ -12,7 +12,9 @@ class PhotoShow extends React.Component {
     this.state = {
       firstLoad: true,
       openEditableFields: false,
-      numComments: null
+      numComments: null,
+      currentFaveId: null,
+      photoIsFaved: false
     };
     this.handleSubmitUpdate = this.handleSubmitUpdate.bind(this);
     this.toggleEditableFields = this.toggleEditableFields.bind(this);
@@ -24,6 +26,13 @@ class PhotoShow extends React.Component {
     this.props.fetchPhoto(this.props.match.params.photoId).then(
       this.props.fetchAllComments(this.props.match.params.photoId).then(
         this.props.fetchAllUsers().then(data => {
+          this.props.currentUser.fave_ids.forEach(id => {
+            if (this.props.photo.faves.includes(id)) {
+              this.state.currentFaveId = id;
+              this.state.photoIsFaved = true;
+              return;
+            }
+          });
           this.setState({
             numComments: this.props.comments.length,
             firstLoad: false
@@ -72,6 +81,7 @@ class PhotoShow extends React.Component {
     this.toggleEditableFields();
   }
 
+  // these two methods are passed as props to comment create and comment index item child components so that when a comment is created/deleted, the number of comments is updated appropriately to state
   commentCreated() {
     this.setState({
       numComments: this.state.numComments + 1
@@ -179,6 +189,7 @@ class PhotoShow extends React.Component {
               </div>
             </div>
             <div className="photo-show-faves-container">
+              <i onClick={this.toggleFave} className={this.state.photoIsFaved ? "fas fa-star" : "far fa-star"}></i>
             </div>
             <div className="photo-show-comments-container">
               <CommentIndex
