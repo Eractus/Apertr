@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import CommentIndexContainer from '../comment/comment_index_container';
+import CommentIndex from '../comment/comment_index';
 import CommentCreateContainer from '../comment/comment_create_container';
 import TagCreateContainer from '../tag/tag_create_container';
 import TagIndexContainer from '../tag/tag_index_container';
@@ -11,16 +11,24 @@ class PhotoShow extends React.Component {
     this.state = this.props.photo;
     this.state = {
       firstLoad: true,
-      openEditableFields: false
+      openEditableFields: false,
+      numComments: null
     };
     this.handleSubmitUpdate = this.handleSubmitUpdate.bind(this);
     this.toggleEditableFields = this.toggleEditableFields.bind(this);
+    this.commentCreated = this.commentCreated.bind(this);
+    this.commentDeleted = this.commentDeleted.bind(this);
   }
 
   componentDidMount() {
     this.props.fetchPhoto(this.props.match.params.photoId).then(
-      this.props.fetchAllUsers().then(
-        () => this.setState({ firstLoad: false })
+      this.props.fetchAllComments(this.props.match.params.photoId).then(
+        this.props.fetchAllUsers().then(data => {
+          this.setState({
+            numComments: this.props.comments.length,
+            firstLoad: false
+          })
+        })
       )
     );
     window.scrollTo(0, 0);
@@ -51,6 +59,8 @@ class PhotoShow extends React.Component {
   }
 
   update(field) {
+    console.log(this.props.comments);
+    console.log(this.state.comments);
     return (e) => {
       this.setState({ [field]: e.target.value });
     };
@@ -60,6 +70,18 @@ class PhotoShow extends React.Component {
     e.preventDefault();
     this.props.updatePhoto(this.state);
     this.toggleEditableFields();
+  }
+
+  commentCreated() {
+    this.setState({
+      numComments: this.state.numComments + 1
+    })
+  }
+
+  commentDeleted() {
+    this.setState({
+      numComments: this.state.numComments - 1
+    })
   }
 
   // renders errors based on Rails model validations
@@ -117,7 +139,7 @@ class PhotoShow extends React.Component {
       </div>
 
     // some code logic for interpolating non-data text
-    let numComments = Object.values(this.props.photo.comments).length;
+    let numComments = this.state.numComments;
     let comment = numComments === 1 ? "comment" : "comments";
     const months = {
       "01": "January",
@@ -156,15 +178,22 @@ class PhotoShow extends React.Component {
                 {editableFields}
               </div>
             </div>
+            <div className="photo-show-faves-container">
+            </div>
             <div className="photo-show-comments-container">
-              <CommentIndexContainer
+              <CommentIndex
                 photo={this.props.photo}
                 users={this.props.users}
                 currentUser={this.props.currentUser}
+                comments={this.props.comments}
+                updateComment={this.props.updateComment}
+                deleteComment={this.props.deleteComment}
+                commentDeleted={this.commentDeleted}
               />
               <CommentCreateContainer
                 photo={this.props.photo}
                 currentUser={this.props.currentUser}
+                commentCreated={this.commentCreated}
               />
             </div>
           </div>
@@ -174,7 +203,7 @@ class PhotoShow extends React.Component {
                 <h1>{numComments}</h1>
                 <p>{comment}</p>
               </div>
-              <p>Uploaded on {uploadMonth} {uploadDay}, {uploadYear}</p>
+              <p>Taken on {uploadMonth} {uploadDay}, {uploadYear}</p>
             </div>
             <div className="photo-show-tags-container">
               <TagCreateContainer photo={this.props.photo}/>

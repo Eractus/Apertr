@@ -53,7 +53,7 @@ class CommentIndexItem extends React.Component {
       <p onClick={this.toggleEditComment}>edit</p> : "";
     const commentDelete = this.props.currentUser.id === this.props.photo.user_id ?
       <Link
-        onClick={() => this.props.deleteComment(this.props.comment.id)}
+        onClick={() => this.props.deleteComment(this.props.comment.id).then(this.props.commentDeleted())}
         to={`/photos/${this.props.photo.id}`}
       >del</Link> : "";
 

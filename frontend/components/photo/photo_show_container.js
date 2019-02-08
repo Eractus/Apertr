@@ -6,13 +6,15 @@ import {
   deletePhoto,
   receiveErrors
 } from '../../actions/photo_actions.js';
+import { fetchAllComments, updateComment, deleteComment } from '../../actions/comment_actions';
 import PhotoShow from './photo_show';
 
 const mapStateToProps = (state, ownProps) => ({
   errors: state.errors.photo,
   users: state.users,
   currentUser: state.session.currentUser,
-  photo: state.photos[ownProps.match.params.photoId]
+  photo: state.photos[ownProps.match.params.photoId],
+  comments: Object.values(state.comments)
 });
 
 const mapDispatchToProps = dispatch => ({
@@ -20,7 +22,10 @@ const mapDispatchToProps = dispatch => ({
   fetchPhoto: id => dispatch(fetchPhoto(id)),
   updatePhoto: photo => dispatch(updatePhoto(photo)),
   deletePhoto: photoId => dispatch(deletePhoto(photoId)),
-  clearErrors: () => dispatch(receiveErrors([]))
+  clearErrors: () => dispatch(receiveErrors([])),
+  fetchAllComments: photoId => dispatch(fetchAllComments(photoId)),
+  updateComment: (comment, id) => dispatch(updateComment(comment, id)),
+  deleteComment: commentId => dispatch(deleteComment(commentId))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(PhotoShow);

@@ -5,36 +5,35 @@ class CommentIndex extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      comments: this.props.comments,
-      firstLoad: true
+      comments: this.props.comments
     };
   }
 
-  componentDidMount() {
-    this.props.fetchAllComments(this.props.photo.id).then(() => this.setState({ firstLoad: false }));
-  }
+  // componentDidMount() {
+  //
+  // }
 
-  componentDidUpdate(prevProps) {
-    if (prevProps !== this.props) {
-      if (prevProps.photo.id !== this.props.photo.id) {
-        this.props.fetchAllComments(this.props.photo.id);
-      } else {
-        this.setState({
-          comments: this.props.comments,
-        });
-      }
-    }
-  }
+  // componentDidUpdate(prevProps) {
+  //   if (prevProps !== this.props) {
+  //     if (prevProps.photo.id !== this.props.photo.id) {
+  //       this.props.fetchAllComments(this.props.photo.id);
+  //     } else {
+  //       this.setState({
+  //         comments: this.props.comments,
+  //       });
+  //     }
+  //   }
+  // }
 
   // display loading until data is loaded into props
   render () {
-    if (this.state.firstLoad) {
-      return (
-        <div className="comment-index-container">
-          <p>Loading...</p>
-        </div>
-      );
-    }
+    // if (this.state.firstLoad) {
+    //   return (
+    //     <div className="comment-index-container">
+    //       <p>Loading...</p>
+    //     </div>
+    //   );
+    // }
 
     // create an array of comment objects that are passed along with other data/methods as props to comment index item component
     const comments = this.props.comments.map(comment => {
@@ -45,7 +44,8 @@ class CommentIndex extends React.Component {
           photo={this.props.photo}
           comment={comment}
           updateComment={this.props.updateComment}
-          deleteComment={this.props.deleteComment} />
+          deleteComment={this.props.deleteComment}
+          commentDeleted={this.props.commentDeleted} />
       );
     });
 
