@@ -39,6 +39,7 @@ class PhotoIndexFeed extends React.Component {
           photo={photo}
           fetchAllComments={this.props.fetchAllComments}
           createComment={this.props.createComment}
+          fetchAllFaves={this.props.fetchAllFaves}
           createFave={this.props.createFave}
           deleteFave={this.props.deleteFave}
         />

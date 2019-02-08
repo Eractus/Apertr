@@ -33,9 +33,10 @@ class PhotoShow extends React.Component {
       this.props.fetchAllComments(this.props.match.params.photoId).then(
         this.props.fetchAllFaves(this.props.match.params.photoId).then(
           this.props.fetchAllUsers().then(data => {
+            console.log(this.props)
             let photoFaveIds = this.props.photo.faves;
-            this.props.currentUser.fave_ids.forEach(id => {
-              if (photoFaveIds.includes(id)) {
+            photoFaveIds.forEach(id => {
+              if (this.props.faves[id].user_id === this.props.currentUser.id) {
                 this.state.currentFaveId = id;
                 this.state.photoIsFaved = true;
                 return;
@@ -85,6 +86,7 @@ class PhotoShow extends React.Component {
   }
 
   update(field) {
+    console.log(this.state);
     return (e) => {
       this.setState({ [field]: e.target.value });
     };

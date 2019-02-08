@@ -5,11 +5,12 @@ class PhotoIndexFeedItem extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
+      comments: null,
       commentsLoaded: false,
       photoCommentIds: this.props.photo.comments,
       numComments: this.props.photo.comments.length,
+      faves: null,
       favesLoaded: false,
-      currentUserFaveIds: this.props.currentUser.fave_ids,
       photoFaveIds: this.props.photo.faves,
       numFaves: this.props.photo.faves.length,
       currentFaveId: null,
@@ -30,15 +31,20 @@ class PhotoIndexFeedItem extends React.Component {
     ).then(
       this.setState({ commentsLoaded: true })
     )
+    this.props.fetchAllFaves(this.props.photo.id).then(data => {
+      this.setState({ faves: data.faves })
+    }).then(() => {
+      this.state.photoFaveIds.forEach(id => {
+        if (this.state.faves[id].user_id === this.props.currentUser.id) {
+          this.state.currentFaveId = id;
+          this.state.photoIsFaved = true;
+          return;
+        }
+      });
+      this.setState({ favesLoaded: true })
+    })
+
     // when feed photo index item first loads, update state if one of the photo's fave id's is the same as one of the current user's fave id to show photo is already faved by current user.
-    this.state.currentUserFaveIds.forEach(id => {
-      if (this.state.photoFaveIds.includes(id)) {
-        this.state.currentFaveId = id;
-        this.state.photoIsFaved = true;
-        return;
-      }
-    });
-    this.setState({ favesLoaded: true });
   }
 
   update(field) {
@@ -167,7 +173,7 @@ class PhotoIndexFeedItem extends React.Component {
 
     if (!this.state.commentsLoaded || !this.state.favesLoaded) {
       return(
-        <div>Loading...</div>
+        <div></div>
       )
     }
 
