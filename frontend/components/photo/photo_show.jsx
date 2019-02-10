@@ -33,7 +33,6 @@ class PhotoShow extends React.Component {
       this.props.fetchAllComments(this.props.match.params.photoId).then(
         this.props.fetchAllFaves(this.props.match.params.photoId).then(
           this.props.fetchAllUsers().then(data => {
-            console.log(this.props)
             let photoFaveIds = this.props.photo.faves;
             photoFaveIds.forEach(id => {
               if (this.props.faves[id].user_id === this.props.currentUser.id) {
@@ -86,7 +85,6 @@ class PhotoShow extends React.Component {
   }
 
   update(field) {
-    console.log(this.state);
     return (e) => {
       this.setState({ [field]: e.target.value });
     };

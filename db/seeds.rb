@@ -107,4 +107,15 @@ User.all.each do |user|
       )
     end
   end
+
+  Photo.all.each do |photo|
+    booleans = [true, true, true, false]
+    sample = booleans.sample
+    if sample = true
+      Fafe.create(
+        user_id: user.id,
+        photo_id: photo.id
+      )
+    end
+  end
 end

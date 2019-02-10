@@ -26,11 +26,11 @@ class PhotoIndexFeedItem extends React.Component {
 
   componentDidMount() {
     // after loading all comments for this photo index item on the feed, set it to state
-    this.props.fetchAllComments(this.props.photo.id).then(
-      data => this.setState({ comments: data.comments })
-    ).then(
-      this.setState({ commentsLoaded: true })
-    )
+    // this.props.fetchAllComments(this.props.photo.id).then(
+    //   data => this.setState({ comments: data.comments })
+    // ).then(
+    //   this.setState({ commentsLoaded: true })
+    // )
     this.props.fetchAllFaves(this.props.photo.id).then(data => {
       this.setState({ faves: data.faves })
     }).then(() => {
@@ -73,12 +73,22 @@ class PhotoIndexFeedItem extends React.Component {
         description: ""
       });
     });
-    this.toggleComments();
   }
 
   // toggles whether the comments popup is opened
   toggleComments() {
-    this.setState({ toggledCommentsPopUp: !this.state.toggledCommentsPopUp });
+    if (this.state.comments === null) {
+      this.props.fetchAllComments(this.props.photo.id).then(data => {
+        this.setState({ comments: data.comments })
+      }).then(() => {
+        this.setState({
+          commentsLoaded: true,
+          toggledCommentsPopUp: !this.state.toggledCommentsPopUp
+        })
+      })
+    } else {
+      this.setState({ toggledCommentsPopUp: !this.state.toggledCommentsPopUp });
+    }
   }
 
   // if current user has not faved this photo, create the fave joins table row between the current user and this photo by their id's, then update this newly created fave's unique id into state in case user clicks again to delete it before ever refreshing the page. increment/decrement a counter in the state appropriately to update the text tracking number of faves currently for the photo.
@@ -114,7 +124,7 @@ class PhotoIndexFeedItem extends React.Component {
 
     // when popup is toggled open, determine the actual (up to 3) comment objects to display
     let lastThreeComments;
-    if (this.state.toggledCommentsPopUp) {
+    if (this.state.toggledCommentsPopUp && this.state.commentsLoaded) {
       // depending on how many comments the photo has, determine which (up to the last 3) of the photo item's comment id's should be used for its comments popup
       let commentsArr = this.state.photoCommentIds;
       let displayedComments;
@@ -151,7 +161,7 @@ class PhotoIndexFeedItem extends React.Component {
     }
 
     // in addition to the comment item objects from above, also display a link to the photo's show page to see the rest of the comments as well as a create form for the current user to create a new comment from the feed's photo index item directly
-    const commentsPopUp = (this.state.toggledCommentsPopUp) ?
+    const commentsPopUp = (this.state.toggledCommentsPopUp && this.state.commentsLoaded) ?
       <div>
         <div onClick={this.toggleComments} className="popup-overlay"></div>
         <hgroup className="photo-index-feed-comment-popup">
@@ -171,7 +181,7 @@ class PhotoIndexFeedItem extends React.Component {
         </hgroup>
       </div> : "";
 
-    if (!this.state.commentsLoaded || !this.state.favesLoaded) {
+    if (!this.state.favesLoaded) {
       return(
         <div></div>
       )
@@ -197,7 +207,7 @@ class PhotoIndexFeedItem extends React.Component {
           <div className="photo-index-feed-details">
             <div className="photo-index-feed-text">
               <p>{favesCount} {faves}</p>
-              <p>{commentsCount} {comments}</p>
+              <p onClick={this.toggleComments}>{commentsCount} {comments}</p>
             </div>
             <div className="photo-index-feed-icons">
               <i onClick={this.toggleFave} className={this.state.photoIsFaved ? "fas fa-star" : "far fa-star"}></i>

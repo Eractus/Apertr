@@ -93,6 +93,15 @@
               margin: 0 5px;
             }
 
+            .photo-index-feed-text > p:last-child {
+              cursor: pointer;
+            }
+
+            .photo-index-feed-text > p:last-child:hover {
+              color: #000;
+              text-decoration: underline;
+            }
+
             .photo-index-feed-icons {
               display: flex;
               position: relative;
