@@ -111,7 +111,7 @@ User.all.each do |user|
   Photo.all.each do |photo|
     booleans = [true, true, true, false]
     sample = booleans.sample
-    if sample = true
+    if sample == true
       Fafe.create(
         user_id: user.id,
         photo_id: photo.id
