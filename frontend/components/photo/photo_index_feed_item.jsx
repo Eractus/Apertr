@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 class PhotoIndexFeedItem extends React.Component {
   constructor(props) {
-    super(props)
+    super(props);
     this.state = {
       comments: null,
       commentsLoaded: false,
@@ -17,7 +17,7 @@ class PhotoIndexFeedItem extends React.Component {
       photoIsFaved: false,
       toggledCommentsPopUp: false,
       description: ""
-    }
+    };
 
     this.handleSubmit = this.handleSubmit.bind(this);
     this.toggleComments = this.toggleComments.bind(this);
@@ -31,61 +31,69 @@ class PhotoIndexFeedItem extends React.Component {
     // ).then(
     //   this.setState({ commentsLoaded: true })
     // )
-    this.props.fetchAllFaves(this.props.photo.id).then(data => {
-      this.setState({ faves: data.faves })
-    }).then(() => {
-      this.state.photoFaveIds.forEach(id => {
-        if (this.state.faves[id].user_id === this.props.currentUser.id) {
-          this.state.currentFaveId = id;
-          this.state.photoIsFaved = true;
-          return;
-        }
+    this.props
+      .fetchAllFaves(this.props.photo.id)
+      .then(data => {
+        this.setState({ faves: data.faves });
+      })
+      .then(() => {
+        this.state.photoFaveIds.forEach(id => {
+          if (this.state.faves[id].user_id === this.props.currentUser.id) {
+            this.state.currentFaveId = id;
+            this.state.photoIsFaved = true;
+            return;
+          }
+        });
+        this.setState({ favesLoaded: true });
       });
-      this.setState({ favesLoaded: true })
-    })
 
     // when feed photo index item first loads, update state if one of the photo's fave id's is the same as one of the current user's fave id to show photo is already faved by current user.
   }
 
   update(field) {
-    return (e) => {
-      this.setState({[field]: e.target.value});
+    return e => {
+      this.setState({ [field]: e.target.value });
     };
   }
 
   // after creating comment, pull the new comment object from data in promise and update the state for comments object as well as array of photo's comment ids and set it to state as well as resetting value of description to empty string and close comments popup
   handleSubmit(e) {
     e.preventDefault();
-    this.props.createComment({
-      description: this.state.description,
-      user_id: this.props.currentUser.id,
-      photo_id: this.props.photo.id
-    }).then(data => {
-      let newComment = data.comment;
-      let updatedComments = this.state.comments;
-      updatedComments[newComment.id] = newComment;
-      let updatedCommentIds = this.state.photoCommentIds.slice();
-      updatedCommentIds.push(newComment.id);
-      this.setState({
-        comments: updatedComments,
-        photoCommentIds: updatedCommentIds,
-        numComments: this.state.numComments + 1,
-        description: ""
+    this.props
+      .createComment({
+        description: this.state.description,
+        user_id: this.props.currentUser.id,
+        photo_id: this.props.photo.id
+      })
+      .then(data => {
+        let newComment = data.comment;
+        let updatedComments = this.state.comments;
+        updatedComments[newComment.id] = newComment;
+        let updatedCommentIds = this.state.photoCommentIds.slice();
+        updatedCommentIds.push(newComment.id);
+        this.setState({
+          comments: updatedComments,
+          photoCommentIds: updatedCommentIds,
+          numComments: this.state.numComments + 1,
+          description: ""
+        });
       });
-    });
   }
 
   // toggles whether the comments popup is opened
   toggleComments() {
     if (this.state.comments === null) {
-      this.props.fetchAllComments(this.props.photo.id).then(data => {
-        this.setState({ comments: data.comments })
-      }).then(() => {
-        this.setState({
-          commentsLoaded: true,
-          toggledCommentsPopUp: !this.state.toggledCommentsPopUp
+      this.props
+        .fetchAllComments(this.props.photo.id)
+        .then(data => {
+          this.setState({ comments: data.comments });
         })
-      })
+        .then(() => {
+          this.setState({
+            commentsLoaded: true,
+            toggledCommentsPopUp: !this.state.toggledCommentsPopUp
+          });
+        });
     } else {
       this.setState({ toggledCommentsPopUp: !this.state.toggledCommentsPopUp });
     }
@@ -94,26 +102,28 @@ class PhotoIndexFeedItem extends React.Component {
   // if current user has not faved this photo, create the fave joins table row between the current user and this photo by their id's, then update this newly created fave's unique id into state in case user clicks again to delete it before ever refreshing the page. increment/decrement a counter in the state appropriately to update the text tracking number of faves currently for the photo.
   toggleFave() {
     if (!this.state.photoIsFaved) {
-      this.props.createFave({ photo_id: this.props.photo.id }).then(data => {
-        this.setState({
-          currentFaveId: data.fave.id,
+      this.props
+        .createFave({ photo_id: this.props.photo.id })
+        .then(data => {
+          this.setState({
+            currentFaveId: data.fave.id
+          });
         })
-      }).then(
-        this.setState({
-          numFaves: this.state.numFaves + 1,
-          photoIsFaved: true
-        })
-      )
+        .then(
+          this.setState({
+            numFaves: this.state.numFaves + 1,
+            photoIsFaved: true
+          })
+        );
     } else {
       this.props.deleteFave(this.state.currentFaveId).then(
         this.setState({
           numFaves: this.state.numFaves - 1,
           photoIsFaved: false
         })
-      )
+      );
     }
   }
-
 
   render() {
     // some logic for interpolating non-data text
@@ -130,18 +140,21 @@ class PhotoIndexFeedItem extends React.Component {
       let displayedComments;
       if (commentsArr.length === 0) {
         displayedComments = [];
-      } else if (commentsArr.length > 0 && commentsArr.length <= 3){
+      } else if (commentsArr.length > 0 && commentsArr.length <= 3) {
         displayedComments = commentsArr;
       } else {
-        displayedComments = commentsArr.slice(commentsArr.length - 3, commentsArr.length);
+        displayedComments = commentsArr.slice(
+          commentsArr.length - 3,
+          commentsArr.length
+        );
       }
 
       if (displayedComments.length === 0) {
         lastThreeComments = "";
       } else {
         lastThreeComments = displayedComments.map(commentId => {
-          let comment = this.state.comments[commentId]
-          return(
+          let comment = this.state.comments[commentId];
+          return (
             <div className="comment-index-item">
               <img src={this.props.users[comment.user_id].profile_pic} />
               <div className="comment-index-item-details">
@@ -155,63 +168,82 @@ class PhotoIndexFeedItem extends React.Component {
                 </div>
               </div>
             </div>
-          )
+          );
         });
       }
     }
 
     // in addition to the comment item objects from above, also display a link to the photo's show page to see the rest of the comments as well as a create form for the current user to create a new comment from the feed's photo index item directly
-    const commentsPopUp = (this.state.toggledCommentsPopUp && this.state.commentsLoaded) ?
-      <div>
-        <div onClick={this.toggleComments} className="popup-overlay"></div>
-        <hgroup className="photo-index-feed-comment-popup">
-          <Link to={`/photos/${this.props.photo.id}`}>View all comments on the photo page</Link>
-          {lastThreeComments}
-          <div className="comment-create-container">
-            <img src={this.props.currentUser.profile_pic} />
-            <form onSubmit={this.handleSubmit}>
-              <textarea
-                className="comment-create-description"
-                value={this.state.description}
-                placeholder="Add a comment"
-                onChange={this.update('description')} />
-              <input className="comment-create-button" type="submit" value="Comment" />
-            </form>
-          </div>
-        </hgroup>
-      </div> : "";
+    const commentsPopUp =
+      this.state.toggledCommentsPopUp && this.state.commentsLoaded ? (
+        <div>
+          <div onClick={this.toggleComments} className="popup-overlay" />
+          <hgroup className="photo-index-feed-comment-popup">
+            <Link to={`/photos/${this.props.photo.id}`}>
+              View all comments on the photo page
+            </Link>
+            {lastThreeComments}
+            <div className="comment-create-container">
+              <img src={this.props.currentUser.profile_pic} />
+              <form onSubmit={this.handleSubmit}>
+                <textarea
+                  className="comment-create-description"
+                  value={this.state.description}
+                  placeholder="Add a comment"
+                  onChange={this.update("description")}
+                />
+                <input
+                  className="comment-create-button"
+                  type="submit"
+                  value="Comment"
+                />
+              </form>
+            </div>
+          </hgroup>
+        </div>
+      ) : (
+        ""
+      );
 
     if (!this.state.favesLoaded) {
-      return(
-        <div></div>
-      )
+      return <div />;
     }
 
     return (
       <li className="photo-index-feed-item-container">
         <div className="photo-index-feed-item">
           <div className="photo-index-feed-author">
-            <img src={this.props.users[this.props.photo.user_id].profile_pic}/>
+            <img src={this.props.users[this.props.photo.user_id].profile_pic} />
             <Link to={`/users/${this.props.photo.user_id}`}>
               {this.props.photo.userFname} {this.props.photo.userLname}
             </Link>
           </div>
           <div className="photo-index-feed-image-container">
             <Link to={`/photos/${this.props.photo.id}`}>
-              <img className="photo-index-feed-image" src={this.props.photo.image_url} />
+              <img
+                className="photo-index-feed-image"
+                src={this.props.photo.image_url}
+              />
             </Link>
           </div>
-          <div className="photo-index-feed-title">
-            {this.props.photo.title}
-          </div>
+          <div className="photo-index-feed-title">{this.props.photo.title}</div>
           <div className="photo-index-feed-details">
             <div className="photo-index-feed-text">
-              <p>{favesCount} {faves}</p>
-              <p onClick={this.toggleComments}>{commentsCount} {comments}</p>
+              <p>
+                {favesCount} {faves}
+              </p>
+              <p onClick={this.toggleComments}>
+                {commentsCount} {comments}
+              </p>
             </div>
             <div className="photo-index-feed-icons">
-              <i onClick={this.toggleFave} className={this.state.photoIsFaved ? "fas fa-star" : "far fa-star"}></i>
-              <i onClick={this.toggleComments} className="far fa-comment"></i>
+              <i
+                onClick={this.toggleFave}
+                className={
+                  this.state.photoIsFaved ? "fas fa-star" : "far fa-star"
+                }
+              />
+              <i onClick={this.toggleComments} className="far fa-comment" />
               {commentsPopUp}
             </div>
           </div>
@@ -219,6 +251,6 @@ class PhotoIndexFeedItem extends React.Component {
       </li>
     );
   }
-};
+}
 
 export default PhotoIndexFeedItem;

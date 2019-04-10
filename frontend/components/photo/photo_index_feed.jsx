@@ -4,7 +4,7 @@ import PhotoIndexFeedItem from "./photo_index_feed_item";
 class PhotoIndexFeed extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { firstLoad: true }
+    this.state = { firstLoad: true };
   }
 
   componentDidMount() {
@@ -27,7 +27,7 @@ class PhotoIndexFeed extends React.Component {
     });
 
     favesArr.forEach(arr => {
-      photosArray.push(this.props.photos[arr[0]-1])
+      photosArray.push(this.props.photos[arr[0]-1]);
     });
     // photo objects are passed as props to the PhotoIndexFeedItem component as data to help render the component
     const photos = photosArray.map(photo => {
