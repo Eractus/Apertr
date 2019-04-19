@@ -10,18 +10,19 @@ The project was initially built on an approximately 10 day timeline, where most 
 
 ## Features
 <ul>
-  <li>Users can sign up or log in via a frontend to backend user authentication that is secured through BCrypt.</li>
+  <li>Users can sign up or log in via a user authentication that is secured with BCrypt hashing.</li>
   <li>Users can upload photos which are stored securely via Amazon Web Services(AWS) S3.</li>
+  <li>Users can fave photos and add comments directly on the feed page.
   <li>Users can access their photostream and albums on their own user profile page that also has customizable profile and cover photo.</li>
-  <li>Users can view each photo on its own display page, where it contains the photo's information as well as a comments and tags section. If the current user is the photo's owner, he/she can also update or delete the photo as well as any associated comments or tags.</li>
+  <li>Users can view each photo on its own display page, where it contains the photo's information as well as faves, comments and tags sections. If the current user is the photo's owner, he/she can also update the photo's title/description and delete any of the photo's comments or tags.</li>
   <li>Users can create, update, and delete albums with their uploaded photos.</li>
-  <li>Users that are logged in can post/edit/delete their own comments or add tag words on any photo's display page.
+  <li>Users can post/edit/delete their own comments or add tag words on any photo's display page.
   <li>Users can search for photos by looking up tag words.
 </ul>
 
 #### Structured Feed
 
-After logging in, the feed page shows a list of photos from all users in a polaroid-like format and each contains some information about the photo, including the author's name that is also a link redirecting to that user's profile page where you can view his/her photostream and albums. The feed container is responsive and will show different columns of photos depending on the width of viewport. Currently, there are some awkward vertical spaces between photos in each column; this will be addressed in the future with CSS grid.
+After logging in, the feed page shows a list of photos from all users in a polaroid-like format and each contains some information about the photo, including the author's name that is also a link redirecting to that user's profile page where you can view his/her photostream and albums. Each photo also has fave and comment functionalities built in and updates asynchronously through React's state management and diffing algorithm. The feed container is responsive and will show different columns of photos depending on the width of viewport. Currently, there are some awkward vertical spaces between photos in each column; this will be addressed in the future with CSS grid.
 
 ![alt text](https://github.com/Eractus/Apertr/blob/master/app/assets/images/feed.png)
 
@@ -132,6 +133,5 @@ Finally, Heroku was used to host production for similar reasons as Rails in term
 
 <ul>
   <li>Drag and drop, multi-upload for photos</li>
-  <li>Faves</li>
   <li>Broader search bar</li>
 </ul>
